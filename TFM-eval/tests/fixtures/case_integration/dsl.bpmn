@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             id="Definitions_1"
+             targetNamespace="http://example.com/bpmn">
+  <process id="Process_1" isExecutable="true">
+    <startEvent id="Start_1" name="Order Received">
+      <outgoing>Flow_1</outgoing>
+    </startEvent>
+    <task id="Task_1" name="Process Order">
+      <incoming>Flow_1</incoming>
+      <outgoing>Flow_2</outgoing>
+    </task>
+    <endEvent id="End_1" name="Order Completed">
+      <incoming>Flow_2</incoming>
+    </endEvent>
+    <sequenceFlow id="Flow_1" sourceRef="Start_1" targetRef="Task_1"/>
+    <sequenceFlow id="Flow_2" sourceRef="Task_1" targetRef="End_1"/>
+  </process>
+</definitions>

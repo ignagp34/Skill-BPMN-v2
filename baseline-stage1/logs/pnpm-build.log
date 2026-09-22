@@ -1,0 +1,49 @@
+$ pnpm -r build
+Scope: 3 of 4 workspace projects
+packages/bpmn-core build$ tsc -b
+packages/bpmn-core build: Done
+apps/company-web build$ tsc -b && vite build
+apps/tfm-lab build$ tsc -b && vite build
+apps/tfm-lab build: vite v8.0.13 building client environment for production...
+apps/tfm-lab build: [2K
+apps/tfm-lab build: transforming...✓ 509 modules transformed.
+apps/tfm-lab build: rendering chunks...
+apps/tfm-lab build: computing gzip size...
+apps/tfm-lab build: dist/assets/bpmn-sIjfRMkI.woff2     13.02 kB
+apps/tfm-lab build: dist/assets/bpmn-CCmvRa3L.woff      16.00 kB
+apps/tfm-lab build: dist/index.html                     24.16 kB │ gzip:   4.72 kB
+apps/tfm-lab build: dist/assets/bpmn-BXGSTQk_.ttf       47.68 kB
+apps/tfm-lab build: dist/assets/bpmn-GG2Gc6GC.eot       47.83 kB
+apps/tfm-lab build: dist/assets/bpmn-CfAG4AR5.svg      133.04 kB │ gzip:  25.67 kB
+apps/tfm-lab build: dist/assets/index-B_ZLZaHH.css      26.00 kB │ gzip:   5.23 kB
+apps/tfm-lab build: dist/assets/index-Cl5Yj3D-.js    1,139.89 kB │ gzip: 324.43 kB │ map: 3,687.36 kB
+apps/tfm-lab build: ✓ built in 226ms
+apps/tfm-lab build: [plugin builtin:vite-reporter] 
+apps/tfm-lab build: (!) Some chunks are larger than 500 kB after minification. Consider:
+apps/tfm-lab build: - Using dynamic import() to code-split the application
+apps/tfm-lab build: - Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+apps/tfm-lab build: - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+apps/company-web build: 18:12:08 [vite] warning: `esbuild` option was specified by "vite:react-babel" plugin. This option is deprecated, please use `oxc` instead.
+apps/company-web build: 18:12:08 [vite] warning: `optimizeDeps.esbuildOptions` option was specified by "vite:react-babel" plugin. This option is deprecated, please use `optimizeDeps.rolldownOptions` instead.
+apps/company-web build: You or a plugin you are using have set `optimizeDeps.esbuildOptions` but this option is now deprecated. Vite now uses Rolldown to optimize the dependencies. Please use `optimizeDeps.rolldownOptions` instead.
+apps/tfm-lab build: Done
+apps/company-web build: vite v8.0.13 building client environment for production...
+apps/company-web build: [2K
+apps/company-web build: transforming...✓ 531 modules transformed.
+apps/company-web build: rendering chunks...
+apps/company-web build: computing gzip size...
+apps/company-web build: dist/index.html                      0.85 kB │ gzip:   0.47 kB
+apps/company-web build: dist/assets/bpmn-sIjfRMkI.woff2     13.02 kB
+apps/company-web build: dist/assets/bpmn-CCmvRa3L.woff      16.00 kB
+apps/company-web build: dist/assets/bpmn-BXGSTQk_.ttf       47.68 kB
+apps/company-web build: dist/assets/bpmn-GG2Gc6GC.eot       47.83 kB
+apps/company-web build: dist/assets/bpmn-CfAG4AR5.svg      133.04 kB │ gzip:  25.67 kB
+apps/company-web build: dist/assets/index-m-k8q4vV.css      67.97 kB │ gzip:  13.50 kB
+apps/company-web build: dist/assets/index-mA06yWa-.js    1,691.10 kB │ gzip: 488.16 kB │ map: 5,719.19 kB
+apps/company-web build: ✓ built in 380ms
+apps/company-web build: [plugin builtin:vite-reporter] 
+apps/company-web build: (!) Some chunks are larger than 500 kB after minification. Consider:
+apps/company-web build: - Using dynamic import() to code-split the application
+apps/company-web build: - Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+apps/company-web build: - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+apps/company-web build: Done

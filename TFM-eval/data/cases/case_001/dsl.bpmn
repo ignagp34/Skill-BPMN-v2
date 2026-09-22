@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             targetNamespace="http://example.com/loan-dsl"
+             id="loan_application_dsl">
+
+  <process id="loan_process_dsl" name="Loan Application Process" isExecutable="false">
+
+    <startEvent id="se_1" name="Application Submitted"/>
+
+    <sequenceFlow id="sf_1" sourceRef="se_1" targetRef="ut_1"/>
+
+    <userTask id="ut_1" name="Review Application"/>
+
+    <sequenceFlow id="sf_2" sourceRef="ut_1" targetRef="xgw_1"/>
+
+    <exclusiveGateway id="xgw_1" name="Complete?" default="sf_3"/>
+
+    <sequenceFlow id="sf_2b" sourceRef="xgw_1" targetRef="ut_2">
+      <conditionExpression xsi:type="tFormalExpression"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">not complete</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sf_3" sourceRef="xgw_1" targetRef="ut_3"/>
+
+    <userTask id="ut_2" name="Request Missing Info"/>
+
+    <sequenceFlow id="sf_2c" sourceRef="ut_2" targetRef="ut_1"/>
+
+    <userTask id="ut_3" name="Evaluate Credit Risk"/>
+
+    <sequenceFlow id="sf_4" sourceRef="ut_3" targetRef="xgw_2"/>
+
+    <exclusiveGateway id="xgw_2" name="Approved?" default="sf_6"/>
+
+    <sequenceFlow id="sf_5" sourceRef="xgw_2" targetRef="ut_4">
+      <conditionExpression xsi:type="tFormalExpression"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">approved == true</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sf_6" sourceRef="xgw_2" targetRef="st_2"/>
+
+    <userTask id="ut_4" name="Prepare Loan Agreement"/>
+
+    <sequenceFlow id="sf_7" sourceRef="ut_4" targetRef="st_1"/>
+
+    <sendTask id="st_1" name="Send Agreement to Customer"/>
+
+    <sequenceFlow id="sf_8" sourceRef="st_1" targetRef="rt_1"/>
+
+    <receiveTask id="rt_1" name="Receive Signed Agreement"/>
+
+    <sequenceFlow id="sf_9" sourceRef="rt_1" targetRef="ee_1"/>
+
+    <sendTask id="st_2" name="Send Rejection Notification"/>
+
+    <sequenceFlow id="sf_10" sourceRef="st_2" targetRef="ee_2"/>
+
+    <endEvent id="ee_1" name="Agreement Received"/>
+    <endEvent id="ee_2" name="Application Rejected"/>
+
+  </process>
+
+</definitions>

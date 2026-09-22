@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BPMN Sketch Miner DSL</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --editor-bg: #f4efe4;
+        --editor-surface: rgba(255, 252, 244, 0.88);
+        --editor-border: rgba(81, 62, 41, 0.22);
+        --editor-border-strong: rgba(81, 62, 41, 0.35);
+        --editor-text: #2d2218;
+        --editor-muted: #685645;
+        --editor-shadow: 0 18px 40px rgba(54, 39, 23, 0.12);
+        --editor-accent: #c86f31;
+        --editor-accent-strong: #9e4a18;
+        --ok-bg: #d8f4e2;
+        --ok-text: #155936;
+        --warn-bg: #fff1c7;
+        --warn-text: #7f5400;
+        --err-bg: #ffe0de;
+        --err-text: #8e1d1d;
+        --idle-bg: rgba(255, 255, 255, 0.7);
+        --idle-text: #5e5146;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --editor-bg: #18120e;
+          --editor-surface: rgba(32, 24, 20, 0.92);
+          --editor-border: rgba(241, 214, 173, 0.14);
+          --editor-border-strong: rgba(241, 214, 173, 0.24);
+          --editor-text: #f5eadb;
+          --editor-muted: #cebca8;
+          --editor-shadow: 0 22px 48px rgba(0, 0, 0, 0.28);
+          --editor-accent: #ef9d5b;
+          --editor-accent-strong: #ffba7c;
+          --ok-bg: rgba(42, 105, 63, 0.28);
+          --ok-text: #9ce0b2;
+          --warn-bg: rgba(132, 93, 8, 0.28);
+          --warn-text: #ffd67a;
+          --err-bg: rgba(120, 30, 30, 0.34);
+          --err-text: #ffb7b0;
+          --idle-bg: rgba(255, 255, 255, 0.06);
+          --idle-text: #d1c3b3;
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        font-family: "Segoe UI", "Aptos", sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(243, 163, 106, 0.18), transparent 32%),
+          radial-gradient(circle at bottom right, rgba(100, 69, 41, 0.18), transparent 24%),
+          var(--editor-bg);
+        color: var(--editor-text);
+      }
+
+      body {
+        height: 100vh;
+      }
+
+      #app {
+        display: grid;
+        grid-template-columns: minmax(380px, 520px) 1fr;
+        height: 100vh;
+        width: 100vw;
+      }
+
+      #editor-pane {
+        display: grid;
+        grid-template-rows: auto minmax(0, 1fr) auto;
+        min-width: 0;
+        border-right: 1px solid var(--editor-border);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent 18%),
+          var(--editor-surface);
+        backdrop-filter: blur(12px);
+        box-shadow: var(--editor-shadow);
+      }
+
+      .editor-header {
+        display: grid;
+        gap: 12px;
+        padding: 16px 18px 14px;
+        border-bottom: 1px solid var(--editor-border);
+      }
+
+      .title-row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .title-row h1 {
+        margin: 0;
+        font-size: 24px;
+        line-height: 1.05;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+      }
+
+      .title-row p {
+        margin: 0;
+        color: var(--editor-muted);
+        font-size: 13px;
+      }
+
+      .tab-row {
+        display: flex;
+        gap: 8px;
+      }
+
+      .tab-row button,
+      .action-row button {
+        font: inherit;
+      }
+
+      .tab-row button {
+        min-height: 36px;
+        padding: 0 14px;
+        border: 1px solid var(--editor-border);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.45);
+        color: inherit;
+        cursor: pointer;
+      }
+
+      .tab-row button[data-active="true"] {
+        background: linear-gradient(135deg, var(--editor-accent), var(--editor-accent-strong));
+        border-color: transparent;
+        color: #fff8f1;
+      }
+
+      .toolbar,
+      .experiment-grid,
+      .experiment-block {
+        display: grid;
+        gap: 12px;
+      }
+
+      .fixture-field,
+      .field {
+        display: grid;
+        gap: 6px;
+        font-size: 12px;
+        color: var(--editor-muted);
+      }
+
+      .fixture-field select,
+      .field select,
+      .field input,
+      .field textarea,
+      .action-row button,
+      #dsl-input,
+      #final-prompt-preview,
+      #experiment-id-preview {
+        border: 1px solid var(--editor-border);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.62);
+        color: inherit;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .fixture-field select,
+        .field select,
+        .field input,
+        .field textarea,
+        .action-row button,
+        #dsl-input,
+        #final-prompt-preview,
+        #experiment-id-preview,
+        .tab-row button {
+          background: rgba(255, 255, 255, 0.04);
+        }
+      }
+
+      .fixture-field select,
+      .field select,
+      .field input,
+      .field textarea {
+        min-height: 42px;
+        padding: 10px 12px;
+        outline: none;
+        width: 100%;
+      }
+
+      .field textarea,
+      #dsl-input,
+      #final-prompt-preview {
+        resize: vertical;
+        min-height: 120px;
+        font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+        line-height: 1.5;
+      }
+
+      .field textarea.short {
+        min-height: 88px;
+      }
+
+      .action-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .action-row button {
+        min-height: 38px;
+        padding: 0 14px;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+          transform 120ms ease,
+          border-color 120ms ease,
+          background 120ms ease;
+      }
+
+      .action-row button:hover:not(:disabled) {
+        transform: translateY(-1px);
+        border-color: var(--editor-border-strong);
+      }
+
+      .action-row button:disabled {
+        opacity: 0.48;
+        cursor: not-allowed;
+      }
+
+      .action-row button.primary {
+        background: linear-gradient(135deg, var(--editor-accent), var(--editor-accent-strong));
+        border-color: transparent;
+        color: #fff8f1;
+      }
+
+      .editor-main {
+        display: grid;
+        grid-template-rows: minmax(0, 1fr) auto;
+        min-height: 0;
+      }
+
+      .view {
+        min-height: 0;
+        overflow: auto;
+      }
+
+      #editor-view {
+        display: grid;
+        grid-template-rows: auto minmax(280px, 1fr);
+        min-height: 0;
+      }
+
+      #editor-source-note,
+      #process-corpus-status,
+      #result-summary,
+      #change-result-summary,
+      .field-help {
+        margin: 0;
+        font-size: 12px;
+        color: var(--editor-muted);
+        line-height: 1.45;
+      }
+
+      #editor-source-note {
+        padding: 0 18px 10px;
+      }
+
+      #dsl-input {
+        width: 100%;
+        min-height: 0;
+        border-left: 0;
+        border-right: 0;
+        border-top: 1px solid var(--editor-border);
+        border-bottom: 1px solid var(--editor-border);
+        border-radius: 0;
+        outline: none;
+        padding: 18px;
+      }
+
+      #experiments-view,
+      #change-experiments-view {
+        padding: 18px;
+      }
+
+      .experiment-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .experiment-block {
+        padding: 14px;
+        border: 1px solid var(--editor-border);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.18);
+      }
+
+      .experiment-block h2 {
+        margin: 0;
+        font-size: 14px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .result-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .metric-chip {
+        display: grid;
+        gap: 4px;
+        padding: 10px;
+        border: 1px solid var(--editor-border);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .metric-chip strong {
+        font-size: 18px;
+      }
+
+      .metric-chip span {
+        color: var(--editor-muted);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .checks-list {
+        display: grid;
+        gap: 8px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .checks-list li {
+        display: grid;
+        gap: 4px;
+        padding: 10px;
+        border: 1px solid var(--editor-border);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.16);
+      }
+
+      .checks-list code {
+        font-size: 11px;
+      }
+
+      #experiment-id-preview {
+        margin: 0;
+        padding: 12px;
+        min-height: 48px;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+
+      #final-prompt-preview[readonly] {
+        opacity: 0.95;
+      }
+
+      .diagnostics-panel {
+        display: grid;
+        gap: 10px;
+        padding: 12px 18px 14px;
+        min-height: 112px;
+        max-height: 24vh;
+        overflow: auto;
+      }
+
+      .diagnostics-panel h2 {
+        margin: 0;
+        font-size: 12px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--editor-muted);
+      }
+
+      #diagnostics-empty {
+        margin: 0;
+        font-size: 13px;
+        color: var(--editor-muted);
+      }
+
+      #diagnostics-list {
+        list-style: none;
+        display: grid;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+      }
+
+      .diagnostic {
+        display: grid;
+        gap: 8px;
+        padding: 12px;
+        border: 1px solid var(--editor-border);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.28);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .diagnostic,
+        .experiment-block {
+          background: rgba(255, 255, 255, 0.03);
+        }
+      }
+
+      .diagnostic-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--editor-muted);
+      }
+
+      .diagnostic-source,
+      #status-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 24px;
+        padding: 0 8px;
+        border-radius: 999px;
+        font-weight: 700;
+      }
+
+      .diagnostic-message {
+        margin: 0;
+        font-size: 13px;
+        line-height: 1.45;
+      }
+
+      .diagnostic-error {
+        border-color: rgba(188, 61, 61, 0.26);
+      }
+
+      .diagnostic-warning {
+        border-color: rgba(191, 140, 0, 0.26);
+      }
+
+      #status-bar {
+        display: grid;
+        gap: 8px;
+        padding: 14px 18px 18px;
+        border-top: 1px solid var(--editor-border);
+        font-size: 12px;
+      }
+
+      .status-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      #status-summary {
+        color: var(--editor-muted);
+        line-height: 1.45;
+      }
+
+      #status-pill[data-state="idle"] {
+        background: var(--idle-bg);
+        color: var(--idle-text);
+      }
+
+      #status-pill[data-state="rendering"] {
+        background: rgba(92, 107, 192, 0.18);
+        color: #4562d6;
+      }
+
+      #status-pill[data-state="valid"] {
+        background: var(--ok-bg);
+        color: var(--ok-text);
+      }
+
+      #status-pill[data-state="valid-with-warnings"] {
+        background: var(--warn-bg);
+        color: var(--warn-text);
+      }
+
+      #status-pill[data-state="invalid"] {
+        background: var(--err-bg);
+        color: var(--err-text);
+      }
+
+      #canvas-pane {
+        position: relative;
+        min-width: 0;
+        min-height: 0;
+        color-scheme: light;
+        background:
+          linear-gradient(180deg, rgba(250, 246, 240, 0.92), rgba(255, 255, 255, 1)),
+          #ffffff;
+        color: #000000;
+      }
+
+      #canvas {
+        position: absolute;
+        inset: 0;
+      }
+
+      /* "Hide message flows" view toggle: declutter dense collaborations by
+         hiding every message-flow connection (and its label). Targets bpmn-js
+         element groups by id prefix; the class lives on #canvas so it survives
+         live re-renders without needing to be re-applied. */
+      #canvas.hide-message-flows [data-element-id^="MessageFlow"] {
+        display: none !important;
+      }
+
+      @media (max-width: 1040px) {
+        #app {
+          grid-template-columns: 1fr;
+          grid-template-rows: minmax(520px, 58vh) 1fr;
+        }
+
+        #editor-pane {
+          border-right: 0;
+          border-bottom: 1px solid var(--editor-border);
+        }
+
+        .title-row {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .experiment-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <section id="editor-pane">
+        <header class="editor-header">
+          <div class="title-row">
+            <h1>Live BPMN Editor</h1>
+            <p>Parse, render, inspect, export, and evaluate experiment outputs.</p>
+          </div>
+
+          <div class="tab-row">
+            <button id="tab-editor" type="button" data-active="true">Editor</button>
+            <button id="tab-experiments" type="button" data-active="false">Experiments</button>
+            <button id="tab-change-experiments" type="button" data-active="false">Change Experiments</button>
+          </div>
+
+          <div class="toolbar">
+            <label class="fixture-field" for="fixture-picker">
+              <span>Fixture</span>
+              <select id="fixture-picker"></select>
+            </label>
+            <div class="action-row">
+              <button id="copy-xml" type="button">Copy XML</button>
+              <button id="download-bpmn" type="button" class="primary">Download BPMN</button>
+              <button id="download-svg" type="button">Download SVG</button>
+              <button id="download-png" type="button">Download PNG</button>
+              <button id="toggle-message-flows" type="button" aria-pressed="false">Hide message flows</button>
+            </div>
+          </div>
+        </header>
+
+        <div class="editor-main">
+          <section id="editor-view" class="view">
+            <p id="editor-source-note" hidden></p>
+            <textarea
+              id="dsl-input"
+              spellcheck="false"
+              placeholder="Paste BPMN Sketch Miner DSL here, or pick a fixture..."
+            ></textarea>
+          </section>
+
+          <section id="experiments-view" class="view" hidden>
+            <div class="experiment-block">
+              <h2>Prompt Builder</h2>
+              <p id="process-corpus-status"></p>
+              <div class="experiment-grid">
+                <label class="field" for="system-prompt-select">
+                  <span>System prompt</span>
+                  <select id="system-prompt-select"></select>
+                </label>
+                <label class="field" for="process-select">
+                  <span>Curated process</span>
+                  <select id="process-select"></select>
+                </label>
+              </div>
+              <label class="field" for="system-prompt">
+                <span>System prompt text</span>
+                <textarea id="system-prompt" class="short" spellcheck="false"></textarea>
+              </label>
+              <label class="field" for="process-prompt">
+                <span>Process prompt text</span>
+                <textarea id="process-prompt" class="short" spellcheck="false"></textarea>
+              </label>
+              <div id="process-meta" class="field-help"></div>
+            </div>
+
+            <div class="experiment-block">
+              <h2>Experiment Metadata</h2>
+              <div class="experiment-grid">
+                <label class="field" for="provider">
+                  <span>Provider</span>
+                  <select id="provider">
+                    <option>ChatGPT</option>
+                    <option>Gemini</option>
+                    <option>Claude</option>
+                    <option>Other</option>
+                  </select>
+                </label>
+                <label class="field" for="model-label">
+                  <span>Model label</span>
+                  <input id="model-label" type="text" />
+                </label>
+                <label class="field" for="process-id">
+                  <span>Process ID</span>
+                  <input id="process-id" type="text" />
+                </label>
+                <label class="field" for="process-source">
+                  <span>Process source</span>
+                  <input id="process-source" type="text" />
+                </label>
+                <label class="field" for="system-prompt-version">
+                  <span>System prompt version</span>
+                  <input id="system-prompt-version" type="text" />
+                </label>
+                <label class="field" for="process-prompt-version">
+                  <span>Process prompt version</span>
+                  <input id="process-prompt-version" type="text" />
+                </label>
+                <label class="field" for="run-number">
+                  <span>Run number</span>
+                  <input id="run-number" type="number" min="1" step="1" />
+                </label>
+                <label class="field" for="interface-type">
+                  <span>Interface</span>
+                  <input id="interface-type" type="text" readonly />
+                </label>
+              </div>
+              <label class="field" for="experiment-notes">
+                <span>Notes</span>
+                <textarea id="experiment-notes" class="short" spellcheck="false"></textarea>
+              </label>
+              <label class="field">
+                <span>Experiment ID</span>
+                <pre id="experiment-id-preview"></pre>
+              </label>
+            </div>
+
+            <div class="experiment-block">
+              <h2>Prompt Preview</h2>
+              <label class="field" for="final-prompt-preview">
+                <span>Final prompt</span>
+                <textarea id="final-prompt-preview" readonly spellcheck="false"></textarea>
+              </label>
+              <div class="action-row">
+                <button id="copy-prompt" type="button" class="primary">Copy Prompt</button>
+              </div>
+            </div>
+
+            <div class="experiment-block">
+              <h2>Ingest Output</h2>
+              <label class="field" for="raw-output">
+                <span>Raw model output</span>
+                <textarea id="raw-output" spellcheck="false"></textarea>
+              </label>
+              <div class="action-row">
+                <button id="evaluate-output" type="button" class="primary">Evaluate Output</button>
+                <button id="copy-manifest-row" type="button" disabled>Copy Manifest Row</button>
+                <button id="download-result" type="button" disabled>Download Result</button>
+                <button id="download-experiment-files" type="button" disabled>Download Experiment Files</button>
+              </div>
+              <p id="result-summary">No experiment has been evaluated yet.</p>
+            </div>
+          </section>
+
+          <section id="change-experiments-view" class="view" hidden>
+            <div class="experiment-block">
+              <h2>Change Metadata</h2>
+              <div class="experiment-grid">
+                <label class="field" for="change-case-id">
+                  <span>Case ID</span>
+                  <input id="change-case-id" type="text" />
+                </label>
+                <label class="field" for="change-model-name">
+                  <span>Model name</span>
+                  <input id="change-model-name" type="text" />
+                </label>
+                <label class="field" for="change-prompt-version">
+                  <span>Prompt version</span>
+                  <input id="change-prompt-version" type="text" />
+                </label>
+                <label class="field" for="change-type">
+                  <span>Expected change type</span>
+                  <select id="change-type">
+                    <option value="add_activity">Add activity</option>
+                    <option value="remove_activity">Remove activity</option>
+                    <option value="move_activity_to_lane">Move activity to lane</option>
+                    <option value="move_activity_before">Move activity before</option>
+                    <option value="move_activity_after">Move activity after</option>
+                    <option value="preserve_unrelated_structure">Preserve unrelated structure</option>
+                    <option value="move_activity_to_branch">Move activity to branch</option>
+                    <option value="add_branch_condition">Add branch / gateway condition</option>
+                    <option value="rename_activity">Rename activity</option>
+                  </select>
+                </label>
+              </div>
+              <label class="field" for="change-notes">
+                <span>Notes</span>
+                <textarea id="change-notes" class="short" spellcheck="false"></textarea>
+              </label>
+            </div>
+
+            <div class="experiment-block">
+              <h2>Models</h2>
+              <label class="field" for="change-base-dsl">
+                <span>Base DSL</span>
+                <textarea id="change-base-dsl" spellcheck="false"></textarea>
+              </label>
+              <label class="field" for="change-changed-dsl">
+                <span>Changed DSL</span>
+                <textarea id="change-changed-dsl" spellcheck="false"></textarea>
+              </label>
+            </div>
+
+            <div class="experiment-block">
+              <h2>Expected Change</h2>
+              <label class="field" for="change-spec-json">
+                <span>Expected change details JSON</span>
+                <textarea id="change-spec-json" spellcheck="false"></textarea>
+              </label>
+              <div class="action-row">
+                <button id="run-change-evaluation" type="button" class="primary">Run Change Evaluation</button>
+                <button id="copy-change-result" type="button" disabled>Copy Result JSON</button>
+                <button id="download-change-result" type="button" disabled>Download Result JSON</button>
+              </div>
+              <p id="change-result-summary">No change evaluation has been run yet.</p>
+            </div>
+
+            <div class="experiment-block">
+              <h2>Change Evaluation</h2>
+              <div id="change-metrics" class="result-grid"></div>
+              <ul id="change-checks" class="checks-list"></ul>
+              <label class="field" for="change-result-json">
+                <span>Result JSON</span>
+                <textarea id="change-result-json" readonly spellcheck="false"></textarea>
+              </label>
+            </div>
+          </section>
+
+          <section class="diagnostics-panel" aria-live="polite" aria-atomic="false">
+            <h2>Diagnostics</h2>
+            <p id="diagnostics-empty">Diagnostics will appear here.</p>
+            <ul id="diagnostics-list"></ul>
+          </section>
+        </div>
+
+        <footer id="status-bar" data-state="idle">
+          <div class="status-row">
+            <span id="status-pill" data-state="idle">Idle</span>
+            <span id="status-summary">Paste BPMN Sketch Miner DSL to begin.</span>
+          </div>
+        </footer>
+      </section>
+
+      <section id="canvas-pane">
+        <div id="canvas"></div>
+      </section>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

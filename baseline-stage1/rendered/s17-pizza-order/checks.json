@@ -1,0 +1,24 @@
+{
+  "source": "packages/bpmn-core/tests/fixtures/s17-pizza-order.dsl",
+  "invalid": false,
+  "id": "s17-pizza-order",
+  "status": "success_with_warnings",
+  "passed": true,
+  "checks": {
+    "bpmnDI": true,
+    "svg": true,
+    "png": true,
+    "width": 736,
+    "height": 324
+  },
+  "reimport": true,
+  "hashes": {
+    "normalized.dsl": "932e8bbef49721919ac8b45aef76cb167209432a1bd48735f8388070f247b0cb",
+    "result.json": "4b7e5d1e7e75ea8409362b039de84769908c92b9018f1435cb97d6eb806c780d",
+    "semantic.bpmn": "ccd9461e1ca5e1790c0a20d1e100430c4d41311e7de38dc3450507b1c5041c6b",
+    "diagram.bpmn": "7ec54861b91ca05f5dbaf5f937ce5a42010914499ab4c5c4bcbcba9c2ee8741e",
+    "diagram.svg": "25576bb874aad909a0b86b0f7f904a1005cdc23410886207da0f16f809b08ce2",
+    "diagram.png": "3355a7228eb56a7b8395789c6ed5a91608908598ab9c2edb8a836a3873ef1cda"
+  },
+  "errors": []
+}

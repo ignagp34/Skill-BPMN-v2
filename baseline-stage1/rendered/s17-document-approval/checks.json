@@ -1,0 +1,24 @@
+{
+  "source": "packages/bpmn-core/tests/fixtures/s17-document-approval.dsl",
+  "invalid": false,
+  "id": "s17-document-approval",
+  "status": "success_with_warnings",
+  "passed": true,
+  "checks": {
+    "bpmnDI": true,
+    "svg": true,
+    "png": true,
+    "width": 350,
+    "height": 399
+  },
+  "reimport": true,
+  "hashes": {
+    "normalized.dsl": "d771755b91a1d2bad87f3dd2f33edace8896b9f2fdbf0e7a7269d0af1fe46ae0",
+    "result.json": "6ef3fc6c635b2bce8f3aa02dab53602cc120812e0be114ca582ad7d011da6fa9",
+    "semantic.bpmn": "58a947b735cb0b30e90a07bcf87fc664c6dd4aa6c744bc5cdc00467a0bc6feb3",
+    "diagram.bpmn": "d3e69cd6ea0baae86158f84515a23e734ffc3d7ddd6f05c3cb0cdfec6a237529",
+    "diagram.svg": "accee062ca887377d34c7b075ae3b7115fde31f33b925b1471d214b0f1d713ea",
+    "diagram.png": "cd19d87c211077230db09d7bd686d0ef7c4c9a5f328fb6e8843d404b86b17a29"
+  },
+  "errors": []
+}

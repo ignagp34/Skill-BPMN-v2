@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_SYN008" targetNamespace="https://example.com/bpmn/syn008">
+  <bpmn:collaboration id="Collaboration_SYN008">
+    <bpmn:participant id="Participant_ProcurementOffice" name="Procurement Office" processRef="Process_SYN008"/>
+  </bpmn:collaboration>
+  <bpmn:process id="Process_SYN008" name="Procurement Request Fulfillment" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_SYN008">
+      <bpmn:lane id="Lane_Department" name="Requesting Department">
+        <bpmn:flowNodeRef>StartEvent_RequestNeeded</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SubmitRequest</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_ProcurementSpecialist" name="Procurement Specialist">
+        <bpmn:flowNodeRef>Task_ReviewRequest</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ConfirmCatalog</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_ParallelFork</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReserveBudget</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_CreatePurchaseOrder</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_NotifyWarehouse</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_ParallelJoin</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendOrderConfirmation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_CloseRequest</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_RequestClosed</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_RequestNeeded" name="Equipment Request Needed">
+      <bpmn:outgoing>Flow_Start_Submit</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="Task_SubmitRequest" name="Submit Equipment Request">
+      <bpmn:incoming>Flow_Start_Submit</bpmn:incoming>
+      <bpmn:outgoing>Flow_Submit_Review</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_ReviewRequest" name="Review Request">
+      <bpmn:incoming>Flow_Submit_Review</bpmn:incoming>
+      <bpmn:outgoing>Flow_Review_Confirm</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_ConfirmCatalog" name="Confirm Items Are on Approved Catalog">
+      <bpmn:incoming>Flow_Review_Confirm</bpmn:incoming>
+      <bpmn:outgoing>Flow_Confirm_Fork</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:parallelGateway id="Gateway_ParallelFork" name="Start Fulfillment Activities">
+      <bpmn:incoming>Flow_Confirm_Fork</bpmn:incoming>
+      <bpmn:outgoing>Flow_Fork_Reserve</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Fork_CreatePO</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Fork_Notify</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:userTask id="Task_ReserveBudget" name="Reserve Budget">
+      <bpmn:incoming>Flow_Fork_Reserve</bpmn:incoming>
+      <bpmn:outgoing>Flow_Reserve_Join</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_CreatePurchaseOrder" name="Create Purchase Order">
+      <bpmn:incoming>Flow_Fork_CreatePO</bpmn:incoming>
+      <bpmn:outgoing>Flow_CreatePO_Join</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sendTask id="Task_NotifyWarehouse" name="Notify Warehouse of Expected Delivery">
+      <bpmn:incoming>Flow_Fork_Notify</bpmn:incoming>
+      <bpmn:outgoing>Flow_Notify_Join</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:parallelGateway id="Gateway_ParallelJoin" name="Fulfillment Activities Completed">
+      <bpmn:incoming>Flow_Reserve_Join</bpmn:incoming>
+      <bpmn:incoming>Flow_CreatePO_Join</bpmn:incoming>
+      <bpmn:incoming>Flow_Notify_Join</bpmn:incoming>
+      <bpmn:outgoing>Flow_Join_Confirmation</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:userTask id="Task_SendOrderConfirmation" name="Send Order Confirmation to Requesting Department">
+      <bpmn:incoming>Flow_Join_Confirmation</bpmn:incoming>
+      <bpmn:outgoing>Flow_Confirmation_Close</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_CloseRequest" name="Close Request">
+      <bpmn:incoming>Flow_Confirmation_Close</bpmn:incoming>
+      <bpmn:outgoing>Flow_Close_End</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="EndEvent_RequestClosed" name="Request Closed">
+      <bpmn:incoming>Flow_Close_End</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_Submit" sourceRef="StartEvent_RequestNeeded" targetRef="Task_SubmitRequest"/>
+    <bpmn:sequenceFlow id="Flow_Submit_Review" sourceRef="Task_SubmitRequest" targetRef="Task_ReviewRequest"/>
+    <bpmn:sequenceFlow id="Flow_Review_Confirm" sourceRef="Task_ReviewRequest" targetRef="Task_ConfirmCatalog"/>
+    <bpmn:sequenceFlow id="Flow_Confirm_Fork" sourceRef="Task_ConfirmCatalog" targetRef="Gateway_ParallelFork"/>
+    <bpmn:sequenceFlow id="Flow_Fork_Reserve" sourceRef="Gateway_ParallelFork" targetRef="Task_ReserveBudget"/>
+    <bpmn:sequenceFlow id="Flow_Fork_CreatePO" sourceRef="Gateway_ParallelFork" targetRef="Task_CreatePurchaseOrder"/>
+    <bpmn:sequenceFlow id="Flow_Fork_Notify" sourceRef="Gateway_ParallelFork" targetRef="Task_NotifyWarehouse"/>
+    <bpmn:sequenceFlow id="Flow_Reserve_Join" sourceRef="Task_ReserveBudget" targetRef="Gateway_ParallelJoin"/>
+    <bpmn:sequenceFlow id="Flow_CreatePO_Join" sourceRef="Task_CreatePurchaseOrder" targetRef="Gateway_ParallelJoin"/>
+    <bpmn:sequenceFlow id="Flow_Notify_Join" sourceRef="Task_NotifyWarehouse" targetRef="Gateway_ParallelJoin"/>
+    <bpmn:sequenceFlow id="Flow_Join_Confirmation" sourceRef="Gateway_ParallelJoin" targetRef="Task_SendOrderConfirmation"/>
+    <bpmn:sequenceFlow id="Flow_Confirmation_Close" sourceRef="Task_SendOrderConfirmation" targetRef="Task_CloseRequest"/>
+    <bpmn:sequenceFlow id="Flow_Close_End" sourceRef="Task_CloseRequest" targetRef="EndEvent_RequestClosed"/>
+  </bpmn:process>
+</bpmn:definitions>

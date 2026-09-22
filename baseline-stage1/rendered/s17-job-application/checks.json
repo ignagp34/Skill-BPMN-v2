@@ -1,0 +1,24 @@
+{
+  "source": "packages/bpmn-core/tests/fixtures/s17-job-application.dsl",
+  "invalid": false,
+  "id": "s17-job-application",
+  "status": "success_with_warnings",
+  "passed": true,
+  "checks": {
+    "bpmnDI": true,
+    "svg": true,
+    "png": true,
+    "width": 1186,
+    "height": 1214
+  },
+  "reimport": true,
+  "hashes": {
+    "normalized.dsl": "c3ccd1a8497f6ba02e00216a4a61bcdf021300a99088344be2777975689c6394",
+    "result.json": "806d243f7bd7d2608bee95c1c94fe213b2afc79fabefb32f3cef6bf54e8b4e6d",
+    "semantic.bpmn": "34fa5b0f8ba96b2ec5f11d7c4013fd73397777569743cfdd7f1340821555289e",
+    "diagram.bpmn": "974c16a30cd62ad5d435eb4cbd880e4411a48b306f453951d6e9f24178e2ad0e",
+    "diagram.svg": "91e245509f1e1793e1740b601c0416de97ffb741b90cd7fe04d3c9a2d23b7c00",
+    "diagram.png": "a0819453bb69c4442d991f28b2aeeccde82e35d7e60aad93c445205484546b59"
+  },
+  "errors": []
+}

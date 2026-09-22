@@ -1,0 +1,12 @@
+Student:
+(start Student requests enrollment certificate)
+user Request enrollment certificate
+
+Registrar Clerk:
+receive Receive request
+user Look up student's record
+user Generate certificate
+user Check document for completeness
+send Send certificate by email
+user Close request
+(finish Request closed)

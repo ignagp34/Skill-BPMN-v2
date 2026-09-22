@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                  id="Definitions_SYN008"
+                  targetNamespace="http://example.com/bpmn/SYN008">
+  <bpmn:collaboration id="Collaboration_SYN008">
+    <bpmn:participant id="Participant_ProcurementOffice" name="Procurement Office" processRef="Process_SYN008"/>
+  </bpmn:collaboration>
+  <bpmn:process id="Process_SYN008" name="Procurement request fulfillment" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_SYN008">
+      <bpmn:lane id="Lane_RequestingDepartment" name="Requesting Department">
+        <bpmn:flowNodeRef>StartEvent_RequestNeeded</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SubmitRequest</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_ProcurementSpecialist" name="Procurement Specialist">
+        <bpmn:flowNodeRef>Task_ReviewRequest</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ConfirmApprovedCatalog</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_ParallelFork</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReserveBudget</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_CreatePurchaseOrder</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_NotifyWarehouse</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_ParallelJoin</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendOrderConfirmation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_CloseRequest</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_RequestClosed</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_RequestNeeded" name="Equipment request needed">
+      <bpmn:outgoing>Flow_Start_Submit</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="Task_SubmitRequest" name="Submit office equipment request">
+      <bpmn:incoming>Flow_Start_Submit</bpmn:incoming>
+      <bpmn:outgoing>Flow_Submit_Review</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_ReviewRequest" name="Review request">
+      <bpmn:incoming>Flow_Submit_Review</bpmn:incoming>
+      <bpmn:outgoing>Flow_Review_ConfirmCatalog</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_ConfirmApprovedCatalog" name="Confirm items are on approved catalog">
+      <bpmn:incoming>Flow_Review_ConfirmCatalog</bpmn:incoming>
+      <bpmn:outgoing>Flow_ConfirmCatalog_Fork</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:parallelGateway id="Gateway_ParallelFork" name="Start fulfillment activities">
+      <bpmn:incoming>Flow_ConfirmCatalog_Fork</bpmn:incoming>
+      <bpmn:outgoing>Flow_Fork_ReserveBudget</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Fork_CreatePO</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Fork_NotifyWarehouse</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:userTask id="Task_ReserveBudget" name="Reserve budget">
+      <bpmn:incoming>Flow_Fork_ReserveBudget</bpmn:incoming>
+      <bpmn:outgoing>Flow_ReserveBudget_Join</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_CreatePurchaseOrder" name="Create purchase order">
+      <bpmn:incoming>Flow_Fork_CreatePO</bpmn:incoming>
+      <bpmn:outgoing>Flow_CreatePO_Join</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sendTask id="Task_NotifyWarehouse" name="Notify warehouse of expected delivery">
+      <bpmn:incoming>Flow_Fork_NotifyWarehouse</bpmn:incoming>
+      <bpmn:outgoing>Flow_NotifyWarehouse_Join</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:parallelGateway id="Gateway_ParallelJoin" name="Fulfillment activities completed">
+      <bpmn:incoming>Flow_ReserveBudget_Join</bpmn:incoming>
+      <bpmn:incoming>Flow_CreatePO_Join</bpmn:incoming>
+      <bpmn:incoming>Flow_NotifyWarehouse_Join</bpmn:incoming>
+      <bpmn:outgoing>Flow_Join_SendConfirmation</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:sendTask id="Task_SendOrderConfirmation" name="Send order confirmation to requesting department">
+      <bpmn:incoming>Flow_Join_SendConfirmation</bpmn:incoming>
+      <bpmn:outgoing>Flow_SendConfirmation_Close</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:userTask id="Task_CloseRequest" name="Close request">
+      <bpmn:incoming>Flow_SendConfirmation_Close</bpmn:incoming>
+      <bpmn:outgoing>Flow_Close_End</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="EndEvent_RequestClosed" name="Request closed">
+      <bpmn:incoming>Flow_Close_End</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_Submit" sourceRef="StartEvent_RequestNeeded" targetRef="Task_SubmitRequest"/>
+    <bpmn:sequenceFlow id="Flow_Submit_Review" sourceRef="Task_SubmitRequest" targetRef="Task_ReviewRequest"/>
+    <bpmn:sequenceFlow id="Flow_Review_ConfirmCatalog" sourceRef="Task_ReviewRequest" targetRef="Task_ConfirmApprovedCatalog"/>
+    <bpmn:sequenceFlow id="Flow_ConfirmCatalog_Fork" sourceRef="Task_ConfirmApprovedCatalog" targetRef="Gateway_ParallelFork"/>
+    <bpmn:sequenceFlow id="Flow_Fork_ReserveBudget" sourceRef="Gateway_ParallelFork" targetRef="Task_ReserveBudget"/>
+    <bpmn:sequenceFlow id="Flow_Fork_CreatePO" sourceRef="Gateway_ParallelFork" targetRef="Task_CreatePurchaseOrder"/>
+    <bpmn:sequenceFlow id="Flow_Fork_NotifyWarehouse" sourceRef="Gateway_ParallelFork" targetRef="Task_NotifyWarehouse"/>
+    <bpmn:sequenceFlow id="Flow_ReserveBudget_Join" sourceRef="Task_ReserveBudget" targetRef="Gateway_ParallelJoin"/>
+    <bpmn:sequenceFlow id="Flow_CreatePO_Join" sourceRef="Task_CreatePurchaseOrder" targetRef="Gateway_ParallelJoin"/>
+    <bpmn:sequenceFlow id="Flow_NotifyWarehouse_Join" sourceRef="Task_NotifyWarehouse" targetRef="Gateway_ParallelJoin"/>
+    <bpmn:sequenceFlow id="Flow_Join_SendConfirmation" sourceRef="Gateway_ParallelJoin" targetRef="Task_SendOrderConfirmation"/>
+    <bpmn:sequenceFlow id="Flow_SendConfirmation_Close" sourceRef="Task_SendOrderConfirmation" targetRef="Task_CloseRequest"/>
+    <bpmn:sequenceFlow id="Flow_Close_End" sourceRef="Task_CloseRequest" targetRef="EndEvent_RequestClosed"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_SYN008">
+    <bpmndi:BPMNPlane id="BPMNPlane_SYN008" bpmnElement="Collaboration_SYN008">
+      <bpmndi:BPMNShape id="Shape_Participant" bpmnElement="Participant_ProcurementOffice" isHorizontal="true">
+        <dc:Bounds x="100" y="80" width="1680" height="500"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Lane_RequestingDepartment" bpmnElement="Lane_RequestingDepartment" isHorizontal="true">
+        <dc:Bounds x="130" y="80" width="1650" height="180"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Lane_ProcurementSpecialist" bpmnElement="Lane_ProcurementSpecialist" isHorizontal="true">
+        <dc:Bounds x="130" y="260" width="1650" height="320"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_StartEvent" bpmnElement="StartEvent_RequestNeeded">
+        <dc:Bounds x="180" y="152" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_SubmitRequest" bpmnElement="Task_SubmitRequest">
+        <dc:Bounds x="260" y="130" width="120" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ReviewRequest" bpmnElement="Task_ReviewRequest">
+        <dc:Bounds x="430" y="350" width="120" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ConfirmCatalog" bpmnElement="Task_ConfirmApprovedCatalog">
+        <dc:Bounds x="600" y="350" width="150" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ParallelFork" bpmnElement="Gateway_ParallelFork">
+        <dc:Bounds x="800" y="365" width="50" height="50"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ReserveBudget" bpmnElement="Task_ReserveBudget">
+        <dc:Bounds x="900" y="285" width="120" height="70"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CreatePO" bpmnElement="Task_CreatePurchaseOrder">
+        <dc:Bounds x="900" y="375" width="120" height="70"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_NotifyWarehouse" bpmnElement="Task_NotifyWarehouse">
+        <dc:Bounds x="900" y="465" width="140" height="70"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ParallelJoin" bpmnElement="Gateway_ParallelJoin">
+        <dc:Bounds x="1090" y="365" width="50" height="50"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_SendConfirmation" bpmnElement="Task_SendOrderConfirmation">
+        <dc:Bounds x="1190" y="350" width="160" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CloseRequest" bpmnElement="Task_CloseRequest">
+        <dc:Bounds x="1400" y="350" width="120" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EndEvent" bpmnElement="EndEvent_RequestClosed">
+        <dc:Bounds x="1580" y="372" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_Start_Submit" bpmnElement="Flow_Start_Submit">
+        <di:waypoint x="216" y="170"/>
+        <di:waypoint x="260" y="170"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Submit_Review" bpmnElement="Flow_Submit_Review">
+        <di:waypoint x="380" y="170"/>
+        <di:waypoint x="405" y="170"/>
+        <di:waypoint x="405" y="390"/>
+        <di:waypoint x="430" y="390"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Review_Confirm" bpmnElement="Flow_Review_ConfirmCatalog">
+        <di:waypoint x="550" y="390"/>
+        <di:waypoint x="600" y="390"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Confirm_Fork" bpmnElement="Flow_ConfirmCatalog_Fork">
+        <di:waypoint x="750" y="390"/>
+        <di:waypoint x="800" y="390"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Fork_Reserve" bpmnElement="Flow_Fork_ReserveBudget">
+        <di:waypoint x="825" y="365"/>
+        <di:waypoint x="825" y="320"/>
+        <di:waypoint x="900" y="320"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Fork_CreatePO" bpmnElement="Flow_Fork_CreatePO">
+        <di:waypoint x="850" y="390"/>
+        <di:waypoint x="875" y="390"/>
+        <di:waypoint x="875" y="410"/>
+        <di:waypoint x="900" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Fork_Notify" bpmnElement="Flow_Fork_NotifyWarehouse">
+        <di:waypoint x="825" y="415"/>
+        <di:waypoint x="825" y="500"/>
+        <di:waypoint x="900" y="500"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Reserve_Join" bpmnElement="Flow_ReserveBudget_Join">
+        <di:waypoint x="1020" y="320"/>
+        <di:waypoint x="1115" y="320"/>
+        <di:waypoint x="1115" y="365"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_CreatePO_Join" bpmnElement="Flow_CreatePO_Join">
+        <di:waypoint x="1020" y="410"/>
+        <di:waypoint x="1090" y="410"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Notify_Join" bpmnElement="Flow_NotifyWarehouse_Join">
+        <di:waypoint x="1040" y="500"/>
+        <di:waypoint x="1115" y="500"/>
+        <di:waypoint x="1115" y="415"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Join_Send" bpmnElement="Flow_Join_SendConfirmation">
+        <di:waypoint x="1140" y="390"/>
+        <di:waypoint x="1190" y="390"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Send_Close" bpmnElement="Flow_SendConfirmation_Close">
+        <di:waypoint x="1350" y="390"/>
+        <di:waypoint x="1400" y="390"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Close_End" bpmnElement="Flow_Close_End">
+        <di:waypoint x="1520" y="390"/>
+        <di:waypoint x="1580" y="390"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

@@ -1,0 +1,51 @@
+Claims Handler: (receive New home damage claim)
+user Register claim
+user Review submitted information
+Is the claim complete?
+No
+send Request missing information
+(finish Current review closed)
+
+Claims Handler: (receive New home damage claim)
+user Register claim
+user Review submitted information
+Is the claim complete?
+Yes
+Is estimated damage below the fast-track threshold?
+Yes
+user Approve claim
+send Send settlement notice
+(finish Customer notified of settlement)
+
+Claims Handler: (receive New home damage claim)
+user Register claim
+user Review submitted information
+Is the claim complete?
+Yes
+Is estimated damage below the fast-track threshold?
+No
+user Forward claim for detailed assessment
+user Perform detailed assessment
+What is the assessment outcome?
+Approve
+user Approve claim
+send Send settlement notice
+(finish Customer notified of settlement)
+
+Claims Handler: (receive New home damage claim)
+user Register claim
+user Review submitted information
+Is the claim complete?
+Yes
+Is estimated damage below the fast-track threshold?
+No
+user Forward claim for detailed assessment
+user Perform detailed assessment
+What is the assessment outcome?
+Reject
+user Reject claim
+send Send rejection notice
+(finish Customer notified of rejection)
+
+== pools ==
+Claims Team -> Claims Handler

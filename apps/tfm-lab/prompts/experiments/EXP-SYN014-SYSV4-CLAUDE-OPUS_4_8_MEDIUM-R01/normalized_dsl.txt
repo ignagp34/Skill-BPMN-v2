@@ -1,0 +1,23 @@
+Traveler: Book train ticket
+Agency: Create reservation
+Agency: send Payment Request
+
+Traveler:
+(receive Payment Request)
+Traveler: Pay booking
+Agency: (receive Payment)
+Agency: Issue ticket
+Agency: send Ticket
+
+Traveler:
+(receive Ticket)
+(finish Ticket received)
+
+Agency: send Payment Request
+(timer Payment deadline expired)
+Agency: Cancel reservation
+Agency: send Cancellation Notice
+
+Traveler:
+(receive Cancellation Notice)
+(finish Cancellation notice received)

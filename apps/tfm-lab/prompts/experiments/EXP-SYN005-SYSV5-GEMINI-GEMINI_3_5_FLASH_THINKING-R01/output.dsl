@@ -1,0 +1,58 @@
+(start Travel reimbursement request initiated)
+Employee: user Submit travel reimbursement request
+Finance Specialist: user Check receipts
+Finance Specialist: rule Verify policy rules
+Are receipts missing?
+Yes
+Finance Specialist: user Return request to employee
+(finish Review ended)
+
+(start Travel reimbursement request initiated)
+Employee: user Submit travel reimbursement request
+Finance Specialist: user Check receipts
+Finance Specialist: rule Verify policy rules
+Are receipts missing?
+No
+Is amount within automatic approval limit?
+Yes
+Finance Specialist: user Approve request
+Finance Specialist: service Schedule payment
+Employee: receive Receive payment confirmation
+(finish Employee informed of approval)
+
+(start Travel reimbursement request initiated)
+Employee: user Submit travel reimbursement request
+Finance Specialist: user Check receipts
+Finance Specialist: rule Verify policy rules
+Are receipts missing?
+No
+Is amount within automatic approval limit?
+No
+Finance Specialist: user Send request to finance manager
+Finance Manager: user Evaluate request
+Does manager approve request?
+Yes
+Finance Manager: user Approve request
+Finance Specialist: service Schedule payment
+Employee: receive Receive payment confirmation
+(finish Employee informed of approval)
+
+(start Travel reimbursement request initiated)
+Employee: user Submit travel reimbursement request
+Finance Specialist: user Check receipts
+Finance Specialist: rule Verify policy rules
+Are receipts missing?
+No
+Is amount within automatic approval limit?
+No
+Finance Specialist: user Send request to finance manager
+Finance Manager: user Evaluate request
+Does manager approve request?
+No
+Finance Manager: user Reject request
+Finance Specialist: send Send rejection message
+Employee: receive Receive rejection message
+(finish Employee informed of rejection)
+
+== pools ==
+Finance Department -> Employee; Finance Specialist; Finance Manager

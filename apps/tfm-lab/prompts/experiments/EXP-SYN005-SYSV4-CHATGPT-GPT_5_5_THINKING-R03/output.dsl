@@ -1,0 +1,54 @@
+﻿(start Travel reimbursement request submitted)
+Employee: Submit travel reimbursement request
+Finance Specialist: Check receipts
+Finance Specialist: Verify policy rules
+Are receipts missing?
+Yes
+Finance Specialist: Return request to employee
+(finish Request returned and employee informed)
+
+(start Travel reimbursement request submitted)
+Employee: Submit travel reimbursement request
+Finance Specialist: Check receipts
+Finance Specialist: Verify policy rules
+Are receipts missing?
+No
+Is total within automatic approval limit?
+Yes
+Finance Specialist: Approve request
+Finance Specialist: Schedule payment
+Finance Specialist: Inform employee of approval
+(finish Employee informed of approval)
+
+(start Travel reimbursement request submitted)
+Employee: Submit travel reimbursement request
+Finance Specialist: Check receipts
+Finance Specialist: Verify policy rules
+Are receipts missing?
+No
+Is total within automatic approval limit?
+No
+Finance Specialist: Send request to finance manager
+Finance Manager: Review reimbursement request
+Does finance manager approve the request?
+Yes
+Finance Manager: Approve request
+Finance Specialist: Schedule payment
+Finance Specialist: Inform employee of approval
+(finish Employee informed of approval)
+
+(start Travel reimbursement request submitted)
+Employee: Submit travel reimbursement request
+Finance Specialist: Check receipts
+Finance Specialist: Verify policy rules
+Are receipts missing?
+No
+Is total within automatic approval limit?
+No
+Finance Specialist: Send request to finance manager
+Finance Manager: Review reimbursement request
+Does finance manager approve the request?
+No
+Finance Manager: Reject request
+Finance Specialist: Send rejection message to employee
+(finish Employee informed of rejection)

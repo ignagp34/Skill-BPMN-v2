@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_SYN014" targetNamespace="http://example.com/bpmn/SYN014">
+  <bpmn:message id="Message_BookingRequest" name="Booking request"/>
+  <bpmn:message id="Message_PaymentRequest" name="Payment request"/>
+  <bpmn:message id="Message_Payment" name="Payment"/>
+  <bpmn:message id="Message_Ticket" name="Ticket"/>
+  <bpmn:message id="Message_CancellationNotice" name="Cancellation notice"/>
+  <bpmn:collaboration id="Collaboration_SYN014">
+    <bpmn:participant id="Participant_Traveler" name="Traveler" processRef="Process_Traveler"/>
+    <bpmn:participant id="Participant_Agency" name="Online Travel Agency" processRef="Process_Agency"/>
+    <bpmn:messageFlow id="MessageFlow_BookingRequest" name="Booking request" sourceRef="SendTask_BookingRequest" targetRef="StartEvent_BookingReceived"/>
+    <bpmn:messageFlow id="MessageFlow_PaymentRequest" name="Payment request" sourceRef="SendTask_PaymentRequest" targetRef="CatchEvent_PaymentRequest"/>
+    <bpmn:messageFlow id="MessageFlow_Payment" name="Payment" sourceRef="SendTask_Payment" targetRef="CatchEvent_PaymentReceived"/>
+    <bpmn:messageFlow id="MessageFlow_Ticket" name="Ticket" sourceRef="SendTask_Ticket" targetRef="CatchEvent_Ticket"/>
+    <bpmn:messageFlow id="MessageFlow_CancellationNotice" name="Cancellation notice" sourceRef="SendTask_CancellationNotice" targetRef="CatchEvent_CancellationNotice"/>
+  </bpmn:collaboration>
+  <bpmn:process id="Process_Traveler" name="Traveler booking process" isExecutable="false">
+    <bpmn:startEvent id="StartEvent_Traveler" name="Travel needed">
+      <bpmn:outgoing>Flow_T01</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sendTask id="SendTask_BookingRequest" name="Book train ticket" messageRef="Message_BookingRequest">
+      <bpmn:incoming>Flow_T01</bpmn:incoming>
+      <bpmn:outgoing>Flow_T02</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:intermediateCatchEvent id="CatchEvent_PaymentRequest" name="Receive payment request">
+      <bpmn:incoming>Flow_T02</bpmn:incoming>
+      <bpmn:outgoing>Flow_T03</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_PaymentRequest" messageRef="Message_PaymentRequest"/>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:sendTask id="SendTask_Payment" name="Pay booking" messageRef="Message_Payment">
+      <bpmn:incoming>Flow_T03</bpmn:incoming>
+      <bpmn:outgoing>Flow_T04</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:eventBasedGateway id="Gateway_WaitForOutcome" name="Wait for booking outcome">
+      <bpmn:incoming>Flow_T04</bpmn:incoming>
+      <bpmn:outgoing>Flow_T05</bpmn:outgoing>
+      <bpmn:outgoing>Flow_T06</bpmn:outgoing>
+    </bpmn:eventBasedGateway>
+    <bpmn:intermediateCatchEvent id="CatchEvent_Ticket" name="Receive ticket">
+      <bpmn:incoming>Flow_T05</bpmn:incoming>
+      <bpmn:outgoing>Flow_T07</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_Ticket" messageRef="Message_Ticket"/>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:intermediateCatchEvent id="CatchEvent_CancellationNotice" name="Receive cancellation notice">
+      <bpmn:incoming>Flow_T06</bpmn:incoming>
+      <bpmn:outgoing>Flow_T08</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_CancellationNotice" messageRef="Message_CancellationNotice"/>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:endEvent id="EndEvent_TicketReceived" name="Ticket received">
+      <bpmn:incoming>Flow_T07</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:endEvent id="EndEvent_CancellationReceived" name="Cancellation notice received">
+      <bpmn:incoming>Flow_T08</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_T01" sourceRef="StartEvent_Traveler" targetRef="SendTask_BookingRequest"/>
+    <bpmn:sequenceFlow id="Flow_T02" sourceRef="SendTask_BookingRequest" targetRef="CatchEvent_PaymentRequest"/>
+    <bpmn:sequenceFlow id="Flow_T03" sourceRef="CatchEvent_PaymentRequest" targetRef="SendTask_Payment"/>
+    <bpmn:sequenceFlow id="Flow_T04" sourceRef="SendTask_Payment" targetRef="Gateway_WaitForOutcome"/>
+    <bpmn:sequenceFlow id="Flow_T05" sourceRef="Gateway_WaitForOutcome" targetRef="CatchEvent_Ticket"/>
+    <bpmn:sequenceFlow id="Flow_T06" sourceRef="Gateway_WaitForOutcome" targetRef="CatchEvent_CancellationNotice"/>
+    <bpmn:sequenceFlow id="Flow_T07" sourceRef="CatchEvent_Ticket" targetRef="EndEvent_TicketReceived"/>
+    <bpmn:sequenceFlow id="Flow_T08" sourceRef="CatchEvent_CancellationNotice" targetRef="EndEvent_CancellationReceived"/>
+  </bpmn:process>
+  <bpmn:process id="Process_Agency" name="Online travel agency booking process" isExecutable="false">
+    <bpmn:startEvent id="StartEvent_BookingReceived" name="Booking request received">
+      <bpmn:outgoing>Flow_A01</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_BookingRequest" messageRef="Message_BookingRequest"/>
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="ServiceTask_CreateReservation" name="Create reservation">
+      <bpmn:incoming>Flow_A01</bpmn:incoming>
+      <bpmn:outgoing>Flow_A02</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sendTask id="SendTask_PaymentRequest" name="Send payment request" messageRef="Message_PaymentRequest">
+      <bpmn:incoming>Flow_A02</bpmn:incoming>
+      <bpmn:outgoing>Flow_A03</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:eventBasedGateway id="Gateway_PaymentRace" name="Payment received before deadline?">
+      <bpmn:incoming>Flow_A03</bpmn:incoming>
+      <bpmn:outgoing>Flow_A04</bpmn:outgoing>
+      <bpmn:outgoing>Flow_A05</bpmn:outgoing>
+    </bpmn:eventBasedGateway>
+    <bpmn:intermediateCatchEvent id="CatchEvent_PaymentReceived" name="Payment received">
+      <bpmn:incoming>Flow_A04</bpmn:incoming>
+      <bpmn:outgoing>Flow_A06</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_Payment" messageRef="Message_Payment"/>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:intermediateCatchEvent id="CatchEvent_PaymentDeadline" name="Payment deadline expired">
+      <bpmn:incoming>Flow_A05</bpmn:incoming>
+      <bpmn:outgoing>Flow_A07</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_PaymentDeadline">
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT30M</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:serviceTask id="ServiceTask_IssueTicket" name="Issue ticket">
+      <bpmn:incoming>Flow_A06</bpmn:incoming>
+      <bpmn:outgoing>Flow_A08</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sendTask id="SendTask_Ticket" name="Send ticket" messageRef="Message_Ticket">
+      <bpmn:incoming>Flow_A08</bpmn:incoming>
+      <bpmn:outgoing>Flow_A09</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:serviceTask id="ServiceTask_CancelReservation" name="Cancel reservation automatically">
+      <bpmn:incoming>Flow_A07</bpmn:incoming>
+      <bpmn:outgoing>Flow_A10</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sendTask id="SendTask_CancellationNotice" name="Send cancellation notice" messageRef="Message_CancellationNotice">
+      <bpmn:incoming>Flow_A10</bpmn:incoming>
+      <bpmn:outgoing>Flow_A11</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:endEvent id="EndEvent_AgencyTicketSent" name="Ticket sent">
+      <bpmn:incoming>Flow_A09</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:endEvent id="EndEvent_AgencyCancelled" name="Reservation cancelled">
+      <bpmn:incoming>Flow_A11</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_A01" sourceRef="StartEvent_BookingReceived" targetRef="ServiceTask_CreateReservation"/>
+    <bpmn:sequenceFlow id="Flow_A02" sourceRef="ServiceTask_CreateReservation" targetRef="SendTask_PaymentRequest"/>
+    <bpmn:sequenceFlow id="Flow_A03" sourceRef="SendTask_PaymentRequest" targetRef="Gateway_PaymentRace"/>
+    <bpmn:sequenceFlow id="Flow_A04" name="Payment arrives" sourceRef="Gateway_PaymentRace" targetRef="CatchEvent_PaymentReceived"/>
+    <bpmn:sequenceFlow id="Flow_A05" name="Deadline expires" sourceRef="Gateway_PaymentRace" targetRef="CatchEvent_PaymentDeadline"/>
+    <bpmn:sequenceFlow id="Flow_A06" sourceRef="CatchEvent_PaymentReceived" targetRef="ServiceTask_IssueTicket"/>
+    <bpmn:sequenceFlow id="Flow_A07" sourceRef="CatchEvent_PaymentDeadline" targetRef="ServiceTask_CancelReservation"/>
+    <bpmn:sequenceFlow id="Flow_A08" sourceRef="ServiceTask_IssueTicket" targetRef="SendTask_Ticket"/>
+    <bpmn:sequenceFlow id="Flow_A09" sourceRef="SendTask_Ticket" targetRef="EndEvent_AgencyTicketSent"/>
+    <bpmn:sequenceFlow id="Flow_A10" sourceRef="ServiceTask_CancelReservation" targetRef="SendTask_CancellationNotice"/>
+    <bpmn:sequenceFlow id="Flow_A11" sourceRef="SendTask_CancellationNotice" targetRef="EndEvent_AgencyCancelled"/>
+  </bpmn:process>
+</bpmn:definitions>

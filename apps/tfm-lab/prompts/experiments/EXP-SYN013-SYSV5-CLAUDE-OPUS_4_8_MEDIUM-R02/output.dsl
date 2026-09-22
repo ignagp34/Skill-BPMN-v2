@@ -1,0 +1,25 @@
+(start High-priority ticket received)
+Dispatcher: Assign ticket to support agent
+Agent: Investigate issue
+Agent: Work on resolution
+Is the issue resolved before the SLA deadline?
+Yes
+Agent: Document the fix
+Agent: Inform the user
+Agent: Close ticket
+(finish Ticket resolved and closed)
+
+(start High-priority ticket received)
+Dispatcher: Assign ticket to support agent
+Agent: Investigate issue
+Agent: Work on resolution
+Is the issue resolved before the SLA deadline?
+No
+(timer SLA deadline reached)
+(escalate Escalate to team lead)
+Lead: Review ticket
+Lead: Assign additional support
+Team: Continue work until resolved
+Agent: Document the fix
+Agent: Inform the user
+Agent: Close ticket

@@ -1,0 +1,62 @@
+Buyer:
+(start Purchase order ready)
+(send Purchase Order)
+(receive Order Confirmation)
+user Accept order
+(finish Order confirmed)
+
+Buyer:
+(start Purchase order ready)
+(send Purchase Order)
+(receive Revised Offer)
+user Review revised offer
+Is revised offer accepted?
+Yes
+(send Revised Offer Acceptance)
+(receive Final Confirmation)
+user Accept order
+(finish Order confirmed)
+
+Buyer:
+(start Purchase order ready)
+(send Purchase Order)
+(receive Revised Offer)
+user Review revised offer
+Is revised offer accepted?
+No
+(send Revised Offer Rejection)
+(finish Revised offer rejected)
+
+Supplier:
+(receive Purchase Order)
+user Check stock availability
+Are all requested items available?
+Yes
+(send Order Confirmation)
+(finish Order confirmed)
+
+Supplier:
+(receive Purchase Order)
+user Check stock availability
+Are all requested items available?
+No
+user Prepare revised offer
+(send Revised Offer)
+(receive Revised Offer Acceptance)
+(send Final Confirmation)
+(finish Order confirmed)
+
+Supplier:
+(receive Purchase Order)
+user Check stock availability
+Are all requested items available?
+No
+user Prepare revised offer
+(send Revised Offer)
+(receive Revised Offer Rejection)
+user Close order request
+(finish Order request rejected)
+
+== pools ==
+Buyer -> Buyer
+Supplier -> Supplier

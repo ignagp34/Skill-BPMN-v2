@@ -1,0 +1,64 @@
+(start Reimbursement request submitted)
+[Travel Reimbursement Request]
+Employee: user Submit travel reimbursement request
+[Receipts]
+Finance Specialist: user Check receipts and verify policy rules
+Are receipts missing?
+Yes
+Finance Specialist: user Return request to employee
+Employee: Receive returned request
+(finish Review ended)
+
+(start Reimbursement request submitted)
+[Travel Reimbursement Request]
+Employee: user Submit travel reimbursement request
+[Receipts]
+Finance Specialist: user Check receipts and verify policy rules
+Are receipts missing?
+No
+Is amount within automatic approval limit?
+Yes
+Finance Specialist: user Approve request
+Finance Specialist: user Schedule payment
+Employee: Receive approval and payment schedule
+(finish Payment scheduled)
+
+(start Reimbursement request submitted)
+[Travel Reimbursement Request]
+Employee: user Submit travel reimbursement request
+[Receipts]
+Finance Specialist: user Check receipts and verify policy rules
+Are receipts missing?
+No
+Is amount within automatic approval limit?
+No
+Finance Specialist: user Send request to finance manager
+Finance Manager: user Process request
+Does finance manager approve?
+Yes
+Finance Manager: user Approve request
+Finance Specialist: user Schedule payment
+Employee: Receive approval and payment schedule
+(finish Payment scheduled)
+
+(start Reimbursement request submitted)
+[Travel Reimbursement Request]
+Employee: user Submit travel reimbursement request
+[Receipts]
+Finance Specialist: user Check receipts and verify policy rules
+Are receipts missing?
+No
+Is amount within automatic approval limit?
+No
+Finance Specialist: user Send request to finance manager
+Finance Manager: user Process request
+Does finance manager approve?
+No
+Finance Manager: user Reject request
+Finance Specialist: send Send rejection message to employee
+[Rejection Message]
+Employee: Receive rejection message
+(finish Request rejected)
+
+== pools ==
+Finance Department -> Employee; Finance Specialist; Finance Manager

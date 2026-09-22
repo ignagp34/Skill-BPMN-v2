@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                  id="Definitions_SYN013"
+                  targetNamespace="http://example.com/bpmn/syn013">
+  <bpmn:escalation id="Escalation_SLABreach" name="SLA breach" escalationCode="SLA_BREACH"/>
+  <bpmn:collaboration id="Collaboration_SupportCenter">
+    <bpmn:participant id="Participant_ITSupportCenter" name="IT Support Center" processRef="Process_SYN013"/>
+  </bpmn:collaboration>
+  <bpmn:process id="Process_SYN013" name="Support ticket SLA breach" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_SupportCenter">
+      <bpmn:lane id="Lane_SupportAgent" name="Support Agent">
+        <bpmn:flowNodeRef>StartEvent_TicketAssigned</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_InvestigateIssue</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_WorkOnResolution</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>BoundaryEvent_SLADeadline</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ThrowEvent_Escalate</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ContinueWork</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_ResolutionPaths</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_DocumentFix</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_InformUser</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_CloseTicket</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_TicketClosed</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_TeamLead" name="Team Lead">
+        <bpmn:flowNodeRef>Task_ReviewTicket</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_AssignAdditionalSupport</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_TicketAssigned" name="High-priority ticket assigned">
+      <bpmn:outgoing>Flow_Start_Investigate</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="Task_InvestigateIssue" name="Investigate issue">
+      <bpmn:incoming>Flow_Start_Investigate</bpmn:incoming>
+      <bpmn:outgoing>Flow_Investigate_Work</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_WorkOnResolution" name="Work on resolution">
+      <bpmn:incoming>Flow_Investigate_Work</bpmn:incoming>
+      <bpmn:outgoing>Flow_ResolvedBeforeSLA</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:boundaryEvent id="BoundaryEvent_SLADeadline"
+                        name="SLA deadline reached"
+                        attachedToRef="Task_WorkOnResolution"
+                        cancelActivity="true">
+      <bpmn:outgoing>Flow_SLA_Escalate</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_SLADeadline">
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT4H</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:boundaryEvent>
+    <bpmn:intermediateThrowEvent id="ThrowEvent_Escalate" name="Escalate to team lead">
+      <bpmn:incoming>Flow_SLA_Escalate</bpmn:incoming>
+      <bpmn:outgoing>Flow_Escalate_Review</bpmn:outgoing>
+      <bpmn:escalationEventDefinition id="EscalationEventDefinition_SLABreach" escalationRef="Escalation_SLABreach"/>
+    </bpmn:intermediateThrowEvent>
+    <bpmn:userTask id="Task_ReviewTicket" name="Review ticket">
+      <bpmn:incoming>Flow_Escalate_Review</bpmn:incoming>
+      <bpmn:outgoing>Flow_Review_AssignSupport</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_AssignAdditionalSupport" name="Assign additional support">
+      <bpmn:incoming>Flow_Review_AssignSupport</bpmn:incoming>
+      <bpmn:outgoing>Flow_AssignSupport_Continue</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_ContinueWork" name="Continue work until resolved">
+      <bpmn:incoming>Flow_AssignSupport_Continue</bpmn:incoming>
+      <bpmn:outgoing>Flow_EscalatedResolved</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_ResolutionPaths" name="Resolution completed" gatewayDirection="Converging">
+      <bpmn:incoming>Flow_ResolvedBeforeSLA</bpmn:incoming>
+      <bpmn:incoming>Flow_EscalatedResolved</bpmn:incoming>
+      <bpmn:outgoing>Flow_Merge_Document</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Task_DocumentFix" name="Document fix">
+      <bpmn:incoming>Flow_Merge_Document</bpmn:incoming>
+      <bpmn:outgoing>Flow_Document_Inform</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sendTask id="Task_InformUser" name="Inform user">
+      <bpmn:incoming>Flow_Document_Inform</bpmn:incoming>
+      <bpmn:outgoing>Flow_Inform_Close</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:userTask id="Task_CloseTicket" name="Close ticket">
+      <bpmn:incoming>Flow_Inform_Close</bpmn:incoming>
+      <bpmn:outgoing>Flow_Close_End</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="EndEvent_TicketClosed" name="Ticket closed">
+      <bpmn:incoming>Flow_Close_End</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_Investigate" sourceRef="StartEvent_TicketAssigned" targetRef="Task_InvestigateIssue"/>
+    <bpmn:sequenceFlow id="Flow_Investigate_Work" sourceRef="Task_InvestigateIssue" targetRef="Task_WorkOnResolution"/>
+    <bpmn:sequenceFlow id="Flow_ResolvedBeforeSLA" name="Resolved before SLA deadline" sourceRef="Task_WorkOnResolution" targetRef="Gateway_ResolutionPaths"/>
+    <bpmn:sequenceFlow id="Flow_SLA_Escalate" name="SLA breached" sourceRef="BoundaryEvent_SLADeadline" targetRef="ThrowEvent_Escalate"/>
+    <bpmn:sequenceFlow id="Flow_Escalate_Review" sourceRef="ThrowEvent_Escalate" targetRef="Task_ReviewTicket"/>
+    <bpmn:sequenceFlow id="Flow_Review_AssignSupport" sourceRef="Task_ReviewTicket" targetRef="Task_AssignAdditionalSupport"/>
+    <bpmn:sequenceFlow id="Flow_AssignSupport_Continue" sourceRef="Task_AssignAdditionalSupport" targetRef="Task_ContinueWork"/>
+    <bpmn:sequenceFlow id="Flow_EscalatedResolved" name="Issue resolved" sourceRef="Task_ContinueWork" targetRef="Gateway_ResolutionPaths"/>
+    <bpmn:sequenceFlow id="Flow_Merge_Document" sourceRef="Gateway_ResolutionPaths" targetRef="Task_DocumentFix"/>
+    <bpmn:sequenceFlow id="Flow_Document_Inform" sourceRef="Task_DocumentFix" targetRef="Task_InformUser"/>
+    <bpmn:sequenceFlow id="Flow_Inform_Close" sourceRef="Task_InformUser" targetRef="Task_CloseTicket"/>
+    <bpmn:sequenceFlow id="Flow_Close_End" sourceRef="Task_CloseTicket" targetRef="EndEvent_TicketClosed"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_SYN013">
+    <bpmndi:BPMNPlane id="BPMNPlane_SYN013" bpmnElement="Collaboration_SupportCenter">
+      <bpmndi:BPMNShape id="Shape_Participant" bpmnElement="Participant_ITSupportCenter" isHorizontal="true">
+        <dc:Bounds x="80" y="80" width="1720" height="420"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Lane_Agent" bpmnElement="Lane_SupportAgent" isHorizontal="true">
+        <dc:Bounds x="110" y="80" width="1690" height="250"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Lane_Lead" bpmnElement="Lane_TeamLead" isHorizontal="true">
+        <dc:Bounds x="110" y="330" width="1690" height="170"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Start" bpmnElement="StartEvent_TicketAssigned">
+        <dc:Bounds x="150" y="170" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Investigate" bpmnElement="Task_InvestigateIssue">
+        <dc:Bounds x="230" y="138" width="120" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Work" bpmnElement="Task_WorkOnResolution">
+        <dc:Bounds x="400" y="138" width="140" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Timer" bpmnElement="BoundaryEvent_SLADeadline">
+        <dc:Bounds x="462" y="200" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Escalate" bpmnElement="ThrowEvent_Escalate">
+        <dc:Bounds x="570" y="260" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Review" bpmnElement="Task_ReviewTicket">
+        <dc:Bounds x="650" y="375" width="120" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_AssignSupport" bpmnElement="Task_AssignAdditionalSupport">
+        <dc:Bounds x="820" y="375" width="140" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Continue" bpmnElement="Task_ContinueWork">
+        <dc:Bounds x="1010" y="220" width="150" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Merge" bpmnElement="Gateway_ResolutionPaths" isMarkerVisible="true">
+        <dc:Bounds x="1210" y="153" width="50" height="50"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Document" bpmnElement="Task_DocumentFix">
+        <dc:Bounds x="1310" y="138" width="120" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Inform" bpmnElement="Task_InformUser">
+        <dc:Bounds x="1470" y="138" width="110" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Close" bpmnElement="Task_CloseTicket">
+        <dc:Bounds x="1610" y="138" width="110" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_End" bpmnElement="EndEvent_TicketClosed">
+        <dc:Bounds x="1750" y="160" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_Start_Investigate" bpmnElement="Flow_Start_Investigate">
+        <di:waypoint x="186" y="188"/>
+        <di:waypoint x="230" y="178"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Investigate_Work" bpmnElement="Flow_Investigate_Work">
+        <di:waypoint x="350" y="178"/>
+        <di:waypoint x="400" y="178"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_ResolvedBeforeSLA" bpmnElement="Flow_ResolvedBeforeSLA">
+        <di:waypoint x="540" y="178"/>
+        <di:waypoint x="1210" y="178"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_SLA_Escalate" bpmnElement="Flow_SLA_Escalate">
+        <di:waypoint x="480" y="236"/>
+        <di:waypoint x="480" y="278"/>
+        <di:waypoint x="570" y="278"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Escalate_Review" bpmnElement="Flow_Escalate_Review">
+        <di:waypoint x="588" y="296"/>
+        <di:waypoint x="588" y="415"/>
+        <di:waypoint x="650" y="415"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Review_Assign" bpmnElement="Flow_Review_AssignSupport">
+        <di:waypoint x="770" y="415"/>
+        <di:waypoint x="820" y="415"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Assign_Continue" bpmnElement="Flow_AssignSupport_Continue">
+        <di:waypoint x="960" y="415"/>
+        <di:waypoint x="1085" y="415"/>
+        <di:waypoint x="1085" y="300"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_EscalatedResolved" bpmnElement="Flow_EscalatedResolved">
+        <di:waypoint x="1160" y="260"/>
+        <di:waypoint x="1235" y="260"/>
+        <di:waypoint x="1235" y="203"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Merge_Document" bpmnElement="Flow_Merge_Document">
+        <di:waypoint x="1260" y="178"/>
+        <di:waypoint x="1310" y="178"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Document_Inform" bpmnElement="Flow_Document_Inform">
+        <di:waypoint x="1430" y="178"/>
+        <di:waypoint x="1470" y="178"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Inform_Close" bpmnElement="Flow_Inform_Close">
+        <di:waypoint x="1580" y="178"/>
+        <di:waypoint x="1610" y="178"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Close_End" bpmnElement="Flow_Close_End">
+        <di:waypoint x="1720" y="178"/>
+        <di:waypoint x="1750" y="178"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

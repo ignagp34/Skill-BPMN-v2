@@ -1,0 +1,28 @@
+HR: Review Application
+HR: send Invitation
+Applicant: (receive Invitation)
+Applicant: Decide on Proposed Times
+Is a proposed time acceptable?
+Yes
+Applicant: send Selected Time
+HR: (receive Selected Time)
+HR: Confirm Interview
+HR: send Confirmation
+Applicant: (receive Confirmation)
+
+HR: Review Application
+HR: send Invitation
+Applicant: (receive Invitation)
+Applicant: Decide on Proposed Times
+Is a proposed time acceptable?
+No
+Applicant: send Request for Alternative Times
+HR: (receive Request for Alternative Times)
+HR: send Alternative Times
+Applicant: (receive Alternative Times)
+Applicant: Select Alternative Time
+Applicant: send Selected Time
+HR: (receive Selected Time)
+HR: Confirm Interview
+HR: send Confirmation
+Applicant: (receive Confirmation)

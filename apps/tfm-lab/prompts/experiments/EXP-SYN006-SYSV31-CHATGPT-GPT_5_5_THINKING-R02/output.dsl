@@ -1,0 +1,54 @@
+receive Credit card application
+Check provided information
+Is mandatory information complete?
+No
+request Missing information
+(finish Application stopped for now)
+
+receive Credit card application
+Check provided information
+Is mandatory information complete?
+Yes
+Perform credit check
+What is the credit result?
+Approved
+Create card account
+Order card
+send Approval message to customer
+
+receive Credit card application
+Check provided information
+Is mandatory information complete?
+Yes
+Perform credit check
+What is the credit result?
+Borderline
+Send application to supervisor
+Manual review application
+Does supervisor approve application?
+Yes
+Create card account
+Order card
+send Approval message to customer
+
+receive Credit card application
+Check provided information
+Is mandatory information complete?
+Yes
+Perform credit check
+What is the credit result?
+Borderline
+Send application to supervisor
+Manual review application
+Does supervisor approve application?
+No
+send Rejection message to customer
+
+receive Credit card application
+Check provided information
+Is mandatory information complete?
+Yes
+Perform credit check
+What is the credit result?
+Declined
+send Rejection message to customer

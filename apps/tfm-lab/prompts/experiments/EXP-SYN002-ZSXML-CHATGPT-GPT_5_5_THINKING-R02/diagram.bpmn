@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_SYN002" targetNamespace="http://example.com/bpmn/SYN002">
+  <bpmn:collaboration id="Collaboration_SYN002">
+    <bpmn:participant id="Participant_ITSupport" name="Internal IT Support Team" processRef="Process_SYN002"/>
+  </bpmn:collaboration>
+  <bpmn:process id="Process_SYN002" name="IT Password Reset Fulfillment" isExecutable="false">
+    <bpmn:startEvent id="StartEvent_RequestReceived" name="Password reset requested">
+      <bpmn:outgoing>Flow_Start_Receive</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_ReceiveRequest" name="Receive password reset request">
+      <bpmn:incoming>Flow_Start_Receive</bpmn:incoming>
+      <bpmn:outgoing>Flow_Receive_Verify</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_VerifyIdentity" name="Verify employee identity">
+      <bpmn:incoming>Flow_Receive_Verify</bpmn:incoming>
+      <bpmn:outgoing>Flow_Verify_Reset</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:serviceTask id="Task_ResetPassword" name="Reset password in directory system">
+      <bpmn:incoming>Flow_Verify_Reset</bpmn:incoming>
+      <bpmn:outgoing>Flow_Reset_Send</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sendTask id="Task_SendTemporaryPassword" name="Send temporary password to employee">
+      <bpmn:incoming>Flow_Reset_Send</bpmn:incoming>
+      <bpmn:outgoing>Flow_Send_Record</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:task id="Task_RecordAction" name="Record action in ticket">
+      <bpmn:incoming>Flow_Send_Record</bpmn:incoming>
+      <bpmn:outgoing>Flow_Record_Resolve</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_ResolveTicket" name="Resolve ticket">
+      <bpmn:incoming>Flow_Record_Resolve</bpmn:incoming>
+      <bpmn:outgoing>Flow_Resolve_End</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="EndEvent_TicketResolved" name="Ticket resolved">
+      <bpmn:incoming>Flow_Resolve_End</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_Receive" sourceRef="StartEvent_RequestReceived" targetRef="Task_ReceiveRequest"/>
+    <bpmn:sequenceFlow id="Flow_Receive_Verify" sourceRef="Task_ReceiveRequest" targetRef="Task_VerifyIdentity"/>
+    <bpmn:sequenceFlow id="Flow_Verify_Reset" sourceRef="Task_VerifyIdentity" targetRef="Task_ResetPassword"/>
+    <bpmn:sequenceFlow id="Flow_Reset_Send" sourceRef="Task_ResetPassword" targetRef="Task_SendTemporaryPassword"/>
+    <bpmn:sequenceFlow id="Flow_Send_Record" sourceRef="Task_SendTemporaryPassword" targetRef="Task_RecordAction"/>
+    <bpmn:sequenceFlow id="Flow_Record_Resolve" sourceRef="Task_RecordAction" targetRef="Task_ResolveTicket"/>
+    <bpmn:sequenceFlow id="Flow_Resolve_End" sourceRef="Task_ResolveTicket" targetRef="EndEvent_TicketResolved"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_SYN002">
+    <bpmndi:BPMNPlane id="BPMNPlane_SYN002" bpmnElement="Collaboration_SYN002">
+      <bpmndi:BPMNShape id="Shape_Participant_ITSupport" bpmnElement="Participant_ITSupport" isHorizontal="true">
+        <dc:Bounds x="100" y="100" width="1320" height="220"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_StartEvent_RequestReceived" bpmnElement="StartEvent_RequestReceived">
+        <dc:Bounds x="150" y="192" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_ReceiveRequest" bpmnElement="Task_ReceiveRequest">
+        <dc:Bounds x="230" y="170" width="140" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_VerifyIdentity" bpmnElement="Task_VerifyIdentity">
+        <dc:Bounds x="410" y="170" width="140" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_ResetPassword" bpmnElement="Task_ResetPassword">
+        <dc:Bounds x="590" y="170" width="140" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_SendTemporaryPassword" bpmnElement="Task_SendTemporaryPassword">
+        <dc:Bounds x="770" y="170" width="150" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_RecordAction" bpmnElement="Task_RecordAction">
+        <dc:Bounds x="960" y="170" width="140" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_ResolveTicket" bpmnElement="Task_ResolveTicket">
+        <dc:Bounds x="1140" y="170" width="140" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EndEvent_TicketResolved" bpmnElement="EndEvent_TicketResolved">
+        <dc:Bounds x="1325" y="192" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_Flow_Start_Receive" bpmnElement="Flow_Start_Receive">
+        <di:waypoint x="186" y="210"/>
+        <di:waypoint x="230" y="210"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Receive_Verify" bpmnElement="Flow_Receive_Verify">
+        <di:waypoint x="370" y="210"/>
+        <di:waypoint x="410" y="210"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Verify_Reset" bpmnElement="Flow_Verify_Reset">
+        <di:waypoint x="550" y="210"/>
+        <di:waypoint x="590" y="210"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Reset_Send" bpmnElement="Flow_Reset_Send">
+        <di:waypoint x="730" y="210"/>
+        <di:waypoint x="770" y="210"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Send_Record" bpmnElement="Flow_Send_Record">
+        <di:waypoint x="920" y="210"/>
+        <di:waypoint x="960" y="210"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Record_Resolve" bpmnElement="Flow_Record_Resolve">
+        <di:waypoint x="1100" y="210"/>
+        <di:waypoint x="1140" y="210"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Resolve_End" bpmnElement="Flow_Resolve_End">
+        <di:waypoint x="1280" y="210"/>
+        <di:waypoint x="1325" y="210"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

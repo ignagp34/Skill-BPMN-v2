@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bpmn-eval"
+version = "0.1.0"
+description = "Automated BPMN diagram evaluation pipeline for comparing LLM generation approaches"
+requires-python = ">=3.11"
+dependencies = [
+    "lxml>=5.0",
+    "tiktoken>=0.7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov",
+    "mypy",
+    "ruff",
+    "lxml-stubs",
+]
+# Analysis-only (Phase B notebook): figures, tables, stats. Kept out of the
+# runtime dep set so the metric engine still depends only on lxml.
+viz = [
+    "pandas>=2.0",
+    "matplotlib>=3.7",
+    "seaborn>=0.13",
+    "scipy>=1.11",
+    "jupyterlab",
+]
+
+[project.scripts]
+bpmn-eval = "bpmn_eval.cli:main"
+bpmn-eval-experiments = "bpmn_eval.cli_experiments:main"
+bpmn-eval-validate-raw = "bpmn_eval.cli_validate_raw:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+packages = ["bpmn_eval"]
+mypy_path = "src"
+
+[tool.ruff]
+src = ["src", "tests"]
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]

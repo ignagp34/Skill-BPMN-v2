@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:tns="http://example.com/bpmn/syn010"
+                  targetNamespace="http://example.com/bpmn/syn010"
+                  id="Definitions_SYN010">
+  <bpmn:message id="Message_PurchaseOrder" name="Purchase Order"/>
+  <bpmn:message id="Message_OrderConfirmation" name="Order Confirmation"/>
+  <bpmn:message id="Message_RevisedOffer" name="Revised Offer"/>
+  <bpmn:message id="Message_Acceptance" name="Revised Offer Acceptance"/>
+  <bpmn:message id="Message_Rejection" name="Revised Offer Rejection"/>
+  <bpmn:message id="Message_FinalConfirmation" name="Final Confirmation"/>
+
+  <bpmn:collaboration id="Collaboration_SYN010">
+    <bpmn:participant id="Participant_Buyer" name="Buyer" processRef="Process_Buyer"/>
+    <bpmn:participant id="Participant_Supplier" name="Supplier" processRef="Process_Supplier"/>
+    <bpmn:messageFlow id="MessageFlow_PurchaseOrder" name="Purchase order" sourceRef="Buyer_SendPurchaseOrder" targetRef="Supplier_ReceiveOrder"/>
+    <bpmn:messageFlow id="MessageFlow_OrderConfirmation" name="Order confirmation" sourceRef="Supplier_SendOrderConfirmation" targetRef="Buyer_ReceiveOrderConfirmation"/>
+    <bpmn:messageFlow id="MessageFlow_RevisedOffer" name="Revised offer" sourceRef="Supplier_SendRevisedOffer" targetRef="Buyer_ReceiveRevisedOffer"/>
+    <bpmn:messageFlow id="MessageFlow_Acceptance" name="Acceptance" sourceRef="Buyer_SendAcceptance" targetRef="Supplier_ReceiveAcceptance"/>
+    <bpmn:messageFlow id="MessageFlow_Rejection" name="Rejection" sourceRef="Buyer_SendRejection" targetRef="Supplier_ReceiveRejection"/>
+    <bpmn:messageFlow id="MessageFlow_FinalConfirmation" name="Final confirmation" sourceRef="Supplier_SendFinalConfirmation" targetRef="Buyer_ReceiveFinalConfirmation"/>
+  </bpmn:collaboration>
+
+  <bpmn:process id="Process_Buyer" name="Buyer purchase confirmation" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_Buyer">
+      <bpmn:lane id="Lane_Buyer" name="Buyer">
+        <bpmn:flowNodeRef>Buyer_Start</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Buyer_SendPurchaseOrder</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Buyer_WaitForSupplierResponse</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Buyer_ReceiveOrderConfirmation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Buyer_ReceiveRevisedOffer</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Buyer_ReviewRevisedOffer</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Buyer_AcceptRevisedOffer</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Buyer_SendAcceptance</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Buyer_ReceiveFinalConfirmation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Buyer_SendRejection</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Buyer_EndConfirmed</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Buyer_EndRejected</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+
+    <bpmn:startEvent id="Buyer_Start" name="Purchase required"/>
+    <bpmn:sendTask id="Buyer_SendPurchaseOrder" name="Send purchase order" messageRef="Message_PurchaseOrder"/>
+    <bpmn:eventBasedGateway id="Buyer_WaitForSupplierResponse" name="Await supplier response"/>
+    <bpmn:receiveTask id="Buyer_ReceiveOrderConfirmation" name="Receive order confirmation" messageRef="Message_OrderConfirmation"/>
+    <bpmn:receiveTask id="Buyer_ReceiveRevisedOffer" name="Receive revised offer" messageRef="Message_RevisedOffer"/>
+    <bpmn:userTask id="Buyer_ReviewRevisedOffer" name="Review revised offer"/>
+    <bpmn:exclusiveGateway id="Buyer_AcceptRevisedOffer" name="Accept revised offer?" default="Buyer_Flow_Reject"/>
+    <bpmn:sendTask id="Buyer_SendAcceptance" name="Send acceptance" messageRef="Message_Acceptance"/>
+    <bpmn:receiveTask id="Buyer_ReceiveFinalConfirmation" name="Receive final confirmation" messageRef="Message_FinalConfirmation"/>
+    <bpmn:sendTask id="Buyer_SendRejection" name="Send rejection" messageRef="Message_Rejection"/>
+    <bpmn:endEvent id="Buyer_EndConfirmed" name="Order confirmed"/>
+    <bpmn:endEvent id="Buyer_EndRejected" name="Order rejected"/>
+
+    <bpmn:sequenceFlow id="Buyer_Flow_StartToSend" sourceRef="Buyer_Start" targetRef="Buyer_SendPurchaseOrder"/>
+    <bpmn:sequenceFlow id="Buyer_Flow_SendToWait" sourceRef="Buyer_SendPurchaseOrder" targetRef="Buyer_WaitForSupplierResponse"/>
+    <bpmn:sequenceFlow id="Buyer_Flow_WaitToConfirmation" sourceRef="Buyer_WaitForSupplierResponse" targetRef="Buyer_ReceiveOrderConfirmation"/>
+    <bpmn:sequenceFlow id="Buyer_Flow_WaitToRevised" sourceRef="Buyer_WaitForSupplierResponse" targetRef="Buyer_ReceiveRevisedOffer"/>
+    <bpmn:sequenceFlow id="Buyer_Flow_ConfirmationToEnd" sourceRef="Buyer_ReceiveOrderConfirmation" targetRef="Buyer_EndConfirmed"/>
+    <bpmn:sequenceFlow id="Buyer_Flow_RevisedToReview" sourceRef="Buyer_ReceiveRevisedOffer" targetRef="Buyer_ReviewRevisedOffer"/>
+    <bpmn:sequenceFlow id="Buyer_Flow_ReviewToDecision" sourceRef="Buyer_ReviewRevisedOffer" targetRef="Buyer_AcceptRevisedOffer"/>
+    <bpmn:sequenceFlow id="Buyer_Flow_Accept" name="Yes" sourceRef="Buyer_AcceptRevisedOffer" targetRef="Buyer_SendAcceptance">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[accepted]]></bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Buyer_Flow_Reject" name="No" sourceRef="Buyer_AcceptRevisedOffer" targetRef="Buyer_SendRejection"/>
+    <bpmn:sequenceFlow id="Buyer_Flow_AcceptanceToFinal" sourceRef="Buyer_SendAcceptance" targetRef="Buyer_ReceiveFinalConfirmation"/>
+    <bpmn:sequenceFlow id="Buyer_Flow_FinalToEnd" sourceRef="Buyer_ReceiveFinalConfirmation" targetRef="Buyer_EndConfirmed"/>
+    <bpmn:sequenceFlow id="Buyer_Flow_RejectionToEnd" sourceRef="Buyer_SendRejection" targetRef="Buyer_EndRejected"/>
+  </bpmn:process>
+
+  <bpmn:process id="Process_Supplier" name="Supplier purchase confirmation" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_Supplier">
+      <bpmn:lane id="Lane_Supplier" name="Supplier">
+        <bpmn:flowNodeRef>Supplier_Start</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Supplier_ReceiveOrder</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Supplier_CheckStock</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Supplier_AllItemsAvailable</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Supplier_SendOrderConfirmation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Supplier_SendRevisedOffer</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Supplier_WaitForBuyerDecision</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Supplier_ReceiveAcceptance</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Supplier_ReceiveRejection</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Supplier_SendFinalConfirmation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Supplier_CloseOrderRequest</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Supplier_EndConfirmed</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Supplier_EndRejected</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+
+    <bpmn:startEvent id="Supplier_Start" name="Await purchase order"/>
+    <bpmn:receiveTask id="Supplier_ReceiveOrder" name="Receive purchase order" messageRef="Message_PurchaseOrder"/>
+    <bpmn:serviceTask id="Supplier_CheckStock" name="Check stock availability"/>
+    <bpmn:exclusiveGateway id="Supplier_AllItemsAvailable" name="All requested items available?" default="Supplier_Flow_Unavailable"/>
+    <bpmn:sendTask id="Supplier_SendOrderConfirmation" name="Send order confirmation" messageRef="Message_OrderConfirmation"/>
+    <bpmn:sendTask id="Supplier_SendRevisedOffer" name="Send revised offer" messageRef="Message_RevisedOffer"/>
+    <bpmn:eventBasedGateway id="Supplier_WaitForBuyerDecision" name="Await buyer decision"/>
+    <bpmn:receiveTask id="Supplier_ReceiveAcceptance" name="Receive acceptance" messageRef="Message_Acceptance"/>
+    <bpmn:receiveTask id="Supplier_ReceiveRejection" name="Receive rejection" messageRef="Message_Rejection"/>
+    <bpmn:sendTask id="Supplier_SendFinalConfirmation" name="Send final confirmation" messageRef="Message_FinalConfirmation"/>
+    <bpmn:task id="Supplier_CloseOrderRequest" name="Close order request"/>
+    <bpmn:endEvent id="Supplier_EndConfirmed" name="Order confirmed"/>
+    <bpmn:endEvent id="Supplier_EndRejected" name="Order rejected"/>
+
+    <bpmn:sequenceFlow id="Supplier_Flow_StartToReceive" sourceRef="Supplier_Start" targetRef="Supplier_ReceiveOrder"/>
+    <bpmn:sequenceFlow id="Supplier_Flow_ReceiveToCheck" sourceRef="Supplier_ReceiveOrder" targetRef="Supplier_CheckStock"/>
+    <bpmn:sequenceFlow id="Supplier_Flow_CheckToAvailability" sourceRef="Supplier_CheckStock" targetRef="Supplier_AllItemsAvailable"/>
+    <bpmn:sequenceFlow id="Supplier_Flow_Available" name="Yes" sourceRef="Supplier_AllItemsAvailable" targetRef="Supplier_SendOrderConfirmation">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[allItemsAvailable]]></bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Supplier_Flow_Unavailable" name="No" sourceRef="Supplier_AllItemsAvailable" targetRef="Supplier_SendRevisedOffer"/>
+    <bpmn:sequenceFlow id="Supplier_Flow_ConfirmationToEnd" sourceRef="Supplier_SendOrderConfirmation" targetRef="Supplier_EndConfirmed"/>
+    <bpmn:sequenceFlow id="Supplier_Flow_RevisedToWait" sourceRef="Supplier_SendRevisedOffer" targetRef="Supplier_WaitForBuyerDecision"/>
+    <bpmn:sequenceFlow id="Supplier_Flow_WaitToAcceptance" sourceRef="Supplier_WaitForBuyerDecision" targetRef="Supplier_ReceiveAcceptance"/>
+    <bpmn:sequenceFlow id="Supplier_Flow_WaitToRejection" sourceRef="Supplier_WaitForBuyerDecision" targetRef="Supplier_ReceiveRejection"/>
+    <bpmn:sequenceFlow id="Supplier_Flow_AcceptanceToFinal" sourceRef="Supplier_ReceiveAcceptance" targetRef="Supplier_SendFinalConfirmation"/>
+    <bpmn:sequenceFlow id="Supplier_Flow_FinalToEnd" sourceRef="Supplier_SendFinalConfirmation" targetRef="Supplier_EndConfirmed"/>
+    <bpmn:sequenceFlow id="Supplier_Flow_RejectionToClose" sourceRef="Supplier_ReceiveRejection" targetRef="Supplier_CloseOrderRequest"/>
+    <bpmn:sequenceFlow id="Supplier_Flow_CloseToEnd" sourceRef="Supplier_CloseOrderRequest" targetRef="Supplier_EndRejected"/>
+  </bpmn:process>
+</bpmn:definitions>

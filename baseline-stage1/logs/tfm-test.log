@@ -1,0 +1,10 @@
+$ vitest run
+
+ RUN  v4.1.7 C:/Repositorios/Skill BPMN v2/BPMN-DSL-Monorepo/apps/tfm-lab
+
+
+ Test Files  5 passed (5)
+      Tests  37 passed (37)
+   Start at  18:12:56
+   Duration  1.86s (transform 347ms, setup 0ms, import 827ms, tests 116ms, environment 2.99s)
+

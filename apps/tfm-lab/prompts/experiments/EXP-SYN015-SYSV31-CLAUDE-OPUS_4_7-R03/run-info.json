@@ -1,0 +1,33 @@
+{
+  "experimentId": "EXP-SYN015-SYSV31-CLAUDE-OPUS_4_7-R03",
+  "processId": "SYN015",
+  "processFilename": "SYN015_software_procurement_stress_test.md",
+  "processTitle": "Software procurement stress test",
+  "processSource": "synthetic",
+  "difficulty": "stress",
+  "expectedFeatures": [
+    "multiple_lanes",
+    "xor_gateway",
+    "parallel_gateway",
+    "message_flow",
+    "data_objects",
+    "timer_or_exception_event"
+  ],
+  "systemPromptVersion": "SYSV31",
+  "provider": "CLAUDE",
+  "modelLabel": "OPUS_4_7",
+  "executionSetting": "Claude Opus 4.7 (Agent SDK, fresh subagent context)",
+  "reasoningMode": "Adaptive",
+  "runNumber": 3,
+  "interfaceType": "agent",
+  "status": "raw_output_generated",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-05-23T16:49:27Z",
+  "notes": "",
+  "inputSystemTokens": 10916,
+  "inputProcessTokens": 480,
+  "inputTokens": 11396,
+  "outputTokens": 483,
+  "totalTokens": 11879,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

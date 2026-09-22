@@ -1,0 +1,31 @@
+{
+  "experimentId": "EXP-SYN013-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+  "processId": "SYN013",
+  "processFilename": "SYN013_support_ticket_sla_breach.md",
+  "processTitle": "Support ticket SLA breach",
+  "processSource": "synthetic",
+  "difficulty": "hard",
+  "expectedFeatures": [
+    "timer_event",
+    "escalation",
+    "exception_flow",
+    "single_pool"
+  ],
+  "systemPromptVersion": "SYSV5",
+  "provider": "GEMINI",
+  "modelLabel": "GEMINI_3_5_FLASH_THINKING",
+  "executionSetting": "Gemini 3.5 Flash (High reasoning, Agent SDK, fresh subagent context)",
+  "reasoningMode": "High",
+  "runNumber": 3,
+  "interfaceType": "agent",
+  "status": "raw_output_generated",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-06-18T19:56:11Z",
+  "notes": "",
+  "inputSystemTokens": 14890,
+  "inputProcessTokens": 266,
+  "inputTokens": 15156,
+  "outputTokens": 110,
+  "totalTokens": 15266,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

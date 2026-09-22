@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                  id="Definitions_SYN013"
+                  targetNamespace="http://example.com/bpmn/syn013">
+  <bpmn:escalation id="Escalation_SLABreach" name="SLA Breach" escalationCode="SLA_BREACH"/>
+  <bpmn:collaboration id="Collaboration_SYN013">
+    <bpmn:participant id="Participant_ITSupportCenter" name="IT Support Center" processRef="Process_SYN013"/>
+  </bpmn:collaboration>
+  <bpmn:process id="Process_SYN013" name="Support Ticket SLA Breach" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_SYN013">
+      <bpmn:lane id="Lane_SupportAgent" name="Support Agent">
+        <bpmn:flowNodeRef>StartEvent_TicketAssigned</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_InvestigateIssue</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>SubProcess_WorkOnResolution</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>BoundaryEvent_SLADeadline</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_DocumentFix</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_InformUser</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_CloseTicket</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_TicketClosed</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_TeamLead" name="Team Lead">
+        <bpmn:flowNodeRef>ThrowEvent_Escalate</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReviewTicket</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_AssignAdditionalSupport</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ContinueTeamWork</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_TicketAssigned" name="High-priority ticket assigned">
+      <bpmn:outgoing>Flow_Start_Investigate</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="Task_InvestigateIssue" name="Investigate issue">
+      <bpmn:incoming>Flow_Start_Investigate</bpmn:incoming>
+      <bpmn:outgoing>Flow_Investigate_Work</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:subProcess id="SubProcess_WorkOnResolution" name="Work on resolution">
+      <bpmn:incoming>Flow_Investigate_Work</bpmn:incoming>
+      <bpmn:outgoing>Flow_Resolved_Document</bpmn:outgoing>
+      <bpmn:startEvent id="StartEvent_ResolutionWork">
+        <bpmn:outgoing>Flow_Internal_Start_Work</bpmn:outgoing>
+      </bpmn:startEvent>
+      <bpmn:userTask id="Task_ResolveIssue" name="Resolve issue">
+        <bpmn:incoming>Flow_Internal_Start_Work</bpmn:incoming>
+        <bpmn:outgoing>Flow_Internal_Work_End</bpmn:outgoing>
+      </bpmn:userTask>
+      <bpmn:endEvent id="EndEvent_IssueResolved" name="Issue resolved">
+        <bpmn:incoming>Flow_Internal_Work_End</bpmn:incoming>
+      </bpmn:endEvent>
+      <bpmn:sequenceFlow id="Flow_Internal_Start_Work" sourceRef="StartEvent_ResolutionWork" targetRef="Task_ResolveIssue"/>
+      <bpmn:sequenceFlow id="Flow_Internal_Work_End" sourceRef="Task_ResolveIssue" targetRef="EndEvent_IssueResolved"/>
+    </bpmn:subProcess>
+    <bpmn:boundaryEvent id="BoundaryEvent_SLADeadline" name="SLA deadline reached" attachedToRef="SubProcess_WorkOnResolution" cancelActivity="true">
+      <bpmn:outgoing>Flow_Deadline_Escalate</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_SLADeadline">
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT4H</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:boundaryEvent>
+    <bpmn:intermediateThrowEvent id="ThrowEvent_Escalate" name="Escalate to team lead">
+      <bpmn:incoming>Flow_Deadline_Escalate</bpmn:incoming>
+      <bpmn:outgoing>Flow_Escalate_Review</bpmn:outgoing>
+      <bpmn:escalationEventDefinition id="EscalationEventDefinition_SLABreach" escalationRef="Escalation_SLABreach"/>
+    </bpmn:intermediateThrowEvent>
+    <bpmn:userTask id="Task_ReviewTicket" name="Review ticket">
+      <bpmn:incoming>Flow_Escalate_Review</bpmn:incoming>
+      <bpmn:outgoing>Flow_Review_AssignSupport</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_AssignAdditionalSupport" name="Assign additional support">
+      <bpmn:incoming>Flow_Review_AssignSupport</bpmn:incoming>
+      <bpmn:outgoing>Flow_AssignSupport_ContinueWork</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_ContinueTeamWork" name="Continue work until issue is resolved">
+      <bpmn:incoming>Flow_AssignSupport_ContinueWork</bpmn:incoming>
+      <bpmn:outgoing>Flow_TeamResolved_Document</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_DocumentFix" name="Document the fix">
+      <bpmn:incoming>Flow_Resolved_Document</bpmn:incoming>
+      <bpmn:incoming>Flow_TeamResolved_Document</bpmn:incoming>
+      <bpmn:outgoing>Flow_Document_Inform</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sendTask id="Task_InformUser" name="Inform the user">
+      <bpmn:incoming>Flow_Document_Inform</bpmn:incoming>
+      <bpmn:outgoing>Flow_Inform_Close</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:userTask id="Task_CloseTicket" name="Close the ticket">
+      <bpmn:incoming>Flow_Inform_Close</bpmn:incoming>
+      <bpmn:outgoing>Flow_Close_End</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="EndEvent_TicketClosed" name="Ticket closed">
+      <bpmn:incoming>Flow_Close_End</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_Investigate" sourceRef="StartEvent_TicketAssigned" targetRef="Task_InvestigateIssue"/>
+    <bpmn:sequenceFlow id="Flow_Investigate_Work" sourceRef="Task_InvestigateIssue" targetRef="SubProcess_WorkOnResolution"/>
+    <bpmn:sequenceFlow id="Flow_Resolved_Document" name="Resolved before SLA deadline" sourceRef="SubProcess_WorkOnResolution" targetRef="Task_DocumentFix"/>
+    <bpmn:sequenceFlow id="Flow_Deadline_Escalate" name="SLA deadline reached" sourceRef="BoundaryEvent_SLADeadline" targetRef="ThrowEvent_Escalate"/>
+    <bpmn:sequenceFlow id="Flow_Escalate_Review" sourceRef="ThrowEvent_Escalate" targetRef="Task_ReviewTicket"/>
+    <bpmn:sequenceFlow id="Flow_Review_AssignSupport" sourceRef="Task_ReviewTicket" targetRef="Task_AssignAdditionalSupport"/>
+    <bpmn:sequenceFlow id="Flow_AssignSupport_ContinueWork" sourceRef="Task_AssignAdditionalSupport" targetRef="Task_ContinueTeamWork"/>
+    <bpmn:sequenceFlow id="Flow_TeamResolved_Document" name="Issue resolved" sourceRef="Task_ContinueTeamWork" targetRef="Task_DocumentFix"/>
+    <bpmn:sequenceFlow id="Flow_Document_Inform" sourceRef="Task_DocumentFix" targetRef="Task_InformUser"/>
+    <bpmn:sequenceFlow id="Flow_Inform_Close" sourceRef="Task_InformUser" targetRef="Task_CloseTicket"/>
+    <bpmn:sequenceFlow id="Flow_Close_End" sourceRef="Task_CloseTicket" targetRef="EndEvent_TicketClosed"/>
+  </bpmn:process>
+</bpmn:definitions>

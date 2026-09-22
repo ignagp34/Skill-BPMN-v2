@@ -1,0 +1,153 @@
+(start Software purchase requested)
+[Software Request]
+[Business Justification]
+[Estimated Budget]
+Requester: user Submit request
+Manager: user Review request
+Is request approved?
+No
+Requester: user Get rejection notification
+(finish Request rejected by manager)
+
+(start Software purchase requested)
+[Software Request]
+[Business Justification]
+[Estimated Budget]
+Requester: user Submit request
+Manager: user Review request
+Is request approved?
+Yes
+Procurement: service Start sourcing process
+Procurement: (send Request for Quotation)
+Procurement: (receive Quote)
+Procurement: user Review quote and check budget
+Is quote within budget?
+No
+Procurement: user Ask requester to reduce scope
+Requester: user Decide on scope reduction
+Reduce scope?
+No
+Procurement: (send Opportunity Closed)
+(finish Procurement cancelled)
+
+(start Software purchase requested)
+[Software Request]
+[Business Justification]
+[Estimated Budget]
+Requester: user Submit request
+Manager: user Review request
+Is request approved?
+Yes
+Procurement: service Start sourcing process
+Procurement: (send Request for Quotation)
+Procurement: (receive Quote)
+Procurement: user Review quote and check budget
+Is quote within budget?
+No
+Procurement: user Ask requester to reduce scope
+Requester: user Decide on scope reduction
+Reduce scope?
+Yes
+Procurement: (send Revised Quote Request)
+Procurement: (receive Revised Quote)
+Procurement: user Review quote and check budget
+
+(start Software purchase requested)
+[Software Request]
+[Business Justification]
+[Estimated Budget]
+Requester: user Submit request
+Manager: user Review request
+Is request approved?
+Yes
+Procurement: service Start sourcing process
+Procurement: (send Request for Quotation)
+Procurement: (receive Quote)
+Procurement: user Review quote and check budget
+Is quote within budget?
+Yes
+IT Security: user Review supplier security questionnaire|Finance: user Confirm budget availability
+...
+
+...
+IT Security: user Review supplier security questionnaire
+Is critical risk found?
+No
+IT Security: Complete security review
+...
+
+...
+IT Security: user Review supplier security questionnaire
+Is critical risk found?
+Yes
+Procurement: user Inform requester of security rejection
+Procurement: (send Security Rejection Notification)
+(finish Rejected for security reasons)
+
+...
+Finance: user Confirm budget availability
+Finance: Complete budget check
+...
+
+...
+Finance: user Confirm budget availability
+(deadline 5 business days)
+Procurement: user Notify requester of expiration
+(finish Request expired)
+
+...
+IT Security: Complete security review|Finance: Complete budget check
+//Contract cannot be signed until both reviews are complete
+Procurement: user Prepare purchase recommendation
+Manager: user Give final approval
+Procurement: (send Purchase Order)
+Procurement: (receive Order Confirmation)
+Procurement: service Record signed documents
+[Signed Documents]
+[db Contract Repository]
+Procurement: user Inform requester of approval
+(finish Software purchase approved and ordered)
+
+Supplier: (receive Request for Quotation)
+Supplier: user Prepare quote
+Supplier: (send Quote)
+Supplier: (receive Purchase Order)
+Supplier: send Send order confirmation
+Supplier: (send Order Confirmation)
+(finish Order confirmed by supplier)
+
+Supplier: (receive Request for Quotation)
+Supplier: user Prepare quote
+Supplier: (send Quote)
+Supplier: (receive Opportunity Closed)
+(finish Opportunity closed for supplier)
+
+Supplier: (receive Request for Quotation)
+Supplier: user Prepare quote
+Supplier: (send Quote)
+Supplier: (receive Revised Quote Request)
+Supplier: user Prepare revised quote
+Supplier: (send Revised Quote)
+Supplier: (receive Purchase Order)
+Supplier: send Send order confirmation
+Supplier: (send Order Confirmation)
+(finish Order confirmed by supplier)
+
+Supplier: (receive Request for Quotation)
+Supplier: user Prepare quote
+Supplier: (send Quote)
+Supplier: (receive Revised Quote Request)
+Supplier: user Prepare revised quote
+Supplier: (send Revised Quote)
+Supplier: (receive Opportunity Closed)
+(finish Opportunity closed for supplier)
+
+Supplier: (receive Request for Quotation)
+Supplier: user Prepare quote
+Supplier: (send Quote)
+Supplier: (receive Security Rejection Notification)
+(finish Security rejection received by supplier)
+
+== pools ==
+Company -> Requester; Manager; Procurement; IT Security; Finance
+Supplier Pool -> Supplier

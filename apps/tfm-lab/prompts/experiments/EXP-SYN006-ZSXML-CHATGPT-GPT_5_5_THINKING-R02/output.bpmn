@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_SYN006" targetNamespace="http://example.com/bpmn/SYN006">
+  <bpmn:process id="Process_SYN006" name="Bank card application outcome" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_SYN006">
+      <bpmn:lane id="Lane_BankingOfficer" name="Banking Officer">
+        <bpmn:flowNodeRef>StartEvent_ApplicationReceived</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReceiveApplication</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_CheckInformation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_InformationComplete</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_RequestMissingInformation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_ApplicationPaused</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PerformCreditCheck</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_CreditResult</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_ApprovalMerge</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_CreateCardAccount</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_OrderCard</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendApprovalMessage</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_RejectionMerge</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendRejectionMessage</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_NotificationMerge</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_CustomerNotified</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Supervisor" name="Supervisor">
+        <bpmn:flowNodeRef>Task_ManualReview</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_ManualReviewOutcome</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_ApplicationReceived" name="Application received">
+      <bpmn:outgoing>Flow_01</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:receiveTask id="Task_ReceiveApplication" name="Receive application">
+      <bpmn:incoming>Flow_01</bpmn:incoming>
+      <bpmn:outgoing>Flow_02</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:userTask id="Task_CheckInformation" name="Check provided information">
+      <bpmn:incoming>Flow_02</bpmn:incoming>
+      <bpmn:outgoing>Flow_03</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_InformationComplete" name="Information complete?" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_03</bpmn:incoming>
+      <bpmn:outgoing>Flow_04</bpmn:outgoing>
+      <bpmn:outgoing>Flow_06</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sendTask id="Task_RequestMissingInformation" name="Ask customer to submit missing information">
+      <bpmn:incoming>Flow_04</bpmn:incoming>
+      <bpmn:outgoing>Flow_05</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:endEvent id="EndEvent_ApplicationPaused" name="Application stopped for now">
+      <bpmn:incoming>Flow_05</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="Task_PerformCreditCheck" name="Perform credit check">
+      <bpmn:incoming>Flow_06</bpmn:incoming>
+      <bpmn:outgoing>Flow_07</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="Gateway_CreditResult" name="Credit result" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_07</bpmn:incoming>
+      <bpmn:outgoing>Flow_08</bpmn:outgoing>
+      <bpmn:outgoing>Flow_09</bpmn:outgoing>
+      <bpmn:outgoing>Flow_12</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Task_ManualReview" name="Manually review application">
+      <bpmn:incoming>Flow_09</bpmn:incoming>
+      <bpmn:outgoing>Flow_10</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_ManualReviewOutcome" name="Manual review outcome" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_10</bpmn:incoming>
+      <bpmn:outgoing>Flow_11</bpmn:outgoing>
+      <bpmn:outgoing>Flow_13</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:exclusiveGateway id="Gateway_ApprovalMerge" name="Approved" gatewayDirection="Converging">
+      <bpmn:incoming>Flow_08</bpmn:incoming>
+      <bpmn:incoming>Flow_11</bpmn:incoming>
+      <bpmn:outgoing>Flow_14</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Task_CreateCardAccount" name="Create card account">
+      <bpmn:incoming>Flow_14</bpmn:incoming>
+      <bpmn:outgoing>Flow_15</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="Task_OrderCard" name="Order card">
+      <bpmn:incoming>Flow_15</bpmn:incoming>
+      <bpmn:outgoing>Flow_16</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sendTask id="Task_SendApprovalMessage" name="Send approval message to customer">
+      <bpmn:incoming>Flow_16</bpmn:incoming>
+      <bpmn:outgoing>Flow_17</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:exclusiveGateway id="Gateway_RejectionMerge" name="Rejected" gatewayDirection="Converging">
+      <bpmn:incoming>Flow_12</bpmn:incoming>
+      <bpmn:incoming>Flow_13</bpmn:incoming>
+      <bpmn:outgoing>Flow_18</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sendTask id="Task_SendRejectionMessage" name="Send rejection message to customer">
+      <bpmn:incoming>Flow_18</bpmn:incoming>
+      <bpmn:outgoing>Flow_19</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:exclusiveGateway id="Gateway_NotificationMerge" name="Customer notified" gatewayDirection="Converging">
+      <bpmn:incoming>Flow_17</bpmn:incoming>
+      <bpmn:incoming>Flow_19</bpmn:incoming>
+      <bpmn:outgoing>Flow_20</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="EndEvent_CustomerNotified" name="Customer notified">
+      <bpmn:incoming>Flow_20</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_01" sourceRef="StartEvent_ApplicationReceived" targetRef="Task_ReceiveApplication"/>
+    <bpmn:sequenceFlow id="Flow_02" sourceRef="Task_ReceiveApplication" targetRef="Task_CheckInformation"/>
+    <bpmn:sequenceFlow id="Flow_03" sourceRef="Task_CheckInformation" targetRef="Gateway_InformationComplete"/>
+    <bpmn:sequenceFlow id="Flow_04" name="Missing information" sourceRef="Gateway_InformationComplete" targetRef="Task_RequestMissingInformation">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[informationComplete = false]]></bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_05" sourceRef="Task_RequestMissingInformation" targetRef="EndEvent_ApplicationPaused"/>
+    <bpmn:sequenceFlow id="Flow_06" name="Complete" sourceRef="Gateway_InformationComplete" targetRef="Task_PerformCreditCheck">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[informationComplete = true]]></bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_07" sourceRef="Task_PerformCreditCheck" targetRef="Gateway_CreditResult"/>
+    <bpmn:sequenceFlow id="Flow_08" name="Approved" sourceRef="Gateway_CreditResult" targetRef="Gateway_ApprovalMerge">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[creditResult = "approved"]]></bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_09" name="Borderline" sourceRef="Gateway_CreditResult" targetRef="Task_ManualReview">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[creditResult = "borderline"]]></bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_10" sourceRef="Task_ManualReview" targetRef="Gateway_ManualReviewOutcome"/>
+    <bpmn:sequenceFlow id="Flow_11" name="Approved" sourceRef="Gateway_ManualReviewOutcome" targetRef="Gateway_ApprovalMerge">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[manualReviewOutcome = "approved"]]></bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_12" name="Declined" sourceRef="Gateway_CreditResult" targetRef="Gateway_RejectionMerge">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[creditResult = "declined"]]></bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_13" name="Rejected" sourceRef="Gateway_ManualReviewOutcome" targetRef="Gateway_RejectionMerge">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[manualReviewOutcome = "rejected"]]></bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_14" sourceRef="Gateway_ApprovalMerge" targetRef="Task_CreateCardAccount"/>
+    <bpmn:sequenceFlow id="Flow_15" sourceRef="Task_CreateCardAccount" targetRef="Task_OrderCard"/>
+    <bpmn:sequenceFlow id="Flow_16" sourceRef="Task_OrderCard" targetRef="Task_SendApprovalMessage"/>
+    <bpmn:sequenceFlow id="Flow_17" sourceRef="Task_SendApprovalMessage" targetRef="Gateway_NotificationMerge"/>
+    <bpmn:sequenceFlow id="Flow_18" sourceRef="Gateway_RejectionMerge" targetRef="Task_SendRejectionMessage"/>
+    <bpmn:sequenceFlow id="Flow_19" sourceRef="Task_SendRejectionMessage" targetRef="Gateway_NotificationMerge"/>
+    <bpmn:sequenceFlow id="Flow_20" sourceRef="Gateway_NotificationMerge" targetRef="EndEvent_CustomerNotified"/>
+  </bpmn:process>
+</bpmn:definitions>

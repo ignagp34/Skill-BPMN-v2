@@ -1,0 +1,32 @@
+{
+  "name": "tfm-lab",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "TFM research app — live DSL editor + experiments tab for the BPMN orthogonal renderer.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "inspect": "vite-node scripts/inspect.ts --",
+    "emit": "vite-node scripts/emit.ts --",
+    "render:experiments": "tsx scripts/render-experiments.mts",
+    "ingest:zero-shot-xml": "tsx scripts/ingest-zero-shot-xml.mts"
+  },
+  "dependencies": {
+    "@text-to-bpmn/core": "workspace:*",
+    "bpmn-auto-layout": "^0.5.0",
+    "bpmn-js": "^17.11.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "jsdom": "^29.1.1",
+    "playwright": "^1.49.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "vite": "^8.0.13",
+    "vitest": "^4.1.6"
+  }
+}

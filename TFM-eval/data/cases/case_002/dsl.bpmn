@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             targetNamespace="http://example.com/expenses-dsl"
+             id="expense_report_dsl">
+
+  <process id="expense_process_dsl" name="Expense Reimbursement Process" isExecutable="false">
+
+    <startEvent id="se_1" name="Expense Report Submitted"/>
+
+    <sequenceFlow id="sf_1" sourceRef="se_1" targetRef="ut_1"/>
+
+    <userTask id="ut_1" name="Manager Reviews Expenses"/>
+
+    <sequenceFlow id="sf_2" sourceRef="ut_1" targetRef="xgw_1"/>
+
+    <exclusiveGateway id="xgw_1" name="Below Threshold?" default="sf_4"/>
+
+    <sequenceFlow id="sf_3" sourceRef="xgw_1" targetRef="ut_2">
+      <conditionExpression xsi:type="tFormalExpression">amount &lt; threshold</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sf_4" sourceRef="xgw_1" targetRef="ut_3"/>
+
+    <userTask id="ut_2" name="Manager Approves Report"/>
+    <userTask id="ut_3" name="Finance Department Reviews"/>
+
+    <sequenceFlow id="sf_5" sourceRef="ut_2" targetRef="xgw_2"/>
+    <sequenceFlow id="sf_6" sourceRef="ut_3" targetRef="xgw_2"/>
+
+    <exclusiveGateway id="xgw_2" name="Merge Approval Paths"/>
+
+    <sequenceFlow id="sf_7" sourceRef="xgw_2" targetRef="st_1"/>
+
+    <serviceTask id="st_1" name="Process Reimbursement"/>
+
+    <sequenceFlow id="sf_8" sourceRef="st_1" targetRef="st_2"/>
+
+    <serviceTask id="st_2" name="Transfer Money to Account"/>
+
+    <sequenceFlow id="sf_9" sourceRef="st_2" targetRef="st_3"/>
+
+    <sendTask id="st_3" name="Notify Employee"/>
+
+    <sequenceFlow id="sf_10" sourceRef="st_3" targetRef="ee_1"/>
+
+    <endEvent id="ee_1" name="Reimbursement Complete"/>
+
+  </process>
+
+</definitions>

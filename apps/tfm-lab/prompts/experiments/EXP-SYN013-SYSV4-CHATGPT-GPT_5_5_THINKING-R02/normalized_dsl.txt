@@ -1,0 +1,24 @@
+(start High-priority ticket assigned)
+IT Support Center: user Assign ticket to support agent
+IT Support Center: user Investigate issue
+IT Support Center: user Work on resolution
+Was the issue resolved before the SLA deadline?
+Yes
+IT Support Center: user Document fix
+IT Support Center: send Inform user
+IT Support Center: user Close ticket
+(finish Ticket closed within SLA)
+
+(start High-priority ticket assigned)
+IT Support Center: user Assign ticket to support agent
+IT Support Center: user Investigate issue
+IT Support Center: user Work on resolution
+(timer SLA deadline reached)
+(escalate SLA breach to team lead)
+IT Support Center: user Review ticket
+IT Support Center: user Assign additional support
+IT Support Center: user Continue work until issue is resolved
+IT Support Center: user Document fix
+IT Support Center: send Inform user
+IT Support Center: user Close ticket
+(finish Ticket closed after escalation)

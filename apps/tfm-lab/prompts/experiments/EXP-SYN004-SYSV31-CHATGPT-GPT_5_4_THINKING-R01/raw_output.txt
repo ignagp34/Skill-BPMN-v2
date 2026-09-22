@@ -1,0 +1,44 @@
+```text
+Receive new home damage claim
+Register claim
+Review submitted information
+Is the claim complete?
+No
+Request missing information
+Close current review
+
+Receive new home damage claim
+Register claim
+Review submitted information
+Is the claim complete?
+Yes
+Is the estimated damage below the fast-track threshold?
+Yes
+Approve claim
+Send settlement notice
+
+Receive new home damage claim
+Register claim
+Review submitted information
+Is the claim complete?
+Yes
+Is the estimated damage below the fast-track threshold?
+No
+Forward claim for detailed assessment
+Detailed assessment
+Approve claim
+Send settlement notice
+
+Receive new home damage claim
+Register claim
+Review submitted information
+Is the claim complete?
+Yes
+Is the estimated damage below the fast-track threshold?
+No
+Forward claim for detailed assessment
+Detailed assessment
+Reject claim
+Send rejection notice
+```
+

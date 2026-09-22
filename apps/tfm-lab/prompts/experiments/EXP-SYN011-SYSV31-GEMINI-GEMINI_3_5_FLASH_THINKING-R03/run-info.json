@@ -1,0 +1,29 @@
+{
+  "experimentId": "EXP-SYN011-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+  "processId": "SYN011",
+  "processFilename": "SYN011_public_grant_application_review.md",
+  "processTitle": "Public grant application review",
+  "processSource": "synthetic",
+  "difficulty": "medium",
+  "expectedFeatures": [
+    "data_objects",
+    "data_store",
+    "annotations",
+    "single_pool"
+  ],
+  "systemPromptVersion": "SYSV31",
+  "provider": "GEMINI",
+  "modelLabel": "GEMINI_3_5_FLASH_THINKING",
+  "runNumber": 3,
+  "interfaceType": "agent",
+  "status": "raw_output_generated",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-05-23T17:22:46.547206+00:00",
+  "notes": "",
+  "inputSystemTokens": 10916,
+  "inputProcessTokens": 265,
+  "inputTokens": 11181,
+  "outputTokens": 158,
+  "totalTokens": 11339,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

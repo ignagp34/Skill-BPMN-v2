@@ -1,0 +1,71 @@
+Requester: Submit Software Request
+[Business Justification]
+[Estimated Budget]
+Manager: Review Request
+Is the request approved?
+No
+Procurement: Inform Requester of Rejection
+(finish)
+
+Requester: Submit Software Request
+[Business Justification]
+[Estimated Budget]
+Manager: Review Request
+Is the request approved?
+Yes
+Procurement: Start Sourcing Process
+Procurement: send Request for Quotation
+Procurement: (receive Supplier Quote)
+Procurement: Review Quote
+Is the quote within budget?
+No
+Procurement: Ask Requester to Reduce Scope
+Should the scope be reduced?
+No
+Procurement: Inform Supplier Opportunity Closed
+(finish)
+
+...
+Procurement: Review Quote
+Is the quote within budget?
+No
+Procurement: Ask Requester to Reduce Scope
+Should the scope be reduced?
+Yes
+Procurement: send Revised Quote Request
+Procurement: (receive Revised Quote)
+Procurement: Review Quote
+...
+
+...
+Procurement: Review Quote
+Is the quote within budget?
+Yes
+//Contract cannot be signed until both reviews are complete
+IT Security: Review Security Questionnaire|Finance: Confirm Budget Availability
+...
+
+...
+IT Security: Review Security Questionnaire
+Did IT security find a critical risk?
+Yes
+Procurement: Inform Requester Rejected for Security
+Procurement: Notify Supplier
+(finish)
+
+...
+Finance: Confirm Budget Availability
+((deadline 5 business days))
+Procurement: Inform Requester Request Expired
+(finish)
+
+...
+IT Security: Review Security Questionnaire|Finance: Confirm Budget Availability
+Procurement: Prepare Purchase Recommendation
+Manager: Give Final Approval
+Procurement: send Purchase Order
+Procurement: (receive Order Confirmation)
+Procurement: Record Signed Documents
+[db Contract Repository]
+Procurement: Inform Requester Purchase Approved and Ordered
+(finish)

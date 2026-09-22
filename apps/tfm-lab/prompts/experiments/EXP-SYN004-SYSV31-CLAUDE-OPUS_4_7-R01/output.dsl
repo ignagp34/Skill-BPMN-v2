@@ -1,0 +1,41 @@
+(receive Claim)
+Register Claim
+Review Claim
+Is the claim complete?
+No
+Request Missing Information
+Close Current Review
+
+(receive Claim)
+Register Claim
+Review Claim
+Is the claim complete?
+Yes
+Is damage above fast-track threshold?
+No
+Approve Claim
+Send Settlement Notice
+
+(receive Claim)
+Register Claim
+Review Claim
+Is the claim complete?
+Yes
+Is damage above fast-track threshold?
+Yes
+Forward for Detailed Assessment
+Perform Detailed Assessment
+Approve Claim
+Send Settlement Notice
+
+(receive Claim)
+Register Claim
+Review Claim
+Is the claim complete?
+Yes
+Is damage above fast-track threshold?
+Yes
+Forward for Detailed Assessment
+Perform Detailed Assessment
+Reject Claim
+Send Rejection Notice

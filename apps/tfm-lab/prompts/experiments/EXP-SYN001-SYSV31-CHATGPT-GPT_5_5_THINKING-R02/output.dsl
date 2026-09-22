@@ -1,0 +1,8 @@
+(start Enrollment certificate requested)
+Registrar Clerk: Receive request
+Look up student record
+Generate certificate
+Check document for completeness
+Send certificate to student by email
+Close request
+(finish Request closed)

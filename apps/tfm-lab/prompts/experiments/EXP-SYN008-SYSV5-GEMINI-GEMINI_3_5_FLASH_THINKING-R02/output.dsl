@@ -1,0 +1,11 @@
+Department: (start Request submitted)
+Submit request
+Procurement Specialist: Review request
+Confirm items on approved catalog
+Reserve budget|Create purchase order|Notify warehouse of expected delivery
+Send order confirmation
+Close request
+(finish Request closed)
+
+== pools ==
+Procurement Office -> Department; Procurement Specialist

@@ -1,0 +1,31 @@
+{
+  "experimentId": "EXP-SYN009-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+  "processId": "SYN009",
+  "processFilename": "SYN009_applicant_hr_interview_scheduling.md",
+  "processTitle": "Applicant and HR interview scheduling",
+  "processSource": "synthetic",
+  "difficulty": "medium",
+  "expectedFeatures": [
+    "multiple_pools",
+    "message_flow",
+    "send_receive",
+    "xor_gateway"
+  ],
+  "systemPromptVersion": "SYSV5",
+  "provider": "CHATGPT",
+  "modelLabel": "GPT_5_5_THINKING",
+  "executionSetting": "ChatGPT 5.5 (High reasoning, fresh isolated subagent context)",
+  "reasoningMode": "High",
+  "runNumber": 3,
+  "interfaceType": "agent",
+  "status": "raw_output_generated",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-06-18T20:55:06Z",
+  "notes": "",
+  "inputSystemTokens": 14890,
+  "inputProcessTokens": 287,
+  "inputTokens": 15177,
+  "outputTokens": 214,
+  "totalTokens": 15391,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

@@ -1,0 +1,31 @@
+{
+  "experimentId": "EXP-SYN009-SYSV31-CLAUDE-OPUS_4_7-R02",
+  "processId": "SYN009",
+  "processFilename": "SYN009_applicant_hr_interview_scheduling.md",
+  "processTitle": "Applicant and HR interview scheduling",
+  "processSource": "synthetic",
+  "difficulty": "medium",
+  "expectedFeatures": [
+    "multiple_pools",
+    "message_flow",
+    "send_receive",
+    "xor_gateway"
+  ],
+  "systemPromptVersion": "SYSV31",
+  "provider": "CLAUDE",
+  "modelLabel": "OPUS_4_7",
+  "executionSetting": "Claude Opus 4.7 (Agent SDK, fresh subagent context)",
+  "reasoningMode": "Adaptive",
+  "runNumber": 2,
+  "interfaceType": "agent",
+  "status": "raw_output_generated",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-05-23T16:49:27Z",
+  "notes": "",
+  "inputSystemTokens": 10916,
+  "inputProcessTokens": 287,
+  "inputTokens": 11203,
+  "outputTokens": 156,
+  "totalTokens": 11359,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

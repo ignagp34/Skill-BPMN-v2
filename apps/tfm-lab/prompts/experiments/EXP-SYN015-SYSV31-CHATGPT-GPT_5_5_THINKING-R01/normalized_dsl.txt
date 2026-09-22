@@ -1,0 +1,154 @@
+[Business Justification Document]
+[Estimated Budget]
+Requester: Submit software request
+Manager: Review request
+Does the manager approve the request?
+No
+Requester: receive Rejection Notice
+(finish)
+
+[Business Justification Document]
+[Estimated Budget]
+Requester: Submit software request
+Manager: Review request
+Does the manager approve the request?
+Yes
+Procurement: Start sourcing process
+send Request for quotation
+receive Supplier quote
+[Supplier Quote]
+Review quote
+Check quoted amount against budget
+Is quote within budget?
+No
+Procurement: Ask requester to reduce scope
+Requester: Decide on scope reduction
+Reduce scope?
+No
+Procurement: send Opportunity closed
+(finish)
+
+[Business Justification Document]
+[Estimated Budget]
+Requester: Submit software request
+Manager: Review request
+Does the manager approve the request?
+Yes
+Procurement: Start sourcing process
+send Request for quotation
+receive Supplier quote
+[Supplier Quote]
+Review quote
+Check quoted amount against budget
+Is quote within budget?
+No
+Procurement: Ask requester to reduce scope
+Requester: Decide on scope reduction
+Reduce scope?
+Yes
+Procurement: send Revised quotation request
+receive Revised supplier quote
+[Revised Supplier Quote]
+Review quote
+Check quoted amount against budget
+Is quote within budget?
+Yes
+IT Security: Review supplier security questionnaire|Finance: Confirm budget availability
+//Contract cannot be signed until both reviews are complete
+Procurement: Prepare purchase recommendation
+Manager: Give final approval
+Procurement: send Purchase order
+receive Order confirmation
+[Signed Documents]
+[db Contract Repository]
+Record signed documents
+Requester: receive Purchase approved and ordered
+(finish)
+
+[Business Justification Document]
+[Estimated Budget]
+Requester: Submit software request
+Manager: Review request
+Does the manager approve the request?
+Yes
+Procurement: Start sourcing process
+send Request for quotation
+receive Supplier quote
+[Supplier Quote]
+Review quote
+Check quoted amount against budget
+Is quote within budget?
+Yes
+IT Security: Review supplier security questionnaire|Finance: Confirm budget availability
+Is critical security risk found?
+Yes
+Procurement: Inform requester of security rejection
+send Security rejection notice
+(finish)
+
+[Business Justification Document]
+[Estimated Budget]
+Requester: Submit software request
+Manager: Review request
+Does the manager approve the request?
+Yes
+Procurement: Start sourcing process
+send Request for quotation
+receive Supplier quote
+[Supplier Quote]
+Review quote
+Check quoted amount against budget
+Is quote within budget?
+Yes
+IT Security: Review supplier security questionnaire|Finance: Confirm budget availability
+Finance confirms within five business days?
+No
+(timer five business days)
+Procurement: Notify requester that request expired
+(finish)
+
+[Business Justification Document]
+[Estimated Budget]
+Requester: Submit software request
+Manager: Review request
+Does the manager approve the request?
+Yes
+Procurement: Start sourcing process
+send Request for quotation
+receive Supplier quote
+[Supplier Quote]
+Review quote
+Check quoted amount against budget
+Is quote within budget?
+Yes
+IT Security: Review supplier security questionnaire|Finance: Confirm budget availability
+Finance confirms within five business days?
+Yes
+//Contract cannot be signed until both reviews are complete
+Procurement: Prepare purchase recommendation
+Manager: Give final approval
+Procurement: send Purchase order
+receive Order confirmation
+[Signed Documents]
+[db Contract Repository]
+Record signed documents
+Requester: receive Purchase approved and ordered
+(finish)
+
+Supplier:
+(receive Request for quotation)
+send Supplier quote
+
+Supplier:
+(receive Revised quotation request)
+send Revised supplier quote
+
+Supplier:
+(receive Opportunity closed)
+
+Supplier:
+(receive Security rejection notice)
+
+Supplier:
+(receive Purchase order)
+send Order confirmation

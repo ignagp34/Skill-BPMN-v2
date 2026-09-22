@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                  id="Definitions_SYN004"
+                  targetNamespace="http://example.com/bpmn/SYN004">
+  <bpmn:collaboration id="Collaboration_SYN004">
+    <bpmn:participant id="Participant_ClaimsTeam" name="Insurance Claims Team" processRef="Process_SYN004"/>
+  </bpmn:collaboration>
+  <bpmn:process id="Process_SYN004" name="Insurance Claim Triage" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_ClaimsTeam">
+      <bpmn:lane id="Lane_ClaimsHandler" name="Claims Handler">
+        <bpmn:flowNodeRef>StartEvent_NewClaim</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_RegisterClaim</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReviewInformation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_InformationComplete</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_RequestMissingInformation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_CurrentReviewClosed</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_FastTrackThreshold</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_DetailedAssessment</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_AssessmentDecision</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ApproveFastTrackClaim</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ApproveAssessedClaim</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_RejectClaim</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_ApprovalMerge</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendSettlementNotice</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendRejectionNotice</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_NotificationMerge</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_CustomerNotified</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_NewClaim" name="New home damage claim received">
+      <bpmn:outgoing>Flow_Start_Register</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="Task_RegisterClaim" name="Register claim">
+      <bpmn:incoming>Flow_Start_Register</bpmn:incoming>
+      <bpmn:outgoing>Flow_Register_Review</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_ReviewInformation" name="Review submitted information">
+      <bpmn:incoming>Flow_Register_Review</bpmn:incoming>
+      <bpmn:outgoing>Flow_Review_Completeness</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_InformationComplete" name="Claim information complete?" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_Review_Completeness</bpmn:incoming>
+      <bpmn:outgoing>Flow_Incomplete_Request</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Complete_Threshold</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sendTask id="Task_RequestMissingInformation" name="Request missing information">
+      <bpmn:incoming>Flow_Incomplete_Request</bpmn:incoming>
+      <bpmn:outgoing>Flow_Request_CloseReview</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:endEvent id="EndEvent_CurrentReviewClosed" name="Current review closed">
+      <bpmn:incoming>Flow_Request_CloseReview</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:exclusiveGateway id="Gateway_FastTrackThreshold" name="Damage below fast-track threshold?" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_Complete_Threshold</bpmn:incoming>
+      <bpmn:outgoing>Flow_BelowThreshold_Approve</bpmn:outgoing>
+      <bpmn:outgoing>Flow_AboveThreshold_Assess</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Task_ApproveFastTrackClaim" name="Approve claim">
+      <bpmn:incoming>Flow_BelowThreshold_Approve</bpmn:incoming>
+      <bpmn:outgoing>Flow_FastApprove_Merge</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_DetailedAssessment" name="Perform detailed assessment">
+      <bpmn:incoming>Flow_AboveThreshold_Assess</bpmn:incoming>
+      <bpmn:outgoing>Flow_Assess_Decision</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_AssessmentDecision" name="Assessment decision" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_Assess_Decision</bpmn:incoming>
+      <bpmn:outgoing>Flow_Decision_Approve</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Decision_Reject</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Task_ApproveAssessedClaim" name="Approve claim">
+      <bpmn:incoming>Flow_Decision_Approve</bpmn:incoming>
+      <bpmn:outgoing>Flow_AssessedApprove_Merge</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_RejectClaim" name="Reject claim">
+      <bpmn:incoming>Flow_Decision_Reject</bpmn:incoming>
+      <bpmn:outgoing>Flow_Reject_Notice</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_ApprovalMerge" name="Approved claim" gatewayDirection="Converging">
+      <bpmn:incoming>Flow_FastApprove_Merge</bpmn:incoming>
+      <bpmn:incoming>Flow_AssessedApprove_Merge</bpmn:incoming>
+      <bpmn:outgoing>Flow_Approval_SettlementNotice</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sendTask id="Task_SendSettlementNotice" name="Send settlement notice">
+      <bpmn:incoming>Flow_Approval_SettlementNotice</bpmn:incoming>
+      <bpmn:outgoing>Flow_Settlement_NotificationMerge</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:sendTask id="Task_SendRejectionNotice" name="Send rejection notice">
+      <bpmn:incoming>Flow_Reject_Notice</bpmn:incoming>
+      <bpmn:outgoing>Flow_Rejection_NotificationMerge</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:exclusiveGateway id="Gateway_NotificationMerge" name="Customer notification sent" gatewayDirection="Converging">
+      <bpmn:incoming>Flow_Settlement_NotificationMerge</bpmn:incoming>
+      <bpmn:incoming>Flow_Rejection_NotificationMerge</bpmn:incoming>
+      <bpmn:outgoing>Flow_Notification_End</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="EndEvent_CustomerNotified" name="Customer notified">
+      <bpmn:incoming>Flow_Notification_End</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_Register" sourceRef="StartEvent_NewClaim" targetRef="Task_RegisterClaim"/>
+    <bpmn:sequenceFlow id="Flow_Register_Review" sourceRef="Task_RegisterClaim" targetRef="Task_ReviewInformation"/>
+    <bpmn:sequenceFlow id="Flow_Review_Completeness" sourceRef="Task_ReviewInformation" targetRef="Gateway_InformationComplete"/>
+    <bpmn:sequenceFlow id="Flow_Incomplete_Request" name="Clearly incomplete" sourceRef="Gateway_InformationComplete" targetRef="Task_RequestMissingInformation"/>
+    <bpmn:sequenceFlow id="Flow_Request_CloseReview" sourceRef="Task_RequestMissingInformation" targetRef="EndEvent_CurrentReviewClosed"/>
+    <bpmn:sequenceFlow id="Flow_Complete_Threshold" name="Complete" sourceRef="Gateway_InformationComplete" targetRef="Gateway_FastTrackThreshold"/>
+    <bpmn:sequenceFlow id="Flow_BelowThreshold_Approve" name="Below threshold" sourceRef="Gateway_FastTrackThreshold" targetRef="Task_ApproveFastTrackClaim"/>
+    <bpmn:sequenceFlow id="Flow_AboveThreshold_Assess" name="Above threshold" sourceRef="Gateway_FastTrackThreshold" targetRef="Task_DetailedAssessment"/>
+    <bpmn:sequenceFlow id="Flow_Assess_Decision" sourceRef="Task_DetailedAssessment" targetRef="Gateway_AssessmentDecision"/>
+    <bpmn:sequenceFlow id="Flow_Decision_Approve" name="Approve" sourceRef="Gateway_AssessmentDecision" targetRef="Task_ApproveAssessedClaim"/>
+    <bpmn:sequenceFlow id="Flow_Decision_Reject" name="Reject" sourceRef="Gateway_AssessmentDecision" targetRef="Task_RejectClaim"/>
+    <bpmn:sequenceFlow id="Flow_FastApprove_Merge" sourceRef="Task_ApproveFastTrackClaim" targetRef="Gateway_ApprovalMerge"/>
+    <bpmn:sequenceFlow id="Flow_AssessedApprove_Merge" sourceRef="Task_ApproveAssessedClaim" targetRef="Gateway_ApprovalMerge"/>
+    <bpmn:sequenceFlow id="Flow_Approval_SettlementNotice" sourceRef="Gateway_ApprovalMerge" targetRef="Task_SendSettlementNotice"/>
+    <bpmn:sequenceFlow id="Flow_Reject_Notice" sourceRef="Task_RejectClaim" targetRef="Task_SendRejectionNotice"/>
+    <bpmn:sequenceFlow id="Flow_Settlement_NotificationMerge" sourceRef="Task_SendSettlementNotice" targetRef="Gateway_NotificationMerge"/>
+    <bpmn:sequenceFlow id="Flow_Rejection_NotificationMerge" sourceRef="Task_SendRejectionNotice" targetRef="Gateway_NotificationMerge"/>
+    <bpmn:sequenceFlow id="Flow_Notification_End" sourceRef="Gateway_NotificationMerge" targetRef="EndEvent_CustomerNotified"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_SYN004">
+    <bpmndi:BPMNPlane id="BPMNPlane_SYN004" bpmnElement="Collaboration_SYN004">
+      <bpmndi:BPMNShape id="Shape_Participant" bpmnElement="Participant_ClaimsTeam" isHorizontal="true">
+        <dc:Bounds x="80" y="80" width="1940" height="500"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Lane" bpmnElement="Lane_ClaimsHandler" isHorizontal="true">
+        <dc:Bounds x="110" y="80" width="1910" height="500"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Start" bpmnElement="StartEvent_NewClaim">
+        <dc:Bounds x="150" y="305" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Register" bpmnElement="Task_RegisterClaim">
+        <dc:Bounds x="230" y="283" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Review" bpmnElement="Task_ReviewInformation">
+        <dc:Bounds x="380" y="283" width="110" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Completeness" bpmnElement="Gateway_InformationComplete" isMarkerVisible="true">
+        <dc:Bounds x="540" y="298" width="50" height="50"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_RequestMissing" bpmnElement="Task_RequestMissingInformation">
+        <dc:Bounds x="640" y="120" width="130" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CloseReview" bpmnElement="EndEvent_CurrentReviewClosed">
+        <dc:Bounds x="820" y="142" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Threshold" bpmnElement="Gateway_FastTrackThreshold" isMarkerVisible="true">
+        <dc:Bounds x="640" y="298" width="50" height="50"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ApproveFast" bpmnElement="Task_ApproveFastTrackClaim">
+        <dc:Bounds x="760" y="385" width="110" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Assessment" bpmnElement="Task_DetailedAssessment">
+        <dc:Bounds x="760" y="240" width="130" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_AssessmentDecision" bpmnElement="Gateway_AssessmentDecision" isMarkerVisible="true">
+        <dc:Bounds x="940" y="255" width="50" height="50"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ApproveAssessed" bpmnElement="Task_ApproveAssessedClaim">
+        <dc:Bounds x="1050" y="345" width="110" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Reject" bpmnElement="Task_RejectClaim">
+        <dc:Bounds x="1050" y="190" width="110" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ApprovalMerge" bpmnElement="Gateway_ApprovalMerge" isMarkerVisible="true">
+        <dc:Bounds x="1210" y="360" width="50" height="50"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_SettlementNotice" bpmnElement="Task_SendSettlementNotice">
+        <dc:Bounds x="1320" y="345" width="130" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_RejectionNotice" bpmnElement="Task_SendRejectionNotice">
+        <dc:Bounds x="1320" y="190" width="130" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_NotificationMerge" bpmnElement="Gateway_NotificationMerge" isMarkerVisible="true">
+        <dc:Bounds x="1510" y="298" width="50" height="50"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EndNotified" bpmnElement="EndEvent_CustomerNotified">
+        <dc:Bounds x="1640" y="305" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_Start_Register" bpmnElement="Flow_Start_Register">
+        <di:waypoint x="186" y="323"/>
+        <di:waypoint x="230" y="323"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Register_Review" bpmnElement="Flow_Register_Review">
+        <di:waypoint x="330" y="323"/>
+        <di:waypoint x="380" y="323"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Review_Completeness" bpmnElement="Flow_Review_Completeness">
+        <di:waypoint x="490" y="323"/>
+        <di:waypoint x="540" y="323"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Incomplete_Request" bpmnElement="Flow_Incomplete_Request">
+        <di:waypoint x="565" y="298"/>
+        <di:waypoint x="565" y="160"/>
+        <di:waypoint x="640" y="160"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Request_Close" bpmnElement="Flow_Request_CloseReview">
+        <di:waypoint x="770" y="160"/>
+        <di:waypoint x="820" y="160"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Complete_Threshold" bpmnElement="Flow_Complete_Threshold">
+        <di:waypoint x="590" y="323"/>
+        <di:waypoint x="640" y="323"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Below_Approve" bpmnElement="Flow_BelowThreshold_Approve">
+        <di:waypoint x="665" y="348"/>
+        <di:waypoint x="665" y="425"/>
+        <di:waypoint x="760" y="425"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Above_Assess" bpmnElement="Flow_AboveThreshold_Assess">
+        <di:waypoint x="690" y="323"/>
+        <di:waypoint x="725" y="323"/>
+        <di:waypoint x="725" y="280"/>
+        <di:waypoint x="760" y="280"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Assess_Decision" bpmnElement="Flow_Assess_Decision">
+        <di:waypoint x="890" y="280"/>
+        <di:waypoint x="940" y="280"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Decision_Approve" bpmnElement="Flow_Decision_Approve">
+        <di:waypoint x="965" y="305"/>
+        <di:waypoint x="965" y="385"/>
+        <di:waypoint x="1050" y="385"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Decision_Reject" bpmnElement="Flow_Decision_Reject">
+        <di:waypoint x="990" y="280"/>
+        <di:waypoint x="1020" y="280"/>
+        <di:waypoint x="1020" y="230"/>
+        <di:waypoint x="1050" y="230"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_FastApprove_Merge" bpmnElement="Flow_FastApprove_Merge">
+        <di:waypoint x="870" y="425"/>
+        <di:waypoint x="1000" y="425"/>
+        <di:waypoint x="1000" y="385"/>
+        <di:waypoint x="1210" y="385"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_AssessedApprove_Merge" bpmnElement="Flow_AssessedApprove_Merge">
+        <di:waypoint x="1160" y="385"/>
+        <di:waypoint x="1210" y="385"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Approval_Settlement" bpmnElement="Flow_Approval_SettlementNotice">
+        <di:waypoint x="1260" y="385"/>
+        <di:waypoint x="1320" y="385"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Reject_Notice" bpmnElement="Flow_Reject_Notice">
+        <di:waypoint x="1160" y="230"/>
+        <di:waypoint x="1320" y="230"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Settlement_Merge" bpmnElement="Flow_Settlement_NotificationMerge">
+        <di:waypoint x="1450" y="385"/>
+        <di:waypoint x="1535" y="385"/>
+        <di:waypoint x="1535" y="348"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Rejection_Merge" bpmnElement="Flow_Rejection_NotificationMerge">
+        <di:waypoint x="1450" y="230"/>
+        <di:waypoint x="1535" y="230"/>
+        <di:waypoint x="1535" y="298"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Notification_End" bpmnElement="Flow_Notification_End">
+        <di:waypoint x="1560" y="323"/>
+        <di:waypoint x="1640" y="323"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

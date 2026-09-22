@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tfm-lab — headless render harness</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: #ffffff;
+      }
+      /*
+       * Off-screen but real, fixed dimensions so bpmn-js can measure shapes and
+       * export an SVG/PNG exactly as it does inside the live editor.
+       */
+      #headless-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1600px;
+        height: 1200px;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="headless-canvas"></div>
+    <script type="module" src="/src/headless/main.ts"></script>
+  </body>
+</html>

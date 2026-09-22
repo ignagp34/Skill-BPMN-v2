@@ -1,0 +1,31 @@
+{
+  "experimentId": "EXP-SYN003-SYSV31-CLAUDE-OPUS_4_7-R03",
+  "processId": "SYN003",
+  "processFilename": "SYN003_outpatient_checkin.md",
+  "processTitle": "Outpatient appointment check-in",
+  "processSource": "synthetic",
+  "difficulty": "easy",
+  "expectedFeatures": [
+    "sequential_flow",
+    "single_pool",
+    "tasks",
+    "start_end_events"
+  ],
+  "systemPromptVersion": "SYSV31",
+  "provider": "CLAUDE",
+  "modelLabel": "OPUS_4_7",
+  "executionSetting": "Claude Opus 4.7 (Agent SDK, fresh subagent context)",
+  "reasoningMode": "Adaptive",
+  "runNumber": 3,
+  "interfaceType": "agent",
+  "status": "raw_output_generated",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-05-23T16:49:27Z",
+  "notes": "",
+  "inputSystemTokens": 10916,
+  "inputProcessTokens": 206,
+  "inputTokens": 11122,
+  "outputTokens": 36,
+  "totalTokens": 11158,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

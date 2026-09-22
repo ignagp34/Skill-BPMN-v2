@@ -1,0 +1,73 @@
+Customer: (start Card application submitted)
+Customer: Apply for credit card
+Banking Officer: Receive application
+Banking Officer: Check provided information
+Is mandatory information missing?
+Yes
+Banking Officer: Ask customer to submit missing information
+Customer: (finish Application stopped)
+
+Customer: (start Card application submitted)
+Customer: Apply for credit card
+Banking Officer: Receive application
+Banking Officer: Check provided information
+Is mandatory information missing?
+No
+Banking Officer: Perform credit check
+What is the credit result?
+Approved
+Banking Officer: Create card account
+Banking Officer: Order card
+Banking Officer: Send approval message
+Customer: Receive approval message
+Customer: (finish Application approved)
+
+Customer: (start Card application submitted)
+Customer: Apply for credit card
+Banking Officer: Receive application
+Banking Officer: Check provided information
+Is mandatory information missing?
+No
+Banking Officer: Perform credit check
+What is the credit result?
+Borderline
+Banking Officer: Send application to supervisor
+Supervisor: Perform manual review
+Is application approved?
+Yes
+Banking Officer: Create card account
+Banking Officer: Order card
+Banking Officer: Send approval message
+Customer: Receive approval message
+Customer: (finish Application approved)
+
+Customer: (start Card application submitted)
+Customer: Apply for credit card
+Banking Officer: Receive application
+Banking Officer: Check provided information
+Is mandatory information missing?
+No
+Banking Officer: Perform credit check
+What is the credit result?
+Borderline
+Banking Officer: Send application to supervisor
+Supervisor: Perform manual review
+Is application approved?
+No
+Supervisor: Reject application
+Supervisor: Send rejection message
+Customer: Receive rejection message
+Customer: (finish Application rejected)
+
+Customer: (start Card application submitted)
+Customer: Apply for credit card
+Banking Officer: Receive application
+Banking Officer: Check provided information
+Is mandatory information missing?
+No
+Banking Officer: Perform credit check
+What is the credit result?
+Declined
+Banking Officer: Send rejection message
+Customer: Receive rejection message
+Customer: (finish Application rejected)

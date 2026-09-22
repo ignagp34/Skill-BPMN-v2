@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:tns="http://example.com/bpmn/syn009"
+                  id="Definitions_SYN009"
+                  targetNamespace="http://example.com/bpmn/syn009">
+  <bpmn:message id="Message_Invitation" name="Invitation with proposed interview times"/>
+  <bpmn:message id="Message_SelectedInitialTime" name="Selected proposed time"/>
+  <bpmn:message id="Message_AlternativeRequest" name="Request for alternative times"/>
+  <bpmn:message id="Message_NewTimes" name="New set of interview times"/>
+  <bpmn:message id="Message_SelectedAlternativeTime" name="Selected alternative time"/>
+  <bpmn:message id="Message_Confirmation" name="Interview confirmation"/>
+
+  <bpmn:collaboration id="Collaboration_SYN009">
+    <bpmn:participant id="Participant_HR" name="HR Recruiter" processRef="Process_HR"/>
+    <bpmn:participant id="Participant_Applicant" name="Applicant" processRef="Process_Applicant"/>
+    <bpmn:messageFlow id="MessageFlow_Invitation"
+                      name="Invitation with proposed times"
+                      sourceRef="SendTask_SendInvitation"
+                      targetRef="ReceiveTask_ReceiveInvitation"
+                      messageRef="Message_Invitation"/>
+    <bpmn:messageFlow id="MessageFlow_SelectedInitialTime"
+                      name="Selected proposed time"
+                      sourceRef="SendTask_SendInitialSelection"
+                      targetRef="ReceiveTask_ReceiveInitialSelection"
+                      messageRef="Message_SelectedInitialTime"/>
+    <bpmn:messageFlow id="MessageFlow_AlternativeRequest"
+                      name="Alternative times request"
+                      sourceRef="SendTask_RequestAlternatives"
+                      targetRef="ReceiveTask_ReceiveAlternativeRequest"
+                      messageRef="Message_AlternativeRequest"/>
+    <bpmn:messageFlow id="MessageFlow_NewTimes"
+                      name="New set of times"
+                      sourceRef="SendTask_SendNewTimes"
+                      targetRef="ReceiveTask_ReceiveNewTimes"
+                      messageRef="Message_NewTimes"/>
+    <bpmn:messageFlow id="MessageFlow_SelectedAlternativeTime"
+                      name="Selected alternative time"
+                      sourceRef="SendTask_SendAlternativeSelection"
+                      targetRef="ReceiveTask_ReceiveAlternativeSelection"
+                      messageRef="Message_SelectedAlternativeTime"/>
+    <bpmn:messageFlow id="MessageFlow_Confirmation"
+                      name="Interview confirmation"
+                      sourceRef="SendTask_SendConfirmation"
+                      targetRef="ReceiveTask_ReceiveConfirmation"
+                      messageRef="Message_Confirmation"/>
+  </bpmn:collaboration>
+
+  <bpmn:process id="Process_HR" name="HR interview scheduling" isExecutable="false">
+    <bpmn:startEvent id="StartEvent_HR" name="Application received">
+      <bpmn:outgoing>Flow_HR_01</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="UserTask_ReviewApplication" name="Review application">
+      <bpmn:incoming>Flow_HR_01</bpmn:incoming>
+      <bpmn:outgoing>Flow_HR_02</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sendTask id="SendTask_SendInvitation" name="Send invitation with proposed times" messageRef="Message_Invitation">
+      <bpmn:incoming>Flow_HR_02</bpmn:incoming>
+      <bpmn:outgoing>Flow_HR_03</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:exclusiveGateway id="Gateway_HR_ResponseType" name="Applicant response?" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_HR_03</bpmn:incoming>
+      <bpmn:outgoing>Flow_HR_04</bpmn:outgoing>
+      <bpmn:outgoing>Flow_HR_05</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:receiveTask id="ReceiveTask_ReceiveInitialSelection" name="Receive selected proposed time" messageRef="Message_SelectedInitialTime">
+      <bpmn:incoming>Flow_HR_04</bpmn:incoming>
+      <bpmn:outgoing>Flow_HR_06</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:receiveTask id="ReceiveTask_ReceiveAlternativeRequest" name="Receive request for alternative times" messageRef="Message_AlternativeRequest">
+      <bpmn:incoming>Flow_HR_05</bpmn:incoming>
+      <bpmn:outgoing>Flow_HR_07</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:sendTask id="SendTask_SendNewTimes" name="Send new set of times" messageRef="Message_NewTimes">
+      <bpmn:incoming>Flow_HR_07</bpmn:incoming>
+      <bpmn:outgoing>Flow_HR_08</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:receiveTask id="ReceiveTask_ReceiveAlternativeSelection" name="Receive selected alternative time" messageRef="Message_SelectedAlternativeTime">
+      <bpmn:incoming>Flow_HR_08</bpmn:incoming>
+      <bpmn:outgoing>Flow_HR_09</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:exclusiveGateway id="Gateway_HR_MergeSelection" name="Selected time received" gatewayDirection="Converging">
+      <bpmn:incoming>Flow_HR_06</bpmn:incoming>
+      <bpmn:incoming>Flow_HR_09</bpmn:incoming>
+      <bpmn:outgoing>Flow_HR_10</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sendTask id="SendTask_SendConfirmation" name="Confirm interview" messageRef="Message_Confirmation">
+      <bpmn:incoming>Flow_HR_10</bpmn:incoming>
+      <bpmn:outgoing>Flow_HR_11</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:endEvent id="EndEvent_HR" name="Interview time confirmed">
+      <bpmn:incoming>Flow_HR_11</bpmn:incoming>
+    </bpmn:endEvent>
+
+    <bpmn:sequenceFlow id="Flow_HR_01" sourceRef="StartEvent_HR" targetRef="UserTask_ReviewApplication"/>
+    <bpmn:sequenceFlow id="Flow_HR_02" sourceRef="UserTask_ReviewApplication" targetRef="SendTask_SendInvitation"/>
+    <bpmn:sequenceFlow id="Flow_HR_03" sourceRef="SendTask_SendInvitation" targetRef="Gateway_HR_ResponseType"/>
+    <bpmn:sequenceFlow id="Flow_HR_04" name="Proposed time accepted" sourceRef="Gateway_HR_ResponseType" targetRef="ReceiveTask_ReceiveInitialSelection"/>
+    <bpmn:sequenceFlow id="Flow_HR_05" name="Alternative times requested" sourceRef="Gateway_HR_ResponseType" targetRef="ReceiveTask_ReceiveAlternativeRequest"/>
+    <bpmn:sequenceFlow id="Flow_HR_06" sourceRef="ReceiveTask_ReceiveInitialSelection" targetRef="Gateway_HR_MergeSelection"/>
+    <bpmn:sequenceFlow id="Flow_HR_07" sourceRef="ReceiveTask_ReceiveAlternativeRequest" targetRef="SendTask_SendNewTimes"/>
+    <bpmn:sequenceFlow id="Flow_HR_08" sourceRef="SendTask_SendNewTimes" targetRef="ReceiveTask_ReceiveAlternativeSelection"/>
+    <bpmn:sequenceFlow id="Flow_HR_09" sourceRef="ReceiveTask_ReceiveAlternativeSelection" targetRef="Gateway_HR_MergeSelection"/>
+    <bpmn:sequenceFlow id="Flow_HR_10" sourceRef="Gateway_HR_MergeSelection" targetRef="SendTask_SendConfirmation"/>
+    <bpmn:sequenceFlow id="Flow_HR_11" sourceRef="SendTask_SendConfirmation" targetRef="EndEvent_HR"/>
+  </bpmn:process>
+
+  <bpmn:process id="Process_Applicant" name="Applicant interview scheduling" isExecutable="false">
+    <bpmn:startEvent id="StartEvent_Applicant" name="Await invitation">
+      <bpmn:outgoing>Flow_Applicant_01</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:receiveTask id="ReceiveTask_ReceiveInvitation" name="Receive invitation with proposed times" messageRef="Message_Invitation">
+      <bpmn:incoming>Flow_Applicant_01</bpmn:incoming>
+      <bpmn:outgoing>Flow_Applicant_02</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:exclusiveGateway id="Gateway_Applicant_TimeAcceptable" name="Is a proposed time acceptable?" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_Applicant_02</bpmn:incoming>
+      <bpmn:outgoing>Flow_Applicant_03</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Applicant_04</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sendTask id="SendTask_SendInitialSelection" name="Send selected proposed time" messageRef="Message_SelectedInitialTime">
+      <bpmn:incoming>Flow_Applicant_03</bpmn:incoming>
+      <bpmn:outgoing>Flow_Applicant_05</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:sendTask id="SendTask_RequestAlternatives" name="Request alternative times" messageRef="Message_AlternativeRequest">
+      <bpmn:incoming>Flow_Applicant_04</bpmn:incoming>
+      <bpmn:outgoing>Flow_Applicant_06</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:receiveTask id="ReceiveTask_ReceiveNewTimes" name="Receive new set of times" messageRef="Message_NewTimes">
+      <bpmn:incoming>Flow_Applicant_06</bpmn:incoming>
+      <bpmn:outgoing>Flow_Applicant_07</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:userTask id="UserTask_SelectAlternativeTime" name="Select an alternative time">
+      <bpmn:incoming>Flow_Applicant_07</bpmn:incoming>
+      <bpmn:outgoing>Flow_Applicant_08</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sendTask id="SendTask_SendAlternativeSelection" name="Send selected alternative time" messageRef="Message_SelectedAlternativeTime">
+      <bpmn:incoming>Flow_Applicant_08</bpmn:incoming>
+      <bpmn:outgoing>Flow_Applicant_09</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:exclusiveGateway id="Gateway_Applicant_MergeSelection" name="Time selected" gatewayDirection="Converging">
+      <bpmn:incoming>Flow_Applicant_05</bpmn:incoming>
+      <bpmn:incoming>Flow_Applicant_09</bpmn:incoming>
+      <bpmn:outgoing>Flow_Applicant_10</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:receiveTask id="ReceiveTask_ReceiveConfirmation" name="Receive interview confirmation" messageRef="Message_Confirmation">
+      <bpmn:incoming>Flow_Applicant_10</bpmn:incoming>
+      <bpmn:outgoing>Flow_Applicant_11</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:endEvent id="EndEvent_Applicant" name="Interview time confirmed">
+      <bpmn:incoming>Flow_Applicant_11</bpmn:incoming>
+    </bpmn:endEvent>
+
+    <bpmn:sequenceFlow id="Flow_Applicant_01" sourceRef="StartEvent_Applicant" targetRef="ReceiveTask_ReceiveInvitation"/>
+    <bpmn:sequenceFlow id="Flow_Applicant_02" sourceRef="ReceiveTask_ReceiveInvitation" targetRef="Gateway_Applicant_TimeAcceptable"/>
+    <bpmn:sequenceFlow id="Flow_Applicant_03" name="Yes" sourceRef="Gateway_Applicant_TimeAcceptable" targetRef="SendTask_SendInitialSelection">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[acceptable = true]]></bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_Applicant_04" name="No" sourceRef="Gateway_Applicant_TimeAcceptable" targetRef="SendTask_RequestAlternatives">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[acceptable = false]]></bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_Applicant_05" sourceRef="SendTask_SendInitialSelection" targetRef="Gateway_Applicant_MergeSelection"/>
+    <bpmn:sequenceFlow id="Flow_Applicant_06" sourceRef="SendTask_RequestAlternatives" targetRef="ReceiveTask_ReceiveNewTimes"/>
+    <bpmn:sequenceFlow id="Flow_Applicant_07" sourceRef="ReceiveTask_ReceiveNewTimes" targetRef="UserTask_SelectAlternativeTime"/>
+    <bpmn:sequenceFlow id="Flow_Applicant_08" sourceRef="UserTask_SelectAlternativeTime" targetRef="SendTask_SendAlternativeSelection"/>
+    <bpmn:sequenceFlow id="Flow_Applicant_09" sourceRef="SendTask_SendAlternativeSelection" targetRef="Gateway_Applicant_MergeSelection"/>
+    <bpmn:sequenceFlow id="Flow_Applicant_10" sourceRef="Gateway_Applicant_MergeSelection" targetRef="ReceiveTask_ReceiveConfirmation"/>
+    <bpmn:sequenceFlow id="Flow_Applicant_11" sourceRef="ReceiveTask_ReceiveConfirmation" targetRef="EndEvent_Applicant"/>
+  </bpmn:process>
+</bpmn:definitions>

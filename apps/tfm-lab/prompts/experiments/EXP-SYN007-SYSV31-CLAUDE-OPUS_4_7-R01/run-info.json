@@ -1,0 +1,31 @@
+{
+  "experimentId": "EXP-SYN007-SYSV31-CLAUDE-OPUS_4_7-R01",
+  "processId": "SYN007",
+  "processFilename": "SYN007_employee_onboarding_setup.md",
+  "processTitle": "Employee onboarding setup",
+  "processSource": "synthetic",
+  "difficulty": "medium",
+  "expectedFeatures": [
+    "parallel_gateway",
+    "fork_join",
+    "single_pool",
+    "tasks"
+  ],
+  "systemPromptVersion": "SYSV31",
+  "provider": "CLAUDE",
+  "modelLabel": "OPUS_4_7",
+  "executionSetting": "Claude Opus 4.7 (Agent SDK, fresh subagent context)",
+  "reasoningMode": "Adaptive",
+  "runNumber": 1,
+  "interfaceType": "agent",
+  "status": "raw_output_generated",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-05-23T16:49:27Z",
+  "notes": "",
+  "inputSystemTokens": 10916,
+  "inputProcessTokens": 223,
+  "inputTokens": 11139,
+  "outputTokens": 36,
+  "totalTokens": 11175,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

@@ -1,0 +1,24 @@
+{
+  "source": "packages/bpmn-core/tests/dsl/semantic.test.ts:64 (exact string literal)",
+  "invalid": false,
+  "id": "simple",
+  "status": "success_with_warnings",
+  "passed": true,
+  "checks": {
+    "bpmnDI": true,
+    "svg": true,
+    "png": true,
+    "width": 586,
+    "height": 362
+  },
+  "reimport": true,
+  "hashes": {
+    "normalized.dsl": "9bccd991e41921d739760a68fe2ee9b06c06fd678259d96bae98c2769f24881c",
+    "result.json": "646b7ab58a362ec09b9d4d96f2a435a70312053e933e9f8b7f62e0fdc6383847",
+    "semantic.bpmn": "536174946b629229c8e6b82121eadee430d52ad0e0c17d90e329cb47b91b5266",
+    "diagram.bpmn": "db826295b98d6b40aa285557bb7d01b01bf86a95ff1a472a396b5fc557107819",
+    "diagram.svg": "d0ecf60e50d678522152779fd70f5875e2d49f7fcea1df0714896cb59f11d08f",
+    "diagram.png": "6b88b27f439c3a45345c7cdcf9db8d290f86bded836472e6db4cb73cb1c1fe4b"
+  },
+  "errors": []
+}

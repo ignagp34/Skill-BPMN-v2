@@ -1,0 +1,31 @@
+{
+  "experimentId": "EXP-SYN008-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+  "processId": "SYN008",
+  "processFilename": "SYN008_procurement_request_fulfillment.md",
+  "processTitle": "Procurement request fulfillment",
+  "processSource": "synthetic",
+  "difficulty": "medium",
+  "expectedFeatures": [
+    "parallel_gateway",
+    "fork_join",
+    "single_pool",
+    "tasks"
+  ],
+  "systemPromptVersion": "SYSV5",
+  "provider": "GEMINI",
+  "modelLabel": "GEMINI_3_5_FLASH_THINKING",
+  "executionSetting": "Gemini 3.5 Flash (High reasoning, Agent SDK, fresh subagent context)",
+  "reasoningMode": "High",
+  "runNumber": 2,
+  "interfaceType": "agent",
+  "status": "raw_output_generated",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-06-18T19:56:11Z",
+  "notes": "",
+  "inputSystemTokens": 14890,
+  "inputProcessTokens": 230,
+  "inputTokens": 15120,
+  "outputTokens": 60,
+  "totalTokens": 15180,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

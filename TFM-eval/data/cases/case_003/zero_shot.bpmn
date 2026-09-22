@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+             targetNamespace="http://example.com/vacaciones"
+             id="Definitions_Vacaciones">
+
+  <collaboration id="Collaboration_Vacaciones">
+    <participant id="Pool_Vacaciones" name="Proceso de Solicitud de Vacaciones" processRef="Process_Vacaciones"/>
+  </collaboration>
+
+  <process id="Process_Vacaciones" isExecutable="false">
+
+    <!-- Lanes -->
+    <laneSet id="LaneSet_1">
+      <lane id="Lane_Empleado" name="Empleado">
+        <flowNodeRef>StartEvent_Inicio</flowNodeRef>
+        <flowNodeRef>Task_ComprobarSaldo</flowNodeRef>
+        <flowNodeRef>Task_RellenarSolicitud</flowNodeRef>
+        <flowNodeRef>Task_EnviarSolicitud</flowNodeRef>
+        <flowNodeRef>Task_RecibirNotificacion</flowNodeRef>
+      </lane>
+      <lane id="Lane_Manager" name="Manager">
+        <flowNodeRef>Task_RevisarSolicitud</flowNodeRef>
+        <flowNodeRef>Gateway_Aprobado</flowNodeRef>
+        <flowNodeRef>Task_NotificarRechazo</flowNodeRef>
+        <flowNodeRef>EndEvent_Rechazado</flowNodeRef>
+      </lane>
+      <lane id="Lane_RRHH" name="RRHH">
+        <flowNodeRef>Task_RegistrarSistema</flowNodeRef>
+        <flowNodeRef>Task_ConfirmarNotificar</flowNodeRef>
+        <flowNodeRef>EndEvent_Aprobado</flowNodeRef>
+      </lane>
+    </laneSet>
+
+    <!-- Start Event -->
+    <startEvent id="StartEvent_Inicio" name="Inicio">
+      <outgoing>Flow_01</outgoing>
+    </startEvent>
+
+    <!-- Lane: Empleado - Tasks -->
+    <userTask id="Task_ComprobarSaldo" name="Comprobar saldo de días disponibles">
+      <incoming>Flow_01</incoming>
+      <outgoing>Flow_02</outgoing>
+    </userTask>
+
+    <userTask id="Task_RellenarSolicitud" name="Rellenar solicitud de vacaciones">
+      <incoming>Flow_02</incoming>
+      <outgoing>Flow_03</outgoing>
+    </userTask>
+
+    <sendTask id="Task_EnviarSolicitud" name="Enviar solicitud al manager">
+      <incoming>Flow_03</incoming>
+      <outgoing>Flow_04</outgoing>
+    </sendTask>
+
+    <receiveTask id="Task_RecibirNotificacion" name="Recibir notificación de resolución">
+      <incoming>Flow_Msg_Confirmacion</incoming>
+      <incoming>Flow_Msg_Rechazo</incoming>
+    </receiveTask>
+
+    <!-- Lane: Manager - Tasks -->
+    <userTask id="Task_RevisarSolicitud" name="Revisar solicitud y disponibilidad">
+      <incoming>Flow_04</incoming>
+      <outgoing>Flow_05</outgoing>
+    </userTask>
+
+    <exclusiveGateway id="Gateway_Aprobado" name="¿Aprobado?" gatewayDirection="Diverging">
+      <incoming>Flow_05</incoming>
+      <outgoing>Flow_06_Si</outgoing>
+      <outgoing>Flow_06_No</outgoing>
+    </exclusiveGateway>
+
+    <sendTask id="Task_NotificarRechazo" name="Notificar rechazo">
+      <incoming>Flow_06_No</incoming>
+      <outgoing>Flow_07_Rechazo</outgoing>
+      <outgoing>Flow_Msg_Rechazo</outgoing>
+    </sendTask>
+
+    <endEvent id="EndEvent_Rechazado" name="Fin (rechazado)">
+      <incoming>Flow_07_Rechazo</incoming>
+    </endEvent>
+
+    <!-- Lane: RRHH - Tasks -->
+    <userTask id="Task_RegistrarSistema" name="Registrar en sistema RRHH">
+      <incoming>Flow_06_Si</incoming>
+      <outgoing>Flow_08</outgoing>
+    </userTask>
+
+    <sendTask id="Task_ConfirmarNotificar" name="Confirmar y notificar empleado">
+      <incoming>Flow_08</incoming>
+      <outgoing>Flow_09</outgoing>
+      <outgoing>Flow_Msg_Confirmacion</outgoing>
+    </sendTask>
+
+    <endEvent id="EndEvent_Aprobado" name="Fin (aprobado)">
+      <incoming>Flow_09</incoming>
+    </endEvent>
+
+    <!-- Sequence Flows -->
+    <sequenceFlow id="Flow_01" sourceRef="StartEvent_Inicio" targetRef="Task_ComprobarSaldo"/>
+    <sequenceFlow id="Flow_02" sourceRef="Task_ComprobarSaldo" targetRef="Task_RellenarSolicitud"/>
+    <sequenceFlow id="Flow_03" sourceRef="Task_RellenarSolicitud" targetRef="Task_EnviarSolicitud"/>
+    <sequenceFlow id="Flow_04" sourceRef="Task_EnviarSolicitud" targetRef="Task_RevisarSolicitud"/>
+    <sequenceFlow id="Flow_05" sourceRef="Task_RevisarSolicitud" targetRef="Gateway_Aprobado"/>
+    <sequenceFlow id="Flow_06_Si" name="Sí" sourceRef="Gateway_Aprobado" targetRef="Task_RegistrarSistema">
+      <conditionExpression xsi:type="tFormalExpression">${aprobado == true}</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_06_No" name="No" sourceRef="Gateway_Aprobado" targetRef="Task_NotificarRechazo">
+      <conditionExpression xsi:type="tFormalExpression">${aprobado == false}</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_07_Rechazo" sourceRef="Task_NotificarRechazo" targetRef="EndEvent_Rechazado"/>
+    <sequenceFlow id="Flow_08" sourceRef="Task_RegistrarSistema" targetRef="Task_ConfirmarNotificar"/>
+    <sequenceFlow id="Flow_09" sourceRef="Task_ConfirmarNotificar" targetRef="EndEvent_Aprobado"/>
+
+    <!-- Message Flows (notificaciones al empleado) -->
+    <sequenceFlow id="Flow_Msg_Confirmacion" sourceRef="Task_ConfirmarNotificar" targetRef="Task_RecibirNotificacion"/>
+    <sequenceFlow id="Flow_Msg_Rechazo" sourceRef="Task_NotificarRechazo" targetRef="Task_RecibirNotificacion"/>
+
+  </process>
+
+  <!-- BPMN Diagram Interchange (DI) -->
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_Vacaciones">
+
+      <!-- Pool -->
+      <bpmndi:BPMNShape id="Shape_Pool" bpmnElement="Pool_Vacaciones" isHorizontal="true">
+        <dc:Bounds x="10" y="10" width="700" height="810"/>
+      </bpmndi:BPMNShape>
+
+      <!-- Lanes -->
+      <bpmndi:BPMNShape id="Shape_Lane_Empleado" bpmnElement="Lane_Empleado" isHorizontal="true">
+        <dc:Bounds x="40" y="10" width="670" height="260"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Lane_Manager" bpmnElement="Lane_Manager" isHorizontal="true">
+        <dc:Bounds x="40" y="270" width="670" height="260"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Lane_RRHH" bpmnElement="Lane_RRHH" isHorizontal="true">
+        <dc:Bounds x="40" y="530" width="670" height="290"/>
+      </bpmndi:BPMNShape>
+
+      <!-- Start Event -->
+      <bpmndi:BPMNShape id="Shape_Start" bpmnElement="StartEvent_Inicio">
+        <dc:Bounds x="100" y="117" width="36" height="36"/>
+        <bpmndi:BPMNLabel><dc:Bounds x="93" y="160" width="50" height="14"/></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <!-- Empleado tasks -->
+      <bpmndi:BPMNShape id="Shape_ComprobarSaldo" bpmnElement="Task_ComprobarSaldo">
+        <dc:Bounds x="160" y="107" width="130" height="56"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_RellenarSolicitud" bpmnElement="Task_RellenarSolicitud">
+        <dc:Bounds x="316" y="107" width="130" height="56"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EnviarSolicitud" bpmnElement="Task_EnviarSolicitud">
+        <dc:Bounds x="472" y="107" width="130" height="56"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_RecibirNotificacion" bpmnElement="Task_RecibirNotificacion">
+        <dc:Bounds x="472" y="195" width="130" height="56"/>
+      </bpmndi:BPMNShape>
+
+      <!-- Manager tasks -->
+      <bpmndi:BPMNShape id="Shape_RevisarSolicitud" bpmnElement="Task_RevisarSolicitud">
+        <dc:Bounds x="316" y="297" width="130" height="56"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Gateway" bpmnElement="Gateway_Aprobado" isMarkerVisible="true">
+        <dc:Bounds x="440" y="325" width="64" height="64"/>
+        <bpmndi:BPMNLabel><dc:Bounds x="435" y="396" width="74" height="14"/></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_NotificarRechazo" bpmnElement="Task_NotificarRechazo">
+        <dc:Bounds x="554" y="297" width="110" height="56"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EndRechazado" bpmnElement="EndEvent_Rechazado">
+        <dc:Bounds x="591" y="412" width="36" height="36"/>
+        <bpmndi:BPMNLabel><dc:Bounds x="573" y="455" width="72" height="14"/></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <!-- RRHH tasks -->
+      <bpmndi:BPMNShape id="Shape_RegistrarSistema" bpmnElement="Task_RegistrarSistema">
+        <dc:Bounds x="316" y="560" width="130" height="56"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ConfirmarNotificar" bpmnElement="Task_ConfirmarNotificar">
+        <dc:Bounds x="472" y="560" width="130" height="56"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EndAprobado" bpmnElement="EndEvent_Aprobado">
+        <dc:Bounds x="519" y="692" width="36" height="36"/>
+        <bpmndi:BPMNLabel><dc:Bounds x="500" y="735" width="74" height="14"/></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <!-- Sequence Flow edges -->
+      <bpmndi:BPMNEdge id="Edge_Flow_01" bpmnElement="Flow_01">
+        <di:waypoint x="136" y="135"/><di:waypoint x="160" y="135"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_02" bpmnElement="Flow_02">
+        <di:waypoint x="290" y="135"/><di:waypoint x="316" y="135"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_03" bpmnElement="Flow_03">
+        <di:waypoint x="446" y="135"/><di:waypoint x="472" y="135"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_04" bpmnElement="Flow_04">
+        <di:waypoint x="537" y="163"/><di:waypoint x="537" y="180"/>
+        <di:waypoint x="381" y="180"/><di:waypoint x="381" y="297"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_05" bpmnElement="Flow_05">
+        <di:waypoint x="446" y="325"/><di:waypoint x="440" y="357"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_06_Si" bpmnElement="Flow_06_Si">
+        <di:waypoint x="472" y="389"/><di:waypoint x="472" y="480"/>
+        <di:waypoint x="381" y="480"/><di:waypoint x="381" y="560"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_06_No" bpmnElement="Flow_06_No">
+        <di:waypoint x="504" y="357"/><di:waypoint x="554" y="325"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_07" bpmnElement="Flow_07_Rechazo">
+        <di:waypoint x="609" y="353"/><di:waypoint x="609" y="412"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_08" bpmnElement="Flow_08">
+        <di:waypoint x="446" y="588"/><di:waypoint x="472" y="588"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_09" bpmnElement="Flow_09">
+        <di:waypoint x="537" y="616"/><di:waypoint x="537" y="692"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Msg_Confirmacion" bpmnElement="Flow_Msg_Confirmacion">
+        <di:waypoint x="537" y="560"/><di:waypoint x="537" y="251"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Msg_Rechazo" bpmnElement="Flow_Msg_Rechazo">
+        <di:waypoint x="609" y="297"/><di:waypoint x="609" y="240"/>
+        <di:waypoint x="537" y="240"/><di:waypoint x="537" y="251"/>
+      </bpmndi:BPMNEdge>
+
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</definitions>

@@ -1,0 +1,31 @@
+{
+  "experimentId": "EXP-SYN004-SYSV31-CLAUDE-OPUS_4_7-R01",
+  "processId": "SYN004",
+  "processFilename": "SYN004_insurance_claim_triage.md",
+  "processTitle": "Insurance claim triage",
+  "processSource": "synthetic",
+  "difficulty": "medium",
+  "expectedFeatures": [
+    "xor_gateway",
+    "alternative_paths",
+    "merge",
+    "single_pool"
+  ],
+  "systemPromptVersion": "SYSV31",
+  "provider": "CLAUDE",
+  "modelLabel": "OPUS_4_7",
+  "executionSetting": "Claude Opus 4.7 (Agent SDK, fresh subagent context)",
+  "reasoningMode": "Adaptive",
+  "runNumber": 1,
+  "interfaceType": "agent",
+  "status": "raw_output_generated",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-05-23T16:49:27Z",
+  "notes": "",
+  "inputSystemTokens": 10916,
+  "inputProcessTokens": 282,
+  "inputTokens": 11198,
+  "outputTokens": 143,
+  "totalTokens": 11341,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

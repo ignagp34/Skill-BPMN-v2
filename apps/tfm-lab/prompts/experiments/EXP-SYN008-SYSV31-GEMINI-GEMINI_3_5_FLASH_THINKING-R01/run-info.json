@@ -1,0 +1,29 @@
+{
+  "experimentId": "EXP-SYN008-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+  "processId": "SYN008",
+  "processFilename": "SYN008_procurement_request_fulfillment.md",
+  "processTitle": "Procurement request fulfillment",
+  "processSource": "synthetic",
+  "difficulty": "medium",
+  "expectedFeatures": [
+    "parallel_gateway",
+    "fork_join",
+    "single_pool",
+    "tasks"
+  ],
+  "systemPromptVersion": "SYSV31",
+  "provider": "GEMINI",
+  "modelLabel": "GEMINI_3_5_FLASH_THINKING",
+  "runNumber": 1,
+  "interfaceType": "agent",
+  "status": "raw_output_generated",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-05-23T17:16:34.593472+00:00",
+  "notes": "",
+  "inputSystemTokens": 10916,
+  "inputProcessTokens": 230,
+  "inputTokens": 11146,
+  "outputTokens": 32,
+  "totalTokens": 11178,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

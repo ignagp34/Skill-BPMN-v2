@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_SYN003" targetNamespace="http://example.com/bpmn/SYN003">
+  <bpmn:collaboration id="Collaboration_SYN003">
+    <bpmn:participant id="Participant_MedicalClinic" name="Medical Clinic" processRef="Process_SYN003"/>
+  </bpmn:collaboration>
+  <bpmn:process id="Process_SYN003" name="Outpatient appointment check-in" isExecutable="false">
+    <bpmn:startEvent id="StartEvent_PatientArrives" name="Patient arrives">
+      <bpmn:outgoing>Flow_01</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_GreetPatient" name="Greet patient">
+      <bpmn:incoming>Flow_01</bpmn:incoming>
+      <bpmn:outgoing>Flow_02</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_ConfirmAppointment" name="Confirm appointment">
+      <bpmn:incoming>Flow_02</bpmn:incoming>
+      <bpmn:outgoing>Flow_03</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:serviceTask id="Task_UpdateArrival" name="Update patient arrival in system">
+      <bpmn:incoming>Flow_03</bpmn:incoming>
+      <bpmn:outgoing>Flow_04</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:task id="Task_PrintVisitLabel" name="Print visit label">
+      <bpmn:incoming>Flow_04</bpmn:incoming>
+      <bpmn:outgoing>Flow_05</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_DirectToWaitingArea" name="Direct patient to waiting area">
+      <bpmn:incoming>Flow_05</bpmn:incoming>
+      <bpmn:outgoing>Flow_06</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_CompleteCheckIn" name="Complete check-in">
+      <bpmn:incoming>Flow_06</bpmn:incoming>
+      <bpmn:outgoing>Flow_07</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="EndEvent_CheckInCompleted" name="Check-in completed">
+      <bpmn:incoming>Flow_07</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_01" sourceRef="StartEvent_PatientArrives" targetRef="Task_GreetPatient"/>
+    <bpmn:sequenceFlow id="Flow_02" sourceRef="Task_GreetPatient" targetRef="Task_ConfirmAppointment"/>
+    <bpmn:sequenceFlow id="Flow_03" sourceRef="Task_ConfirmAppointment" targetRef="Task_UpdateArrival"/>
+    <bpmn:sequenceFlow id="Flow_04" sourceRef="Task_UpdateArrival" targetRef="Task_PrintVisitLabel"/>
+    <bpmn:sequenceFlow id="Flow_05" sourceRef="Task_PrintVisitLabel" targetRef="Task_DirectToWaitingArea"/>
+    <bpmn:sequenceFlow id="Flow_06" sourceRef="Task_DirectToWaitingArea" targetRef="Task_CompleteCheckIn"/>
+    <bpmn:sequenceFlow id="Flow_07" sourceRef="Task_CompleteCheckIn" targetRef="EndEvent_CheckInCompleted"/>
+  </bpmn:process>
+</bpmn:definitions>

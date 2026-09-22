@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_SYN014" targetNamespace="http://example.com/bpmn/syn014">
+  <bpmn:message id="Message_BookingRequest" name="Booking request"/>
+  <bpmn:message id="Message_PaymentRequest" name="Payment request"/>
+  <bpmn:message id="Message_Payment" name="Payment"/>
+  <bpmn:message id="Message_Ticket" name="Ticket"/>
+  <bpmn:message id="Message_CancellationNotice" name="Cancellation notice"/>
+  <bpmn:collaboration id="Collaboration_SYN014">
+    <bpmn:participant id="Participant_Traveler" name="Traveler" processRef="Process_Traveler"/>
+    <bpmn:participant id="Participant_Agency" name="Online Travel Agency" processRef="Process_Agency"/>
+    <bpmn:messageFlow id="MessageFlow_BookingRequest" name="Booking request" sourceRef="Task_SendBookingRequest" targetRef="StartEvent_BookingReceived"/>
+    <bpmn:messageFlow id="MessageFlow_PaymentRequest" name="Payment request" sourceRef="Task_SendPaymentRequest" targetRef="Task_ReceivePaymentRequest"/>
+    <bpmn:messageFlow id="MessageFlow_Payment" name="Payment" sourceRef="Task_SendPayment" targetRef="Task_ReceivePayment"/>
+    <bpmn:messageFlow id="MessageFlow_Ticket" name="Ticket" sourceRef="Task_SendTicket" targetRef="Event_ReceiveTicket"/>
+    <bpmn:messageFlow id="MessageFlow_CancellationNotice" name="Cancellation notice" sourceRef="Task_SendCancellationNotice" targetRef="Event_ReceiveCancellation"/>
+  </bpmn:collaboration>
+  <bpmn:process id="Process_Traveler" name="Traveler booking process" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_Traveler">
+      <bpmn:lane id="Lane_Traveler" name="Traveler">
+        <bpmn:flowNodeRef>StartEvent_Traveler</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendBookingRequest</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReceivePaymentRequest</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendPayment</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_WaitForOutcome</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_ReceiveTicket</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_ReceiveCancellation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_TicketReceived</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_CancellationReceived</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_Traveler" name="Travel needed">
+      <bpmn:outgoing>Flow_T1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sendTask id="Task_SendBookingRequest" name="Book train ticket" messageRef="Message_BookingRequest">
+      <bpmn:incoming>Flow_T1</bpmn:incoming>
+      <bpmn:outgoing>Flow_T2</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:receiveTask id="Task_ReceivePaymentRequest" name="Receive payment request" messageRef="Message_PaymentRequest">
+      <bpmn:incoming>Flow_T2</bpmn:incoming>
+      <bpmn:outgoing>Flow_T3</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:sendTask id="Task_SendPayment" name="Pay booking" messageRef="Message_Payment">
+      <bpmn:incoming>Flow_T3</bpmn:incoming>
+      <bpmn:outgoing>Flow_T4</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:eventBasedGateway id="Gateway_WaitForOutcome" name="Wait for ticket or cancellation">
+      <bpmn:incoming>Flow_T4</bpmn:incoming>
+      <bpmn:outgoing>Flow_T5</bpmn:outgoing>
+      <bpmn:outgoing>Flow_T6</bpmn:outgoing>
+    </bpmn:eventBasedGateway>
+    <bpmn:intermediateCatchEvent id="Event_ReceiveTicket" name="Receive ticket">
+      <bpmn:incoming>Flow_T5</bpmn:incoming>
+      <bpmn:outgoing>Flow_T7</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_Ticket" messageRef="Message_Ticket"/>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:intermediateCatchEvent id="Event_ReceiveCancellation" name="Receive cancellation notice">
+      <bpmn:incoming>Flow_T6</bpmn:incoming>
+      <bpmn:outgoing>Flow_T8</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_Cancellation" messageRef="Message_CancellationNotice"/>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:endEvent id="EndEvent_TicketReceived" name="Ticket received">
+      <bpmn:incoming>Flow_T7</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:endEvent id="EndEvent_CancellationReceived" name="Cancellation notice received">
+      <bpmn:incoming>Flow_T8</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_T1" sourceRef="StartEvent_Traveler" targetRef="Task_SendBookingRequest"/>
+    <bpmn:sequenceFlow id="Flow_T2" sourceRef="Task_SendBookingRequest" targetRef="Task_ReceivePaymentRequest"/>
+    <bpmn:sequenceFlow id="Flow_T3" sourceRef="Task_ReceivePaymentRequest" targetRef="Task_SendPayment"/>
+    <bpmn:sequenceFlow id="Flow_T4" sourceRef="Task_SendPayment" targetRef="Gateway_WaitForOutcome"/>
+    <bpmn:sequenceFlow id="Flow_T5" sourceRef="Gateway_WaitForOutcome" targetRef="Event_ReceiveTicket"/>
+    <bpmn:sequenceFlow id="Flow_T6" sourceRef="Gateway_WaitForOutcome" targetRef="Event_ReceiveCancellation"/>
+    <bpmn:sequenceFlow id="Flow_T7" sourceRef="Event_ReceiveTicket" targetRef="EndEvent_TicketReceived"/>
+    <bpmn:sequenceFlow id="Flow_T8" sourceRef="Event_ReceiveCancellation" targetRef="EndEvent_CancellationReceived"/>
+  </bpmn:process>
+  <bpmn:process id="Process_Agency" name="Online travel agency booking process" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_Agency">
+      <bpmn:lane id="Lane_Agency" name="Online Travel Agency">
+        <bpmn:flowNodeRef>StartEvent_BookingReceived</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_CreateReservation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendPaymentRequest</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReceivePayment</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>BoundaryEvent_PaymentDeadline</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_IssueTicket</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendTicket</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_CancelReservation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendCancellationNotice</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_AgencyTicketed</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_AgencyCancelled</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_BookingReceived" name="Booking request received">
+      <bpmn:outgoing>Flow_A1</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_Booking" messageRef="Message_BookingRequest"/>
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="Task_CreateReservation" name="Create reservation">
+      <bpmn:incoming>Flow_A1</bpmn:incoming>
+      <bpmn:outgoing>Flow_A2</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sendTask id="Task_SendPaymentRequest" name="Send payment request" messageRef="Message_PaymentRequest">
+      <bpmn:incoming>Flow_A2</bpmn:incoming>
+      <bpmn:outgoing>Flow_A3</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:receiveTask id="Task_ReceivePayment" name="Receive payment" messageRef="Message_Payment">
+      <bpmn:incoming>Flow_A3</bpmn:incoming>
+      <bpmn:outgoing>Flow_A4</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:boundaryEvent id="BoundaryEvent_PaymentDeadline" name="Payment deadline expired" attachedToRef="Task_ReceivePayment" cancelActivity="true">
+      <bpmn:outgoing>Flow_A7</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_PaymentDeadline">
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT15M</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:boundaryEvent>
+    <bpmn:serviceTask id="Task_IssueTicket" name="Issue ticket">
+      <bpmn:incoming>Flow_A4</bpmn:incoming>
+      <bpmn:outgoing>Flow_A5</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sendTask id="Task_SendTicket" name="Send ticket" messageRef="Message_Ticket">
+      <bpmn:incoming>Flow_A5</bpmn:incoming>
+      <bpmn:outgoing>Flow_A6</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:endEvent id="EndEvent_AgencyTicketed" name="Ticket sent">
+      <bpmn:incoming>Flow_A6</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="Task_CancelReservation" name="Cancel reservation automatically">
+      <bpmn:incoming>Flow_A7</bpmn:incoming>
+      <bpmn:outgoing>Flow_A8</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sendTask id="Task_SendCancellationNotice" name="Send cancellation notice" messageRef="Message_CancellationNotice">
+      <bpmn:incoming>Flow_A8</bpmn:incoming>
+      <bpmn:outgoing>Flow_A9</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:endEvent id="EndEvent_AgencyCancelled" name="Cancellation notice sent">
+      <bpmn:incoming>Flow_A9</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_A1" sourceRef="StartEvent_BookingReceived" targetRef="Task_CreateReservation"/>
+    <bpmn:sequenceFlow id="Flow_A2" sourceRef="Task_CreateReservation" targetRef="Task_SendPaymentRequest"/>
+    <bpmn:sequenceFlow id="Flow_A3" sourceRef="Task_SendPaymentRequest" targetRef="Task_ReceivePayment"/>
+    <bpmn:sequenceFlow id="Flow_A4" sourceRef="Task_ReceivePayment" targetRef="Task_IssueTicket"/>
+    <bpmn:sequenceFlow id="Flow_A5" sourceRef="Task_IssueTicket" targetRef="Task_SendTicket"/>
+    <bpmn:sequenceFlow id="Flow_A6" sourceRef="Task_SendTicket" targetRef="EndEvent_AgencyTicketed"/>
+    <bpmn:sequenceFlow id="Flow_A7" sourceRef="BoundaryEvent_PaymentDeadline" targetRef="Task_CancelReservation"/>
+    <bpmn:sequenceFlow id="Flow_A8" sourceRef="Task_CancelReservation" targetRef="Task_SendCancellationNotice"/>
+    <bpmn:sequenceFlow id="Flow_A9" sourceRef="Task_SendCancellationNotice" targetRef="EndEvent_AgencyCancelled"/>
+  </bpmn:process>
+</bpmn:definitions>

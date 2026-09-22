@@ -1,0 +1,37 @@
+(receive Grant application package received)
+[Application form]
+[Supporting budget file]
+Officer: Register application
+[db Grants database]
+[Application form]
+Officer: Check application form
+[Supporting budget file]
+Officer: Review budget file
+[Eligibility rules]
+Officer: Consult eligibility rules
+Is information missing?
+Yes
+Officer: Record missing information issue
+Officer: send Request for completion
+(finish Completion requested)
+
+(receive Grant application package received)
+[Application form]
+[Supporting budget file]
+Officer: Register application
+[db Grants database]
+[Application form]
+Officer: Check application form
+[Supporting budget file]
+Officer: Review budget file
+[Eligibility rules]
+Officer: Consult eligibility rules
+Is information missing?
+No
+//Incomplete applications must not be assessed for merit
+Officer: Write evaluation report
+[Evaluation report]
+Officer: Store evaluation report
+[db Case repository]
+Officer: Issue recommendation for decision
+(finish Recommendation issued)

@@ -1,0 +1,27 @@
+Agency: (start Reservation created)
+(send Payment request)
+(receive Payment)
+service Issue ticket
+(send Ticket)
+(finish Ticket sent)
+
+Agency: (start Reservation created)
+(send Payment request)
+(timer Payment deadline)
+service Cancel reservation automatically
+(send Cancellation notice)
+(finish Cancellation notice sent)
+
+Traveler: (receive Payment request)
+user Pay booking
+(send Payment)
+(receive Ticket)
+(finish Ticket received)
+
+Traveler: (receive Payment request)
+(receive Cancellation notice)
+(finish Cancellation notice received)
+
+== pools ==
+Online travel agency -> Agency
+Traveler participant -> Traveler

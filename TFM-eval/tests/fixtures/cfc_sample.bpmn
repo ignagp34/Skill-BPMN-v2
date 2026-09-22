@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             id="Definitions_1"
+             targetNamespace="http://example.com/bpmn">
+  <process id="Process_1" isExecutable="true">
+    <startEvent id="Start_1" name="Start"/>
+    <!-- XOR split with 2 branches → contributes 2 -->
+    <exclusiveGateway id="XOR_1" name="Decision" default="Flow_A1"/>
+    <!-- AND split with 3 branches → contributes 1 -->
+    <parallelGateway id="AND_1" name="Fork"/>
+    <!-- Terminal tasks for each branch -->
+    <task id="Task_A" name="A"/>
+    <task id="Task_B1" name="B1"/>
+    <task id="Task_B2" name="B2"/>
+    <task id="Task_B3" name="B3"/>
+    <endEvent id="End_A" name="EndA"/>
+    <endEvent id="End_B" name="EndB"/>
+
+    <sequenceFlow id="Flow_start" sourceRef="Start_1" targetRef="XOR_1"/>
+    <sequenceFlow id="Flow_A1" sourceRef="XOR_1" targetRef="Task_A"/>
+    <sequenceFlow id="Flow_A2" sourceRef="XOR_1" targetRef="AND_1">
+      <conditionExpression>go_parallel</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_par1" sourceRef="AND_1" targetRef="Task_B1"/>
+    <sequenceFlow id="Flow_par2" sourceRef="AND_1" targetRef="Task_B2"/>
+    <sequenceFlow id="Flow_par3" sourceRef="AND_1" targetRef="Task_B3"/>
+    <sequenceFlow id="Flow_endA" sourceRef="Task_A" targetRef="End_A"/>
+    <sequenceFlow id="Flow_endB1" sourceRef="Task_B1" targetRef="End_B"/>
+    <sequenceFlow id="Flow_endB2" sourceRef="Task_B2" targetRef="End_B"/>
+    <sequenceFlow id="Flow_endB3" sourceRef="Task_B3" targetRef="End_B"/>
+  </process>
+</definitions>

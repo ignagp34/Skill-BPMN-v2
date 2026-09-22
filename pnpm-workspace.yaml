@@ -1,0 +1,13 @@
+packages:
+  - "packages/*"
+  - "apps/*"
+
+# esbuild ships its binary via a platform package, so running its postinstall is
+# safe. Playwright's browser download is done explicitly via
+# `playwright install chromium` (see apps/tfm-lab/README.md), not on every install.
+onlyBuiltDependencies:
+  - esbuild
+ignoredBuiltDependencies:
+  - playwright
+allowBuilds:
+  esbuild: true

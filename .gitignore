@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+build/
+.vite/
+coverage/
+*.tsbuildinfo
+
+# Python (TFM-eval)
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+.venv/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.tmp/
+
+# Environment / secrets
+.env
+.env.local
+
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Stage 1: retain evidence, exclude installed runtimes and generated bundles.
+!baseline-stage1/logs/*.log
+.playwright/
+.uv-cache/
+.venv-bpmn/
+portable-check/
+smoke-output*/
+deliverables/

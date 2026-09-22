@@ -1,0 +1,34 @@
+Traveler: Book train ticket
+(send Reservation Request)
+
+Agency: (receive Reservation Request)
+Agency: Create reservation
+(send Payment Request)
+Agency: Await payment
+...
+
+...
+Agency: Await payment
+(receive Payment)
+Agency: Issue ticket
+(send Ticket)
+
+...
+Agency: Await payment
+(deadline Payment deadline expired)
+Agency: Cancel reservation
+(send Cancellation Notice)
+
+Traveler: (receive Payment Request)
+Traveler: Pay booking
+(send Payment)
+
+Traveler: (receive Ticket)
+(finish Ticket received)
+
+Traveler: (receive Cancellation Notice)
+(finish Cancellation notice received)
+
+== pools ==
+Traveler -> Traveler
+Agency -> Agency

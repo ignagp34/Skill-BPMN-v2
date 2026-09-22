@@ -1,0 +1,24 @@
+{
+  "source": "packages/bpmn-core/tests/fixtures/es-almacen.dsl",
+  "invalid": false,
+  "id": "es-almacen",
+  "status": "success_with_warnings",
+  "passed": true,
+  "checks": {
+    "bpmnDI": true,
+    "svg": true,
+    "png": true,
+    "width": 1336,
+    "height": 954
+  },
+  "reimport": true,
+  "hashes": {
+    "normalized.dsl": "418f951c0996023117023cf87fb3a1d2f988a45e3a7a6855308c03a816c0d827",
+    "result.json": "f72b49303f22b957432bc560276d5b8f08c44ade72953f45c63d394dc91bcab8",
+    "semantic.bpmn": "e1ab1567163d4a5ec97f9d0771c8b9c243db19e06b826c1c0ba86f5b05ea3eec",
+    "diagram.bpmn": "06c83e3c20a3ac97d27297c2ddd3301467ee1df420a2f9957752536d77e990e5",
+    "diagram.svg": "e7ccaba11521f7ca0a8ebe1a9dba21c4db97fd3d9f8e5669a970f87eedc540ab",
+    "diagram.png": "7167c12c02801ba2e627c37c844c362cdcc0657ec0018ccfc5d7e0b43cd3b073"
+  },
+  "errors": []
+}

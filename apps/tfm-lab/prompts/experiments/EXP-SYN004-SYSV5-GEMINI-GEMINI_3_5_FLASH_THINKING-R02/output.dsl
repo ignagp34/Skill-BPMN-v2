@@ -1,0 +1,52 @@
+Claims Handler: (receive Home Damage Claim)
+Register claim
+Review submitted information
+Is claim complete?
+No
+Request missing information
+Close current review
+(finish Review closed)
+
+Claims Handler: (receive Home Damage Claim)
+Register claim
+Review submitted information
+Is claim complete?
+Yes
+Is damage below threshold?
+Yes
+Approve claim
+Send settlement notice
+(finish Claim approved)
+
+Claims Handler: (receive Home Damage Claim)
+Register claim
+Review submitted information
+Is claim complete?
+Yes
+Is damage below threshold?
+No
+Forward claim for detailed assessment
+Claims Assessor: Perform detailed assessment
+Is claim approved?
+Yes
+Claims Handler: Approve claim
+Send settlement notice
+(finish Claim approved)
+
+Claims Handler: (receive Home Damage Claim)
+Register claim
+Review submitted information
+Is claim complete?
+Yes
+Is damage below threshold?
+No
+Forward claim for detailed assessment
+Claims Assessor: Perform detailed assessment
+Is claim approved?
+No
+Claims Handler: Reject claim
+Send rejection notice
+(finish Claim rejected)
+
+== pools ==
+Claims Department -> Claims Handler; Claims Assessor

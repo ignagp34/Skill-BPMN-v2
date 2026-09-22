@@ -1,0 +1,31 @@
+{
+  "experimentId": "EXP-SYN014-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R03",
+  "processId": "SYN014",
+  "processFilename": "SYN014_travel_booking_payment_timeout.md",
+  "processTitle": "Travel booking payment timeout",
+  "processSource": "synthetic",
+  "difficulty": "hard",
+  "expectedFeatures": [
+    "timer_event",
+    "cancellation",
+    "exception_flow",
+    "multiple_pools"
+  ],
+  "systemPromptVersion": "SYSV31",
+  "provider": "CLAUDE",
+  "modelLabel": "OPUS_4_8_MEDIUM",
+  "executionSetting": "Claude Opus 4.8 (Medium reasoning, Agent SDK, fresh subagent context)",
+  "reasoningMode": "Medium",
+  "runNumber": 3,
+  "interfaceType": "agent",
+  "status": "raw_output_generated",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-06-14T11:11:35Z",
+  "notes": "",
+  "inputSystemTokens": 10916,
+  "inputProcessTokens": 252,
+  "inputTokens": 11168,
+  "outputTokens": 85,
+  "totalTokens": 11253,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

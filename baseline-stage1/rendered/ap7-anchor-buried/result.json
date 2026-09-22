@@ -1,0 +1,162 @@
+{
+  "metadata": {
+    "experimentId": "ap7-anchor-buried",
+    "processId": "FIXTURE",
+    "processSource": "packages/bpmn-core/tests/fixtures/_invalid/ap7-anchor-buried.dsl",
+    "systemPromptVersion": "BASELINE",
+    "processPromptVersion": "fixture",
+    "provider": "none",
+    "modelLabel": "none",
+    "interfaceType": "web",
+    "runNumber": 1,
+    "createdAt": "2026-09-22T00:00:00Z",
+    "inputPromptHash": "e31ea2e878c9c8e82ce8d61f3724f9ca81c853b17fffe0fc3fd77f7ab994082e",
+    "rawOutputHash": "8f585fb37a3e9a5ee00cb975f1108fd2fced9b98c1f334364c12222d54bccad9",
+    "normalizedDslHash": "93ec6dd861d4ebff2a2644f32e5c4f31d68eeab6629cf43c06930df2133cb675",
+    "parserValid": true,
+    "semanticValid": false,
+    "bpmnImportValid": false,
+    "renderValid": false,
+    "status": "semantic_error",
+    "notes": "Deterministic existing fixture. No model generation. interfaceType web is inherited harness metadata, not Work evidence."
+  },
+  "bpmnValidation": {
+    "status": "warning",
+    "errors": [],
+    "warnings": [
+      {
+        "code": "IMPLICIT_END_EVENT",
+        "origin": "model",
+        "severity": "warning",
+        "elementId": "EndEvent_implicit_Task_Company_Onboard",
+        "elementName": "",
+        "message": "An implicit end event was synthesized for a node without outgoing flow."
+      },
+      {
+        "code": "IMPLICIT_START_EVENT",
+        "origin": "model",
+        "severity": "warning",
+        "elementId": "StartEvent_implicit_Task_Applicant_Apply_for_job",
+        "elementName": "",
+        "message": "An implicit start event was synthesized for a node without incoming flow."
+      },
+      {
+        "code": "IMPLICIT_START_EVENT",
+        "origin": "model",
+        "severity": "warning",
+        "elementId": "StartEvent_implicit_Task_Company_Send_offer",
+        "elementName": "",
+        "message": "An implicit start event was synthesized for a node without incoming flow."
+      },
+      {
+        "code": "MISSING_EXPLICIT_END_EVENT",
+        "origin": "model",
+        "severity": "warning",
+        "message": "The model does not contain an explicit end event from the DSL."
+      },
+      {
+        "code": "MISSING_EXPLICIT_START_EVENT",
+        "origin": "model",
+        "severity": "warning",
+        "message": "The model does not contain an explicit start event from the DSL."
+      }
+    ],
+    "info": [],
+    "metrics": {
+      "numActivities": 5,
+      "numGateways": 1,
+      "numStartEvents": 2,
+      "numEndEvents": 1,
+      "isolatedNodes": 0,
+      "deadEndNodes": 0
+    }
+  },
+  "diagnostics": [
+    {
+      "category": "semantic",
+      "code": "AP-7",
+      "line": 8,
+      "message": "Anchor 'Decide on hiring' is buried inside a fragment; move it to the '...' boundary.",
+      "severity": "error",
+      "source": "dsl"
+    },
+    {
+      "category": "bpmn",
+      "code": "IMPLICIT_END_EVENT",
+      "message": "An implicit end event was synthesized for a node without outgoing flow.",
+      "severity": "warning",
+      "source": "validation"
+    },
+    {
+      "category": "bpmn",
+      "code": "IMPLICIT_START_EVENT",
+      "message": "An implicit start event was synthesized for a node without incoming flow.",
+      "severity": "warning",
+      "source": "validation"
+    },
+    {
+      "category": "bpmn",
+      "code": "IMPLICIT_START_EVENT",
+      "message": "An implicit start event was synthesized for a node without incoming flow.",
+      "severity": "warning",
+      "source": "validation"
+    },
+    {
+      "category": "bpmn",
+      "code": "MISSING_EXPLICIT_END_EVENT",
+      "message": "The model does not contain an explicit end event from the DSL.",
+      "severity": "warning",
+      "source": "validation"
+    },
+    {
+      "category": "bpmn",
+      "code": "MISSING_EXPLICIT_START_EVENT",
+      "message": "The model does not contain an explicit start event from the DSL.",
+      "severity": "warning",
+      "source": "validation"
+    }
+  ],
+  "parserErrors": [],
+  "semanticErrors": [
+    {
+      "category": "semantic",
+      "code": "AP-7",
+      "line": 8,
+      "message": "Anchor 'Decide on hiring' is buried inside a fragment; move it to the '...' boundary.",
+      "severity": "error",
+      "source": "dsl"
+    }
+  ],
+  "semanticWarnings": [],
+  "renderErrors": [],
+  "exportAvailability": {
+    "bpmn": false,
+    "png": false,
+    "resultJson": true,
+    "svg": false
+  },
+  "timestamps": {
+    "createdAt": "2026-09-22T00:00:00Z",
+    "evaluatedAt": "2026-09-22T16:15:34.006Z"
+  },
+  "versions": {
+    "appVersion": "0.1.0",
+    "parserVersion": "0.1.0"
+  },
+  "metrics": {
+    "tasks": 0,
+    "events": 0,
+    "gateways": 0,
+    "participants": 0,
+    "lanes": 0,
+    "sequenceFlows": 0,
+    "messageFlows": 0,
+    "dataObjects": 0,
+    "textAnnotations": 0,
+    "diagonalEdgesDetected": false
+  },
+  "inputPrompt": "Existing fixture; no generation prompt used.",
+  "rawOutput": "Applicant: Apply for job\r\nCompany: Review application\r\nCompany: Decide on hiring\r\n...\r\n\r\n...\r\nCompany: Send offer\r\nCompany: Decide on hiring\r\nCompany: Onboard\r\n...\r\n",
+  "normalizedDsl": "Applicant: Apply for job\r\nCompany: Review application\r\nCompany: Decide on hiring\r\n...\r\n\r\n...\r\nCompany: Send offer\r\nCompany: Decide on hiring\r\nCompany: Onboard\r\n...",
+  "notes": "Deterministic existing fixture. No model generation. interfaceType web is inherited harness metadata, not Work evidence."
+}

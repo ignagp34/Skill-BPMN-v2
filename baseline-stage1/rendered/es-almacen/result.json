@@ -1,0 +1,131 @@
+{
+  "metadata": {
+    "experimentId": "es-almacen",
+    "processId": "FIXTURE",
+    "processSource": "packages/bpmn-core/tests/fixtures/es-almacen.dsl",
+    "systemPromptVersion": "BASELINE",
+    "processPromptVersion": "fixture",
+    "provider": "none",
+    "modelLabel": "none",
+    "interfaceType": "web",
+    "runNumber": 1,
+    "createdAt": "2026-09-22T00:00:00Z",
+    "inputPromptHash": "e31ea2e878c9c8e82ce8d61f3724f9ca81c853b17fffe0fc3fd77f7ab994082e",
+    "rawOutputHash": "b13f0f3deaf29aadf49a1c36aea83d81e32e2ab064f2da8dfd6b483a6d31cd52",
+    "normalizedDslHash": "418f951c0996023117023cf87fb3a1d2f988a45e3a7a6855308c03a816c0d827",
+    "parserValid": true,
+    "semanticValid": true,
+    "bpmnImportValid": true,
+    "renderValid": true,
+    "status": "success_with_warnings",
+    "notes": "Deterministic existing fixture. No model generation. interfaceType web is inherited harness metadata, not Work evidence."
+  },
+  "bpmnValidation": {
+    "status": "warning",
+    "errors": [],
+    "warnings": [
+      {
+        "code": "IMPLICIT_START_EVENT",
+        "origin": "model",
+        "severity": "warning",
+        "elementId": "StartEvent_implicit_Task_Atenci_n_al_cliente_Iniciar_devoluci_n",
+        "elementName": "",
+        "message": "An implicit start event was synthesized for a node without incoming flow."
+      },
+      {
+        "code": "LAYOUT_UNREADABLE_LABEL",
+        "origin": "layout",
+        "severity": "warning",
+        "elementId": "Event_start_Pedido_recibido",
+        "elementName": "Pedido recibido",
+        "message": "The rendered label may be too long to remain readable inside its element."
+      },
+      {
+        "code": "LAYOUT_UNREADABLE_LABEL",
+        "origin": "layout",
+        "severity": "warning",
+        "elementId": "Task_Almac_n_Empaquetar_art_culos",
+        "elementName": "Empaquetar artículos",
+        "message": "The rendered label may be too long to remain readable inside its element."
+      },
+      {
+        "code": "LAYOUT_UNREADABLE_LABEL",
+        "origin": "layout",
+        "severity": "warning",
+        "elementId": "Task_Almac_n_Recibir_devoluci_n",
+        "elementName": "Recibir devolución",
+        "message": "The rendered label may be too long to remain readable inside its element."
+      },
+      {
+        "code": "LAYOUT_UNREADABLE_LABEL",
+        "origin": "layout",
+        "severity": "warning",
+        "elementId": "Task_Atenci_n_al_cliente_Iniciar_devoluci_n",
+        "elementName": "Iniciar devolución",
+        "message": "The rendered label may be too long to remain readable inside its element."
+      },
+      {
+        "code": "LAYOUT_UNREADABLE_LABEL",
+        "origin": "layout",
+        "severity": "warning",
+        "elementId": "Task_Mensajer_a_Entregar_al_cliente",
+        "elementName": "Entregar al cliente",
+        "message": "The rendered label may be too long to remain readable inside its element."
+      }
+    ],
+    "info": [],
+    "metrics": {
+      "numActivities": 9,
+      "numGateways": 0,
+      "numStartEvents": 2,
+      "numEndEvents": 2,
+      "isolatedNodes": 0,
+      "deadEndNodes": 0
+    }
+  },
+  "diagnostics": [
+    {
+      "category": "bpmn",
+      "code": "IMPLICIT_START_EVENT",
+      "message": "An implicit start event was synthesized for a node without incoming flow.",
+      "severity": "warning",
+      "source": "validation"
+    }
+  ],
+  "parserErrors": [],
+  "semanticErrors": [],
+  "semanticWarnings": [],
+  "renderErrors": [],
+  "exportAvailability": {
+    "bpmn": true,
+    "png": true,
+    "resultJson": true,
+    "svg": true
+  },
+  "timestamps": {
+    "createdAt": "2026-09-22T00:00:00Z",
+    "evaluatedAt": "2026-09-22T16:15:33.673Z"
+  },
+  "versions": {
+    "appVersion": "0.1.0",
+    "parserVersion": "0.1.0"
+  },
+  "metrics": {
+    "tasks": 9,
+    "events": 4,
+    "gateways": 0,
+    "participants": 4,
+    "lanes": 4,
+    "sequenceFlows": 11,
+    "messageFlows": 0,
+    "dataObjects": 0,
+    "textAnnotations": 0,
+    "diagonalEdgesDetected": false
+  },
+  "inputPrompt": "Existing fixture; no generation prompt used.",
+  "rawOutput": "(start Pedido recibido)\r\nAtención al cliente: Confirmar pedido\r\nAlmacén: Preparar envío\r\nAlmacén: Empaquetar artículos\r\nMensajería: Recoger paquete\r\nMensajería: Entregar al cliente\r\nCliente: Recibir paquete\r\n¿Pedido correcto?\r\nSí\r\nAtención al cliente: Cerrar caso\r\n(finish)\r\n\r\n...\r\n¿Pedido correcto?\r\nNo\r\nAtención al cliente: Iniciar devolución\r\nAlmacén: Recibir devolución\r\n(finish)\r\n",
+  "normalizedDsl": "(start Pedido recibido)\r\nAtención al cliente: Confirmar pedido\r\nAlmacén: Preparar envío\r\nAlmacén: Empaquetar artículos\r\nMensajería: Recoger paquete\r\nMensajería: Entregar al cliente\r\nCliente: Recibir paquete\r\n¿Pedido correcto?\r\nSí\r\nAtención al cliente: Cerrar caso\r\n(finish)\r\n\r\n...\r\n¿Pedido correcto?\r\nNo\r\nAtención al cliente: Iniciar devolución\r\nAlmacén: Recibir devolución\r\n(finish)",
+  "notes": "Deterministic existing fixture. No model generation. interfaceType web is inherited harness metadata, not Work evidence.",
+  "semanticXml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" xmlns:bpmndi=\"http://www.omg.org/spec/BPMN/20100524/DI\" xmlns:dc=\"http://www.omg.org/spec/DD/20100524/DC\" xmlns:di=\"http://www.omg.org/spec/DD/20100524/DI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" id=\"Definitions_1\" targetNamespace=\"http://bpmn.io/schema/bpmn\"><bpmn:collaboration id=\"Collaboration_1\"><bpmn:participant id=\"Participant_Atenci_n_al_cliente\" name=\"Atención al cliente\" processRef=\"Process_Atenci_n_al_cliente\" /></bpmn:collaboration><bpmn:process id=\"Process_Atenci_n_al_cliente\" isExecutable=\"false\"><bpmn:laneSet id=\"LaneSet_Atenci_n_al_cliente\"><bpmn:lane id=\"Lane_Atenci_n_al_cliente\" name=\"Atención al cliente\"><bpmn:flowNodeRef>Event_start_Pedido_recibido</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Atenci_n_al_cliente_Confirmar_pedido</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Atenci_n_al_cliente_Cerrar_caso</bpmn:flowNodeRef><bpmn:flowNodeRef>Event_Atenci_n_al_cliente_finish</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Atenci_n_al_cliente_Iniciar_devoluci_n</bpmn:flowNodeRef><bpmn:flowNodeRef>StartEvent_implicit_Task_Atenci_n_al_cliente_Iniciar_devoluci_n</bpmn:flowNodeRef></bpmn:lane><bpmn:lane id=\"Lane_Almac_n\" name=\"Almacén\"><bpmn:flowNodeRef>Task_Almac_n_Preparar_env_o</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Almac_n_Empaquetar_art_culos</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Almac_n_Recibir_devoluci_n</bpmn:flowNodeRef><bpmn:flowNodeRef>Event_Almac_n_finish</bpmn:flowNodeRef></bpmn:lane><bpmn:lane id=\"Lane_Mensajer_a\" name=\"Mensajería\"><bpmn:flowNodeRef>Task_Mensajer_a_Recoger_paquete</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Mensajer_a_Entregar_al_cliente</bpmn:flowNodeRef></bpmn:lane><bpmn:lane id=\"Lane_Cliente\" name=\"Cliente\"><bpmn:flowNodeRef>Task_Cliente_Recibir_paquete</bpmn:flowNodeRef></bpmn:lane></bpmn:laneSet><bpmn:startEvent id=\"Event_start_Pedido_recibido\" name=\"Pedido recibido\"><bpmn:outgoing>Flow_1</bpmn:outgoing></bpmn:startEvent><bpmn:task id=\"Task_Atenci_n_al_cliente_Confirmar_pedido\" name=\"Confirmar pedido\"><bpmn:incoming>Flow_1</bpmn:incoming><bpmn:outgoing>Flow_2</bpmn:outgoing></bpmn:task><bpmn:task id=\"Task_Almac_n_Preparar_env_o\" name=\"Preparar envío\"><bpmn:incoming>Flow_2</bpmn:incoming><bpmn:outgoing>Flow_3</bpmn:outgoing></bpmn:task><bpmn:task id=\"Task_Almac_n_Empaquetar_art_culos\" name=\"Empaquetar artículos\"><bpmn:incoming>Flow_3</bpmn:incoming><bpmn:outgoing>Flow_4</bpmn:outgoing></bpmn:task><bpmn:task id=\"Task_Mensajer_a_Recoger_paquete\" name=\"Recoger paquete\"><bpmn:incoming>Flow_4</bpmn:incoming><bpmn:outgoing>Flow_5</bpmn:outgoing></bpmn:task><bpmn:task id=\"Task_Mensajer_a_Entregar_al_cliente\" name=\"Entregar al cliente\"><bpmn:incoming>Flow_5</bpmn:incoming><bpmn:outgoing>Flow_6</bpmn:outgoing></bpmn:task><bpmn:task id=\"Task_Cliente_Recibir_paquete\" name=\"Recibir paquete\"><bpmn:incoming>Flow_6</bpmn:incoming><bpmn:outgoing>Flow_7</bpmn:outgoing></bpmn:task><bpmn:task id=\"Task_Atenci_n_al_cliente_Cerrar_caso\" name=\"Cerrar caso\"><bpmn:incoming>Flow_7</bpmn:incoming><bpmn:outgoing>Flow_8</bpmn:outgoing></bpmn:task><bpmn:endEvent id=\"Event_Atenci_n_al_cliente_finish\" name=\"finish\"><bpmn:incoming>Flow_8</bpmn:incoming></bpmn:endEvent><bpmn:task id=\"Task_Atenci_n_al_cliente_Iniciar_devoluci_n\" name=\"Iniciar devolución\"><bpmn:incoming>Flow_11</bpmn:incoming><bpmn:outgoing>Flow_9</bpmn:outgoing></bpmn:task><bpmn:task id=\"Task_Almac_n_Recibir_devoluci_n\" name=\"Recibir devolución\"><bpmn:incoming>Flow_9</bpmn:incoming><bpmn:outgoing>Flow_10</bpmn:outgoing></bpmn:task><bpmn:endEvent id=\"Event_Almac_n_finish\" name=\"finish\"><bpmn:incoming>Flow_10</bpmn:incoming></bpmn:endEvent><bpmn:startEvent id=\"StartEvent_implicit_Task_Atenci_n_al_cliente_Iniciar_devoluci_n\"><bpmn:outgoing>Flow_11</bpmn:outgoing></bpmn:startEvent><bpmn:sequenceFlow id=\"Flow_1\" sourceRef=\"Event_start_Pedido_recibido\" targetRef=\"Task_Atenci_n_al_cliente_Confirmar_pedido\" /><bpmn:sequenceFlow id=\"Flow_2\" sourceRef=\"Task_Atenci_n_al_cliente_Confirmar_pedido\" targetRef=\"Task_Almac_n_Preparar_env_o\" /><bpmn:sequenceFlow id=\"Flow_3\" sourceRef=\"Task_Almac_n_Preparar_env_o\" targetRef=\"Task_Almac_n_Empaquetar_art_culos\" /><bpmn:sequenceFlow id=\"Flow_4\" sourceRef=\"Task_Almac_n_Empaquetar_art_culos\" targetRef=\"Task_Mensajer_a_Recoger_paquete\" /><bpmn:sequenceFlow id=\"Flow_5\" sourceRef=\"Task_Mensajer_a_Recoger_paquete\" targetRef=\"Task_Mensajer_a_Entregar_al_cliente\" /><bpmn:sequenceFlow id=\"Flow_6\" sourceRef=\"Task_Mensajer_a_Entregar_al_cliente\" targetRef=\"Task_Cliente_Recibir_paquete\" /><bpmn:sequenceFlow id=\"Flow_7\" name=\"Sí\" sourceRef=\"Task_Cliente_Recibir_paquete\" targetRef=\"Task_Atenci_n_al_cliente_Cerrar_caso\" /><bpmn:sequenceFlow id=\"Flow_8\" sourceRef=\"Task_Atenci_n_al_cliente_Cerrar_caso\" targetRef=\"Event_Atenci_n_al_cliente_finish\" /><bpmn:sequenceFlow id=\"Flow_9\" sourceRef=\"Task_Atenci_n_al_cliente_Iniciar_devoluci_n\" targetRef=\"Task_Almac_n_Recibir_devoluci_n\" /><bpmn:sequenceFlow id=\"Flow_10\" sourceRef=\"Task_Almac_n_Recibir_devoluci_n\" targetRef=\"Event_Almac_n_finish\" /><bpmn:sequenceFlow id=\"Flow_11\" sourceRef=\"StartEvent_implicit_Task_Atenci_n_al_cliente_Iniciar_devoluci_n\" targetRef=\"Task_Atenci_n_al_cliente_Iniciar_devoluci_n\" /></bpmn:process></bpmn:definitions>\n",
+  "layoutXml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:bpmndi=\"http://www.omg.org/spec/BPMN/20100524/DI\" xmlns:dc=\"http://www.omg.org/spec/DD/20100524/DC\" xmlns:di=\"http://www.omg.org/spec/DD/20100524/DI\" id=\"Definitions_1\" targetNamespace=\"http://bpmn.io/schema/bpmn\"><bpmn:collaboration id=\"Collaboration_1\"><bpmn:participant id=\"Participant_Atenci_n_al_cliente\" name=\"Atención al cliente\" processRef=\"Process_Atenci_n_al_cliente\" /></bpmn:collaboration><bpmn:process id=\"Process_Atenci_n_al_cliente\" isExecutable=\"false\"><bpmn:laneSet id=\"LaneSet_Atenci_n_al_cliente\"><bpmn:lane id=\"Lane_Atenci_n_al_cliente\" name=\"Atención al cliente\"><bpmn:flowNodeRef>Event_start_Pedido_recibido</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Atenci_n_al_cliente_Confirmar_pedido</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Atenci_n_al_cliente_Cerrar_caso</bpmn:flowNodeRef><bpmn:flowNodeRef>Event_Atenci_n_al_cliente_finish</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Atenci_n_al_cliente_Iniciar_devoluci_n</bpmn:flowNodeRef><bpmn:flowNodeRef>StartEvent_implicit_Task_Atenci_n_al_cliente_Iniciar_devoluci_n</bpmn:flowNodeRef></bpmn:lane><bpmn:lane id=\"Lane_Almac_n\" name=\"Almacén\"><bpmn:flowNodeRef>Task_Almac_n_Preparar_env_o</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Almac_n_Empaquetar_art_culos</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Almac_n_Recibir_devoluci_n</bpmn:flowNodeRef><bpmn:flowNodeRef>Event_Almac_n_finish</bpmn:flowNodeRef></bpmn:lane><bpmn:lane id=\"Lane_Mensajer_a\" name=\"Mensajería\"><bpmn:flowNodeRef>Task_Mensajer_a_Recoger_paquete</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Mensajer_a_Entregar_al_cliente</bpmn:flowNodeRef></bpmn:lane><bpmn:lane id=\"Lane_Cliente\" name=\"Cliente\"><bpmn:flowNodeRef>Task_Cliente_Recibir_paquete</bpmn:flowNodeRef></bpmn:lane></bpmn:laneSet><bpmn:startEvent id=\"Event_start_Pedido_recibido\" name=\"Pedido recibido\"><bpmn:outgoing>Flow_1</bpmn:outgoing></bpmn:startEvent><bpmn:task id=\"Task_Atenci_n_al_cliente_Confirmar_pedido\" name=\"Confirmar pedido\"><bpmn:incoming>Flow_1</bpmn:incoming><bpmn:outgoing>Flow_2</bpmn:outgoing></bpmn:task><bpmn:task id=\"Task_Almac_n_Preparar_env_o\" name=\"Preparar envío\"><bpmn:incoming>Flow_2</bpmn:incoming><bpmn:outgoing>Flow_3</bpmn:outgoing></bpmn:task><bpmn:task id=\"Task_Almac_n_Empaquetar_art_culos\" name=\"Empaquetar artículos\"><bpmn:incoming>Flow_3</bpmn:incoming><bpmn:outgoing>Flow_4</bpmn:outgoing></bpmn:task><bpmn:task id=\"Task_Mensajer_a_Recoger_paquete\" name=\"Recoger paquete\"><bpmn:incoming>Flow_4</bpmn:incoming><bpmn:outgoing>Flow_5</bpmn:outgoing></bpmn:task><bpmn:task id=\"Task_Mensajer_a_Entregar_al_cliente\" name=\"Entregar al cliente\"><bpmn:incoming>Flow_5</bpmn:incoming><bpmn:outgoing>Flow_6</bpmn:outgoing></bpmn:task><bpmn:task id=\"Task_Cliente_Recibir_paquete\" name=\"Recibir paquete\"><bpmn:incoming>Flow_6</bpmn:incoming><bpmn:outgoing>Flow_7</bpmn:outgoing></bpmn:task><bpmn:task id=\"Task_Atenci_n_al_cliente_Cerrar_caso\" name=\"Cerrar caso\"><bpmn:incoming>Flow_7</bpmn:incoming><bpmn:outgoing>Flow_8</bpmn:outgoing></bpmn:task><bpmn:endEvent id=\"Event_Atenci_n_al_cliente_finish\" name=\"finish\"><bpmn:incoming>Flow_8</bpmn:incoming></bpmn:endEvent><bpmn:task id=\"Task_Atenci_n_al_cliente_Iniciar_devoluci_n\" name=\"Iniciar devolución\"><bpmn:incoming>Flow_11</bpmn:incoming><bpmn:outgoing>Flow_9</bpmn:outgoing></bpmn:task><bpmn:task id=\"Task_Almac_n_Recibir_devoluci_n\" name=\"Recibir devolución\"><bpmn:incoming>Flow_9</bpmn:incoming><bpmn:outgoing>Flow_10</bpmn:outgoing></bpmn:task><bpmn:endEvent id=\"Event_Almac_n_finish\" name=\"finish\"><bpmn:incoming>Flow_10</bpmn:incoming></bpmn:endEvent><bpmn:startEvent id=\"StartEvent_implicit_Task_Atenci_n_al_cliente_Iniciar_devoluci_n\"><bpmn:outgoing>Flow_11</bpmn:outgoing></bpmn:startEvent><bpmn:sequenceFlow id=\"Flow_1\" sourceRef=\"Event_start_Pedido_recibido\" targetRef=\"Task_Atenci_n_al_cliente_Confirmar_pedido\" /><bpmn:sequenceFlow id=\"Flow_2\" sourceRef=\"Task_Atenci_n_al_cliente_Confirmar_pedido\" targetRef=\"Task_Almac_n_Preparar_env_o\" /><bpmn:sequenceFlow id=\"Flow_3\" sourceRef=\"Task_Almac_n_Preparar_env_o\" targetRef=\"Task_Almac_n_Empaquetar_art_culos\" /><bpmn:sequenceFlow id=\"Flow_4\" sourceRef=\"Task_Almac_n_Empaquetar_art_culos\" targetRef=\"Task_Mensajer_a_Recoger_paquete\" /><bpmn:sequenceFlow id=\"Flow_5\" sourceRef=\"Task_Mensajer_a_Recoger_paquete\" targetRef=\"Task_Mensajer_a_Entregar_al_cliente\" /><bpmn:sequenceFlow id=\"Flow_6\" sourceRef=\"Task_Mensajer_a_Entregar_al_cliente\" targetRef=\"Task_Cliente_Recibir_paquete\" /><bpmn:sequenceFlow id=\"Flow_7\" name=\"Sí\" sourceRef=\"Task_Cliente_Recibir_paquete\" targetRef=\"Task_Atenci_n_al_cliente_Cerrar_caso\" /><bpmn:sequenceFlow id=\"Flow_8\" sourceRef=\"Task_Atenci_n_al_cliente_Cerrar_caso\" targetRef=\"Event_Atenci_n_al_cliente_finish\" /><bpmn:sequenceFlow id=\"Flow_9\" sourceRef=\"Task_Atenci_n_al_cliente_Iniciar_devoluci_n\" targetRef=\"Task_Almac_n_Recibir_devoluci_n\" /><bpmn:sequenceFlow id=\"Flow_10\" sourceRef=\"Task_Almac_n_Recibir_devoluci_n\" targetRef=\"Event_Almac_n_finish\" /><bpmn:sequenceFlow id=\"Flow_11\" sourceRef=\"StartEvent_implicit_Task_Atenci_n_al_cliente_Iniciar_devoluci_n\" targetRef=\"Task_Atenci_n_al_cliente_Iniciar_devoluci_n\" /></bpmn:process><bpmndi:BPMNDiagram id=\"BPMNDiagram_Collaboration_1\"><bpmndi:BPMNPlane id=\"BPMNPlane_Collaboration_1\" bpmnElement=\"Collaboration_1\"><bpmndi:BPMNShape id=\"Participant_Atenci_n_al_cliente_di\" bpmnElement=\"Participant_Atenci_n_al_cliente\" isHorizontal=\"true\"><dc:Bounds x=\"-3\" y=\"0\" width=\"1326\" height=\"944\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Lane_Atenci_n_al_cliente_di\" bpmnElement=\"Lane_Atenci_n_al_cliente\" isHorizontal=\"true\"><dc:Bounds x=\"27\" y=\"20\" width=\"1296\" height=\"296\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Lane_Almac_n_di\" bpmnElement=\"Lane_Almac_n\" isHorizontal=\"true\"><dc:Bounds x=\"27\" y=\"316\" width=\"1296\" height=\"296\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Lane_Mensajer_a_di\" bpmnElement=\"Lane_Mensajer_a\" isHorizontal=\"true\"><dc:Bounds x=\"27\" y=\"612\" width=\"1296\" height=\"156\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Lane_Cliente_di\" bpmnElement=\"Lane_Cliente\" isHorizontal=\"true\"><dc:Bounds x=\"27\" y=\"768\" width=\"1296\" height=\"156\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Event_start_Pedido_recibido_di\" bpmnElement=\"Event_start_Pedido_recibido\"><dc:Bounds x=\"57\" y=\"80\" width=\"36\" height=\"36\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Task_Atenci_n_al_cliente_Confirmar_pedido_di\" bpmnElement=\"Task_Atenci_n_al_cliente_Confirmar_pedido\"><dc:Bounds x=\"175\" y=\"58\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Task_Almac_n_Preparar_env_o_di\" bpmnElement=\"Task_Almac_n_Preparar_env_o\"><dc:Bounds x=\"325\" y=\"354\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Task_Almac_n_Empaquetar_art_culos_di\" bpmnElement=\"Task_Almac_n_Empaquetar_art_culos\"><dc:Bounds x=\"475\" y=\"354\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Task_Mensajer_a_Recoger_paquete_di\" bpmnElement=\"Task_Mensajer_a_Recoger_paquete\"><dc:Bounds x=\"625\" y=\"650\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Task_Mensajer_a_Entregar_al_cliente_di\" bpmnElement=\"Task_Mensajer_a_Entregar_al_cliente\"><dc:Bounds x=\"775\" y=\"650\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Task_Cliente_Recibir_paquete_di\" bpmnElement=\"Task_Cliente_Recibir_paquete\"><dc:Bounds x=\"925\" y=\"806\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Task_Atenci_n_al_cliente_Cerrar_caso_di\" bpmnElement=\"Task_Atenci_n_al_cliente_Cerrar_caso\"><dc:Bounds x=\"1075\" y=\"58\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Event_Atenci_n_al_cliente_finish_di\" bpmnElement=\"Event_Atenci_n_al_cliente_finish\"><dc:Bounds x=\"1257\" y=\"80\" width=\"36\" height=\"36\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"StartEvent_implicit_Task_Atenci_n_al_cliente_Iniciar_devoluci_n_di\" bpmnElement=\"StartEvent_implicit_Task_Atenci_n_al_cliente_Iniciar_devoluci_n\"><dc:Bounds x=\"57\" y=\"220\" width=\"36\" height=\"36\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Task_Atenci_n_al_cliente_Iniciar_devoluci_n_di\" bpmnElement=\"Task_Atenci_n_al_cliente_Iniciar_devoluci_n\"><dc:Bounds x=\"175\" y=\"198\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Task_Almac_n_Recibir_devoluci_n_di\" bpmnElement=\"Task_Almac_n_Recibir_devoluci_n\"><dc:Bounds x=\"325\" y=\"494\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Event_Almac_n_finish_di\" bpmnElement=\"Event_Almac_n_finish\"><dc:Bounds x=\"507\" y=\"516\" width=\"36\" height=\"36\" /></bpmndi:BPMNShape><bpmndi:BPMNEdge id=\"Flow_1_di\" bpmnElement=\"Flow_1\"><di:waypoint x=\"93\" y=\"98\" /><di:waypoint x=\"175\" y=\"98\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"Flow_2_di\" bpmnElement=\"Flow_2\"><di:waypoint x=\"275\" y=\"98\" /><di:waypoint x=\"375\" y=\"98\" /><di:waypoint x=\"375\" y=\"354\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"Flow_3_di\" bpmnElement=\"Flow_3\"><di:waypoint x=\"425\" y=\"394\" /><di:waypoint x=\"475\" y=\"394\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"Flow_4_di\" bpmnElement=\"Flow_4\"><di:waypoint x=\"575\" y=\"394\" /><di:waypoint x=\"675\" y=\"394\" /><di:waypoint x=\"675\" y=\"650\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"Flow_5_di\" bpmnElement=\"Flow_5\"><di:waypoint x=\"725\" y=\"690\" /><di:waypoint x=\"775\" y=\"690\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"Flow_6_di\" bpmnElement=\"Flow_6\"><di:waypoint x=\"875\" y=\"690\" /><di:waypoint x=\"975\" y=\"690\" /><di:waypoint x=\"975\" y=\"806\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"Flow_7_di\" bpmnElement=\"Flow_7\"><di:waypoint x=\"1025\" y=\"846\" /><di:waypoint x=\"1125\" y=\"846\" /><di:waypoint x=\"1125\" y=\"138\" /><bpmndi:BPMNLabel><dc:Bounds x=\"1088\" y=\"820\" width=\"24\" height=\"18\" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"Flow_8_di\" bpmnElement=\"Flow_8\"><di:waypoint x=\"1175\" y=\"98\" /><di:waypoint x=\"1257\" y=\"98\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"Flow_11_di\" bpmnElement=\"Flow_11\"><di:waypoint x=\"93\" y=\"238\" /><di:waypoint x=\"175\" y=\"238\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"Flow_9_di\" bpmnElement=\"Flow_9\"><di:waypoint x=\"225\" y=\"278\" /><di:waypoint x=\"225\" y=\"534\" /><di:waypoint x=\"325\" y=\"534\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"Flow_10_di\" bpmnElement=\"Flow_10\"><di:waypoint x=\"425\" y=\"534\" /><di:waypoint x=\"507\" y=\"534\" /></bpmndi:BPMNEdge></bpmndi:BPMNPlane></bpmndi:BPMNDiagram></bpmn:definitions>"
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             id="Definitions_1"
+             targetNamespace="http://example.com/bpmn">
+  <process id="Process_1" isExecutable="true">
+    <startEvent id="Start_1" name="Start"/>
+    <!-- XOR split whose branches end at different end events — no join at all -->
+    <exclusiveGateway id="XOR_split" name="Decide" default="F2"/>
+    <task id="Task_A" name="A"/>
+    <task id="Task_B" name="B"/>
+    <endEvent id="End_A" name="EndA"/>
+    <endEvent id="End_B" name="EndB"/>
+
+    <sequenceFlow id="F1" sourceRef="Start_1" targetRef="XOR_split"/>
+    <sequenceFlow id="F2" sourceRef="XOR_split" targetRef="Task_A"/>
+    <sequenceFlow id="F3" sourceRef="XOR_split" targetRef="Task_B">
+      <conditionExpression>cond</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="F4" sourceRef="Task_A" targetRef="End_A"/>
+    <sequenceFlow id="F5" sourceRef="Task_B" targetRef="End_B"/>
+  </process>
+</definitions>

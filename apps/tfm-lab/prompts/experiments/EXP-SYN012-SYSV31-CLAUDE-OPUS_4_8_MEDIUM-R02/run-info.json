@@ -1,0 +1,25 @@
+{
+  "experimentId": "EXP-SYN012-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R02",
+  "processId": "SYN012",
+  "processFilename": "SYN012_hospital_billing_adjustment.md",
+  "processTitle": "Hospital billing adjustment",
+  "processSource": "synthetic",
+  "difficulty": "medium",
+  "expectedFeatures": [
+    "data_objects",
+    "data_store",
+    "annotations",
+    "xor_gateway"
+  ],
+  "systemPromptVersion": "SYSV31",
+  "provider": "CLAUDE",
+  "modelLabel": "OPUS_4_8_MEDIUM",
+  "executionSetting": "Claude Opus 4.8 (Medium reasoning, Agent SDK, fresh subagent context)",
+  "reasoningMode": "Medium",
+  "runNumber": 2,
+  "interfaceType": "agent",
+  "status": "pending",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-06-14T11:11:35Z",
+  "notes": ""
+}

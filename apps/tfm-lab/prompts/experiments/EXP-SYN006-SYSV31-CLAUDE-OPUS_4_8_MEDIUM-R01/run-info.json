@@ -1,0 +1,25 @@
+{
+  "experimentId": "EXP-SYN006-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R01",
+  "processId": "SYN006",
+  "processFilename": "SYN006_bank_card_application_outcome.md",
+  "processTitle": "Bank card application outcome",
+  "processSource": "synthetic",
+  "difficulty": "medium",
+  "expectedFeatures": [
+    "xor_gateway",
+    "alternative_paths",
+    "merge",
+    "single_pool"
+  ],
+  "systemPromptVersion": "SYSV31",
+  "provider": "CLAUDE",
+  "modelLabel": "OPUS_4_8_MEDIUM",
+  "executionSetting": "Claude Opus 4.8 (Medium reasoning, Agent SDK, fresh subagent context)",
+  "reasoningMode": "Medium",
+  "runNumber": 1,
+  "interfaceType": "agent",
+  "status": "pending",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-06-14T11:11:35Z",
+  "notes": ""
+}

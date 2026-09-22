@@ -1,0 +1,91 @@
+Requester: Submit software request
+[Business Justification]
+[Estimated Budget]
+Manager: Review request
+Does the manager approve?
+No
+Requester: Inform requester of rejection
+(finish)
+
+Requester: Submit software request
+[Business Justification]
+[Estimated Budget]
+Manager: Review request
+Does the manager approve?
+Yes
+Procurement: Send request for quotation
+Supplier: (receive RFQ)
+Supplier: send Quote
+Procurement: (receive Quote)
+Procurement: Review quote
+Is quote within budget?
+No
+Procurement: Ask requester to reduce scope
+Does requester agree to reduce scope?
+No
+Procurement: Inform supplier opportunity closed
+(finish)
+
+Requester: Submit software request
+[Business Justification]
+[Estimated Budget]
+Manager: Review request
+Does the manager approve?
+Yes
+Procurement: Send request for quotation
+Supplier: (receive RFQ)
+Supplier: send Quote
+Procurement: (receive Quote)
+Procurement: Review quote
+Is quote within budget?
+No
+Procurement: Ask requester to reduce scope
+Does requester agree to reduce scope?
+Yes
+Procurement: Request revised quote
+Supplier: send Revised Quote
+Procurement: (receive Revised Quote)
+Procurement: Review quote
+...
+
+Requester: Submit software request
+[Business Justification]
+[Estimated Budget]
+Manager: Review request
+Does the manager approve?
+Yes
+Procurement: Send request for quotation
+Supplier: (receive RFQ)
+Supplier: send Quote
+Procurement: (receive Quote)
+Procurement: Review quote
+Is quote within budget?
+Yes
+//Contract cannot be signed until both reviews are complete
+IT Security: Review supplier security questionnaire|Finance: Confirm budget availability
+Does IT security find critical risk?
+Yes
+Procurement: Inform requester of security rejection
+Procurement: Notify supplier of security rejection
+(finish)
+
+...
+IT Security: Review supplier security questionnaire|Finance: Confirm budget availability
+Does IT security find critical risk?
+No
+Procurement: Prepare purchase recommendation
+Manager: Give final approval
+Procurement: send Purchase Order
+Supplier: (receive Purchase Order)
+Supplier: send Order Confirmation
+Procurement: (receive Order Confirmation)
+[db Contract Repository]
+Procurement: Record signed documents
+Procurement: Inform requester purchase approved and ordered
+(finish)
+
+...
+Finance: Confirm budget availability
+(deadline 5 business days)
+Procurement: Notify requester request expired
+(finish)

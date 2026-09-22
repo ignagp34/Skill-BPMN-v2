@@ -1,0 +1,292 @@
+{
+  "environment": {
+    "node": "v24.12.0",
+    "platform": "win32",
+    "os": "10.0.26200",
+    "arch": "x64",
+    "playwright": "1.60.0",
+    "engineCommit": "f558eb0e0904c02264d5dccb6ad76164fda22919",
+    "lockSha256": "cfba9ce5af3308ff70b78db503d2a4c3b6b627e1b346bf7e8383ae6feb3a1ee4",
+    "modelCalls": 0,
+    "workWebValidated": false,
+    "chromium": "148.0.7778.96"
+  },
+  "cases": [
+    {
+      "source": "packages/bpmn-core/tests/fixtures/s17-document-approval.dsl",
+      "invalid": false,
+      "id": "s17-document-approval",
+      "status": "success_with_warnings",
+      "passed": true,
+      "checks": {
+        "bpmnDI": true,
+        "svg": true,
+        "png": true,
+        "width": 350,
+        "height": 399
+      },
+      "reimport": true,
+      "hashes": {
+        "normalized.dsl": "d771755b91a1d2bad87f3dd2f33edace8896b9f2fdbf0e7a7269d0af1fe46ae0",
+        "result.json": "6ef3fc6c635b2bce8f3aa02dab53602cc120812e0be114ca582ad7d011da6fa9",
+        "semantic.bpmn": "58a947b735cb0b30e90a07bcf87fc664c6dd4aa6c744bc5cdc00467a0bc6feb3",
+        "diagram.bpmn": "d3e69cd6ea0baae86158f84515a23e734ffc3d7ddd6f05c3cb0cdfec6a237529",
+        "diagram.svg": "accee062ca887377d34c7b075ae3b7115fde31f33b925b1471d214b0f1d713ea",
+        "diagram.png": "cd19d87c211077230db09d7bd686d0ef7c4c9a5f328fb6e8843d404b86b17a29"
+      },
+      "errors": []
+    },
+    {
+      "source": "packages/bpmn-core/tests/fixtures/canon-1-cheeseburger.dsl",
+      "invalid": false,
+      "id": "canon-1-cheeseburger",
+      "status": "success",
+      "passed": true,
+      "checks": {
+        "bpmnDI": true,
+        "svg": true,
+        "png": true,
+        "width": 3286,
+        "height": 1094
+      },
+      "reimport": true,
+      "hashes": {
+        "normalized.dsl": "c71ed8f85165d4274bffea146b62a8ea41e381afbc845e0b4abd0bd98300df3b",
+        "result.json": "06cf1f0687ed4fcba119842fc8ef06df3359d3a763e2019eb8b406d095461a42",
+        "semantic.bpmn": "7e6d643ff11830e2618a102db55800d1442e36ccaa292e45857ca72b4ad89767",
+        "diagram.bpmn": "4c330f3aa793877bea003234a4f4edcf6b8c2fabf5fb6e7ad1e6c63bb73a068a",
+        "diagram.svg": "79a2b8b0b0de8a950ff4ebebc950a08063fce9cf1e579300fc0734a09a9aa63d",
+        "diagram.png": "a27be76d0750732f52b8f33d89845a2b2bc0db561ac5fea84dbd707f6dd79ffe"
+      },
+      "errors": []
+    },
+    {
+      "source": "packages/bpmn-core/tests/fixtures/pool-map-message-event.dsl",
+      "invalid": false,
+      "id": "pool-map-message-event",
+      "status": "success_with_warnings",
+      "passed": true,
+      "checks": {
+        "bpmnDI": true,
+        "svg": true,
+        "png": true,
+        "width": 522,
+        "height": 618
+      },
+      "reimport": true,
+      "hashes": {
+        "normalized.dsl": "097873a6cd07c762127bc416b779336746d4ad1e881673072e6a2604350b7982",
+        "result.json": "9002f5b7a8b66929be6046f4452c4a8a628badb94d27799e4fa9611c9bba56d9",
+        "semantic.bpmn": "6d31ab3999b6f9c5f231f1a393f4f9b95563ca1b923d9a7e3f722bfb2a1747bf",
+        "diagram.bpmn": "4d713f1eb1b1d0dca9f7e983bd7bf004af20e71f7df4309a310754e79a2ca6d1",
+        "diagram.svg": "415c831bb5e816145287fde4d4b7bc0935b0f22d2b32a7e1bba82b1ad77a3ca1",
+        "diagram.png": "c9f9ae2d27df1fa3c8852dbdd943b864bf741685bafa7693042fe736d98f7040"
+      },
+      "errors": []
+    },
+    {
+      "source": "packages/bpmn-core/tests/fixtures/gemini-03.dsl",
+      "invalid": false,
+      "id": "gemini-03",
+      "status": "success",
+      "passed": true,
+      "checks": {
+        "bpmnDI": true,
+        "svg": true,
+        "png": true,
+        "width": 1525,
+        "height": 1426
+      },
+      "reimport": true,
+      "hashes": {
+        "normalized.dsl": "8a6d4a8501579a008f2280631aff2d3f7262c19f2c7e5f0fd6bf86315510fc56",
+        "result.json": "14dd0cbfe6470d88923600691f2c0ccf290d512dd59fd4c2f31112d5c0f7f514",
+        "semantic.bpmn": "593368035d35f0ad1314d0113b712c6c1de1e5bc64c04d4c23be2c14107ec9e8",
+        "diagram.bpmn": "432b0bc14d284477d566e288308b85475a83f3b8eeb879fc047430c68167ff92",
+        "diagram.svg": "70841f15995f4fa9361ee38a40b71dbc2c44e44ce9b9294b9f2e4ab701bba3d9",
+        "diagram.png": "0ad7c0aa52acfd639056d09b86434fe74604c10e5a23b06e4a26070523b77308"
+      },
+      "errors": []
+    },
+    {
+      "source": "packages/bpmn-core/tests/fixtures/gemini-04.dsl",
+      "invalid": false,
+      "id": "gemini-04",
+      "status": "success_with_warnings",
+      "passed": true,
+      "checks": {
+        "bpmnDI": true,
+        "svg": true,
+        "png": true,
+        "width": 1636,
+        "height": 626
+      },
+      "reimport": true,
+      "hashes": {
+        "normalized.dsl": "f14ffa6425dd15f24ba41c6761435782991f02a201e2e2fe3accd45b25a4026d",
+        "result.json": "eb0388268966e2e24e3f642ef9766e816b7e7ffc5837b14ebaf7650f96819da5",
+        "semantic.bpmn": "1bd2fdef7a7cf4a9cfe285426b3ba7b93be329dfac105fa893fef24f1f017540",
+        "diagram.bpmn": "c7355dc7cbeac0553d9724aed7b6e18641dea8bd36c6fc6b536ac5c680cdd1df",
+        "diagram.svg": "7f9cfd56dc7f990396cd1d185e4391333830aa9e9ce1fbb779034126ed186b0d",
+        "diagram.png": "12501b755c52de561bea052fc51fd23b222539d50ea29485a464c755e26d38eb"
+      },
+      "errors": []
+    },
+    {
+      "source": "packages/bpmn-core/tests/fixtures/gemini-05.dsl",
+      "invalid": false,
+      "id": "gemini-05",
+      "status": "success",
+      "passed": true,
+      "checks": {
+        "bpmnDI": true,
+        "svg": true,
+        "png": true,
+        "width": 2236,
+        "height": 816
+      },
+      "reimport": true,
+      "hashes": {
+        "normalized.dsl": "1931f564a60c9fcc021bc1f204a184435fce311f5978286679c9409b15693c51",
+        "result.json": "cc3d2d2783969463e55dd44d6956091982df4ffa1d27301ba5cb8d921ab26014",
+        "semantic.bpmn": "6fcb7a77a2c8ea1bc7561ee23fe9038dfb438fa6f299b6596666bb03079d13a4",
+        "diagram.bpmn": "eac88073ecc9bd7a28e405bc69aaee88de397155789960b09ee49c9d7c3549fc",
+        "diagram.svg": "917e36fd65ef6fafdbf2e7ba5285d5baa4fdd697f0f94552c4b9a24329cef6a7",
+        "diagram.png": "58b2450f4b01a9273b4775e0c6fa35dbf1c9b9003978ea43b8b2631bd0ef8ef3"
+      },
+      "errors": []
+    },
+    {
+      "source": "packages/bpmn-core/tests/fixtures/s17-job-application.dsl",
+      "invalid": false,
+      "id": "s17-job-application",
+      "status": "success_with_warnings",
+      "passed": true,
+      "checks": {
+        "bpmnDI": true,
+        "svg": true,
+        "png": true,
+        "width": 1186,
+        "height": 1214
+      },
+      "reimport": true,
+      "hashes": {
+        "normalized.dsl": "c3ccd1a8497f6ba02e00216a4a61bcdf021300a99088344be2777975689c6394",
+        "result.json": "806d243f7bd7d2608bee95c1c94fe213b2afc79fabefb32f3cef6bf54e8b4e6d",
+        "semantic.bpmn": "34fa5b0f8ba96b2ec5f11d7c4013fd73397777569743cfdd7f1340821555289e",
+        "diagram.bpmn": "974c16a30cd62ad5d435eb4cbd880e4411a48b306f453951d6e9f24178e2ad0e",
+        "diagram.svg": "91e245509f1e1793e1740b601c0416de97ffb741b90cd7fe04d3c9a2d23b7c00",
+        "diagram.png": "a0819453bb69c4442d991f28b2aeeccde82e35d7e60aad93c445205484546b59"
+      },
+      "errors": []
+    },
+    {
+      "source": "packages/bpmn-core/tests/fixtures/s17-pizza-order.dsl",
+      "invalid": false,
+      "id": "s17-pizza-order",
+      "status": "success_with_warnings",
+      "passed": true,
+      "checks": {
+        "bpmnDI": true,
+        "svg": true,
+        "png": true,
+        "width": 736,
+        "height": 324
+      },
+      "reimport": true,
+      "hashes": {
+        "normalized.dsl": "932e8bbef49721919ac8b45aef76cb167209432a1bd48735f8388070f247b0cb",
+        "result.json": "4b7e5d1e7e75ea8409362b039de84769908c92b9018f1435cb97d6eb806c780d",
+        "semantic.bpmn": "ccd9461e1ca5e1790c0a20d1e100430c4d41311e7de38dc3450507b1c5041c6b",
+        "diagram.bpmn": "7ec54861b91ca05f5dbaf5f937ce5a42010914499ab4c5c4bcbcba9c2ee8741e",
+        "diagram.svg": "25576bb874aad909a0b86b0f7f904a1005cdc23410886207da0f16f809b08ce2",
+        "diagram.png": "3355a7228eb56a7b8395789c6ed5a91608908598ab9c2edb8a836a3873ef1cda"
+      },
+      "errors": []
+    },
+    {
+      "source": "packages/bpmn-core/tests/fixtures/es-almacen.dsl",
+      "invalid": false,
+      "id": "es-almacen",
+      "status": "success_with_warnings",
+      "passed": true,
+      "checks": {
+        "bpmnDI": true,
+        "svg": true,
+        "png": true,
+        "width": 1336,
+        "height": 954
+      },
+      "reimport": true,
+      "hashes": {
+        "normalized.dsl": "418f951c0996023117023cf87fb3a1d2f988a45e3a7a6855308c03a816c0d827",
+        "result.json": "f72b49303f22b957432bc560276d5b8f08c44ade72953f45c63d394dc91bcab8",
+        "semantic.bpmn": "e1ab1567163d4a5ec97f9d0771c8b9c243db19e06b826c1c0ba86f5b05ea3eec",
+        "diagram.bpmn": "06c83e3c20a3ac97d27297c2ddd3301467ee1df420a2f9957752536d77e990e5",
+        "diagram.svg": "e7ccaba11521f7ca0a8ebe1a9dba21c4db97fd3d9f8e5669a970f87eedc540ab",
+        "diagram.png": "7167c12c02801ba2e627c37c844c362cdcc0657ec0018ccfc5d7e0b43cd3b073"
+      },
+      "errors": []
+    },
+    {
+      "source": "packages/bpmn-core/tests/fixtures/_invalid/ap6-trace-ends-at-anchor.dsl",
+      "invalid": true,
+      "id": "ap6-trace-ends-at-anchor",
+      "status": "semantic_error",
+      "passed": true,
+      "checks": {
+        "bpmnDI": false,
+        "svg": false,
+        "png": false
+      },
+      "reimport": null,
+      "hashes": {
+        "normalized.dsl": "ba664faa7e719f14ab0ca3a495a73da4bd21757c1f294be0f720e10566f16d59",
+        "result.json": "1450a1808a55f93f611625de5ae6390f0431a78951e3915dff7e0cb36c118ea7"
+      },
+      "errors": []
+    },
+    {
+      "source": "packages/bpmn-core/tests/fixtures/_invalid/ap7-anchor-buried.dsl",
+      "invalid": true,
+      "id": "ap7-anchor-buried",
+      "status": "semantic_error",
+      "passed": true,
+      "checks": {
+        "bpmnDI": false,
+        "svg": false,
+        "png": false
+      },
+      "reimport": null,
+      "hashes": {
+        "normalized.dsl": "93ec6dd861d4ebff2a2644f32e5c4f31d68eeab6629cf43c06930df2133cb675",
+        "result.json": "6014871e1e8f080dd9903c4377fcb5cbdff0176db2095612532a4ab2d3c980ae"
+      },
+      "errors": []
+    },
+    {
+      "source": "packages/bpmn-core/tests/dsl/semantic.test.ts:64 (exact string literal)",
+      "invalid": false,
+      "id": "simple",
+      "status": "success_with_warnings",
+      "passed": true,
+      "checks": {
+        "bpmnDI": true,
+        "svg": true,
+        "png": true,
+        "width": 586,
+        "height": 362
+      },
+      "reimport": true,
+      "hashes": {
+        "normalized.dsl": "9bccd991e41921d739760a68fe2ee9b06c06fd678259d96bae98c2769f24881c",
+        "result.json": "646b7ab58a362ec09b9d4d96f2a435a70312053e933e9f8b7f62e0fdc6383847",
+        "semantic.bpmn": "536174946b629229c8e6b82121eadee430d52ad0e0c17d90e329cb47b91b5266",
+        "diagram.bpmn": "db826295b98d6b40aa285557bb7d01b01bf86a95ff1a472a396b5fc557107819",
+        "diagram.svg": "d0ecf60e50d678522152779fd70f5875e2d49f7fcea1df0714896cb59f11d08f",
+        "diagram.png": "6b88b27f439c3a45345c7cdcf9db8d290f86bded836472e6db4cb73cb1c1fe4b"
+      },
+      "errors": []
+    }
+  ]
+}

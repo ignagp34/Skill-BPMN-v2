@@ -1,0 +1,10 @@
+Registrar Clerk: (receive Enrollment certificate request)
+user Look up student record
+service Generate enrollment certificate
+user Check certificate completeness
+send Email certificate to student
+user Close request
+(finish Enrollment certificate request closed)
+
+== pools ==
+University Registrar Office -> Registrar Clerk

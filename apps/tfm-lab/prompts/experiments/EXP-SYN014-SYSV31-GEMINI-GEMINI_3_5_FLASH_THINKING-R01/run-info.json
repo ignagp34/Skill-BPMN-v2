@@ -1,0 +1,29 @@
+{
+  "experimentId": "EXP-SYN014-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+  "processId": "SYN014",
+  "processFilename": "SYN014_travel_booking_payment_timeout.md",
+  "processTitle": "Travel booking payment timeout",
+  "processSource": "synthetic",
+  "difficulty": "hard",
+  "expectedFeatures": [
+    "timer_event",
+    "cancellation",
+    "exception_flow",
+    "multiple_pools"
+  ],
+  "systemPromptVersion": "SYSV31",
+  "provider": "GEMINI",
+  "modelLabel": "GEMINI_3_5_FLASH_THINKING",
+  "runNumber": 1,
+  "interfaceType": "agent",
+  "status": "raw_output_generated",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-05-23T17:29:21.745369+00:00",
+  "notes": "",
+  "inputSystemTokens": 10916,
+  "inputProcessTokens": 252,
+  "inputTokens": 11168,
+  "outputTokens": 103,
+  "totalTokens": 11271,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

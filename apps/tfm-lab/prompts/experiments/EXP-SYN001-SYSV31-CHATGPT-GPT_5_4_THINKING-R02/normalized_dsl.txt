@@ -1,0 +1,8 @@
+University Registrar Office:
+(receive Enrollment certificate request)
+Receive request
+Look up student record
+Generate enrollment certificate
+Check document for completeness
+(send Enrollment certificate by email)
+Close request

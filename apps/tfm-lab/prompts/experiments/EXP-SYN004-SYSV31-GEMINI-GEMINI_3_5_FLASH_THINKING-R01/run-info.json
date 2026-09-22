@@ -1,0 +1,29 @@
+{
+  "experimentId": "EXP-SYN004-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+  "processId": "SYN004",
+  "processFilename": "SYN004_insurance_claim_triage.md",
+  "processTitle": "Insurance claim triage",
+  "processSource": "synthetic",
+  "difficulty": "medium",
+  "expectedFeatures": [
+    "xor_gateway",
+    "alternative_paths",
+    "merge",
+    "single_pool"
+  ],
+  "systemPromptVersion": "SYSV31",
+  "provider": "GEMINI",
+  "modelLabel": "GEMINI_3_5_FLASH_THINKING",
+  "runNumber": 1,
+  "interfaceType": "agent",
+  "status": "raw_output_generated",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-05-23T16:55:03.880474+00:00",
+  "notes": "",
+  "inputSystemTokens": 10916,
+  "inputProcessTokens": 282,
+  "inputTokens": 11198,
+  "outputTokens": 157,
+  "totalTokens": 11355,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

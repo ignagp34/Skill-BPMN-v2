@@ -1,0 +1,31 @@
+{
+  "experimentId": "EXP-SYN007-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+  "processId": "SYN007",
+  "processFilename": "SYN007_employee_onboarding_setup.md",
+  "processTitle": "Employee onboarding setup",
+  "processSource": "synthetic",
+  "difficulty": "medium",
+  "expectedFeatures": [
+    "parallel_gateway",
+    "fork_join",
+    "single_pool",
+    "tasks"
+  ],
+  "systemPromptVersion": "SYSV5",
+  "provider": "GEMINI",
+  "modelLabel": "GEMINI_3_5_FLASH_THINKING",
+  "executionSetting": "Gemini 3.5 Flash (High reasoning, Agent SDK, fresh subagent context)",
+  "reasoningMode": "High",
+  "runNumber": 3,
+  "interfaceType": "agent",
+  "status": "raw_output_generated",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-06-18T19:56:11Z",
+  "notes": "",
+  "inputSystemTokens": 14890,
+  "inputProcessTokens": 223,
+  "inputTokens": 15113,
+  "outputTokens": 64,
+  "totalTokens": 15177,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

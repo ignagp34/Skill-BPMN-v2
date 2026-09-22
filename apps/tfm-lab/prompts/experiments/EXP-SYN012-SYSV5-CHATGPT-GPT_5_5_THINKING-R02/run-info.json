@@ -1,0 +1,31 @@
+{
+  "experimentId": "EXP-SYN012-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+  "processId": "SYN012",
+  "processFilename": "SYN012_hospital_billing_adjustment.md",
+  "processTitle": "Hospital billing adjustment",
+  "processSource": "synthetic",
+  "difficulty": "medium",
+  "expectedFeatures": [
+    "data_objects",
+    "data_store",
+    "annotations",
+    "xor_gateway"
+  ],
+  "systemPromptVersion": "SYSV5",
+  "provider": "CHATGPT",
+  "modelLabel": "GPT_5_5_THINKING",
+  "executionSetting": "ChatGPT 5.5 (High reasoning, fresh isolated subagent context)",
+  "reasoningMode": "High",
+  "runNumber": 2,
+  "interfaceType": "agent",
+  "status": "raw_output_generated",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-06-18T20:55:06Z",
+  "notes": "",
+  "inputSystemTokens": 14890,
+  "inputProcessTokens": 266,
+  "inputTokens": 15156,
+  "outputTokens": 207,
+  "totalTokens": 15363,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

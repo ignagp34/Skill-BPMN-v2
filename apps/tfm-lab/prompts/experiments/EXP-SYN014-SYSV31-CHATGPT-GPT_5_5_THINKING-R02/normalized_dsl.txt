@@ -1,0 +1,22 @@
+Traveler: Book train ticket
+Online Travel Agency: Create reservation
+send Payment request
+Traveler: receive Payment request
+Is payment received before deadline?
+Yes
+Traveler: send Payment
+Online Travel Agency: receive Payment
+service Issue ticket
+send Ticket
+Traveler: receive Ticket
+
+Traveler: Book train ticket
+Online Travel Agency: Create reservation
+send Payment request
+Traveler: receive Payment request
+Is payment received before deadline?
+No
+(timer Payment deadline)
+Online Travel Agency: service Cancel reservation automatically
+send Cancellation notice
+Traveler: receive Cancellation notice

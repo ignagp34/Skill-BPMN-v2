@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_SYN003" targetNamespace="http://example.com/bpmn/syn003">
+  <bpmn:collaboration id="Collaboration_SYN003">
+    <bpmn:participant id="Participant_Clinic" name="Medical Clinic" processRef="Process_CheckIn"/>
+  </bpmn:collaboration>
+  <bpmn:process id="Process_CheckIn" name="Outpatient Appointment Check-in" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_Clinic">
+      <bpmn:lane id="Lane_ReceptionClerk" name="Reception Clerk">
+        <bpmn:flowNodeRef>StartEvent_PatientArrives</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_GreetPatient</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ConfirmAppointment</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_UpdateArrival</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PrintVisitLabel</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_DirectWaitingArea</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_CompleteCheckIn</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_CheckInCompleted</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_PatientArrives" name="Patient arrives">
+      <bpmn:outgoing>Flow_1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_GreetPatient" name="Greet patient">
+      <bpmn:incoming>Flow_1</bpmn:incoming>
+      <bpmn:outgoing>Flow_2</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_ConfirmAppointment" name="Confirm appointment">
+      <bpmn:incoming>Flow_2</bpmn:incoming>
+      <bpmn:outgoing>Flow_3</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:serviceTask id="Task_UpdateArrival" name="Update patient arrival in system">
+      <bpmn:incoming>Flow_3</bpmn:incoming>
+      <bpmn:outgoing>Flow_4</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:task id="Task_PrintVisitLabel" name="Print visit label">
+      <bpmn:incoming>Flow_4</bpmn:incoming>
+      <bpmn:outgoing>Flow_5</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_DirectWaitingArea" name="Direct patient to waiting area">
+      <bpmn:incoming>Flow_5</bpmn:incoming>
+      <bpmn:outgoing>Flow_6</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_CompleteCheckIn" name="Complete check-in">
+      <bpmn:incoming>Flow_6</bpmn:incoming>
+      <bpmn:outgoing>Flow_7</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="EndEvent_CheckInCompleted" name="Check-in completed">
+      <bpmn:incoming>Flow_7</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="StartEvent_PatientArrives" targetRef="Task_GreetPatient"/>
+    <bpmn:sequenceFlow id="Flow_2" sourceRef="Task_GreetPatient" targetRef="Task_ConfirmAppointment"/>
+    <bpmn:sequenceFlow id="Flow_3" sourceRef="Task_ConfirmAppointment" targetRef="Task_UpdateArrival"/>
+    <bpmn:sequenceFlow id="Flow_4" sourceRef="Task_UpdateArrival" targetRef="Task_PrintVisitLabel"/>
+    <bpmn:sequenceFlow id="Flow_5" sourceRef="Task_PrintVisitLabel" targetRef="Task_DirectWaitingArea"/>
+    <bpmn:sequenceFlow id="Flow_6" sourceRef="Task_DirectWaitingArea" targetRef="Task_CompleteCheckIn"/>
+    <bpmn:sequenceFlow id="Flow_7" sourceRef="Task_CompleteCheckIn" targetRef="EndEvent_CheckInCompleted"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_SYN003">
+    <bpmndi:BPMNPlane id="BPMNPlane_SYN003" bpmnElement="Collaboration_SYN003">
+      <bpmndi:BPMNShape id="Shape_Participant_Clinic" bpmnElement="Participant_Clinic" isHorizontal="true">
+        <dc:Bounds x="80" y="80" width="1420" height="220"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Lane_ReceptionClerk" bpmnElement="Lane_ReceptionClerk" isHorizontal="true">
+        <dc:Bounds x="110" y="80" width="1390" height="220"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_StartEvent" bpmnElement="StartEvent_PatientArrives">
+        <dc:Bounds x="160" y="172" width="36" height="36"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="138" y="215" width="80" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_GreetPatient" bpmnElement="Task_GreetPatient">
+        <dc:Bounds x="240" y="150" width="120" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ConfirmAppointment" bpmnElement="Task_ConfirmAppointment">
+        <dc:Bounds x="400" y="150" width="140" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_UpdateArrival" bpmnElement="Task_UpdateArrival">
+        <dc:Bounds x="580" y="150" width="150" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_PrintVisitLabel" bpmnElement="Task_PrintVisitLabel">
+        <dc:Bounds x="770" y="150" width="130" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_DirectWaitingArea" bpmnElement="Task_DirectWaitingArea">
+        <dc:Bounds x="940" y="150" width="160" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CompleteCheckIn" bpmnElement="Task_CompleteCheckIn">
+        <dc:Bounds x="1140" y="150" width="140" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EndEvent" bpmnElement="EndEvent_CheckInCompleted">
+        <dc:Bounds x="1340" y="172" width="36" height="36"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1310" y="215" width="96" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_Flow_1" bpmnElement="Flow_1">
+        <di:waypoint x="196" y="190"/>
+        <di:waypoint x="240" y="190"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_2" bpmnElement="Flow_2">
+        <di:waypoint x="360" y="190"/>
+        <di:waypoint x="400" y="190"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_3" bpmnElement="Flow_3">
+        <di:waypoint x="540" y="190"/>
+        <di:waypoint x="580" y="190"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_4" bpmnElement="Flow_4">
+        <di:waypoint x="730" y="190"/>
+        <di:waypoint x="770" y="190"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_5" bpmnElement="Flow_5">
+        <di:waypoint x="900" y="190"/>
+        <di:waypoint x="940" y="190"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_6" bpmnElement="Flow_6">
+        <di:waypoint x="1100" y="190"/>
+        <di:waypoint x="1140" y="190"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_7" bpmnElement="Flow_7">
+        <di:waypoint x="1280" y="190"/>
+        <di:waypoint x="1340" y="190"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

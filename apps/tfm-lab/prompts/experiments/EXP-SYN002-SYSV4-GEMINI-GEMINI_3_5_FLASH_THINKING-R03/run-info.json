@@ -1,0 +1,31 @@
+{
+  "experimentId": "EXP-SYN002-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+  "processId": "SYN002",
+  "processFilename": "SYN002_it_password_reset_fulfillment.md",
+  "processTitle": "IT password reset fulfillment",
+  "processSource": "synthetic",
+  "difficulty": "easy",
+  "expectedFeatures": [
+    "sequential_flow",
+    "single_pool",
+    "tasks",
+    "start_end_events"
+  ],
+  "systemPromptVersion": "SYSV4",
+  "provider": "GEMINI",
+  "modelLabel": "GEMINI_3_5_FLASH_THINKING",
+  "executionSetting": "Gemini 3.5 Flash (High)",
+  "reasoningMode": "High",
+  "runNumber": 3,
+  "interfaceType": "agent",
+  "status": "raw_output_generated",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-06-18T19:15:19Z",
+  "notes": "",
+  "inputSystemTokens": 13249,
+  "inputProcessTokens": 208,
+  "inputTokens": 13457,
+  "outputTokens": 44,
+  "totalTokens": 13501,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

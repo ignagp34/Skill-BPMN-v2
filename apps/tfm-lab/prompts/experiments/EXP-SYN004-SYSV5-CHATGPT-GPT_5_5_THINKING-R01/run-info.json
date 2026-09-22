@@ -1,0 +1,31 @@
+{
+  "experimentId": "EXP-SYN004-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+  "processId": "SYN004",
+  "processFilename": "SYN004_insurance_claim_triage.md",
+  "processTitle": "Insurance claim triage",
+  "processSource": "synthetic",
+  "difficulty": "medium",
+  "expectedFeatures": [
+    "xor_gateway",
+    "alternative_paths",
+    "merge",
+    "single_pool"
+  ],
+  "systemPromptVersion": "SYSV5",
+  "provider": "CHATGPT",
+  "modelLabel": "GPT_5_5_THINKING",
+  "executionSetting": "ChatGPT 5.5 (High reasoning, fresh isolated subagent context)",
+  "reasoningMode": "High",
+  "runNumber": 1,
+  "interfaceType": "agent",
+  "status": "raw_output_generated",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-06-18T20:55:06Z",
+  "notes": "",
+  "inputSystemTokens": 14890,
+  "inputProcessTokens": 282,
+  "inputTokens": 15172,
+  "outputTokens": 247,
+  "totalTokens": 15419,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

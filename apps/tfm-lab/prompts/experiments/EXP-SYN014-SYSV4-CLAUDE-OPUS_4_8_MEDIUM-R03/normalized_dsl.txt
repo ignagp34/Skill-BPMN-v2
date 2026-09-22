@@ -1,0 +1,30 @@
+(start Booking requested)
+Traveler: send Booking Request
+
+Agency:
+(receive Booking Request)
+Agency: Create Reservation
+Agency: send Payment Request
+Agency: Await Payment
+(receive Payment)
+Agency: Issue Ticket
+Agency: send Ticket
+
+Traveler:
+(receive Payment Request)
+Traveler: Pay Booking
+Traveler: send Payment
+
+Traveler:
+(receive Ticket)
+(finish Ticket received)
+
+...
+Agency: Await Payment
+(deadline Payment deadline expired)
+Agency: Cancel Reservation
+Agency: send Cancellation Notice
+
+Traveler:
+(receive Cancellation Notice)
+(finish Cancellation notice received)

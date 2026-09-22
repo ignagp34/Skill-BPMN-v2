@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             id="Definitions_1"
+             targetNamespace="http://example.com/bpmn">
+  <process id="Process_1" isExecutable="true">
+    <startEvent id="Start_1" name="Start">
+      <outgoing>Flow_1</outgoing>
+    </startEvent>
+    <!-- Diverging XOR: both outgoing branches carry a decision label -->
+    <exclusiveGateway id="GW_1" name="Approved?">
+      <incoming>Flow_1</incoming>
+      <outgoing>Flow_2</outgoing>
+      <outgoing>Flow_3</outgoing>
+    </exclusiveGateway>
+    <task id="Task_A" name="Ship Order">
+      <incoming>Flow_2</incoming>
+      <outgoing>Flow_4</outgoing>
+    </task>
+    <task id="Task_B" name="Notify Rejection">
+      <incoming>Flow_3</incoming>
+      <outgoing>Flow_5</outgoing>
+    </task>
+    <exclusiveGateway id="GW_2" name="Merge">
+      <incoming>Flow_4</incoming>
+      <incoming>Flow_5</incoming>
+      <outgoing>Flow_6</outgoing>
+    </exclusiveGateway>
+    <endEvent id="End_1" name="End">
+      <incoming>Flow_6</incoming>
+    </endEvent>
+    <sequenceFlow id="Flow_1" sourceRef="Start_1" targetRef="GW_1"/>
+    <sequenceFlow id="Flow_2" name="Yes" sourceRef="GW_1" targetRef="Task_A"/>
+    <sequenceFlow id="Flow_3" name="No" sourceRef="GW_1" targetRef="Task_B"/>
+    <sequenceFlow id="Flow_4" sourceRef="Task_A" targetRef="GW_2"/>
+    <sequenceFlow id="Flow_5" sourceRef="Task_B" targetRef="GW_2"/>
+    <sequenceFlow id="Flow_6" sourceRef="GW_2" targetRef="End_1"/>
+  </process>
+</definitions>

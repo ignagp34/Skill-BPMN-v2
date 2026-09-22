@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_SYN015" targetNamespace="http://example.com/bpmn/SYN015">
+  <bpmn:collaboration id="Collaboration_SYN015">
+    <bpmn:participant id="Participant_Company" name="Company" processRef="Process_Company"/>
+    <bpmn:participant id="Participant_Supplier" name="Supplier" processRef="Process_Supplier"/>
+    <bpmn:messageFlow id="MessageFlow_RFQ" name="Request for quotation" sourceRef="Task_SendRFQ" targetRef="Task_ReceiveRFQ"/>
+    <bpmn:messageFlow id="MessageFlow_Quote" name="Supplier quote" sourceRef="Task_SendQuote" targetRef="Event_QuoteReceived"/>
+    <bpmn:messageFlow id="MessageFlow_RevisedRFQ" name="Revised quotation request" sourceRef="Task_RequestRevisedQuote" targetRef="Task_ReceiveRevisedRFQ"/>
+    <bpmn:messageFlow id="MessageFlow_RevisedQuote" name="Revised quote" sourceRef="Task_SendRevisedQuote" targetRef="Event_RevisedQuoteReceived"/>
+    <bpmn:messageFlow id="MessageFlow_Closed" name="Opportunity closed" sourceRef="Task_NotifySupplierClosed" targetRef="Task_ReceiveClosure"/>
+    <bpmn:messageFlow id="MessageFlow_SecurityRejected" name="Security rejection" sourceRef="Task_NotifySupplierSecurity" targetRef="Task_ReceiveSecurityRejection"/>
+    <bpmn:messageFlow id="MessageFlow_PO" name="Purchase order" sourceRef="Task_SendPO" targetRef="Task_ReceivePO"/>
+    <bpmn:messageFlow id="MessageFlow_OrderConfirmation" name="Order confirmation" sourceRef="Task_SendOrderConfirmation" targetRef="Event_OrderConfirmationReceived"/>
+  </bpmn:collaboration>
+  <bpmn:process id="Process_Company" name="Software Procurement" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_Company">
+      <bpmn:lane id="Lane_Requester" name="Requester">
+        <bpmn:flowNodeRef>StartEvent_Request</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SubmitRequest</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReceiveManagerRejection</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_ManagerRejected</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_DecideReduceScope</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_ReduceScope</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReduceScope</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReceiveSecurityRejection</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReceiveExpiryNotice</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReceiveApprovalNotice</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_ApprovedOrdered</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Manager" name="Manager">
+        <bpmn:flowNodeRef>Task_ManagerReview</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_ManagerDecision</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_InformManagerRejection</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_FinalApproval</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Procurement" name="Procurement">
+        <bpmn:flowNodeRef>Task_StartSourcing</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendRFQ</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_QuoteReceived</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReviewQuote</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_WithinBudget</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_AskReduceScope</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_NotifySupplierClosed</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_OpportunityClosed</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_RequestRevisedQuote</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_RevisedQuoteReceived</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_QuoteMerge</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_ReviewsSplit</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_ReviewsJoin</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_InformRequesterSecurity</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_NotifySupplierSecurity</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_SecurityRejected</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_NotifyRequesterExpired</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_Expired</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PrepareRecommendation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendPO</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_OrderConfirmationReceived</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_RecordDocuments</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_InformRequesterApproved</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_ITSecurity" name="IT Security">
+        <bpmn:flowNodeRef>Task_SecurityReview</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_CriticalRisk</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Finance" name="Finance">
+        <bpmn:flowNodeRef>Task_ConfirmBudget</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>BoundaryEvent_BudgetTimeout</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:dataObject id="DataObject_BusinessJustification" name="Business justification"/>
+    <bpmn:dataObjectReference id="DataRef_BusinessJustification" name="Business justification document" dataObjectRef="DataObject_BusinessJustification"/>
+    <bpmn:dataObject id="DataObject_EstimatedBudget" name="Estimated budget"/>
+    <bpmn:dataObjectReference id="DataRef_EstimatedBudget" name="Estimated budget" dataObjectRef="DataObject_EstimatedBudget"/>
+    <bpmn:dataObject id="DataObject_SecurityQuestionnaire" name="Supplier security questionnaire"/>
+    <bpmn:dataObjectReference id="DataRef_SecurityQuestionnaire" name="Supplier security questionnaire" dataObjectRef="DataObject_SecurityQuestionnaire"/>
+    <bpmn:dataObject id="DataObject_PurchaseRecommendation" name="Purchase recommendation"/>
+    <bpmn:dataObjectReference id="DataRef_PurchaseRecommendation" name="Purchase recommendation" dataObjectRef="DataObject_PurchaseRecommendation"/>
+    <bpmn:dataStoreReference id="DataStoreRef_ContractRepository" name="Contract repository" dataStoreRef="DataStore_ContractRepository"/>
+    <bpmn:startEvent id="StartEvent_Request" name="Software needed">
+      <bpmn:outgoing>Flow_1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="Task_SubmitRequest" name="Submit software request">
+      <bpmn:incoming>Flow_1</bpmn:incoming>
+      <bpmn:outgoing>Flow_2</bpmn:outgoing>
+      <bpmn:dataOutputAssociation id="DataAssoc_Justification">
+        <bpmn:targetRef>DataRef_BusinessJustification</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+      <bpmn:dataOutputAssociation id="DataAssoc_Budget">
+        <bpmn:targetRef>DataRef_EstimatedBudget</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_ManagerReview" name="Review software request">
+      <bpmn:incoming>Flow_2</bpmn:incoming>
+      <bpmn:outgoing>Flow_3</bpmn:outgoing>
+      <bpmn:dataInputAssociation id="DataAssoc_ReviewJustification">
+        <bpmn:sourceRef>DataRef_BusinessJustification</bpmn:sourceRef>
+      </bpmn:dataInputAssociation>
+      <bpmn:dataInputAssociation id="DataAssoc_ReviewBudget">
+        <bpmn:sourceRef>DataRef_EstimatedBudget</bpmn:sourceRef>
+      </bpmn:dataInputAssociation>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_ManagerDecision" name="Manager approves?">
+      <bpmn:incoming>Flow_3</bpmn:incoming>
+      <bpmn:outgoing>Flow_4_Rejected</bpmn:outgoing>
+      <bpmn:outgoing>Flow_4_Approved</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sendTask id="Task_InformManagerRejection" name="Inform requester of rejection">
+      <bpmn:incoming>Flow_4_Rejected</bpmn:incoming>
+      <bpmn:outgoing>Flow_5</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:receiveTask id="Task_ReceiveManagerRejection" name="Receive rejection notice">
+      <bpmn:incoming>Flow_5</bpmn:incoming>
+      <bpmn:outgoing>Flow_6</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:endEvent id="EndEvent_ManagerRejected" name="Request rejected">
+      <bpmn:incoming>Flow_6</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:task id="Task_StartSourcing" name="Start sourcing process">
+      <bpmn:incoming>Flow_4_Approved</bpmn:incoming>
+      <bpmn:outgoing>Flow_7</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sendTask id="Task_SendRFQ" name="Send request for quotation">
+      <bpmn:incoming>Flow_7</bpmn:incoming>
+      <bpmn:outgoing>Flow_8</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:intermediateCatchEvent id="Event_QuoteReceived" name="Supplier quote received">
+      <bpmn:incoming>Flow_8</bpmn:incoming>
+      <bpmn:outgoing>Flow_9</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_Quote"/>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:task id="Task_ReviewQuote" name="Review quote">
+      <bpmn:incoming>Flow_9</bpmn:incoming>
+      <bpmn:incoming>Flow_20</bpmn:incoming>
+      <bpmn:outgoing>Flow_10</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="Gateway_WithinBudget" name="Quote within budget?">
+      <bpmn:incoming>Flow_10</bpmn:incoming>
+      <bpmn:outgoing>Flow_11_Acceptable</bpmn:outgoing>
+      <bpmn:outgoing>Flow_11_Above</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sendTask id="Task_AskReduceScope" name="Ask requester to reduce scope">
+      <bpmn:incoming>Flow_11_Above</bpmn:incoming>
+      <bpmn:outgoing>Flow_12</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:userTask id="Task_DecideReduceScope" name="Decide whether to reduce scope">
+      <bpmn:incoming>Flow_12</bpmn:incoming>
+      <bpmn:outgoing>Flow_13</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_ReduceScope" name="Reduce scope?">
+      <bpmn:incoming>Flow_13</bpmn:incoming>
+      <bpmn:outgoing>Flow_14_No</bpmn:outgoing>
+      <bpmn:outgoing>Flow_14_Yes</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sendTask id="Task_NotifySupplierClosed" name="Inform supplier opportunity is closed">
+      <bpmn:incoming>Flow_14_No</bpmn:incoming>
+      <bpmn:outgoing>Flow_15</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:endEvent id="EndEvent_OpportunityClosed" name="Opportunity closed">
+      <bpmn:incoming>Flow_15</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:userTask id="Task_ReduceScope" name="Reduce requested scope">
+      <bpmn:incoming>Flow_14_Yes</bpmn:incoming>
+      <bpmn:outgoing>Flow_16</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sendTask id="Task_RequestRevisedQuote" name="Request revised quote">
+      <bpmn:incoming>Flow_16</bpmn:incoming>
+      <bpmn:outgoing>Flow_17</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:intermediateCatchEvent id="Event_RevisedQuoteReceived" name="Revised quote received">
+      <bpmn:incoming>Flow_17</bpmn:incoming>
+      <bpmn:outgoing>Flow_18</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_RevisedQuote"/>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:exclusiveGateway id="Gateway_QuoteMerge">
+      <bpmn:incoming>Flow_18</bpmn:incoming>
+      <bpmn:outgoing>Flow_20</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:parallelGateway id="Gateway_ReviewsSplit" name="Start parallel reviews">
+      <bpmn:incoming>Flow_11_Acceptable</bpmn:incoming>
+      <bpmn:outgoing>Flow_21_Security</bpmn:outgoing>
+      <bpmn:outgoing>Flow_21_Finance</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:userTask id="Task_SecurityReview" name="Review supplier security questionnaire">
+      <bpmn:incoming>Flow_21_Security</bpmn:incoming>
+      <bpmn:outgoing>Flow_22</bpmn:outgoing>
+      <bpmn:dataInputAssociation id="DataAssoc_SecurityQuestionnaire">
+        <bpmn:sourceRef>DataRef_SecurityQuestionnaire</bpmn:sourceRef>
+      </bpmn:dataInputAssociation>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_CriticalRisk" name="Critical security risk?">
+      <bpmn:incoming>Flow_22</bpmn:incoming>
+      <bpmn:outgoing>Flow_23_NoRisk</bpmn:outgoing>
+      <bpmn:outgoing>Flow_23_Risk</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sendTask id="Task_InformRequesterSecurity" name="Inform requester of security rejection">
+      <bpmn:incoming>Flow_23_Risk</bpmn:incoming>
+      <bpmn:outgoing>Flow_24</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:receiveTask id="Task_ReceiveSecurityRejection" name="Receive security rejection">
+      <bpmn:incoming>Flow_24</bpmn:incoming>
+      <bpmn:outgoing>Flow_25</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:sendTask id="Task_NotifySupplierSecurity" name="Notify supplier of security rejection">
+      <bpmn:incoming>Flow_25</bpmn:incoming>
+      <bpmn:outgoing>Flow_26</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:endEvent id="EndEvent_SecurityRejected" name="Rejected for security reasons">
+      <bpmn:incoming>Flow_26</bpmn:incoming>
+      <bpmn:terminateEventDefinition id="TerminateEventDefinition_Security"/>
+    </bpmn:endEvent>
+    <bpmn:userTask id="Task_ConfirmBudget" name="Confirm budget availability">
+      <bpmn:incoming>Flow_21_Finance</bpmn:incoming>
+      <bpmn:outgoing>Flow_27</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:boundaryEvent id="BoundaryEvent_BudgetTimeout" name="Five business days elapsed" attachedToRef="Task_ConfirmBudget" cancelActivity="true">
+      <bpmn:outgoing>Flow_28</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_FiveDays">
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">P5D</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:boundaryEvent>
+    <bpmn:sendTask id="Task_NotifyRequesterExpired" name="Notify requester that request expired">
+      <bpmn:incoming>Flow_28</bpmn:incoming>
+      <bpmn:outgoing>Flow_29</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:receiveTask id="Task_ReceiveExpiryNotice" name="Receive expiry notice">
+      <bpmn:incoming>Flow_29</bpmn:incoming>
+      <bpmn:outgoing>Flow_30</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:endEvent id="EndEvent_Expired" name="Request expired">
+      <bpmn:incoming>Flow_30</bpmn:incoming>
+      <bpmn:terminateEventDefinition id="TerminateEventDefinition_Expired"/>
+    </bpmn:endEvent>
+    <bpmn:parallelGateway id="Gateway_ReviewsJoin" name="Both reviews complete">
+      <bpmn:incoming>Flow_23_NoRisk</bpmn:incoming>
+      <bpmn:incoming>Flow_27</bpmn:incoming>
+      <bpmn:outgoing>Flow_31</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:textAnnotation id="TextAnnotation_Reviews">
+      <bpmn:text>The contract cannot be signed until both reviews are complete.</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_ReviewsNote" sourceRef="Gateway_ReviewsJoin" targetRef="TextAnnotation_Reviews"/>
+    <bpmn:task id="Task_PrepareRecommendation" name="Prepare purchase recommendation">
+      <bpmn:incoming>Flow_31</bpmn:incoming>
+      <bpmn:outgoing>Flow_32</bpmn:outgoing>
+      <bpmn:dataOutputAssociation id="DataAssoc_Recommendation">
+        <bpmn:targetRef>DataRef_PurchaseRecommendation</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:task>
+    <bpmn:userTask id="Task_FinalApproval" name="Give final approval">
+      <bpmn:incoming>Flow_32</bpmn:incoming>
+      <bpmn:outgoing>Flow_33</bpmn:outgoing>
+      <bpmn:dataInputAssociation id="DataAssoc_FinalRecommendation">
+        <bpmn:sourceRef>DataRef_PurchaseRecommendation</bpmn:sourceRef>
+      </bpmn:dataInputAssociation>
+    </bpmn:userTask>
+    <bpmn:sendTask id="Task_SendPO" name="Send purchase order">
+      <bpmn:incoming>Flow_33</bpmn:incoming>
+      <bpmn:outgoing>Flow_34</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:intermediateCatchEvent id="Event_OrderConfirmationReceived" name="Order confirmation received">
+      <bpmn:incoming>Flow_34</bpmn:incoming>
+      <bpmn:outgoing>Flow_35</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_OrderConfirmation"/>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:task id="Task_RecordDocuments" name="Record signed documents in contract repository">
+      <bpmn:incoming>Flow_35</bpmn:incoming>
+      <bpmn:outgoing>Flow_36</bpmn:outgoing>
+      <bpmn:dataOutputAssociation id="DataAssoc_ContractRepository">
+        <bpmn:targetRef>DataStoreRef_ContractRepository</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:task>
+    <bpmn:sendTask id="Task_InformRequesterApproved" name="Inform requester purchase is approved and ordered">
+      <bpmn:incoming>Flow_36</bpmn:incoming>
+      <bpmn:outgoing>Flow_37</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:receiveTask id="Task_ReceiveApprovalNotice" name="Receive approval and order notice">
+      <bpmn:incoming>Flow_37</bpmn:incoming>
+      <bpmn:outgoing>Flow_38</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:endEvent id="EndEvent_ApprovedOrdered" name="Software approved and ordered">
+      <bpmn:incoming>Flow_38</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="StartEvent_Request" targetRef="Task_SubmitRequest"/>
+    <bpmn:sequenceFlow id="Flow_2" sourceRef="Task_SubmitRequest" targetRef="Task_ManagerReview"/>
+    <bpmn:sequenceFlow id="Flow_3" sourceRef="Task_ManagerReview" targetRef="Gateway_ManagerDecision"/>
+    <bpmn:sequenceFlow id="Flow_4_Rejected" name="Rejected" sourceRef="Gateway_ManagerDecision" targetRef="Task_InformManagerRejection"/>
+    <bpmn:sequenceFlow id="Flow_4_Approved" name="Approved" sourceRef="Gateway_ManagerDecision" targetRef="Task_StartSourcing"/>
+    <bpmn:sequenceFlow id="Flow_5" sourceRef="Task_InformManagerRejection" targetRef="Task_ReceiveManagerRejection"/>
+    <bpmn:sequenceFlow id="Flow_6" sourceRef="Task_ReceiveManagerRejection" targetRef="EndEvent_ManagerRejected"/>
+    <bpmn:sequenceFlow id="Flow_7" sourceRef="Task_StartSourcing" targetRef="Task_SendRFQ"/>
+    <bpmn:sequenceFlow id="Flow_8" sourceRef="Task_SendRFQ" targetRef="Event_QuoteReceived"/>
+    <bpmn:sequenceFlow id="Flow_9" sourceRef="Event_QuoteReceived" targetRef="Task_ReviewQuote"/>
+    <bpmn:sequenceFlow id="Flow_10" sourceRef="Task_ReviewQuote" targetRef="Gateway_WithinBudget"/>
+    <bpmn:sequenceFlow id="Flow_11_Acceptable" name="Within budget" sourceRef="Gateway_WithinBudget" targetRef="Gateway_ReviewsSplit"/>
+    <bpmn:sequenceFlow id="Flow_11_Above" name="Above budget" sourceRef="Gateway_WithinBudget" targetRef="Task_AskReduceScope"/>
+    <bpmn:sequenceFlow id="Flow_12" sourceRef="Task_AskReduceScope" targetRef="Task_DecideReduceScope"/>
+    <bpmn:sequenceFlow id="Flow_13" sourceRef="Task_DecideReduceScope" targetRef="Gateway_ReduceScope"/>
+    <bpmn:sequenceFlow id="Flow_14_No" name="Decline" sourceRef="Gateway_ReduceScope" targetRef="Task_NotifySupplierClosed"/>
+    <bpmn:sequenceFlow id="Flow_14_Yes" name="Agree" sourceRef="Gateway_ReduceScope" targetRef="Task_ReduceScope"/>
+    <bpmn:sequenceFlow id="Flow_15" sourceRef="Task_NotifySupplierClosed" targetRef="EndEvent_OpportunityClosed"/>
+    <bpmn:sequenceFlow id="Flow_16" sourceRef="Task_ReduceScope" targetRef="Task_RequestRevisedQuote"/>
+    <bpmn:sequenceFlow id="Flow_17" sourceRef="Task_RequestRevisedQuote" targetRef="Event_RevisedQuoteReceived"/>
+    <bpmn:sequenceFlow id="Flow_18" sourceRef="Event_RevisedQuoteReceived" targetRef="Gateway_QuoteMerge"/>
+    <bpmn:sequenceFlow id="Flow_20" sourceRef="Gateway_QuoteMerge" targetRef="Task_ReviewQuote"/>
+    <bpmn:sequenceFlow id="Flow_21_Security" sourceRef="Gateway_ReviewsSplit" targetRef="Task_SecurityReview"/>
+    <bpmn:sequenceFlow id="Flow_21_Finance" sourceRef="Gateway_ReviewsSplit" targetRef="Task_ConfirmBudget"/>
+    <bpmn:sequenceFlow id="Flow_22" sourceRef="Task_SecurityReview" targetRef="Gateway_CriticalRisk"/>
+    <bpmn:sequenceFlow id="Flow_23_NoRisk" name="No critical risk" sourceRef="Gateway_CriticalRisk" targetRef="Gateway_ReviewsJoin"/>
+    <bpmn:sequenceFlow id="Flow_23_Risk" name="Critical risk" sourceRef="Gateway_CriticalRisk" targetRef="Task_InformRequesterSecurity"/>
+    <bpmn:sequenceFlow id="Flow_24" sourceRef="Task_InformRequesterSecurity" targetRef="Task_ReceiveSecurityRejection"/>
+    <bpmn:sequenceFlow id="Flow_25" sourceRef="Task_ReceiveSecurityRejection" targetRef="Task_NotifySupplierSecurity"/>
+    <bpmn:sequenceFlow id="Flow_26" sourceRef="Task_NotifySupplierSecurity" targetRef="EndEvent_SecurityRejected"/>
+    <bpmn:sequenceFlow id="Flow_27" sourceRef="Task_ConfirmBudget" targetRef="Gateway_ReviewsJoin"/>
+    <bpmn:sequenceFlow id="Flow_28" sourceRef="BoundaryEvent_BudgetTimeout" targetRef="Task_NotifyRequesterExpired"/>
+    <bpmn:sequenceFlow id="Flow_29" sourceRef="Task_NotifyRequesterExpired" targetRef="Task_ReceiveExpiryNotice"/>
+    <bpmn:sequenceFlow id="Flow_30" sourceRef="Task_ReceiveExpiryNotice" targetRef="EndEvent_Expired"/>
+    <bpmn:sequenceFlow id="Flow_31" sourceRef="Gateway_ReviewsJoin" targetRef="Task_PrepareRecommendation"/>
+    <bpmn:sequenceFlow id="Flow_32" sourceRef="Task_PrepareRecommendation" targetRef="Task_FinalApproval"/>
+    <bpmn:sequenceFlow id="Flow_33" sourceRef="Task_FinalApproval" targetRef="Task_SendPO"/>
+    <bpmn:sequenceFlow id="Flow_34" sourceRef="Task_SendPO" targetRef="Event_OrderConfirmationReceived"/>
+    <bpmn:sequenceFlow id="Flow_35" sourceRef="Event_OrderConfirmationReceived" targetRef="Task_RecordDocuments"/>
+    <bpmn:sequenceFlow id="Flow_36" sourceRef="Task_RecordDocuments" targetRef="Task_InformRequesterApproved"/>
+    <bpmn:sequenceFlow id="Flow_37" sourceRef="Task_InformRequesterApproved" targetRef="Task_ReceiveApprovalNotice"/>
+    <bpmn:sequenceFlow id="Flow_38" sourceRef="Task_ReceiveApprovalNotice" targetRef="EndEvent_ApprovedOrdered"/>
+  </bpmn:process>
+  <bpmn:process id="Process_Supplier" name="Supplier" isExecutable="false">
+    <bpmn:startEvent id="StartEvent_Supplier" name="Sourcing request received">
+      <bpmn:outgoing>SupplierFlow_1</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_RFQ"/>
+    </bpmn:startEvent>
+    <bpmn:receiveTask id="Task_ReceiveRFQ" name="Receive request for quotation">
+      <bpmn:incoming>SupplierFlow_1</bpmn:incoming>
+      <bpmn:outgoing>SupplierFlow_2</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:sendTask id="Task_SendQuote" name="Prepare and send quote">
+      <bpmn:incoming>SupplierFlow_2</bpmn:incoming>
+      <bpmn:outgoing>SupplierFlow_3</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:eventBasedGateway id="Gateway_SupplierWait" name="Wait for company response">
+      <bpmn:incoming>SupplierFlow_3</bpmn:incoming>
+      <bpmn:incoming>SupplierFlow_6</bpmn:incoming>
+      <bpmn:outgoing>SupplierFlow_4_Revised</bpmn:outgoing>
+      <bpmn:outgoing>SupplierFlow_4_Closed</bpmn:outgoing>
+      <bpmn:outgoing>SupplierFlow_4_Security</bpmn:outgoing>
+      <bpmn:outgoing>SupplierFlow_4_PO</bpmn:outgoing>
+    </bpmn:eventBasedGateway>
+    <bpmn:receiveTask id="Task_ReceiveRevisedRFQ" name="Receive revised quotation request">
+      <bpmn:incoming>SupplierFlow_4_Revised</bpmn:incoming>
+      <bpmn:outgoing>SupplierFlow_5</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:sendTask id="Task_SendRevisedQuote" name="Prepare and send revised quote">
+      <bpmn:incoming>SupplierFlow_5</bpmn:incoming>
+      <bpmn:outgoing>SupplierFlow_6</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:receiveTask id="Task_ReceiveClosure" name="Receive opportunity closure">
+      <bpmn:incoming>SupplierFlow_4_Closed</bpmn:incoming>
+      <bpmn:outgoing>SupplierFlow_7</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:endEvent id="EndEvent_SupplierClosed" name="Opportunity closed">
+      <bpmn:incoming>SupplierFlow_7</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:receiveTask id="Task_ReceiveSecurityRejection" name="Receive security rejection">
+      <bpmn:incoming>SupplierFlow_4_Security</bpmn:incoming>
+      <bpmn:outgoing>SupplierFlow_8</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:endEvent id="EndEvent_SupplierRejected" name="Opportunity rejected">
+      <bpmn:incoming>SupplierFlow_8</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:receiveTask id="Task_ReceivePO" name="Receive purchase order">
+      <bpmn:incoming>SupplierFlow_4_PO</bpmn:incoming>
+      <bpmn:outgoing>SupplierFlow_9</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:sendTask id="Task_SendOrderConfirmation" name="Send order confirmation">
+      <bpmn:incoming>SupplierFlow_9</bpmn:incoming>
+      <bpmn:outgoing>SupplierFlow_10</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:endEvent id="EndEvent_SupplierConfirmed" name="Order confirmed">
+      <bpmn:incoming>SupplierFlow_10</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SupplierFlow_1" sourceRef="StartEvent_Supplier" targetRef="Task_ReceiveRFQ"/>
+    <bpmn:sequenceFlow id="SupplierFlow_2" sourceRef="Task_ReceiveRFQ" targetRef="Task_SendQuote"/>
+    <bpmn:sequenceFlow id="SupplierFlow_3" sourceRef="Task_SendQuote" targetRef="Gateway_SupplierWait"/>
+    <bpmn:sequenceFlow id="SupplierFlow_4_Revised" name="Revised quote requested" sourceRef="Gateway_SupplierWait" targetRef="Task_ReceiveRevisedRFQ"/>
+    <bpmn:sequenceFlow id="SupplierFlow_4_Closed" name="Opportunity closed" sourceRef="Gateway_SupplierWait" targetRef="Task_ReceiveClosure"/>
+    <bpmn:sequenceFlow id="SupplierFlow_4_Security" name="Security rejection" sourceRef="Gateway_SupplierWait" targetRef="Task_ReceiveSecurityRejection"/>
+    <bpmn:sequenceFlow id="SupplierFlow_4_PO" name="Purchase order" sourceRef="Gateway_SupplierWait" targetRef="Task_ReceivePO"/>
+    <bpmn:sequenceFlow id="SupplierFlow_5" sourceRef="Task_ReceiveRevisedRFQ" targetRef="Task_SendRevisedQuote"/>
+    <bpmn:sequenceFlow id="SupplierFlow_6" sourceRef="Task_SendRevisedQuote" targetRef="Gateway_SupplierWait"/>
+    <bpmn:sequenceFlow id="SupplierFlow_7" sourceRef="Task_ReceiveClosure" targetRef="EndEvent_SupplierClosed"/>
+    <bpmn:sequenceFlow id="SupplierFlow_8" sourceRef="Task_ReceiveSecurityRejection" targetRef="EndEvent_SupplierRejected"/>
+    <bpmn:sequenceFlow id="SupplierFlow_9" sourceRef="Task_ReceivePO" targetRef="Task_SendOrderConfirmation"/>
+    <bpmn:sequenceFlow id="SupplierFlow_10" sourceRef="Task_SendOrderConfirmation" targetRef="EndEvent_SupplierConfirmed"/>
+  </bpmn:process>
+  <bpmn:dataStore id="DataStore_ContractRepository" name="Contract repository"/>
+</bpmn:definitions>

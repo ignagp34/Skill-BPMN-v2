@@ -1,0 +1,8 @@
+(start Patient arrives for scheduled outpatient appointment)
+Reception Clerk: Greet patient
+Confirm appointment
+Update patient arrival in system
+Print visit label
+Direct patient to waiting area
+Complete check-in
+(finish Check-in completed)

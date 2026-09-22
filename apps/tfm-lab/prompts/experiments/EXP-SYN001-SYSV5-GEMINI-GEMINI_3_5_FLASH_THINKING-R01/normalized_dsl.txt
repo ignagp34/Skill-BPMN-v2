@@ -1,0 +1,12 @@
+(start Certificate requested)
+Student: Request enrollment certificate
+Registrar Clerk: Receive request
+Registrar Clerk: Look up student's record
+Registrar Clerk: Generate certificate
+Registrar Clerk: Check document for completeness
+Registrar Clerk: Send certificate by email
+Registrar Clerk: Close request
+(finish Request closed)
+
+== pools ==
+Registrar Office -> Student; Registrar Clerk

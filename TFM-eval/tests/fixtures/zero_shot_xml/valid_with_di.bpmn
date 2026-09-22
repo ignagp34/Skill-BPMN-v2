@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+             id="Definitions_Valid"
+             targetNamespace="http://example.com/bpmn">
+  <process id="Process_Valid" isExecutable="false">
+    <startEvent id="Start_Valid" name="Request received"/>
+    <task id="Task_Valid" name="Process request"/>
+    <endEvent id="End_Valid" name="Request completed"/>
+    <sequenceFlow id="Flow_Valid_1" sourceRef="Start_Valid" targetRef="Task_Valid"/>
+    <sequenceFlow id="Flow_Valid_2" sourceRef="Task_Valid" targetRef="End_Valid"/>
+  </process>
+  <bpmndi:BPMNDiagram id="Diagram_Valid">
+    <bpmndi:BPMNPlane id="Plane_Valid" bpmnElement="Process_Valid">
+      <bpmndi:BPMNShape id="Start_Valid_di" bpmnElement="Start_Valid">
+        <dc:Bounds x="100" y="100" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Valid_di" bpmnElement="Task_Valid">
+        <dc:Bounds x="200" y="78" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_Valid_di" bpmnElement="End_Valid">
+        <dc:Bounds x="360" y="100" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_Valid_1_di" bpmnElement="Flow_Valid_1">
+        <di:waypoint x="136" y="118"/>
+        <di:waypoint x="200" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Valid_2_di" bpmnElement="Flow_Valid_2">
+        <di:waypoint x="300" y="118"/>
+        <di:waypoint x="360" y="118"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

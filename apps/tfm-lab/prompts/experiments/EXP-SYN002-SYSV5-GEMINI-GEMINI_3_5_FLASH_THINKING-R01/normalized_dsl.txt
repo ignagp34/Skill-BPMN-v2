@@ -1,0 +1,14 @@
+Employee:
+(start Password reset requested)
+user Ask for password reset
+Support Agent:
+receive Receive request
+user Verify employee's identity
+service Reset password in directory system
+send Send temporary password to employee
+service Record action in ticket
+user Resolve ticket
+(finish Ticket resolved)
+
+== pools ==
+IT Support -> Employee; Support Agent

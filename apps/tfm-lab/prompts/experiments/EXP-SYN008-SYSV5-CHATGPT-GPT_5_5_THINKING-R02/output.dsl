@@ -1,0 +1,11 @@
+(start Standard equipment request needed)
+Requesting Department: user Submit request for standard office equipment
+Procurement Specialist: user Review request
+user Confirm items are on approved catalog
+Procurement Specialist: user Reserve budget|Procurement Specialist: user Create purchase order|Procurement Specialist: send Notify warehouse of expected delivery
+send Send order confirmation to requesting department
+user Close request
+(finish Request closed)
+
+== pools ==
+Procurement Office -> Requesting Department; Procurement Specialist

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_SYN011" targetNamespace="http://example.com/bpmn/syn011">
+  <bpmn:collaboration id="Collaboration_SYN011">
+    <bpmn:participant id="Participant_Agency" name="Public Administration Agency" processRef="Process_SYN011"/>
+  </bpmn:collaboration>
+  <bpmn:process id="Process_SYN011" name="Public grant application review" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_Agency">
+      <bpmn:lane id="Lane_Officer" name="Officer">
+        <bpmn:flowNodeRef>StartEvent_ApplicationReceived</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_RegisterApplication</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_CheckApplicationForm</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReviewBudgetFile</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ConsultEligibilityRules</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_ApplicationComplete</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_RecordIssue</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendCompletionRequest</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_CompletionRequested</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_WriteEvaluationReport</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_StoreReport</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_IssueRecommendation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_RecommendationIssued</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_ApplicationReceived" name="Application form and budget file received">
+      <bpmn:outgoing>Flow_01</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_ApplicationReceived"/>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_RegisterApplication" name="Register application in grants database">
+      <bpmn:incoming>Flow_01</bpmn:incoming>
+      <bpmn:outgoing>Flow_02</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_CheckApplicationForm" name="Check application form">
+      <bpmn:incoming>Flow_02</bpmn:incoming>
+      <bpmn:outgoing>Flow_03</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_ReviewBudgetFile" name="Review budget file">
+      <bpmn:incoming>Flow_03</bpmn:incoming>
+      <bpmn:outgoing>Flow_04</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_ConsultEligibilityRules" name="Consult eligibility rules">
+      <bpmn:incoming>Flow_04</bpmn:incoming>
+      <bpmn:outgoing>Flow_05</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="Gateway_ApplicationComplete" name="Information complete?" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_05</bpmn:incoming>
+      <bpmn:outgoing>Flow_Missing</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Complete</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="Task_RecordIssue" name="Record missing information issue">
+      <bpmn:incoming>Flow_Missing</bpmn:incoming>
+      <bpmn:outgoing>Flow_06</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sendTask id="Task_SendCompletionRequest" name="Send request for completion">
+      <bpmn:incoming>Flow_06</bpmn:incoming>
+      <bpmn:outgoing>Flow_07</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:endEvent id="EndEvent_CompletionRequested" name="Completion requested">
+      <bpmn:incoming>Flow_07</bpmn:incoming>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_CompletionRequested"/>
+    </bpmn:endEvent>
+    <bpmn:task id="Task_WriteEvaluationReport" name="Write evaluation report">
+      <bpmn:incoming>Flow_Complete</bpmn:incoming>
+      <bpmn:outgoing>Flow_08</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_StoreReport" name="Store report in case repository">
+      <bpmn:incoming>Flow_08</bpmn:incoming>
+      <bpmn:outgoing>Flow_09</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_IssueRecommendation" name="Issue recommendation for decision">
+      <bpmn:incoming>Flow_09</bpmn:incoming>
+      <bpmn:outgoing>Flow_10</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="EndEvent_RecommendationIssued" name="Recommendation issued">
+      <bpmn:incoming>Flow_10</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_01" sourceRef="StartEvent_ApplicationReceived" targetRef="Task_RegisterApplication"/>
+    <bpmn:sequenceFlow id="Flow_02" sourceRef="Task_RegisterApplication" targetRef="Task_CheckApplicationForm"/>
+    <bpmn:sequenceFlow id="Flow_03" sourceRef="Task_CheckApplicationForm" targetRef="Task_ReviewBudgetFile"/>
+    <bpmn:sequenceFlow id="Flow_04" sourceRef="Task_ReviewBudgetFile" targetRef="Task_ConsultEligibilityRules"/>
+    <bpmn:sequenceFlow id="Flow_05" sourceRef="Task_ConsultEligibilityRules" targetRef="Gateway_ApplicationComplete"/>
+    <bpmn:sequenceFlow id="Flow_Missing" name="No" sourceRef="Gateway_ApplicationComplete" targetRef="Task_RecordIssue">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[missing information]]></bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_Complete" name="Yes" sourceRef="Gateway_ApplicationComplete" targetRef="Task_WriteEvaluationReport">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[application complete]]></bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_06" sourceRef="Task_RecordIssue" targetRef="Task_SendCompletionRequest"/>
+    <bpmn:sequenceFlow id="Flow_07" sourceRef="Task_SendCompletionRequest" targetRef="EndEvent_CompletionRequested"/>
+    <bpmn:sequenceFlow id="Flow_08" sourceRef="Task_WriteEvaluationReport" targetRef="Task_StoreReport"/>
+    <bpmn:sequenceFlow id="Flow_09" sourceRef="Task_StoreReport" targetRef="Task_IssueRecommendation"/>
+    <bpmn:sequenceFlow id="Flow_10" sourceRef="Task_IssueRecommendation" targetRef="EndEvent_RecommendationIssued"/>
+    <bpmn:dataObject id="DataObject_ApplicationForm" name="Application form"/>
+    <bpmn:dataObjectReference id="DataObjectReference_ApplicationForm" name="Application form" dataObjectRef="DataObject_ApplicationForm"/>
+    <bpmn:dataObject id="DataObject_BudgetFile" name="Supporting budget file"/>
+    <bpmn:dataObjectReference id="DataObjectReference_BudgetFile" name="Supporting budget file" dataObjectRef="DataObject_BudgetFile"/>
+    <bpmn:dataObject id="DataObject_EligibilityRules" name="Eligibility rules"/>
+    <bpmn:dataObjectReference id="DataObjectReference_EligibilityRules" name="Eligibility rules" dataObjectRef="DataObject_EligibilityRules"/>
+    <bpmn:dataObject id="DataObject_MissingIssue" name="Missing information issue"/>
+    <bpmn:dataObjectReference id="DataObjectReference_MissingIssue" name="Missing information issue" dataObjectRef="DataObject_MissingIssue"/>
+    <bpmn:dataObject id="DataObject_EvaluationReport" name="Evaluation report"/>
+    <bpmn:dataObjectReference id="DataObjectReference_EvaluationReport" name="Evaluation report" dataObjectRef="DataObject_EvaluationReport"/>
+    <bpmn:dataStoreReference id="DataStoreReference_GrantsDatabase" name="Grants database" dataStoreRef="DataStore_GrantsDatabase"/>
+    <bpmn:dataStoreReference id="DataStoreReference_CaseRepository" name="Case repository" dataStoreRef="DataStore_CaseRepository"/>
+    <bpmn:textAnnotation id="TextAnnotation_IncompleteApplications">
+      <bpmn:text>Incomplete applications must not be assessed for merit.</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_ApplicationToRegister" sourceRef="DataObjectReference_ApplicationForm" targetRef="Task_RegisterApplication" associationDirection="One"/>
+    <bpmn:association id="Association_BudgetToRegister" sourceRef="DataObjectReference_BudgetFile" targetRef="Task_RegisterApplication" associationDirection="One"/>
+    <bpmn:association id="Association_RegisterToDatabase" sourceRef="Task_RegisterApplication" targetRef="DataStoreReference_GrantsDatabase" associationDirection="One"/>
+    <bpmn:association id="Association_ApplicationToCheck" sourceRef="DataObjectReference_ApplicationForm" targetRef="Task_CheckApplicationForm" associationDirection="One"/>
+    <bpmn:association id="Association_BudgetToReview" sourceRef="DataObjectReference_BudgetFile" targetRef="Task_ReviewBudgetFile" associationDirection="One"/>
+    <bpmn:association id="Association_RulesToConsult" sourceRef="DataObjectReference_EligibilityRules" targetRef="Task_ConsultEligibilityRules" associationDirection="One"/>
+    <bpmn:association id="Association_RecordToIssue" sourceRef="Task_RecordIssue" targetRef="DataObjectReference_MissingIssue" associationDirection="One"/>
+    <bpmn:association id="Association_IssueToRequest" sourceRef="DataObjectReference_MissingIssue" targetRef="Task_SendCompletionRequest" associationDirection="One"/>
+    <bpmn:association id="Association_WriteToReport" sourceRef="Task_WriteEvaluationReport" targetRef="DataObjectReference_EvaluationReport" associationDirection="One"/>
+    <bpmn:association id="Association_ReportToStore" sourceRef="DataObjectReference_EvaluationReport" targetRef="Task_StoreReport" associationDirection="One"/>
+    <bpmn:association id="Association_StoreToRepository" sourceRef="Task_StoreReport" targetRef="DataStoreReference_CaseRepository" associationDirection="One"/>
+    <bpmn:association id="Association_IncompleteNote" sourceRef="TextAnnotation_IncompleteApplications" targetRef="Gateway_ApplicationComplete" associationDirection="None"/>
+  </bpmn:process>
+  <bpmn:dataStore id="DataStore_GrantsDatabase" name="Grants database"/>
+  <bpmn:dataStore id="DataStore_CaseRepository" name="Case repository"/>
+</bpmn:definitions>

@@ -1,0 +1,61 @@
+Customer: Apply for credit card
+Officer: Receive application
+Officer: Check information
+Is information complete?
+No
+Officer: Ask customer for missing information
+Officer: Stop application
+
+Customer: Apply for credit card
+Officer: Receive application
+Officer: Check information
+Is information complete?
+Yes
+Officer: Perform credit check
+What is the credit result?
+Approved
+Officer: Create card account
+Officer: Order card
+Officer: send Approval message
+Customer: (receive Approval message)
+
+Customer: Apply for credit card
+Officer: Receive application
+Officer: Check information
+Is information complete?
+Yes
+Officer: Perform credit check
+What is the credit result?
+Borderline
+Supervisor: Perform manual review
+Is application approved by supervisor?
+Yes
+Officer: Create card account
+Officer: Order card
+Officer: send Approval message
+Customer: (receive Approval message)
+
+Customer: Apply for credit card
+Officer: Receive application
+Officer: Check information
+Is information complete?
+Yes
+Officer: Perform credit check
+What is the credit result?
+Borderline
+Supervisor: Perform manual review
+Is application approved by supervisor?
+No
+Officer: send Rejection message
+Customer: (receive Rejection message)
+
+Customer: Apply for credit card
+Officer: Receive application
+Officer: Check information
+Is information complete?
+Yes
+Officer: Perform credit check
+What is the credit result?
+Declined
+Officer: send Rejection message
+Customer: (receive Rejection message)

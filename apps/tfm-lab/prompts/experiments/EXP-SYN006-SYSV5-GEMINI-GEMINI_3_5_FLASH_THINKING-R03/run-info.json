@@ -1,0 +1,31 @@
+{
+  "experimentId": "EXP-SYN006-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+  "processId": "SYN006",
+  "processFilename": "SYN006_bank_card_application_outcome.md",
+  "processTitle": "Bank card application outcome",
+  "processSource": "synthetic",
+  "difficulty": "medium",
+  "expectedFeatures": [
+    "xor_gateway",
+    "alternative_paths",
+    "merge",
+    "single_pool"
+  ],
+  "systemPromptVersion": "SYSV5",
+  "provider": "GEMINI",
+  "modelLabel": "GEMINI_3_5_FLASH_THINKING",
+  "executionSetting": "Gemini 3.5 Flash (High reasoning, Agent SDK, fresh subagent context)",
+  "reasoningMode": "High",
+  "runNumber": 3,
+  "interfaceType": "agent",
+  "status": "raw_output_generated",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-06-18T19:56:11Z",
+  "notes": "",
+  "inputSystemTokens": 14890,
+  "inputProcessTokens": 313,
+  "inputTokens": 15203,
+  "outputTokens": 383,
+  "totalTokens": 15586,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

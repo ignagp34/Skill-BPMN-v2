@@ -1,0 +1,29 @@
+{
+  "experimentId": "EXP-SYN005-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+  "processId": "SYN005",
+  "processFilename": "SYN005_travel_reimbursement_approval.md",
+  "processTitle": "Travel reimbursement approval",
+  "processSource": "synthetic",
+  "difficulty": "medium",
+  "expectedFeatures": [
+    "xor_gateway",
+    "alternative_paths",
+    "merge",
+    "single_pool"
+  ],
+  "systemPromptVersion": "SYSV31",
+  "provider": "GEMINI",
+  "modelLabel": "GEMINI_3_5_FLASH_THINKING",
+  "runNumber": 2,
+  "interfaceType": "agent",
+  "status": "raw_output_generated",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-05-23T16:55:03.905597+00:00",
+  "notes": "",
+  "inputSystemTokens": 10916,
+  "inputProcessTokens": 280,
+  "inputTokens": 11196,
+  "outputTokens": 213,
+  "totalTokens": 11409,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

@@ -1,0 +1,18 @@
+(receive High Priority Ticket)
+Assign Ticket to Agent
+user Investigate Issue
+user Work on Resolution
+user Document Fix
+send Inform User
+Close Ticket
+(finish)
+
+...
+user Work on Resolution
+(deadline SLA reached)
+(escalate Notify Team Lead)
+user Review Ticket
+user Assign Additional Support
+user Continue Work
+user Document Fix
+...

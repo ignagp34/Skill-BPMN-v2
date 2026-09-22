@@ -1,0 +1,25 @@
+{
+  "experimentId": "EXP-SYN007-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R03",
+  "processId": "SYN007",
+  "processFilename": "SYN007_employee_onboarding_setup.md",
+  "processTitle": "Employee onboarding setup",
+  "processSource": "synthetic",
+  "difficulty": "medium",
+  "expectedFeatures": [
+    "parallel_gateway",
+    "fork_join",
+    "single_pool",
+    "tasks"
+  ],
+  "systemPromptVersion": "SYSV31",
+  "provider": "CLAUDE",
+  "modelLabel": "OPUS_4_8_MEDIUM",
+  "executionSetting": "Claude Opus 4.8 (Medium reasoning, Agent SDK, fresh subagent context)",
+  "reasoningMode": "Medium",
+  "runNumber": 3,
+  "interfaceType": "agent",
+  "status": "pending",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-06-14T11:11:35Z",
+  "notes": ""
+}

@@ -1,0 +1,13 @@
+Scanning C:\Repositorios\Skill BPMN v2\baseline-stage1\original
+Found 1 experiment folder(s). Mode: fill missing.
+
+✓ EXP-FIXTURE-BASELINE-LOCAL-NONE-R01: success_with_warnings
+
+Done.
+  rendered (new/forced):   1
+  images filled:           0
+  already complete:        0
+  failed to compile:       0
+  stubs skipped (no output): 0
+  unparseable id:          0
+  errors:                  0

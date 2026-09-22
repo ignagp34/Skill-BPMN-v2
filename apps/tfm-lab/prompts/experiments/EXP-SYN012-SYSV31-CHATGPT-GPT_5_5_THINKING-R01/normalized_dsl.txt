@@ -1,0 +1,37 @@
+Patient: send Dispute Letter
+Billing Specialist: receive Dispute Letter
+[Dispute Letter]
+[db Billing System]
+Open patient account
+[Invoice]
+[Treatment Record]
+[Insurance Response]
+Review billing evidence
+Is charge correct?
+Yes
+Billing Specialist: send Explanation Letter
+Patient: receive Explanation Letter
+Billing Specialist: Close dispute
+(finish Patient informed)
+
+Patient: send Dispute Letter
+Billing Specialist: receive Dispute Letter
+[Dispute Letter]
+[db Billing System]
+Open patient account
+[Invoice]
+[Treatment Record]
+[Insurance Response]
+Review billing evidence
+Is charge correct?
+No
+//Adjustments require documented justification
+Billing Specialist: Prepare adjustment form
+[Adjustment Form]
+[db Billing System]
+Update billing system
+Issue corrected invoice
+[Corrected Invoice]
+Billing Specialist: send Corrected Invoice
+Patient: receive Corrected Invoice
+(finish Patient informed)

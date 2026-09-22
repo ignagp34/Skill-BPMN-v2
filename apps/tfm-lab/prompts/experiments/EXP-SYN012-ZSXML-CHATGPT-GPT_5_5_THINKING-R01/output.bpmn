@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                  id="Definitions_SYN012"
+                  targetNamespace="http://example.com/bpmn/SYN012">
+  <bpmn:collaboration id="Collaboration_HospitalBilling">
+    <bpmn:participant id="Participant_Patient" name="Patient"/>
+    <bpmn:participant id="Participant_BillingOffice" name="Hospital Billing Office" processRef="Process_BillingAdjustment"/>
+    <bpmn:messageFlow id="MessageFlow_DisputeLetter" name="Dispute letter" sourceRef="Participant_Patient" targetRef="StartEvent_DisputeReceived"/>
+    <bpmn:messageFlow id="MessageFlow_ExplanationLetter" name="Explanation letter" sourceRef="Task_SendExplanation" targetRef="Participant_Patient"/>
+    <bpmn:messageFlow id="MessageFlow_CorrectedInvoice" name="Corrected invoice" sourceRef="Task_SendCorrectedInvoice" targetRef="Participant_Patient"/>
+  </bpmn:collaboration>
+
+  <bpmn:dataStore id="DataStore_BillingSystem" name="Billing System"/>
+
+  <bpmn:process id="Process_BillingAdjustment" name="Hospital Billing Adjustment" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_BillingOffice">
+      <bpmn:lane id="Lane_BillingSpecialist" name="Billing Specialist">
+        <bpmn:flowNodeRef>StartEvent_DisputeReceived</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_OpenAccount</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReviewRecords</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_ChargeCorrect</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendExplanation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_CloseDispute</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PrepareAdjustment</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_UpdateBillingSystem</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_IssueCorrectedInvoice</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendCorrectedInvoice</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_PatientInformedCorrect</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_PatientInformedAdjusted</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+
+    <bpmn:startEvent id="StartEvent_DisputeReceived" name="Dispute letter received">
+      <bpmn:outgoing>Flow_Start_OpenAccount</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_DisputeLetter"/>
+    </bpmn:startEvent>
+
+    <bpmn:userTask id="Task_OpenAccount" name="Open patient account in billing system">
+      <bpmn:incoming>Flow_Start_OpenAccount</bpmn:incoming>
+      <bpmn:outgoing>Flow_OpenAccount_Review</bpmn:outgoing>
+      <bpmn:dataInputAssociation id="DataInputAssociation_Account">
+        <bpmn:sourceRef>DataStoreReference_BillingSystem</bpmn:sourceRef>
+        <bpmn:targetRef>DataInput_OpenAccount</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+      <bpmn:ioSpecification id="IoSpecification_OpenAccount">
+        <bpmn:dataInput id="DataInput_OpenAccount" name="Patient account"/>
+        <bpmn:inputSet id="InputSet_OpenAccount">
+          <bpmn:dataInputRefs>DataInput_OpenAccount</bpmn:dataInputRefs>
+        </bpmn:inputSet>
+        <bpmn:outputSet id="OutputSet_OpenAccount"/>
+      </bpmn:ioSpecification>
+    </bpmn:userTask>
+
+    <bpmn:userTask id="Task_ReviewRecords" name="Review invoice, treatment record, and insurance response">
+      <bpmn:incoming>Flow_OpenAccount_Review</bpmn:incoming>
+      <bpmn:outgoing>Flow_Review_Gateway</bpmn:outgoing>
+      <bpmn:dataInputAssociation id="DataInputAssociation_Invoice">
+        <bpmn:sourceRef>DataObjectReference_Invoice</bpmn:sourceRef>
+        <bpmn:targetRef>DataInput_Invoice</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+      <bpmn:dataInputAssociation id="DataInputAssociation_TreatmentRecord">
+        <bpmn:sourceRef>DataObjectReference_TreatmentRecord</bpmn:sourceRef>
+        <bpmn:targetRef>DataInput_TreatmentRecord</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+      <bpmn:dataInputAssociation id="DataInputAssociation_InsuranceResponse">
+        <bpmn:sourceRef>DataObjectReference_InsuranceResponse</bpmn:sourceRef>
+        <bpmn:targetRef>DataInput_InsuranceResponse</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+      <bpmn:ioSpecification id="IoSpecification_Review">
+        <bpmn:dataInput id="DataInput_Invoice" name="Invoice"/>
+        <bpmn:dataInput id="DataInput_TreatmentRecord" name="Treatment record"/>
+        <bpmn:dataInput id="DataInput_InsuranceResponse" name="Insurance response"/>
+        <bpmn:inputSet id="InputSet_Review">
+          <bpmn:dataInputRefs>DataInput_Invoice</bpmn:dataInputRefs>
+          <bpmn:dataInputRefs>DataInput_TreatmentRecord</bpmn:dataInputRefs>
+          <bpmn:dataInputRefs>DataInput_InsuranceResponse</bpmn:dataInputRefs>
+        </bpmn:inputSet>
+        <bpmn:outputSet id="OutputSet_Review"/>
+      </bpmn:ioSpecification>
+    </bpmn:userTask>
+
+    <bpmn:exclusiveGateway id="Gateway_ChargeCorrect" name="Charge correct?" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_Review_Gateway</bpmn:incoming>
+      <bpmn:outgoing>Flow_Correct_Explanation</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Incorrect_Adjustment</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+
+    <bpmn:sendTask id="Task_SendExplanation" name="Send explanation letter">
+      <bpmn:incoming>Flow_Correct_Explanation</bpmn:incoming>
+      <bpmn:outgoing>Flow_Explanation_Close</bpmn:outgoing>
+    </bpmn:sendTask>
+
+    <bpmn:userTask id="Task_CloseDispute" name="Close dispute">
+      <bpmn:incoming>Flow_Explanation_Close</bpmn:incoming>
+      <bpmn:outgoing>Flow_Close_EndCorrect</bpmn:outgoing>
+    </bpmn:userTask>
+
+    <bpmn:endEvent id="EndEvent_PatientInformedCorrect" name="Patient informed and dispute closed">
+      <bpmn:incoming>Flow_Close_EndCorrect</bpmn:incoming>
+    </bpmn:endEvent>
+
+    <bpmn:userTask id="Task_PrepareAdjustment" name="Prepare adjustment form">
+      <bpmn:incoming>Flow_Incorrect_Adjustment</bpmn:incoming>
+      <bpmn:outgoing>Flow_Adjustment_Update</bpmn:outgoing>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_AdjustmentForm">
+        <bpmn:sourceRef>DataOutput_AdjustmentForm</bpmn:sourceRef>
+        <bpmn:targetRef>DataObjectReference_AdjustmentForm</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+      <bpmn:ioSpecification id="IoSpecification_Adjustment">
+        <bpmn:dataOutput id="DataOutput_AdjustmentForm" name="Adjustment form"/>
+        <bpmn:inputSet id="InputSet_Adjustment"/>
+        <bpmn:outputSet id="OutputSet_Adjustment">
+          <bpmn:dataOutputRefs>DataOutput_AdjustmentForm</bpmn:dataOutputRefs>
+        </bpmn:outputSet>
+      </bpmn:ioSpecification>
+    </bpmn:userTask>
+
+    <bpmn:serviceTask id="Task_UpdateBillingSystem" name="Update billing system">
+      <bpmn:incoming>Flow_Adjustment_Update</bpmn:incoming>
+      <bpmn:outgoing>Flow_Update_Issue</bpmn:outgoing>
+      <bpmn:dataInputAssociation id="DataInputAssociation_AdjustmentForm">
+        <bpmn:sourceRef>DataObjectReference_AdjustmentForm</bpmn:sourceRef>
+        <bpmn:targetRef>DataInput_AdjustmentForm</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_BillingSystem">
+        <bpmn:sourceRef>DataOutput_UpdatedAccount</bpmn:sourceRef>
+        <bpmn:targetRef>DataStoreReference_BillingSystem</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+      <bpmn:ioSpecification id="IoSpecification_Update">
+        <bpmn:dataInput id="DataInput_AdjustmentForm" name="Adjustment form"/>
+        <bpmn:dataOutput id="DataOutput_UpdatedAccount" name="Updated patient account"/>
+        <bpmn:inputSet id="InputSet_Update">
+          <bpmn:dataInputRefs>DataInput_AdjustmentForm</bpmn:dataInputRefs>
+        </bpmn:inputSet>
+        <bpmn:outputSet id="OutputSet_Update">
+          <bpmn:dataOutputRefs>DataOutput_UpdatedAccount</bpmn:dataOutputRefs>
+        </bpmn:outputSet>
+      </bpmn:ioSpecification>
+    </bpmn:serviceTask>
+
+    <bpmn:userTask id="Task_IssueCorrectedInvoice" name="Issue corrected invoice">
+      <bpmn:incoming>Flow_Update_Issue</bpmn:incoming>
+      <bpmn:outgoing>Flow_Issue_SendCorrected</bpmn:outgoing>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_CorrectedInvoice">
+        <bpmn:sourceRef>DataOutput_CorrectedInvoice</bpmn:sourceRef>
+        <bpmn:targetRef>DataObjectReference_CorrectedInvoice</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+      <bpmn:ioSpecification id="IoSpecification_CorrectedInvoice">
+        <bpmn:dataOutput id="DataOutput_CorrectedInvoice" name="Corrected invoice"/>
+        <bpmn:inputSet id="InputSet_CorrectedInvoice"/>
+        <bpmn:outputSet id="OutputSet_CorrectedInvoice">
+          <bpmn:dataOutputRefs>DataOutput_CorrectedInvoice</bpmn:dataOutputRefs>
+        </bpmn:outputSet>
+      </bpmn:ioSpecification>
+    </bpmn:userTask>
+
+    <bpmn:sendTask id="Task_SendCorrectedInvoice" name="Send corrected invoice to patient">
+      <bpmn:incoming>Flow_Issue_SendCorrected</bpmn:incoming>
+      <bpmn:outgoing>Flow_SendCorrected_EndAdjusted</bpmn:outgoing>
+      <bpmn:dataInputAssociation id="DataInputAssociation_CorrectedInvoice">
+        <bpmn:sourceRef>DataObjectReference_CorrectedInvoice</bpmn:sourceRef>
+        <bpmn:targetRef>DataInput_CorrectedInvoice</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+      <bpmn:ioSpecification id="IoSpecification_SendCorrected">
+        <bpmn:dataInput id="DataInput_CorrectedInvoice" name="Corrected invoice"/>
+        <bpmn:inputSet id="InputSet_SendCorrected">
+          <bpmn:dataInputRefs>DataInput_CorrectedInvoice</bpmn:dataInputRefs>
+        </bpmn:inputSet>
+        <bpmn:outputSet id="OutputSet_SendCorrected"/>
+      </bpmn:ioSpecification>
+    </bpmn:sendTask>
+
+    <bpmn:endEvent id="EndEvent_PatientInformedAdjusted" name="Patient informed of adjustment">
+      <bpmn:incoming>Flow_SendCorrected_EndAdjusted</bpmn:incoming>
+    </bpmn:endEvent>
+
+    <bpmn:dataObject id="DataObject_Invoice" name="Invoice"/>
+    <bpmn:dataObjectReference id="DataObjectReference_Invoice" name="Invoice" dataObjectRef="DataObject_Invoice"/>
+    <bpmn:dataObject id="DataObject_TreatmentRecord" name="Treatment Record"/>
+    <bpmn:dataObjectReference id="DataObjectReference_TreatmentRecord" name="Treatment Record" dataObjectRef="DataObject_TreatmentRecord"/>
+    <bpmn:dataObject id="DataObject_InsuranceResponse" name="Insurance Response"/>
+    <bpmn:dataObjectReference id="DataObjectReference_InsuranceResponse" name="Insurance Response" dataObjectRef="DataObject_InsuranceResponse"/>
+    <bpmn:dataObject id="DataObject_AdjustmentForm" name="Adjustment Form"/>
+    <bpmn:dataObjectReference id="DataObjectReference_AdjustmentForm" name="Adjustment Form" dataObjectRef="DataObject_AdjustmentForm"/>
+    <bpmn:dataObject id="DataObject_CorrectedInvoice" name="Corrected Invoice"/>
+    <bpmn:dataObjectReference id="DataObjectReference_CorrectedInvoice" name="Corrected Invoice" dataObjectRef="DataObject_CorrectedInvoice"/>
+    <bpmn:dataStoreReference id="DataStoreReference_BillingSystem" name="Billing System" dataStoreRef="DataStore_BillingSystem"/>
+
+    <bpmn:textAnnotation id="TextAnnotation_Justification">
+      <bpmn:text>Adjustments require documented justification.</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_Justification" sourceRef="TextAnnotation_Justification" targetRef="Task_PrepareAdjustment"/>
+
+    <bpmn:sequenceFlow id="Flow_Start_OpenAccount" sourceRef="StartEvent_DisputeReceived" targetRef="Task_OpenAccount"/>
+    <bpmn:sequenceFlow id="Flow_OpenAccount_Review" sourceRef="Task_OpenAccount" targetRef="Task_ReviewRecords"/>
+    <bpmn:sequenceFlow id="Flow_Review_Gateway" sourceRef="Task_ReviewRecords" targetRef="Gateway_ChargeCorrect"/>
+    <bpmn:sequenceFlow id="Flow_Correct_Explanation" name="Yes" sourceRef="Gateway_ChargeCorrect" targetRef="Task_SendExplanation">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${chargeCorrect}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_Incorrect_Adjustment" name="No" sourceRef="Gateway_ChargeCorrect" targetRef="Task_PrepareAdjustment">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!chargeCorrect}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_Explanation_Close" sourceRef="Task_SendExplanation" targetRef="Task_CloseDispute"/>
+    <bpmn:sequenceFlow id="Flow_Close_EndCorrect" sourceRef="Task_CloseDispute" targetRef="EndEvent_PatientInformedCorrect"/>
+    <bpmn:sequenceFlow id="Flow_Adjustment_Update" sourceRef="Task_PrepareAdjustment" targetRef="Task_UpdateBillingSystem"/>
+    <bpmn:sequenceFlow id="Flow_Update_Issue" sourceRef="Task_UpdateBillingSystem" targetRef="Task_IssueCorrectedInvoice"/>
+    <bpmn:sequenceFlow id="Flow_Issue_SendCorrected" sourceRef="Task_IssueCorrectedInvoice" targetRef="Task_SendCorrectedInvoice"/>
+    <bpmn:sequenceFlow id="Flow_SendCorrected_EndAdjusted" sourceRef="Task_SendCorrectedInvoice" targetRef="EndEvent_PatientInformedAdjusted"/>
+  </bpmn:process>
+</bpmn:definitions>

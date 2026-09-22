@@ -1,0 +1,9 @@
+Reception Clerk:
+(start Patient arrives)
+Greet patient
+Confirm appointment
+Update patient arrival in system
+Print visit label
+Direct patient to waiting area
+Complete check-in
+(finish Patient checked in)

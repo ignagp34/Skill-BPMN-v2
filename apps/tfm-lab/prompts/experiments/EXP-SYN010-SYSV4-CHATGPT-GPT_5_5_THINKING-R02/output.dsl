@@ -1,0 +1,44 @@
+﻿(start Purchase order needed)
+Buyer: send Purchase order
+Supplier: (receive Purchase order)
+Supplier: Check stock availability
+Are all requested items available?
+Yes
+Supplier: send Order confirmation
+Buyer: (receive Order confirmation)
+Buyer: Accept order
+(finish Order confirmed)
+
+(start Purchase order needed)
+Buyer: send Purchase order
+Supplier: (receive Purchase order)
+Supplier: Check stock availability
+Are all requested items available?
+No
+Supplier: send Revised offer
+Buyer: (receive Revised offer)
+Buyer: Review revised offer
+Does buyer accept revised offer?
+Yes
+Buyer: send Revised offer acceptance
+Supplier: (receive Revised offer acceptance)
+Supplier: send Final confirmation
+Buyer: (receive Final confirmation)
+Buyer: Accept order
+(finish Order confirmed)
+
+(start Purchase order needed)
+Buyer: send Purchase order
+Supplier: (receive Purchase order)
+Supplier: Check stock availability
+Are all requested items available?
+No
+Supplier: send Revised offer
+Buyer: (receive Revised offer)
+Buyer: Review revised offer
+Does buyer accept revised offer?
+No
+Buyer: send Revised offer rejection
+Supplier: (receive Revised offer rejection)
+Supplier: Close order request
+(finish Order rejected)

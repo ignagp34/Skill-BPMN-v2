@@ -1,0 +1,12 @@
+Reception Clerk:
+(start Patient arrives for appointment)
+Greet patient
+Confirm appointment
+Update arrival in system
+Print visit label
+Direct patient to waiting area
+Complete check-in
+(finish Check-in completed)
+
+== pools ==
+Medical Clinic -> Reception Clerk

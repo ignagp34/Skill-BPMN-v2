@@ -1,0 +1,31 @@
+{
+  "experimentId": "EXP-SYN008-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+  "processId": "SYN008",
+  "processFilename": "SYN008_procurement_request_fulfillment.md",
+  "processTitle": "Procurement request fulfillment",
+  "processSource": "synthetic",
+  "difficulty": "medium",
+  "expectedFeatures": [
+    "parallel_gateway",
+    "fork_join",
+    "single_pool",
+    "tasks"
+  ],
+  "systemPromptVersion": "SYSV5",
+  "provider": "CHATGPT",
+  "modelLabel": "GPT_5_5_THINKING",
+  "executionSetting": "ChatGPT 5.5 (High reasoning, fresh isolated subagent context)",
+  "reasoningMode": "High",
+  "runNumber": 3,
+  "interfaceType": "agent",
+  "status": "raw_output_generated",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-06-18T20:55:06Z",
+  "notes": "Model executed successfully; raw output generated in a fresh isolated context. Truncation or ambiguity: none.",
+  "inputSystemTokens": 14890,
+  "inputProcessTokens": 230,
+  "inputTokens": 15120,
+  "outputTokens": 78,
+  "totalTokens": 15198,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

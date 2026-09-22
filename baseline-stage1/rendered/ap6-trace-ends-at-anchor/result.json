@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "experimentId": "ap6-trace-ends-at-anchor",
+    "processId": "FIXTURE",
+    "processSource": "packages/bpmn-core/tests/fixtures/_invalid/ap6-trace-ends-at-anchor.dsl",
+    "systemPromptVersion": "BASELINE",
+    "processPromptVersion": "fixture",
+    "provider": "none",
+    "modelLabel": "none",
+    "interfaceType": "web",
+    "runNumber": 1,
+    "createdAt": "2026-09-22T00:00:00Z",
+    "inputPromptHash": "e31ea2e878c9c8e82ce8d61f3724f9ca81c853b17fffe0fc3fd77f7ab994082e",
+    "rawOutputHash": "bb2790807eaa7171f2b2cf38d5f6f744684bd1dab839837e266f2433bf9cfaa9",
+    "normalizedDslHash": "ba664faa7e719f14ab0ca3a495a73da4bd21757c1f294be0f720e10566f16d59",
+    "parserValid": true,
+    "semanticValid": false,
+    "bpmnImportValid": false,
+    "renderValid": false,
+    "status": "semantic_error",
+    "notes": "Deterministic existing fixture. No model generation. interfaceType web is inherited harness metadata, not Work evidence."
+  },
+  "bpmnValidation": {
+    "status": "warning",
+    "errors": [],
+    "warnings": [
+      {
+        "code": "IMPLICIT_START_EVENT",
+        "origin": "model",
+        "severity": "warning",
+        "elementId": "StartEvent_implicit_Task_Applicant_Apply_for_job",
+        "elementName": "",
+        "message": "An implicit start event was synthesized for a node without incoming flow."
+      },
+      {
+        "code": "MISSING_EXPLICIT_START_EVENT",
+        "origin": "model",
+        "severity": "warning",
+        "message": "The model does not contain an explicit start event from the DSL."
+      }
+    ],
+    "info": [],
+    "metrics": {
+      "numActivities": 4,
+      "numGateways": 0,
+      "numStartEvents": 1,
+      "numEndEvents": 1,
+      "isolatedNodes": 0,
+      "deadEndNodes": 0
+    }
+  },
+  "diagnostics": [
+    {
+      "category": "semantic",
+      "code": "AP-6",
+      "line": 3,
+      "message": "Regular trace ends at fragment anchor 'Decide on hiring'. Add a trailing '...' so the anchor stays at the fragment boundary.",
+      "severity": "error",
+      "source": "dsl"
+    },
+    {
+      "category": "bpmn",
+      "code": "IMPLICIT_START_EVENT",
+      "message": "An implicit start event was synthesized for a node without incoming flow.",
+      "severity": "warning",
+      "source": "validation"
+    },
+    {
+      "category": "bpmn",
+      "code": "MISSING_EXPLICIT_START_EVENT",
+      "message": "The model does not contain an explicit start event from the DSL.",
+      "severity": "warning",
+      "source": "validation"
+    }
+  ],
+  "parserErrors": [],
+  "semanticErrors": [
+    {
+      "category": "semantic",
+      "code": "AP-6",
+      "line": 3,
+      "message": "Regular trace ends at fragment anchor 'Decide on hiring'. Add a trailing '...' so the anchor stays at the fragment boundary.",
+      "severity": "error",
+      "source": "dsl"
+    }
+  ],
+  "semanticWarnings": [],
+  "renderErrors": [],
+  "exportAvailability": {
+    "bpmn": false,
+    "png": false,
+    "resultJson": true,
+    "svg": false
+  },
+  "timestamps": {
+    "createdAt": "2026-09-22T00:00:00Z",
+    "evaluatedAt": "2026-09-22T16:15:33.877Z"
+  },
+  "versions": {
+    "appVersion": "0.1.0",
+    "parserVersion": "0.1.0"
+  },
+  "metrics": {
+    "tasks": 0,
+    "events": 0,
+    "gateways": 0,
+    "participants": 0,
+    "lanes": 0,
+    "sequenceFlows": 0,
+    "messageFlows": 0,
+    "dataObjects": 0,
+    "textAnnotations": 0,
+    "diagonalEdgesDetected": false
+  },
+  "inputPrompt": "Existing fixture; no generation prompt used.",
+  "rawOutput": "Applicant: Apply for job\r\nCompany: Review application\r\nCompany: Decide on hiring\r\n\r\n...\r\nCompany: Decide on hiring\r\nCompany: Send offer\r\n(finish)\r\n",
+  "normalizedDsl": "Applicant: Apply for job\r\nCompany: Review application\r\nCompany: Decide on hiring\r\n\r\n...\r\nCompany: Decide on hiring\r\nCompany: Send offer\r\n(finish)",
+  "notes": "Deterministic existing fixture. No model generation. interfaceType web is inherited harness metadata, not Work evidence."
+}

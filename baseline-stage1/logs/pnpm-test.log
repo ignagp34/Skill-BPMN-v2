@@ -1,0 +1,30 @@
+$ pnpm -r test
+Scope: 3 of 4 workspace projects
+packages/bpmn-core test$ vitest run
+packages/bpmn-core test:  RUN  v4.1.7 C:/Repositorios/Skill BPMN v2/BPMN-DSL-Monorepo/packages/bpmn-core
+packages/bpmn-core test:  ❯ tests/render/orthogonal.test.ts (44 tests | 1 failed) 8806ms
+packages/bpmn-core test:      × canon-1 enters Input customer order from the top and exits it from the bottom 27ms
+packages/bpmn-core test: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+packages/bpmn-core test:  FAIL  tests/render/orthogonal.test.ts > M4.1 render pipeline - canon-1 routing heuristics > canon-1 enters Input customer order from the top and exits it from the bottom
+packages/bpmn-core test: AssertionError: expected 98 to be 58 // Object.is equality
+packages/bpmn-core test: - Expected
+packages/bpmn-core test: + Received
+packages/bpmn-core test: - 58
+packages/bpmn-core test: + 98
+packages/bpmn-core test:  ❯ tests/render/orthogonal.test.ts:260:27
+packages/bpmn-core test:     258|     const gatewayBounds = splitGateway.bounds;
+packages/bpmn-core test:     259|
+packages/bpmn-core test:     260|     expect(incomingEnd.y).toBe(inputBounds.y);
+packages/bpmn-core test:        |                           ^
+packages/bpmn-core test:     261|     expect(outgoingStart.y).toBe(inputBounds.y + inputBounds.height);
+packages/bpmn-core test:     262|     expect(outgoingEnd.x).toBe(gatewayBounds.x);
+packages/bpmn-core test: ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+packages/bpmn-core test:  Test Files  1 failed | 13 passed (14)
+packages/bpmn-core test:       Tests  1 failed | 167 passed (168)
+packages/bpmn-core test:    Start at  18:11:55
+packages/bpmn-core test:    Duration  9.32s (transform 676ms, setup 0ms, import 2.96s, tests 10.62s, environment 1.04s)
+packages/bpmn-core test: Failed
+C:\Repositorios\Skill BPMN v2\BPMN-DSL-Monorepo\packages\bpmn-core:
+[ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL] @text-to-bpmn/core@0.1.0 test: `vitest run`
+Exit status 1
+[ELIFECYCLE] Test failed. See above for more details.

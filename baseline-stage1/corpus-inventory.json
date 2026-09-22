@@ -1,0 +1,7332 @@
+[
+  {
+    "id": "EXP-SYN001-SYSV31-CHATGPT-GPT_5_4_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input_prompt.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "raw_output.txt",
+      "result.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-SYSV31-CHATGPT-GPT_5_4_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input_prompt.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "raw_output.txt",
+      "result.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-SYSV31-CHATGPT-GPT_5_4_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input_prompt.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "raw_output.txt",
+      "result.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-SYSV31-CLAUDE-OPUS_4_7-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-SYSV31-CLAUDE-OPUS_4_7-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-SYSV31-CLAUDE-OPUS_4_7-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-ZSXML-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-ZSXML-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN001-ZSXML-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-SYSV31-CHATGPT-GPT_5_4_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input_prompt.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "raw_output.txt",
+      "result.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-SYSV31-CHATGPT-GPT_5_4_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input_prompt.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "raw_output.txt",
+      "result.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-SYSV31-CHATGPT-GPT_5_4_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input_prompt.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "raw_output.txt",
+      "result.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-SYSV31-CLAUDE-OPUS_4_7-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-SYSV31-CLAUDE-OPUS_4_7-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-SYSV31-CLAUDE-OPUS_4_7-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-ZSXML-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-ZSXML-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN002-ZSXML-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-SYSV31-CHATGPT-GPT_5_4_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input_prompt.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "raw_output.txt",
+      "result.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-SYSV31-CHATGPT-GPT_5_4_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input_prompt.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "raw_output.txt",
+      "result.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-SYSV31-CHATGPT-GPT_5_4_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input_prompt.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "raw_output.txt",
+      "result.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-SYSV31-CLAUDE-OPUS_4_7-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-SYSV31-CLAUDE-OPUS_4_7-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-SYSV31-CLAUDE-OPUS_4_7-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-ZSXML-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-ZSXML-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN003-ZSXML-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-SYSV31-CHATGPT-GPT_5_4_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input_prompt.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "raw_output.txt",
+      "result.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-SYSV31-CHATGPT-GPT_5_4_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input_prompt.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "raw_output.txt",
+      "result.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-SYSV31-CHATGPT-GPT_5_4_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input_prompt.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "raw_output.txt",
+      "result.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "input_prompt.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "raw_output.txt",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-SYSV31-CLAUDE-OPUS_4_7-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-SYSV31-CLAUDE-OPUS_4_7-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-SYSV31-CLAUDE-OPUS_4_7-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-ZSXML-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-ZSXML-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN004-ZSXML-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN005-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN005-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN005-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN005-SYSV31-CLAUDE-OPUS_4_7-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN005-SYSV31-CLAUDE-OPUS_4_7-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN005-SYSV31-CLAUDE-OPUS_4_7-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN005-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN005-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN005-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN005-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN005-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN005-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN005-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN005-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN005-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN005-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN005-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN005-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN005-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN005-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN005-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN005-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN005-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN005-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN005-ZSXML-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN005-ZSXML-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN005-ZSXML-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN006-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN006-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN006-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN006-SYSV31-CLAUDE-OPUS_4_7-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN006-SYSV31-CLAUDE-OPUS_4_7-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN006-SYSV31-CLAUDE-OPUS_4_7-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN006-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R01",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": null,
+    "files": [
+      "input.md",
+      "notes.md",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN006-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R02",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": null,
+    "files": [
+      "input.md",
+      "notes.md",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN006-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R03",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": null,
+    "files": [
+      "input.md",
+      "notes.md",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN006-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN006-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN006-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN006-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN006-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN006-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN006-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN006-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN006-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN006-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN006-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN006-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN006-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN006-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN006-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN006-ZSXML-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN006-ZSXML-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN006-ZSXML-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN007-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN007-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN007-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN007-SYSV31-CLAUDE-OPUS_4_7-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN007-SYSV31-CLAUDE-OPUS_4_7-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN007-SYSV31-CLAUDE-OPUS_4_7-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN007-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R01",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": null,
+    "files": [
+      "input.md",
+      "notes.md",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN007-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R02",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": null,
+    "files": [
+      "input.md",
+      "notes.md",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN007-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R03",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": null,
+    "files": [
+      "input.md",
+      "notes.md",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN007-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN007-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN007-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN007-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN007-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN007-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN007-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN007-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN007-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN007-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN007-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN007-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN007-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN007-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN007-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN007-ZSXML-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN007-ZSXML-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN007-ZSXML-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN008-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN008-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN008-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN008-SYSV31-CLAUDE-OPUS_4_7-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN008-SYSV31-CLAUDE-OPUS_4_7-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN008-SYSV31-CLAUDE-OPUS_4_7-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN008-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R01",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": null,
+    "files": [
+      "input.md",
+      "notes.md",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN008-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R02",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": null,
+    "files": [
+      "input.md",
+      "notes.md",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN008-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R03",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": null,
+    "files": [
+      "input.md",
+      "notes.md",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN008-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN008-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN008-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN008-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN008-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN008-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN008-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN008-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN008-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN008-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN008-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN008-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN008-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN008-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN008-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN008-ZSXML-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN008-ZSXML-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN008-ZSXML-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN009-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN009-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN009-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN009-SYSV31-CLAUDE-OPUS_4_7-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN009-SYSV31-CLAUDE-OPUS_4_7-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN009-SYSV31-CLAUDE-OPUS_4_7-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN009-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R01",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": null,
+    "files": [
+      "input.md",
+      "notes.md",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN009-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R02",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": null,
+    "files": [
+      "input.md",
+      "notes.md",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN009-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R03",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": null,
+    "files": [
+      "input.md",
+      "notes.md",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN009-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN009-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN009-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN009-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN009-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN009-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN009-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN009-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN009-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN009-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN009-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN009-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN009-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN009-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN009-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN009-ZSXML-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN009-ZSXML-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN009-ZSXML-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN010-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN010-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN010-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN010-SYSV31-CLAUDE-OPUS_4_7-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN010-SYSV31-CLAUDE-OPUS_4_7-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN010-SYSV31-CLAUDE-OPUS_4_7-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN010-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R01",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": null,
+    "files": [
+      "input.md",
+      "notes.md",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN010-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R02",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": null,
+    "files": [
+      "input.md",
+      "notes.md",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN010-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R03",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": null,
+    "files": [
+      "input.md",
+      "notes.md",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN010-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN010-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN010-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN010-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN010-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN010-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN010-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN010-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN010-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN010-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN010-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN010-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN010-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN010-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN010-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": "semantic_error",
+    "files": [
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN010-ZSXML-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN010-ZSXML-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN010-ZSXML-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN011-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN011-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN011-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN011-SYSV31-CLAUDE-OPUS_4_7-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN011-SYSV31-CLAUDE-OPUS_4_7-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN011-SYSV31-CLAUDE-OPUS_4_7-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN011-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R01",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": null,
+    "files": [
+      "input.md",
+      "notes.md",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN011-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R02",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": null,
+    "files": [
+      "input.md",
+      "notes.md",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN011-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R03",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": null,
+    "files": [
+      "input.md",
+      "notes.md",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN011-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN011-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN011-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN011-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN011-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN011-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN011-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN011-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN011-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN011-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN011-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN011-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN011-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN011-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN011-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN011-ZSXML-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "bpmn_xml_error",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN011-ZSXML-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "bpmn_xml_error",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN011-ZSXML-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN012-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN012-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN012-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN012-SYSV31-CLAUDE-OPUS_4_7-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN012-SYSV31-CLAUDE-OPUS_4_7-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN012-SYSV31-CLAUDE-OPUS_4_7-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN012-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R01",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": null,
+    "files": [
+      "input.md",
+      "notes.md",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN012-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R02",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": null,
+    "files": [
+      "input.md",
+      "notes.md",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN012-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R03",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": null,
+    "files": [
+      "input.md",
+      "notes.md",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN012-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN012-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN012-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN012-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN012-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN012-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN012-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN012-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN012-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN012-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN012-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN012-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN012-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN012-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN012-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN012-ZSXML-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "bpmn_xml_error",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN012-ZSXML-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN012-ZSXML-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "bpmn_xml_error",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV31-CLAUDE-OPUS_4_7-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV31-CLAUDE-OPUS_4_7-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV31-CLAUDE-OPUS_4_7-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV4-CLAUDE-OPUS_4_8_MEDIUM-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": "semantic_error",
+    "files": [
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV4-CLAUDE-OPUS_4_8_MEDIUM-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV4-CLAUDE-OPUS_4_8_MEDIUM-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": "semantic_error",
+    "files": [
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV5-CLAUDE-OPUS_4_8_MEDIUM-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV5-CLAUDE-OPUS_4_8_MEDIUM-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV5-CLAUDE-OPUS_4_8_MEDIUM-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-ZSXML-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-ZSXML-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN013-ZSXML-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV31-CLAUDE-OPUS_4_7-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV31-CLAUDE-OPUS_4_7-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV31-CLAUDE-OPUS_4_7-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": "semantic_error",
+    "files": [
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV31-GEMINI-3_1_PRO-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input_prompt.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "raw_output.txt",
+      "result.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV31-GEMINI-3_1_PRO-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input_prompt.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "raw_output.txt",
+      "result.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV4-CLAUDE-OPUS_4_8_MEDIUM-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV4-CLAUDE-OPUS_4_8_MEDIUM-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV4-CLAUDE-OPUS_4_8_MEDIUM-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV5-CLAUDE-OPUS_4_8_MEDIUM-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV5-CLAUDE-OPUS_4_8_MEDIUM-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV5-CLAUDE-OPUS_4_8_MEDIUM-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-ZSXML-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-ZSXML-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN014-ZSXML-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "input_prompt.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "raw_output.txt",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV31-CLAUDE-OPUS_4_7-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": "semantic_error",
+    "files": [
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV31-CLAUDE-OPUS_4_7-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV31-CLAUDE-OPUS_4_7-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": "semantic_error",
+    "files": [
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": "semantic_error",
+    "files": [
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": "semantic_error",
+    "files": [
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": "semantic_error",
+    "files": [
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV31-CLAUDE-OPUS_ADAPTATIVE-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input_prompt.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "raw_output.txt",
+      "result.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV31-GEMINI-3_1_PRO-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": "semantic_error",
+    "files": [
+      "input_prompt.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "raw_output.txt",
+      "result.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV31-GEMINI-3_1_PRO-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": "semantic_error",
+    "files": [
+      "input_prompt.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "raw_output.txt",
+      "result.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV31-GEMINI-3_1_PRO-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": "semantic_error",
+    "files": [
+      "input_prompt.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "raw_output.txt",
+      "result.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": "semantic_error",
+    "files": [
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": "semantic_error",
+    "files": [
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV4-CLAUDE-OPUS_4_8_MEDIUM-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": "semantic_error",
+    "files": [
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV4-CLAUDE-OPUS_4_8_MEDIUM-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": "semantic_error",
+    "files": [
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV4-CLAUDE-OPUS_4_8_MEDIUM-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": "semantic_error",
+    "files": [
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": "semantic_error",
+    "files": [
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": "semantic_error",
+    "files": [
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success_with_warnings",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV5-CLAUDE-OPUS_4_8_MEDIUM-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": "semantic_error",
+    "files": [
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV5-CLAUDE-OPUS_4_8_MEDIUM-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": "semantic_error",
+    "files": [
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV5-CLAUDE-OPUS_4_8_MEDIUM-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": "semantic_error",
+    "files": [
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": "semantic_error",
+    "files": [
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+    "has_input": true,
+    "has_normalized": true,
+    "has_bpmn": false,
+    "complete_artifacts": false,
+    "status": "semantic_error",
+    "files": [
+      "input.md",
+      "normalized_dsl.txt",
+      "notes.md",
+      "output.dsl",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-ZSXML-CHATGPT-GPT_5_5_THINKING-R01",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "success",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-ZSXML-CHATGPT-GPT_5_5_THINKING-R02",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "bpmn_xml_error",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  },
+  {
+    "id": "EXP-SYN015-ZSXML-CHATGPT-GPT_5_5_THINKING-R03",
+    "has_input": false,
+    "has_normalized": false,
+    "has_bpmn": true,
+    "complete_artifacts": false,
+    "status": "bpmn_xml_error",
+    "files": [
+      "diagram.bpmn",
+      "input.md",
+      "notes.md",
+      "output.bpmn",
+      "result.json",
+      "run-info.json"
+    ]
+  }
+]

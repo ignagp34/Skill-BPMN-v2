@@ -1,0 +1,24 @@
+{
+  "source": "packages/bpmn-core/tests/fixtures/pool-map-message-event.dsl",
+  "invalid": false,
+  "id": "pool-map-message-event",
+  "status": "success_with_warnings",
+  "passed": true,
+  "checks": {
+    "bpmnDI": true,
+    "svg": true,
+    "png": true,
+    "width": 522,
+    "height": 618
+  },
+  "reimport": true,
+  "hashes": {
+    "normalized.dsl": "097873a6cd07c762127bc416b779336746d4ad1e881673072e6a2604350b7982",
+    "result.json": "9002f5b7a8b66929be6046f4452c4a8a628badb94d27799e4fa9611c9bba56d9",
+    "semantic.bpmn": "6d31ab3999b6f9c5f231f1a393f4f9b95563ca1b923d9a7e3f722bfb2a1747bf",
+    "diagram.bpmn": "4d713f1eb1b1d0dca9f7e983bd7bf004af20e71f7df4309a310754e79a2ca6d1",
+    "diagram.svg": "415c831bb5e816145287fde4d4b7bc0935b0f22d2b32a7e1bba82b1ad77a3ca1",
+    "diagram.png": "c9f9ae2d27df1fa3c8852dbdd943b864bf741685bafa7693042fe736d98f7040"
+  },
+  "errors": []
+}

@@ -1,0 +1,6 @@
+Reception: Greet Patient
+Confirm Appointment
+Update Patient Arrival
+Print Visit Label
+Direct Patient to Waiting Area
+Complete Check-in

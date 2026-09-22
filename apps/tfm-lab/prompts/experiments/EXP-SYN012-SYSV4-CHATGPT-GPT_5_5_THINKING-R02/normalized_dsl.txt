@@ -1,0 +1,35 @@
+(start Patient disputes charge)
+[Dispute letter]
+Billing Specialist: receive Dispute letter
+[db Billing system]
+Billing Specialist: Open patient account
+[Invoice]
+[Treatment record]
+[Insurance response]
+Billing Specialist: Review billing documents
+Is disputed charge correct?
+Yes
+Billing Specialist: send Explanation letter
+Billing Specialist: Close dispute
+(finish Patient informed and dispute closed)
+
+(start Patient disputes charge)
+[Dispute letter]
+Billing Specialist: receive Dispute letter
+[db Billing system]
+Billing Specialist: Open patient account
+[Invoice]
+[Treatment record]
+[Insurance response]
+Billing Specialist: Review billing documents
+Is disputed charge correct?
+No
+//Adjustments require documented justification
+Billing Specialist: Prepare adjustment form
+[Adjustment form]
+[db Billing system]
+Billing Specialist: Update billing system
+Billing Specialist: Issue corrected invoice
+[Corrected invoice]
+Billing Specialist: send Corrected invoice to patient
+(finish Patient informed with corrected invoice)

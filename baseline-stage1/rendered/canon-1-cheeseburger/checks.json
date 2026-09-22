@@ -1,0 +1,24 @@
+{
+  "source": "packages/bpmn-core/tests/fixtures/canon-1-cheeseburger.dsl",
+  "invalid": false,
+  "id": "canon-1-cheeseburger",
+  "status": "success",
+  "passed": true,
+  "checks": {
+    "bpmnDI": true,
+    "svg": true,
+    "png": true,
+    "width": 3286,
+    "height": 1094
+  },
+  "reimport": true,
+  "hashes": {
+    "normalized.dsl": "c71ed8f85165d4274bffea146b62a8ea41e381afbc845e0b4abd0bd98300df3b",
+    "result.json": "06cf1f0687ed4fcba119842fc8ef06df3359d3a763e2019eb8b406d095461a42",
+    "semantic.bpmn": "7e6d643ff11830e2618a102db55800d1442e36ccaa292e45857ca72b4ad89767",
+    "diagram.bpmn": "4c330f3aa793877bea003234a4f4edcf6b8c2fabf5fb6e7ad1e6c63bb73a068a",
+    "diagram.svg": "79a2b8b0b0de8a950ff4ebebc950a08063fce9cf1e579300fc0734a09a9aa63d",
+    "diagram.png": "a27be76d0750732f52b8f33d89845a2b2bc0db561ac5fea84dbd707f6dd79ffe"
+  },
+  "errors": []
+}

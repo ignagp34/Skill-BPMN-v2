@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_SYN005" targetNamespace="http://example.com/bpmn/SYN005">
+  <bpmn:collaboration id="Collaboration_SYN005">
+    <bpmn:participant id="Participant_FinanceDepartment" name="Finance Department" processRef="Process_SYN005"/>
+  </bpmn:collaboration>
+  <bpmn:process id="Process_SYN005" name="Travel reimbursement approval" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_SYN005">
+      <bpmn:lane id="Lane_Employee" name="Employee">
+        <bpmn:flowNodeRef>StartEvent_RequestPreparation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SubmitRequest</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReceiveMissingReceiptReturn</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReceiveOutcome</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_Informed</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_FinanceSpecialist" name="Finance Specialist">
+        <bpmn:flowNodeRef>Task_CheckReceipts</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_ReceiptsComplete</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReturnRequest</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_VerifyPolicy</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_AutomaticLimit</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_AutomaticApprove</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendToManager</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_ApprovalMerge</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SchedulePayment</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendPaymentConfirmation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendRejection</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_OutcomeMerge</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_FinanceManager" name="Finance Manager">
+        <bpmn:flowNodeRef>Task_ReviewRequest</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_ManagerDecision</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ManagerApprove</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ManagerReject</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_RequestPreparation" name="Reimbursement needed">
+      <bpmn:outgoing>Flow_Start_Submit</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="Task_SubmitRequest" name="Submit travel reimbursement request">
+      <bpmn:incoming>Flow_Start_Submit</bpmn:incoming>
+      <bpmn:outgoing>Flow_Submit_CheckReceipts</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_CheckReceipts" name="Check receipts">
+      <bpmn:incoming>Flow_Submit_CheckReceipts</bpmn:incoming>
+      <bpmn:outgoing>Flow_CheckReceipts_CompleteGateway</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_ReceiptsComplete" name="Receipts complete?" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_CheckReceipts_CompleteGateway</bpmn:incoming>
+      <bpmn:outgoing>Flow_ReceiptsMissing_Return</bpmn:outgoing>
+      <bpmn:outgoing>Flow_ReceiptsComplete_VerifyPolicy</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sendTask id="Task_ReturnRequest" name="Return request to employee">
+      <bpmn:incoming>Flow_ReceiptsMissing_Return</bpmn:incoming>
+      <bpmn:outgoing>Flow_Return_ReceiveReturn</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:receiveTask id="Task_ReceiveMissingReceiptReturn" name="Receive returned request">
+      <bpmn:incoming>Flow_Return_ReceiveReturn</bpmn:incoming>
+      <bpmn:outgoing>Flow_ReceiveReturn_OutcomeMerge</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:businessRuleTask id="Task_VerifyPolicy" name="Verify policy rules">
+      <bpmn:incoming>Flow_ReceiptsComplete_VerifyPolicy</bpmn:incoming>
+      <bpmn:outgoing>Flow_VerifyPolicy_LimitGateway</bpmn:outgoing>
+    </bpmn:businessRuleTask>
+    <bpmn:exclusiveGateway id="Gateway_AutomaticLimit" name="Within automatic approval limit?" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_VerifyPolicy_LimitGateway</bpmn:incoming>
+      <bpmn:outgoing>Flow_WithinLimit_AutoApprove</bpmn:outgoing>
+      <bpmn:outgoing>Flow_ExceedsLimit_SendManager</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Task_AutomaticApprove" name="Approve request">
+      <bpmn:incoming>Flow_WithinLimit_AutoApprove</bpmn:incoming>
+      <bpmn:outgoing>Flow_AutoApprove_ApprovalMerge</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sendTask id="Task_SendToManager" name="Send request to finance manager">
+      <bpmn:incoming>Flow_ExceedsLimit_SendManager</bpmn:incoming>
+      <bpmn:outgoing>Flow_SendManager_Review</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:userTask id="Task_ReviewRequest" name="Review reimbursement request">
+      <bpmn:incoming>Flow_SendManager_Review</bpmn:incoming>
+      <bpmn:outgoing>Flow_Review_ManagerDecision</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_ManagerDecision" name="Manager decision" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_Review_ManagerDecision</bpmn:incoming>
+      <bpmn:outgoing>Flow_ManagerDecision_Approve</bpmn:outgoing>
+      <bpmn:outgoing>Flow_ManagerDecision_Reject</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Task_ManagerApprove" name="Approve request">
+      <bpmn:incoming>Flow_ManagerDecision_Approve</bpmn:incoming>
+      <bpmn:outgoing>Flow_ManagerApprove_ApprovalMerge</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_ManagerReject" name="Reject request">
+      <bpmn:incoming>Flow_ManagerDecision_Reject</bpmn:incoming>
+      <bpmn:outgoing>Flow_ManagerReject_SendRejection</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_ApprovalMerge" name="Approved request" gatewayDirection="Converging">
+      <bpmn:incoming>Flow_AutoApprove_ApprovalMerge</bpmn:incoming>
+      <bpmn:incoming>Flow_ManagerApprove_ApprovalMerge</bpmn:incoming>
+      <bpmn:outgoing>Flow_ApprovalMerge_SchedulePayment</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:serviceTask id="Task_SchedulePayment" name="Schedule payment">
+      <bpmn:incoming>Flow_ApprovalMerge_SchedulePayment</bpmn:incoming>
+      <bpmn:outgoing>Flow_SchedulePayment_SendConfirmation</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sendTask id="Task_SendPaymentConfirmation" name="Send payment confirmation">
+      <bpmn:incoming>Flow_SchedulePayment_SendConfirmation</bpmn:incoming>
+      <bpmn:outgoing>Flow_SendConfirmation_OutcomeMerge</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:sendTask id="Task_SendRejection" name="Send rejection message to employee">
+      <bpmn:incoming>Flow_ManagerReject_SendRejection</bpmn:incoming>
+      <bpmn:outgoing>Flow_SendRejection_OutcomeMerge</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:exclusiveGateway id="Gateway_OutcomeMerge" name="Outcome sent" gatewayDirection="Converging">
+      <bpmn:incoming>Flow_ReceiveReturn_OutcomeMerge</bpmn:incoming>
+      <bpmn:incoming>Flow_SendConfirmation_OutcomeMerge</bpmn:incoming>
+      <bpmn:incoming>Flow_SendRejection_OutcomeMerge</bpmn:incoming>
+      <bpmn:outgoing>Flow_OutcomeMerge_ReceiveOutcome</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:receiveTask id="Task_ReceiveOutcome" name="Receive outcome">
+      <bpmn:incoming>Flow_OutcomeMerge_ReceiveOutcome</bpmn:incoming>
+      <bpmn:outgoing>Flow_ReceiveOutcome_End</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:endEvent id="EndEvent_Informed" name="Employee informed">
+      <bpmn:incoming>Flow_ReceiveOutcome_End</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_Submit" sourceRef="StartEvent_RequestPreparation" targetRef="Task_SubmitRequest"/>
+    <bpmn:sequenceFlow id="Flow_Submit_CheckReceipts" sourceRef="Task_SubmitRequest" targetRef="Task_CheckReceipts"/>
+    <bpmn:sequenceFlow id="Flow_CheckReceipts_CompleteGateway" sourceRef="Task_CheckReceipts" targetRef="Gateway_ReceiptsComplete"/>
+    <bpmn:sequenceFlow id="Flow_ReceiptsMissing_Return" name="Missing" sourceRef="Gateway_ReceiptsComplete" targetRef="Task_ReturnRequest"/>
+    <bpmn:sequenceFlow id="Flow_ReceiptsComplete_VerifyPolicy" name="Complete" sourceRef="Gateway_ReceiptsComplete" targetRef="Task_VerifyPolicy"/>
+    <bpmn:sequenceFlow id="Flow_Return_ReceiveReturn" sourceRef="Task_ReturnRequest" targetRef="Task_ReceiveMissingReceiptReturn"/>
+    <bpmn:sequenceFlow id="Flow_ReceiveReturn_OutcomeMerge" sourceRef="Task_ReceiveMissingReceiptReturn" targetRef="Gateway_OutcomeMerge"/>
+    <bpmn:sequenceFlow id="Flow_VerifyPolicy_LimitGateway" sourceRef="Task_VerifyPolicy" targetRef="Gateway_AutomaticLimit"/>
+    <bpmn:sequenceFlow id="Flow_WithinLimit_AutoApprove" name="Within limit" sourceRef="Gateway_AutomaticLimit" targetRef="Task_AutomaticApprove"/>
+    <bpmn:sequenceFlow id="Flow_ExceedsLimit_SendManager" name="Exceeds limit" sourceRef="Gateway_AutomaticLimit" targetRef="Task_SendToManager"/>
+    <bpmn:sequenceFlow id="Flow_AutoApprove_ApprovalMerge" sourceRef="Task_AutomaticApprove" targetRef="Gateway_ApprovalMerge"/>
+    <bpmn:sequenceFlow id="Flow_SendManager_Review" sourceRef="Task_SendToManager" targetRef="Task_ReviewRequest"/>
+    <bpmn:sequenceFlow id="Flow_Review_ManagerDecision" sourceRef="Task_ReviewRequest" targetRef="Gateway_ManagerDecision"/>
+    <bpmn:sequenceFlow id="Flow_ManagerDecision_Approve" name="Approve" sourceRef="Gateway_ManagerDecision" targetRef="Task_ManagerApprove"/>
+    <bpmn:sequenceFlow id="Flow_ManagerDecision_Reject" name="Reject" sourceRef="Gateway_ManagerDecision" targetRef="Task_ManagerReject"/>
+    <bpmn:sequenceFlow id="Flow_ManagerApprove_ApprovalMerge" sourceRef="Task_ManagerApprove" targetRef="Gateway_ApprovalMerge"/>
+    <bpmn:sequenceFlow id="Flow_ManagerReject_SendRejection" sourceRef="Task_ManagerReject" targetRef="Task_SendRejection"/>
+    <bpmn:sequenceFlow id="Flow_ApprovalMerge_SchedulePayment" sourceRef="Gateway_ApprovalMerge" targetRef="Task_SchedulePayment"/>
+    <bpmn:sequenceFlow id="Flow_SchedulePayment_SendConfirmation" sourceRef="Task_SchedulePayment" targetRef="Task_SendPaymentConfirmation"/>
+    <bpmn:sequenceFlow id="Flow_SendConfirmation_OutcomeMerge" sourceRef="Task_SendPaymentConfirmation" targetRef="Gateway_OutcomeMerge"/>
+    <bpmn:sequenceFlow id="Flow_SendRejection_OutcomeMerge" sourceRef="Task_SendRejection" targetRef="Gateway_OutcomeMerge"/>
+    <bpmn:sequenceFlow id="Flow_OutcomeMerge_ReceiveOutcome" sourceRef="Gateway_OutcomeMerge" targetRef="Task_ReceiveOutcome"/>
+    <bpmn:sequenceFlow id="Flow_ReceiveOutcome_End" sourceRef="Task_ReceiveOutcome" targetRef="EndEvent_Informed"/>
+  </bpmn:process>
+</bpmn:definitions>

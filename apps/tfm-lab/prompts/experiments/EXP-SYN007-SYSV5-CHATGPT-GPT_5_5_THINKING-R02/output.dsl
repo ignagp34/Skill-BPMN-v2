@@ -1,0 +1,9 @@
+HR Operations: (receive Signed contract)
+user Record start date
+HR Operations: service Create employee profile in HR system|HR Operations: manual Prepare laptop|HR Operations: user Assign mandatory training
+Onboarding Coordinator: send Send welcome package
+user Mark onboarding setup as complete
+(finish Onboarding setup complete)
+
+== pools ==
+Employee Onboarding -> HR Operations; Onboarding Coordinator

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             id="Definitions_1"
+             targetNamespace="http://example.com/bpmn">
+  <process id="Process_1" isExecutable="true">
+    <startEvent id="Start_1" name="Start">
+      <outgoing>Flow_1</outgoing>
+    </startEvent>
+    <!-- Invalid: <fakeElement> is not in the BPMN schema -->
+    <fakeElement id="Fake_1" name="Not Real">
+      <incoming>Flow_1</incoming>
+      <outgoing>Flow_2</outgoing>
+    </fakeElement>
+    <endEvent id="End_1" name="End">
+      <incoming>Flow_2</incoming>
+    </endEvent>
+    <sequenceFlow id="Flow_1" sourceRef="Start_1" targetRef="Fake_1"/>
+    <sequenceFlow id="Flow_2" sourceRef="Fake_1" targetRef="End_1"/>
+  </process>
+</definitions>

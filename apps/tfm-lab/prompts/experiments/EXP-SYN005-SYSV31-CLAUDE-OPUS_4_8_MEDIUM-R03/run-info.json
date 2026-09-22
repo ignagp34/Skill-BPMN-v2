@@ -1,0 +1,31 @@
+{
+  "experimentId": "EXP-SYN005-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R03",
+  "processId": "SYN005",
+  "processFilename": "SYN005_travel_reimbursement_approval.md",
+  "processTitle": "Travel reimbursement approval",
+  "processSource": "synthetic",
+  "difficulty": "medium",
+  "expectedFeatures": [
+    "xor_gateway",
+    "alternative_paths",
+    "merge",
+    "single_pool"
+  ],
+  "systemPromptVersion": "SYSV31",
+  "provider": "CLAUDE",
+  "modelLabel": "OPUS_4_8_MEDIUM",
+  "executionSetting": "Claude Opus 4.8 (Medium reasoning, Agent SDK, fresh subagent context)",
+  "reasoningMode": "Medium",
+  "runNumber": 3,
+  "interfaceType": "agent",
+  "status": "pending",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-06-14T11:11:35Z",
+  "notes": "",
+  "inputSystemTokens": 10916,
+  "inputProcessTokens": 280,
+  "inputTokens": 11196,
+  "outputTokens": 203,
+  "totalTokens": 11399,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

@@ -1,0 +1,59 @@
+Traveler:
+(start Booking initiated)
+user Book train ticket
+[Booking Request]
+(send Booking Request)
+(receive Payment Request)
+[Payment Request]
+Pay before deadline?
+Yes
+user Pay booking
+[Payment]
+(send Payment)
+(receive Ticket)
+[Ticket]
+(finish Ticket Received)
+
+Traveler:
+(start Booking initiated)
+user Book train ticket
+[Booking Request]
+(send Booking Request)
+(receive Payment Request)
+[Payment Request]
+Pay before deadline?
+No
+(receive Cancellation Notice)
+[Cancellation Notice]
+(finish Reservation Cancelled)
+
+Agency:
+(receive Booking Request)
+[Booking Request]
+service Create reservation
+[Payment Request]
+(send Payment Request)
+Wait for payment
+(receive Payment)
+[Payment]
+service Issue ticket
+[Ticket]
+(send Ticket)
+(finish Ticket Issued)
+
+Agency:
+(receive Booking Request)
+[Booking Request]
+service Create reservation
+[Payment Request]
+(send Payment Request)
+Wait for payment
+(timer Payment Deadline)
+service Cancel reservation
+[Cancellation Notice]
+(send Cancellation Notice)
+(finish Booking Cancelled)
+
+== pools ==
+Traveler -> Traveler
+Online Travel Agency -> Agency

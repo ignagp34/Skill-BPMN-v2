@@ -1,0 +1,55 @@
+Employee: (start Travel reimbursement request ready)
+user Submit travel reimbursement request
+Finance Specialist: user Check receipts
+user Verify policy rules
+What is the review outcome?
+Receipts missing
+user Return request to employee
+Employee: user Receive returned request
+(finish Request returned for missing receipts)
+
+Employee: (start Travel reimbursement request ready)
+user Submit travel reimbursement request
+Finance Specialist: user Check receipts
+user Verify policy rules
+What is the review outcome?
+Valid and within automatic approval limit
+user Approve request
+user Schedule payment
+send Send approval message
+Employee: receive Receive approval message
+(finish Employee informed of approval)
+
+Employee: (start Travel reimbursement request ready)
+user Submit travel reimbursement request
+Finance Specialist: user Check receipts
+user Verify policy rules
+What is the review outcome?
+Valid and above automatic approval limit
+send Send request to finance manager
+Finance Manager: user Review request
+What is the manager decision?
+Approve
+user Approve request as manager
+Finance Specialist: user Schedule payment
+send Send approval message
+Employee: receive Receive approval message
+(finish Employee informed of approval)
+
+Employee: (start Travel reimbursement request ready)
+user Submit travel reimbursement request
+Finance Specialist: user Check receipts
+user Verify policy rules
+What is the review outcome?
+Valid and above automatic approval limit
+send Send request to finance manager
+Finance Manager: user Review request
+What is the manager decision?
+Reject
+user Reject request
+Finance Specialist: send Send rejection message
+Employee: receive Receive rejection message
+(finish Employee informed of rejection)
+
+== pools ==
+Finance Department -> Employee; Finance Specialist; Finance Manager

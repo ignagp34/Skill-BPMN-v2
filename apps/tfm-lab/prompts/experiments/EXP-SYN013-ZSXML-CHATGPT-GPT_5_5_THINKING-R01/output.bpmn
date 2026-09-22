@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_SYN013" targetNamespace="http://example.com/bpmn/SYN013">
+  <bpmn:escalation id="Escalation_SLABreach" name="SLA breach" escalationCode="SLA_BREACH"/>
+  <bpmn:process id="Process_SYN013" name="Support ticket SLA breach" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_SupportCenter">
+      <bpmn:lane id="Lane_SupportAgent" name="Support Agent">
+        <bpmn:flowNodeRef>StartEvent_TicketAssigned</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_AssignTicket</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_InvestigateIssue</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_WorkOnResolution</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>BoundaryEvent_SLADeadline</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_ResolutionMerge</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_DocumentFix</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_InformUser</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_CloseTicket</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_TicketClosed</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_TeamLead" name="Team Lead">
+        <bpmn:flowNodeRef>ThrowEvent_Escalate</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReviewTicket</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_AssignAdditionalSupport</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ContinueWork</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_TicketAssigned" name="High-priority ticket received">
+      <bpmn:outgoing>Flow_Start_Assign</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="Task_AssignTicket" name="Assign ticket to support agent">
+      <bpmn:incoming>Flow_Start_Assign</bpmn:incoming>
+      <bpmn:outgoing>Flow_Assign_Investigate</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_InvestigateIssue" name="Investigate issue">
+      <bpmn:incoming>Flow_Assign_Investigate</bpmn:incoming>
+      <bpmn:outgoing>Flow_Investigate_Work</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_WorkOnResolution" name="Work on resolution">
+      <bpmn:incoming>Flow_Investigate_Work</bpmn:incoming>
+      <bpmn:outgoing>Flow_Work_Merge</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:boundaryEvent id="BoundaryEvent_SLADeadline" name="SLA deadline reached" attachedToRef="Task_WorkOnResolution" cancelActivity="true">
+      <bpmn:outgoing>Flow_Deadline_Escalate</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_SLADeadline">
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT4H</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:boundaryEvent>
+    <bpmn:intermediateThrowEvent id="ThrowEvent_Escalate" name="Escalate to team lead">
+      <bpmn:incoming>Flow_Deadline_Escalate</bpmn:incoming>
+      <bpmn:outgoing>Flow_Escalate_Review</bpmn:outgoing>
+      <bpmn:escalationEventDefinition id="EscalationEventDefinition_SLABreach" escalationRef="Escalation_SLABreach"/>
+    </bpmn:intermediateThrowEvent>
+    <bpmn:userTask id="Task_ReviewTicket" name="Review escalated ticket">
+      <bpmn:incoming>Flow_Escalate_Review</bpmn:incoming>
+      <bpmn:outgoing>Flow_Review_AssignSupport</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_AssignAdditionalSupport" name="Assign additional support">
+      <bpmn:incoming>Flow_Review_AssignSupport</bpmn:incoming>
+      <bpmn:outgoing>Flow_AssignSupport_Continue</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_ContinueWork" name="Continue work until resolved">
+      <bpmn:incoming>Flow_AssignSupport_Continue</bpmn:incoming>
+      <bpmn:outgoing>Flow_Continue_Merge</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_ResolutionMerge" name="Issue resolved" gatewayDirection="Converging">
+      <bpmn:incoming>Flow_Work_Merge</bpmn:incoming>
+      <bpmn:incoming>Flow_Continue_Merge</bpmn:incoming>
+      <bpmn:outgoing>Flow_Merge_Document</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Task_DocumentFix" name="Document the fix">
+      <bpmn:incoming>Flow_Merge_Document</bpmn:incoming>
+      <bpmn:outgoing>Flow_Document_Inform</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sendTask id="Task_InformUser" name="Inform the user">
+      <bpmn:incoming>Flow_Document_Inform</bpmn:incoming>
+      <bpmn:outgoing>Flow_Inform_Close</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:userTask id="Task_CloseTicket" name="Close the ticket">
+      <bpmn:incoming>Flow_Inform_Close</bpmn:incoming>
+      <bpmn:outgoing>Flow_Close_End</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="EndEvent_TicketClosed" name="Ticket closed">
+      <bpmn:incoming>Flow_Close_End</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_Assign" sourceRef="StartEvent_TicketAssigned" targetRef="Task_AssignTicket"/>
+    <bpmn:sequenceFlow id="Flow_Assign_Investigate" sourceRef="Task_AssignTicket" targetRef="Task_InvestigateIssue"/>
+    <bpmn:sequenceFlow id="Flow_Investigate_Work" sourceRef="Task_InvestigateIssue" targetRef="Task_WorkOnResolution"/>
+    <bpmn:sequenceFlow id="Flow_Work_Merge" name="Resolved before SLA deadline" sourceRef="Task_WorkOnResolution" targetRef="Gateway_ResolutionMerge"/>
+    <bpmn:sequenceFlow id="Flow_Deadline_Escalate" sourceRef="BoundaryEvent_SLADeadline" targetRef="ThrowEvent_Escalate"/>
+    <bpmn:sequenceFlow id="Flow_Escalate_Review" sourceRef="ThrowEvent_Escalate" targetRef="Task_ReviewTicket"/>
+    <bpmn:sequenceFlow id="Flow_Review_AssignSupport" sourceRef="Task_ReviewTicket" targetRef="Task_AssignAdditionalSupport"/>
+    <bpmn:sequenceFlow id="Flow_AssignSupport_Continue" sourceRef="Task_AssignAdditionalSupport" targetRef="Task_ContinueWork"/>
+    <bpmn:sequenceFlow id="Flow_Continue_Merge" name="Resolved after escalation" sourceRef="Task_ContinueWork" targetRef="Gateway_ResolutionMerge"/>
+    <bpmn:sequenceFlow id="Flow_Merge_Document" sourceRef="Gateway_ResolutionMerge" targetRef="Task_DocumentFix"/>
+    <bpmn:sequenceFlow id="Flow_Document_Inform" sourceRef="Task_DocumentFix" targetRef="Task_InformUser"/>
+    <bpmn:sequenceFlow id="Flow_Inform_Close" sourceRef="Task_InformUser" targetRef="Task_CloseTicket"/>
+    <bpmn:sequenceFlow id="Flow_Close_End" sourceRef="Task_CloseTicket" targetRef="EndEvent_TicketClosed"/>
+  </bpmn:process>
+  <bpmn:collaboration id="Collaboration_SYN013">
+    <bpmn:participant id="Participant_SupportCenter" name="IT Support Center" processRef="Process_SYN013"/>
+  </bpmn:collaboration>
+</bpmn:definitions>

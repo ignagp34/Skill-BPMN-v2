@@ -1,0 +1,5 @@
+HR Operations: receive Signed contract
+Record start date
+Create employee profile in HR system|Prepare laptop|Assign mandatory training
+send Welcome package
+Mark onboarding setup as complete

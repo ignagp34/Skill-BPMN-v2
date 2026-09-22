@@ -1,0 +1,8 @@
+﻿(start Equipment request submitted)
+Requesting Department: Submit standard office equipment request
+Procurement Specialist: Review request
+rule Confirm items are on approved catalog
+Reserve budget|Create purchase order|Notify warehouse of expected delivery
+send Send order confirmation
+Close request
+(finish Request closed)

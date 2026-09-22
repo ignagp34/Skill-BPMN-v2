@@ -1,0 +1,36 @@
+(start Application ready for interview review)
+HR Recruiter: user Review application
+HR Recruiter: send Invitation with proposed interview times
+HR Recruiter: receive Selected proposed interview time
+HR Recruiter: send Interview confirmation
+(finish HR has confirmed interview time)
+
+(start Applicant receives invitation)
+Applicant: receive Invitation with proposed interview times
+Applicant: user Evaluate proposed interview times
+Is a proposed time acceptable?
+Yes
+Applicant: send Selected proposed interview time
+Applicant: receive Interview confirmation
+(finish Applicant has confirmed interview time)
+
+(start Application ready for interview review)
+HR Recruiter: user Review application
+HR Recruiter: send Invitation with proposed interview times
+HR Recruiter: receive Request for alternative times
+HR Recruiter: send New set of interview times
+HR Recruiter: receive Selected alternative interview time
+HR Recruiter: send Interview confirmation
+(finish HR has confirmed interview time)
+
+(start Applicant receives invitation)
+Applicant: receive Invitation with proposed interview times
+Applicant: user Evaluate proposed interview times
+Is a proposed time acceptable?
+No
+Applicant: send Request for alternative times
+Applicant: receive New set of interview times
+Applicant: user Select alternative interview time
+Applicant: send Selected alternative interview time
+Applicant: receive Interview confirmation
+(finish Applicant has confirmed interview time)

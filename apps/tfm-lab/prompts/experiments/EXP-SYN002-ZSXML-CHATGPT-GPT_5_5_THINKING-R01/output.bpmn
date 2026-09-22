@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                  id="Definitions_SYN002"
+                  targetNamespace="http://example.com/bpmn/SYN002">
+  <bpmn:collaboration id="Collaboration_SYN002">
+    <bpmn:participant id="Participant_ITSupport" name="Internal IT Support Team" processRef="Process_SYN002"/>
+  </bpmn:collaboration>
+  <bpmn:process id="Process_SYN002" name="IT Password Reset Fulfillment" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_ITSupport">
+      <bpmn:lane id="Lane_SupportAgent" name="Support Agent">
+        <bpmn:flowNodeRef>StartEvent_RequestReceived</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReceiveRequest</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_VerifyIdentity</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ResetPassword</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendTemporaryPassword</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_RecordAction</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ResolveTicket</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_TicketResolved</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_RequestReceived" name="Password reset request received">
+      <bpmn:outgoing>Flow_1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:receiveTask id="Task_ReceiveRequest" name="Receive password reset request">
+      <bpmn:incoming>Flow_1</bpmn:incoming>
+      <bpmn:outgoing>Flow_2</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:userTask id="Task_VerifyIdentity" name="Verify employee identity">
+      <bpmn:incoming>Flow_2</bpmn:incoming>
+      <bpmn:outgoing>Flow_3</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="Task_ResetPassword" name="Reset password in directory system">
+      <bpmn:incoming>Flow_3</bpmn:incoming>
+      <bpmn:outgoing>Flow_4</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sendTask id="Task_SendTemporaryPassword" name="Send temporary password to employee">
+      <bpmn:incoming>Flow_4</bpmn:incoming>
+      <bpmn:outgoing>Flow_5</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:userTask id="Task_RecordAction" name="Record action in ticket">
+      <bpmn:incoming>Flow_5</bpmn:incoming>
+      <bpmn:outgoing>Flow_6</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_ResolveTicket" name="Resolve ticket">
+      <bpmn:incoming>Flow_6</bpmn:incoming>
+      <bpmn:outgoing>Flow_7</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="EndEvent_TicketResolved" name="Ticket resolved">
+      <bpmn:incoming>Flow_7</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="StartEvent_RequestReceived" targetRef="Task_ReceiveRequest"/>
+    <bpmn:sequenceFlow id="Flow_2" sourceRef="Task_ReceiveRequest" targetRef="Task_VerifyIdentity"/>
+    <bpmn:sequenceFlow id="Flow_3" sourceRef="Task_VerifyIdentity" targetRef="Task_ResetPassword"/>
+    <bpmn:sequenceFlow id="Flow_4" sourceRef="Task_ResetPassword" targetRef="Task_SendTemporaryPassword"/>
+    <bpmn:sequenceFlow id="Flow_5" sourceRef="Task_SendTemporaryPassword" targetRef="Task_RecordAction"/>
+    <bpmn:sequenceFlow id="Flow_6" sourceRef="Task_RecordAction" targetRef="Task_ResolveTicket"/>
+    <bpmn:sequenceFlow id="Flow_7" sourceRef="Task_ResolveTicket" targetRef="EndEvent_TicketResolved"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_SYN002">
+    <bpmndi:BPMNPlane id="BPMNPlane_SYN002" bpmnElement="Collaboration_SYN002">
+      <bpmndi:BPMNShape id="Shape_Participant_ITSupport" bpmnElement="Participant_ITSupport" isHorizontal="true">
+        <dc:Bounds x="100" y="100" width="1540" height="240"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Lane_SupportAgent" bpmnElement="Lane_SupportAgent" isHorizontal="true">
+        <dc:Bounds x="130" y="100" width="1510" height="240"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_StartEvent_RequestReceived" bpmnElement="StartEvent_RequestReceived">
+        <dc:Bounds x="180" y="202" width="36" height="36"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="145" y="245" width="106" height="28"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_ReceiveRequest" bpmnElement="Task_ReceiveRequest">
+        <dc:Bounds x="270" y="180" width="150" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_VerifyIdentity" bpmnElement="Task_VerifyIdentity">
+        <dc:Bounds x="470" y="180" width="150" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_ResetPassword" bpmnElement="Task_ResetPassword">
+        <dc:Bounds x="670" y="180" width="170" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_SendTemporaryPassword" bpmnElement="Task_SendTemporaryPassword">
+        <dc:Bounds x="890" y="180" width="180" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_RecordAction" bpmnElement="Task_RecordAction">
+        <dc:Bounds x="1120" y="180" width="150" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_ResolveTicket" bpmnElement="Task_ResolveTicket">
+        <dc:Bounds x="1320" y="180" width="140" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EndEvent_TicketResolved" bpmnElement="EndEvent_TicketResolved">
+        <dc:Bounds x="1520" y="202" width="36" height="36"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1494" y="245" width="88" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_Flow_1" bpmnElement="Flow_1">
+        <di:waypoint x="216" y="220"/>
+        <di:waypoint x="270" y="220"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_2" bpmnElement="Flow_2">
+        <di:waypoint x="420" y="220"/>
+        <di:waypoint x="470" y="220"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_3" bpmnElement="Flow_3">
+        <di:waypoint x="620" y="220"/>
+        <di:waypoint x="670" y="220"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_4" bpmnElement="Flow_4">
+        <di:waypoint x="840" y="220"/>
+        <di:waypoint x="890" y="220"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_5" bpmnElement="Flow_5">
+        <di:waypoint x="1070" y="220"/>
+        <di:waypoint x="1120" y="220"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_6" bpmnElement="Flow_6">
+        <di:waypoint x="1270" y="220"/>
+        <di:waypoint x="1320" y="220"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_7" bpmnElement="Flow_7">
+        <di:waypoint x="1460" y="220"/>
+        <di:waypoint x="1520" y="220"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

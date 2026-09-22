@@ -1,0 +1,18 @@
+Support Agent: Assign high-priority ticket
+Investigate issue
+Work on resolution
+Document fix
+Inform user
+Close ticket
+
+Support Agent: Assign high-priority ticket
+Investigate issue
+Work on resolution
+(deadline SLA deadline)
+(escalate SLA breach to team lead)
+Team Lead: Review ticket
+Assign additional support
+Support Agent: Continue work until issue is resolved
+Document fix
+Inform user
+Close ticket

@@ -1,0 +1,62 @@
+[
+  {
+    "source": "packages/bpmn-core/tests/fixtures/s17-document-approval.dsl",
+    "invalid": false,
+    "id": "s17-document-approval"
+  },
+  {
+    "source": "packages/bpmn-core/tests/fixtures/canon-1-cheeseburger.dsl",
+    "invalid": false,
+    "id": "canon-1-cheeseburger"
+  },
+  {
+    "source": "packages/bpmn-core/tests/fixtures/pool-map-message-event.dsl",
+    "invalid": false,
+    "id": "pool-map-message-event"
+  },
+  {
+    "source": "packages/bpmn-core/tests/fixtures/gemini-03.dsl",
+    "invalid": false,
+    "id": "gemini-03"
+  },
+  {
+    "source": "packages/bpmn-core/tests/fixtures/gemini-04.dsl",
+    "invalid": false,
+    "id": "gemini-04"
+  },
+  {
+    "source": "packages/bpmn-core/tests/fixtures/gemini-05.dsl",
+    "invalid": false,
+    "id": "gemini-05"
+  },
+  {
+    "source": "packages/bpmn-core/tests/fixtures/s17-job-application.dsl",
+    "invalid": false,
+    "id": "s17-job-application"
+  },
+  {
+    "source": "packages/bpmn-core/tests/fixtures/s17-pizza-order.dsl",
+    "invalid": false,
+    "id": "s17-pizza-order"
+  },
+  {
+    "source": "packages/bpmn-core/tests/fixtures/es-almacen.dsl",
+    "invalid": false,
+    "id": "es-almacen"
+  },
+  {
+    "source": "packages/bpmn-core/tests/fixtures/_invalid/ap6-trace-ends-at-anchor.dsl",
+    "invalid": true,
+    "id": "ap6-trace-ends-at-anchor"
+  },
+  {
+    "source": "packages/bpmn-core/tests/fixtures/_invalid/ap7-anchor-buried.dsl",
+    "invalid": true,
+    "id": "ap7-anchor-buried"
+  },
+  {
+    "source": "packages/bpmn-core/tests/dsl/semantic.test.ts:64 (exact string literal)",
+    "invalid": false,
+    "id": "simple"
+  }
+]

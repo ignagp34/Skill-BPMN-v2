@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             targetNamespace="http://example.com/expenses"
+             id="expense_report">
+
+  <process id="expense_process" name="Expense Reimbursement Process" isExecutable="false">
+
+    <startEvent id="start" name="Expense Report Submitted"/>
+
+    <sequenceFlow id="sf1" sourceRef="start" targetRef="task_manager_review"/>
+
+    <userTask id="task_manager_review" name="Manager Reviews Expenses"/>
+
+    <sequenceFlow id="sf2" sourceRef="task_manager_review" targetRef="gw_amount"/>
+
+    <exclusiveGateway id="gw_amount" name="Amount Below Threshold?"/>
+
+    <sequenceFlow id="sf3" sourceRef="gw_amount" targetRef="task_manager_approve">
+      <conditionExpression>amount &lt; threshold</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sf4" sourceRef="gw_amount" targetRef="task_finance_review" default="sf4">
+    </sequenceFlow>
+
+    <userTask id="task_manager_approve" name="Manager Approves Report"/>
+
+    <sequenceFlow id="sf5" sourceRef="task_manager_approve" targetRef="gw_join"/>
+
+    <userTask id="task_finance_review" name="Finance Department Reviews"/>
+
+    <sequenceFlow id="sf6" sourceRef="task_finance_review" targetRef="gw_join"/>
+
+    <exclusiveGateway id="gw_join" name="Approved"/>
+
+    <sequenceFlow id="sf7" sourceRef="gw_join" targetRef="task_process_reimbursement"/>
+
+    <serviceTask id="task_process_reimbursement" name="Process Reimbursement"/>
+
+    <sequenceFlow id="sf8" sourceRef="task_process_reimbursement" targetRef="task_transfer"/>
+
+    <serviceTask id="task_transfer" name="Transfer Money to Account"/>
+
+    <sequenceFlow id="sf9" sourceRef="task_transfer" targetRef="task_notify"/>
+
+    <sendTask id="task_notify" name="Notify Employee"/>
+
+    <sequenceFlow id="sf10" sourceRef="task_notify" targetRef="end"/>
+
+    <endEvent id="end" name="Reimbursement Complete"/>
+
+  </process>
+
+</definitions>

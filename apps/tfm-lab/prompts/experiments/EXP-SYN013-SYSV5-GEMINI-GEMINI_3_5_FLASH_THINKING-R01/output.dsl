@@ -1,0 +1,34 @@
+Support Agent:
+(start Ticket assigned)
+user Investigate issue
+user Work on resolution
+user Document fix
+user Inform user
+user Close ticket
+(finish Ticket resolved and closed)
+
+Support Agent:
+(start Ticket assigned)
+user Investigate issue
+user Work on resolution
+(deadline SLA deadline)
+Team Lead: (escalate SLA breach)
+user Review ticket
+user Assign additional support
+Support Team: user Continue work
+Is issue resolved?
+Yes
+Support Agent: user Document fix
+user Inform user
+user Close ticket
+(finish Ticket resolved and closed)
+
+...
+Support Team: user Continue work
+Is issue resolved?
+No
+Support Team: user Continue work
+...
+
+== pools ==
+IT Support -> Support Agent; Team Lead; Support Team

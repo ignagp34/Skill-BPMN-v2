@@ -1,0 +1,62 @@
+Employee: (start Travel reimbursement needed)
+Employee: user Submit travel reimbursement request
+Finance Specialist: user Check receipts
+Are all receipts present?
+No
+Finance Specialist: send Return request to employee
+Employee: receive Returned request
+(finish Employee informed that receipts are missing)
+
+Employee: (start Travel reimbursement needed)
+Employee: user Submit travel reimbursement request
+Finance Specialist: user Check receipts
+Are all receipts present?
+Yes
+Finance Specialist: rule Verify policy rules
+Is the amount within the automatic approval limit?
+Yes
+Finance Specialist: user Approve request
+Finance Specialist: service Schedule payment
+Finance Specialist: send Send approval message to employee
+Employee: receive Approval message
+(finish Employee informed of automatic approval)
+
+Employee: (start Travel reimbursement needed)
+Employee: user Submit travel reimbursement request
+Finance Specialist: user Check receipts
+Are all receipts present?
+Yes
+Finance Specialist: rule Verify policy rules
+Is the amount within the automatic approval limit?
+No
+Finance Specialist: send Send request to finance manager
+Finance Manager: receive Request for manager approval
+Finance Manager: user Review request
+Does the finance manager approve the request?
+Yes
+Finance Manager: user Approve request
+Finance Specialist: service Schedule payment
+Finance Specialist: send Send approval message to employee
+Employee: receive Approval message
+(finish Employee informed of manager approval)
+
+Employee: (start Travel reimbursement needed)
+Employee: user Submit travel reimbursement request
+Finance Specialist: user Check receipts
+Are all receipts present?
+Yes
+Finance Specialist: rule Verify policy rules
+Is the amount within the automatic approval limit?
+No
+Finance Specialist: send Send request to finance manager
+Finance Manager: receive Request for manager approval
+Finance Manager: user Review request
+Does the finance manager approve the request?
+No
+Finance Manager: user Reject request
+Finance Manager: send Send rejection message to employee
+Employee: receive Rejection message
+(finish Employee informed of rejection)
+
+== pools ==
+Travel Reimbursement -> Employee; Finance Specialist; Finance Manager

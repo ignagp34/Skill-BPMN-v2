@@ -1,0 +1,195 @@
+{
+  "metadata": {
+    "experimentId": "s17-job-application",
+    "processId": "FIXTURE",
+    "processSource": "packages/bpmn-core/tests/fixtures/s17-job-application.dsl",
+    "systemPromptVersion": "BASELINE",
+    "processPromptVersion": "fixture",
+    "provider": "none",
+    "modelLabel": "none",
+    "interfaceType": "web",
+    "runNumber": 1,
+    "createdAt": "2026-09-22T00:00:00Z",
+    "inputPromptHash": "e31ea2e878c9c8e82ce8d61f3724f9ca81c853b17fffe0fc3fd77f7ab994082e",
+    "rawOutputHash": "c59da3392cf8817510889a3a5f384613c6a9d155045a1c579a9b8ff67ea41db7",
+    "normalizedDslHash": "c3ccd1a8497f6ba02e00216a4a61bcdf021300a99088344be2777975689c6394",
+    "parserValid": true,
+    "semanticValid": true,
+    "bpmnImportValid": true,
+    "renderValid": true,
+    "status": "success_with_warnings",
+    "notes": "Deterministic existing fixture. No model generation. interfaceType web is inherited harness metadata, not Work evidence."
+  },
+  "bpmnValidation": {
+    "status": "warning",
+    "errors": [],
+    "warnings": [
+      {
+        "code": "IMPLICIT_END_EVENT",
+        "origin": "model",
+        "severity": "warning",
+        "elementId": "EndEvent_implicit_Event_Candidate_receive_Outcome",
+        "elementName": "",
+        "message": "An implicit end event was synthesized for a node without outgoing flow."
+      },
+      {
+        "code": "IMPLICIT_END_EVENT",
+        "origin": "model",
+        "severity": "warning",
+        "elementId": "EndEvent_implicit_Task_Candidate_Application",
+        "elementName": "",
+        "message": "An implicit end event was synthesized for a node without outgoing flow."
+      },
+      {
+        "code": "IMPLICIT_END_EVENT",
+        "origin": "model",
+        "severity": "warning",
+        "elementId": "EndEvent_implicit_Task_HR_Outcome",
+        "elementName": "",
+        "message": "An implicit end event was synthesized for a node without outgoing flow."
+      },
+      {
+        "code": "IMPLICIT_END_EVENT",
+        "origin": "model",
+        "severity": "warning",
+        "elementId": "EndEvent_implicit_Task_Send_Reminder",
+        "elementName": "",
+        "message": "An implicit end event was synthesized for a node without outgoing flow."
+      },
+      {
+        "code": "IMPLICIT_START_EVENT",
+        "origin": "model",
+        "severity": "warning",
+        "elementId": "StartEvent_implicit_Event_HR_receive_Application",
+        "elementName": "",
+        "message": "An implicit start event was synthesized for a node without incoming flow."
+      },
+      {
+        "code": "IMPLICIT_START_EVENT",
+        "origin": "model",
+        "severity": "warning",
+        "elementId": "StartEvent_implicit_Task_Candidate_Application",
+        "elementName": "",
+        "message": "An implicit start event was synthesized for a node without incoming flow."
+      },
+      {
+        "code": "LAYOUT_ELEMENT_OVERLAP",
+        "origin": "layout",
+        "severity": "warning",
+        "elementId": "Boundary_HR_Check_References_deadline_5_days",
+        "elementName": "5 days",
+        "message": "The rendered element overlaps 'Check References'."
+      },
+      {
+        "code": "LAYOUT_UNREADABLE_LABEL",
+        "origin": "layout",
+        "severity": "warning",
+        "elementId": "Event_HR_receive_Application",
+        "elementName": "Application",
+        "message": "The rendered label may be too long to remain readable inside its element."
+      },
+      {
+        "code": "MISSING_EXPLICIT_END_EVENT",
+        "origin": "model",
+        "severity": "warning",
+        "message": "The model does not contain an explicit end event from the DSL."
+      }
+    ],
+    "info": [],
+    "metrics": {
+      "numActivities": 6,
+      "numGateways": 2,
+      "numStartEvents": 3,
+      "numEndEvents": 4,
+      "isolatedNodes": 0,
+      "deadEndNodes": 0
+    }
+  },
+  "diagnostics": [
+    {
+      "category": "bpmn",
+      "code": "IMPLICIT_END_EVENT",
+      "message": "An implicit end event was synthesized for a node without outgoing flow.",
+      "severity": "warning",
+      "source": "validation"
+    },
+    {
+      "category": "bpmn",
+      "code": "IMPLICIT_END_EVENT",
+      "message": "An implicit end event was synthesized for a node without outgoing flow.",
+      "severity": "warning",
+      "source": "validation"
+    },
+    {
+      "category": "bpmn",
+      "code": "IMPLICIT_END_EVENT",
+      "message": "An implicit end event was synthesized for a node without outgoing flow.",
+      "severity": "warning",
+      "source": "validation"
+    },
+    {
+      "category": "bpmn",
+      "code": "IMPLICIT_END_EVENT",
+      "message": "An implicit end event was synthesized for a node without outgoing flow.",
+      "severity": "warning",
+      "source": "validation"
+    },
+    {
+      "category": "bpmn",
+      "code": "IMPLICIT_START_EVENT",
+      "message": "An implicit start event was synthesized for a node without incoming flow.",
+      "severity": "warning",
+      "source": "validation"
+    },
+    {
+      "category": "bpmn",
+      "code": "IMPLICIT_START_EVENT",
+      "message": "An implicit start event was synthesized for a node without incoming flow.",
+      "severity": "warning",
+      "source": "validation"
+    },
+    {
+      "category": "bpmn",
+      "code": "MISSING_EXPLICIT_END_EVENT",
+      "message": "The model does not contain an explicit end event from the DSL.",
+      "severity": "warning",
+      "source": "validation"
+    }
+  ],
+  "parserErrors": [],
+  "semanticErrors": [],
+  "semanticWarnings": [],
+  "renderErrors": [],
+  "exportAvailability": {
+    "bpmn": true,
+    "png": true,
+    "resultJson": true,
+    "svg": true
+  },
+  "timestamps": {
+    "createdAt": "2026-09-22T00:00:00Z",
+    "evaluatedAt": "2026-09-22T16:15:33.298Z"
+  },
+  "versions": {
+    "appVersion": "0.1.0",
+    "parserVersion": "0.1.0"
+  },
+  "metrics": {
+    "tasks": 6,
+    "events": 9,
+    "gateways": 2,
+    "participants": 3,
+    "lanes": 3,
+    "sequenceFlows": 14,
+    "messageFlows": 0,
+    "dataObjects": 0,
+    "textAnnotations": 0,
+    "diagonalEdgesDetected": false
+  },
+  "inputPrompt": "Existing fixture; no generation prompt used.",
+  "rawOutput": "Candidate: send Application\r\n\r\nHR:\r\n(receive Application)\r\nInspect Dossier|Check References\r\n...\r\n\r\n...\r\nCheck References\r\n((deadline 5 days))\r\nSend Reminder\r\n...\r\n\r\n...\r\nInspect Dossier|Check References\r\nHiring Manager: Decide Outcome\r\nHR: send Outcome\r\n\r\nCandidate:\r\n(receive Outcome)\r\n",
+  "normalizedDsl": "Candidate: send Application\r\n\r\nHR:\r\n(receive Application)\r\nInspect Dossier|Check References\r\n...\r\n\r\n...\r\nCheck References\r\n((deadline 5 days))\r\nSend Reminder\r\n...\r\n\r\n...\r\nInspect Dossier|Check References\r\nHiring Manager: Decide Outcome\r\nHR: send Outcome\r\n\r\nCandidate:\r\n(receive Outcome)",
+  "notes": "Deterministic existing fixture. No model generation. interfaceType web is inherited harness metadata, not Work evidence.",
+  "semanticXml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" xmlns:bpmndi=\"http://www.omg.org/spec/BPMN/20100524/DI\" xmlns:dc=\"http://www.omg.org/spec/DD/20100524/DC\" xmlns:di=\"http://www.omg.org/spec/DD/20100524/DI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" id=\"Definitions_1\" targetNamespace=\"http://bpmn.io/schema/bpmn\"><bpmn:collaboration id=\"Collaboration_1\"><bpmn:participant id=\"Participant_Candidate\" name=\"Candidate\" processRef=\"Process_Candidate\" /></bpmn:collaboration><bpmn:process id=\"Process_Candidate\" isExecutable=\"false\"><bpmn:laneSet id=\"LaneSet_Candidate\"><bpmn:lane id=\"Lane_Candidate\" name=\"Candidate\"><bpmn:flowNodeRef>Task_Candidate_Application</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Send_Reminder</bpmn:flowNodeRef><bpmn:flowNodeRef>Event_Candidate_receive_Outcome</bpmn:flowNodeRef><bpmn:flowNodeRef>StartEvent_implicit_Task_Candidate_Application</bpmn:flowNodeRef><bpmn:flowNodeRef>EndEvent_implicit_Task_Candidate_Application</bpmn:flowNodeRef><bpmn:flowNodeRef>EndEvent_implicit_Task_Send_Reminder</bpmn:flowNodeRef><bpmn:flowNodeRef>EndEvent_implicit_Event_Candidate_receive_Outcome</bpmn:flowNodeRef></bpmn:lane><bpmn:lane id=\"Lane_HR\" name=\"HR\"><bpmn:flowNodeRef>Event_HR_receive_Application</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_HR_Inspect_Dossier</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_HR_Check_References</bpmn:flowNodeRef><bpmn:flowNodeRef>Boundary_HR_Check_References_deadline_5_days</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_HR_Outcome</bpmn:flowNodeRef><bpmn:flowNodeRef>Parallel_parallel_HR_Check_References_HR_Inspect_Dossier</bpmn:flowNodeRef><bpmn:flowNodeRef>ParallelJoin_parallel_join_HR_Check_References_HR_Inspect_Dossier</bpmn:flowNodeRef><bpmn:flowNodeRef>StartEvent_implicit_Event_HR_receive_Application</bpmn:flowNodeRef><bpmn:flowNodeRef>EndEvent_implicit_Task_HR_Outcome</bpmn:flowNodeRef></bpmn:lane><bpmn:lane id=\"Lane_Hiring_Manager\" name=\"Hiring Manager\"><bpmn:flowNodeRef>Task_Hiring_Manager_Decide_Outcome</bpmn:flowNodeRef></bpmn:lane></bpmn:laneSet><bpmn:sendTask id=\"Task_Candidate_Application\" name=\"Application\"><bpmn:incoming>Flow_9</bpmn:incoming><bpmn:outgoing>Flow_11</bpmn:outgoing></bpmn:sendTask><bpmn:intermediateCatchEvent id=\"Event_HR_receive_Application\" name=\"Application\"><bpmn:incoming>Flow_10</bpmn:incoming><bpmn:outgoing>Flow_1</bpmn:outgoing><bpmn:messageEventDefinition /></bpmn:intermediateCatchEvent><bpmn:task id=\"Task_HR_Inspect_Dossier\" name=\"Inspect Dossier\"><bpmn:incoming>Flow_5</bpmn:incoming><bpmn:outgoing>Flow_6</bpmn:outgoing></bpmn:task><bpmn:task id=\"Task_HR_Check_References\" name=\"Check References\"><bpmn:incoming>Flow_7</bpmn:incoming><bpmn:outgoing>Flow_8</bpmn:outgoing></bpmn:task><bpmn:boundaryEvent id=\"Boundary_HR_Check_References_deadline_5_days\" name=\"5 days\" attachedToRef=\"Task_HR_Check_References\" cancelActivity=\"false\"><bpmn:outgoing>Flow_2</bpmn:outgoing><bpmn:timerEventDefinition /></bpmn:boundaryEvent><bpmn:task id=\"Task_Send_Reminder\" name=\"Send Reminder\"><bpmn:incoming>Flow_2</bpmn:incoming><bpmn:outgoing>Flow_12</bpmn:outgoing></bpmn:task><bpmn:task id=\"Task_Hiring_Manager_Decide_Outcome\" name=\"Decide Outcome\"><bpmn:incoming>Flow_3</bpmn:incoming><bpmn:outgoing>Flow_4</bpmn:outgoing></bpmn:task><bpmn:sendTask id=\"Task_HR_Outcome\" name=\"Outcome\"><bpmn:incoming>Flow_4</bpmn:incoming><bpmn:outgoing>Flow_13</bpmn:outgoing></bpmn:sendTask><bpmn:startEvent id=\"Event_Candidate_receive_Outcome\" name=\"Outcome\"><bpmn:outgoing>Flow_14</bpmn:outgoing><bpmn:messageEventDefinition /></bpmn:startEvent><bpmn:parallelGateway id=\"Parallel_parallel_HR_Check_References_HR_Inspect_Dossier\"><bpmn:incoming>Flow_1</bpmn:incoming><bpmn:outgoing>Flow_5</bpmn:outgoing><bpmn:outgoing>Flow_7</bpmn:outgoing></bpmn:parallelGateway><bpmn:parallelGateway id=\"ParallelJoin_parallel_join_HR_Check_References_HR_Inspect_Dossier\"><bpmn:incoming>Flow_6</bpmn:incoming><bpmn:incoming>Flow_8</bpmn:incoming><bpmn:outgoing>Flow_3</bpmn:outgoing></bpmn:parallelGateway><bpmn:startEvent id=\"StartEvent_implicit_Task_Candidate_Application\"><bpmn:outgoing>Flow_9</bpmn:outgoing></bpmn:startEvent><bpmn:startEvent id=\"StartEvent_implicit_Event_HR_receive_Application\"><bpmn:outgoing>Flow_10</bpmn:outgoing></bpmn:startEvent><bpmn:endEvent id=\"EndEvent_implicit_Task_Candidate_Application\"><bpmn:incoming>Flow_11</bpmn:incoming></bpmn:endEvent><bpmn:endEvent id=\"EndEvent_implicit_Task_Send_Reminder\"><bpmn:incoming>Flow_12</bpmn:incoming></bpmn:endEvent><bpmn:endEvent id=\"EndEvent_implicit_Task_HR_Outcome\"><bpmn:incoming>Flow_13</bpmn:incoming></bpmn:endEvent><bpmn:endEvent id=\"EndEvent_implicit_Event_Candidate_receive_Outcome\"><bpmn:incoming>Flow_14</bpmn:incoming></bpmn:endEvent><bpmn:sequenceFlow id=\"Flow_1\" sourceRef=\"Event_HR_receive_Application\" targetRef=\"Parallel_parallel_HR_Check_References_HR_Inspect_Dossier\" /><bpmn:sequenceFlow id=\"Flow_2\" sourceRef=\"Boundary_HR_Check_References_deadline_5_days\" targetRef=\"Task_Send_Reminder\" /><bpmn:sequenceFlow id=\"Flow_3\" sourceRef=\"ParallelJoin_parallel_join_HR_Check_References_HR_Inspect_Dossier\" targetRef=\"Task_Hiring_Manager_Decide_Outcome\" /><bpmn:sequenceFlow id=\"Flow_4\" sourceRef=\"Task_Hiring_Manager_Decide_Outcome\" targetRef=\"Task_HR_Outcome\" /><bpmn:sequenceFlow id=\"Flow_5\" sourceRef=\"Parallel_parallel_HR_Check_References_HR_Inspect_Dossier\" targetRef=\"Task_HR_Inspect_Dossier\" /><bpmn:sequenceFlow id=\"Flow_6\" sourceRef=\"Task_HR_Inspect_Dossier\" targetRef=\"ParallelJoin_parallel_join_HR_Check_References_HR_Inspect_Dossier\" /><bpmn:sequenceFlow id=\"Flow_7\" sourceRef=\"Parallel_parallel_HR_Check_References_HR_Inspect_Dossier\" targetRef=\"Task_HR_Check_References\" /><bpmn:sequenceFlow id=\"Flow_8\" sourceRef=\"Task_HR_Check_References\" targetRef=\"ParallelJoin_parallel_join_HR_Check_References_HR_Inspect_Dossier\" /><bpmn:sequenceFlow id=\"Flow_9\" sourceRef=\"StartEvent_implicit_Task_Candidate_Application\" targetRef=\"Task_Candidate_Application\" /><bpmn:sequenceFlow id=\"Flow_10\" sourceRef=\"StartEvent_implicit_Event_HR_receive_Application\" targetRef=\"Event_HR_receive_Application\" /><bpmn:sequenceFlow id=\"Flow_11\" sourceRef=\"Task_Candidate_Application\" targetRef=\"EndEvent_implicit_Task_Candidate_Application\" /><bpmn:sequenceFlow id=\"Flow_12\" sourceRef=\"Task_Send_Reminder\" targetRef=\"EndEvent_implicit_Task_Send_Reminder\" /><bpmn:sequenceFlow id=\"Flow_13\" sourceRef=\"Task_HR_Outcome\" targetRef=\"EndEvent_implicit_Task_HR_Outcome\" /><bpmn:sequenceFlow id=\"Flow_14\" sourceRef=\"Event_Candidate_receive_Outcome\" targetRef=\"EndEvent_implicit_Event_Candidate_receive_Outcome\" /></bpmn:process></bpmn:definitions>\n",
+  "layoutXml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<bpmn:definitions xmlns:bpmn=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:bpmndi=\"http://www.omg.org/spec/BPMN/20100524/DI\" xmlns:dc=\"http://www.omg.org/spec/DD/20100524/DC\" xmlns:di=\"http://www.omg.org/spec/DD/20100524/DI\" id=\"Definitions_1\" targetNamespace=\"http://bpmn.io/schema/bpmn\"><bpmn:collaboration id=\"Collaboration_1\"><bpmn:participant id=\"Participant_Candidate\" name=\"Candidate\" processRef=\"Process_Candidate\" /></bpmn:collaboration><bpmn:process id=\"Process_Candidate\" isExecutable=\"false\"><bpmn:laneSet id=\"LaneSet_Candidate\"><bpmn:lane id=\"Lane_Candidate\" name=\"Candidate\"><bpmn:flowNodeRef>Task_Candidate_Application</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_Send_Reminder</bpmn:flowNodeRef><bpmn:flowNodeRef>Event_Candidate_receive_Outcome</bpmn:flowNodeRef><bpmn:flowNodeRef>StartEvent_implicit_Task_Candidate_Application</bpmn:flowNodeRef><bpmn:flowNodeRef>EndEvent_implicit_Task_Candidate_Application</bpmn:flowNodeRef><bpmn:flowNodeRef>EndEvent_implicit_Task_Send_Reminder</bpmn:flowNodeRef><bpmn:flowNodeRef>EndEvent_implicit_Event_Candidate_receive_Outcome</bpmn:flowNodeRef></bpmn:lane><bpmn:lane id=\"Lane_HR\" name=\"HR\"><bpmn:flowNodeRef>Event_HR_receive_Application</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_HR_Inspect_Dossier</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_HR_Check_References</bpmn:flowNodeRef><bpmn:flowNodeRef>Boundary_HR_Check_References_deadline_5_days</bpmn:flowNodeRef><bpmn:flowNodeRef>Task_HR_Outcome</bpmn:flowNodeRef><bpmn:flowNodeRef>Parallel_parallel_HR_Check_References_HR_Inspect_Dossier</bpmn:flowNodeRef><bpmn:flowNodeRef>ParallelJoin_parallel_join_HR_Check_References_HR_Inspect_Dossier</bpmn:flowNodeRef><bpmn:flowNodeRef>StartEvent_implicit_Event_HR_receive_Application</bpmn:flowNodeRef><bpmn:flowNodeRef>EndEvent_implicit_Task_HR_Outcome</bpmn:flowNodeRef></bpmn:lane><bpmn:lane id=\"Lane_Hiring_Manager\" name=\"Hiring Manager\"><bpmn:flowNodeRef>Task_Hiring_Manager_Decide_Outcome</bpmn:flowNodeRef></bpmn:lane></bpmn:laneSet><bpmn:sendTask id=\"Task_Candidate_Application\" name=\"Application\"><bpmn:incoming>Flow_9</bpmn:incoming><bpmn:outgoing>Flow_11</bpmn:outgoing></bpmn:sendTask><bpmn:intermediateCatchEvent id=\"Event_HR_receive_Application\" name=\"Application\"><bpmn:incoming>Flow_10</bpmn:incoming><bpmn:outgoing>Flow_1</bpmn:outgoing><bpmn:messageEventDefinition /></bpmn:intermediateCatchEvent><bpmn:task id=\"Task_HR_Inspect_Dossier\" name=\"Inspect Dossier\"><bpmn:incoming>Flow_5</bpmn:incoming><bpmn:outgoing>Flow_6</bpmn:outgoing></bpmn:task><bpmn:task id=\"Task_HR_Check_References\" name=\"Check References\"><bpmn:incoming>Flow_7</bpmn:incoming><bpmn:outgoing>Flow_8</bpmn:outgoing></bpmn:task><bpmn:boundaryEvent id=\"Boundary_HR_Check_References_deadline_5_days\" name=\"5 days\" cancelActivity=\"false\" attachedToRef=\"Task_HR_Check_References\"><bpmn:outgoing>Flow_2</bpmn:outgoing><bpmn:timerEventDefinition /></bpmn:boundaryEvent><bpmn:task id=\"Task_Send_Reminder\" name=\"Send Reminder\"><bpmn:incoming>Flow_2</bpmn:incoming><bpmn:outgoing>Flow_12</bpmn:outgoing></bpmn:task><bpmn:task id=\"Task_Hiring_Manager_Decide_Outcome\" name=\"Decide Outcome\"><bpmn:incoming>Flow_3</bpmn:incoming><bpmn:outgoing>Flow_4</bpmn:outgoing></bpmn:task><bpmn:sendTask id=\"Task_HR_Outcome\" name=\"Outcome\"><bpmn:incoming>Flow_4</bpmn:incoming><bpmn:outgoing>Flow_13</bpmn:outgoing></bpmn:sendTask><bpmn:startEvent id=\"Event_Candidate_receive_Outcome\" name=\"Outcome\"><bpmn:outgoing>Flow_14</bpmn:outgoing><bpmn:messageEventDefinition /></bpmn:startEvent><bpmn:parallelGateway id=\"Parallel_parallel_HR_Check_References_HR_Inspect_Dossier\"><bpmn:incoming>Flow_1</bpmn:incoming><bpmn:outgoing>Flow_5</bpmn:outgoing><bpmn:outgoing>Flow_7</bpmn:outgoing></bpmn:parallelGateway><bpmn:parallelGateway id=\"ParallelJoin_parallel_join_HR_Check_References_HR_Inspect_Dossier\"><bpmn:incoming>Flow_6</bpmn:incoming><bpmn:incoming>Flow_8</bpmn:incoming><bpmn:outgoing>Flow_3</bpmn:outgoing></bpmn:parallelGateway><bpmn:startEvent id=\"StartEvent_implicit_Task_Candidate_Application\"><bpmn:outgoing>Flow_9</bpmn:outgoing></bpmn:startEvent><bpmn:startEvent id=\"StartEvent_implicit_Event_HR_receive_Application\"><bpmn:outgoing>Flow_10</bpmn:outgoing></bpmn:startEvent><bpmn:endEvent id=\"EndEvent_implicit_Task_Candidate_Application\"><bpmn:incoming>Flow_11</bpmn:incoming></bpmn:endEvent><bpmn:endEvent id=\"EndEvent_implicit_Task_Send_Reminder\"><bpmn:incoming>Flow_12</bpmn:incoming></bpmn:endEvent><bpmn:endEvent id=\"EndEvent_implicit_Task_HR_Outcome\"><bpmn:incoming>Flow_13</bpmn:incoming></bpmn:endEvent><bpmn:endEvent id=\"EndEvent_implicit_Event_Candidate_receive_Outcome\"><bpmn:incoming>Flow_14</bpmn:incoming></bpmn:endEvent><bpmn:sequenceFlow id=\"Flow_1\" sourceRef=\"Event_HR_receive_Application\" targetRef=\"Parallel_parallel_HR_Check_References_HR_Inspect_Dossier\" /><bpmn:sequenceFlow id=\"Flow_2\" sourceRef=\"Boundary_HR_Check_References_deadline_5_days\" targetRef=\"Task_Send_Reminder\" /><bpmn:sequenceFlow id=\"Flow_3\" sourceRef=\"ParallelJoin_parallel_join_HR_Check_References_HR_Inspect_Dossier\" targetRef=\"Task_Hiring_Manager_Decide_Outcome\" /><bpmn:sequenceFlow id=\"Flow_4\" sourceRef=\"Task_Hiring_Manager_Decide_Outcome\" targetRef=\"Task_HR_Outcome\" /><bpmn:sequenceFlow id=\"Flow_5\" sourceRef=\"Parallel_parallel_HR_Check_References_HR_Inspect_Dossier\" targetRef=\"Task_HR_Inspect_Dossier\" /><bpmn:sequenceFlow id=\"Flow_6\" sourceRef=\"Task_HR_Inspect_Dossier\" targetRef=\"ParallelJoin_parallel_join_HR_Check_References_HR_Inspect_Dossier\" /><bpmn:sequenceFlow id=\"Flow_7\" sourceRef=\"Parallel_parallel_HR_Check_References_HR_Inspect_Dossier\" targetRef=\"Task_HR_Check_References\" /><bpmn:sequenceFlow id=\"Flow_8\" sourceRef=\"Task_HR_Check_References\" targetRef=\"ParallelJoin_parallel_join_HR_Check_References_HR_Inspect_Dossier\" /><bpmn:sequenceFlow id=\"Flow_9\" sourceRef=\"StartEvent_implicit_Task_Candidate_Application\" targetRef=\"Task_Candidate_Application\" /><bpmn:sequenceFlow id=\"Flow_10\" sourceRef=\"StartEvent_implicit_Event_HR_receive_Application\" targetRef=\"Event_HR_receive_Application\" /><bpmn:sequenceFlow id=\"Flow_11\" sourceRef=\"Task_Candidate_Application\" targetRef=\"EndEvent_implicit_Task_Candidate_Application\" /><bpmn:sequenceFlow id=\"Flow_12\" sourceRef=\"Task_Send_Reminder\" targetRef=\"EndEvent_implicit_Task_Send_Reminder\" /><bpmn:sequenceFlow id=\"Flow_13\" sourceRef=\"Task_HR_Outcome\" targetRef=\"EndEvent_implicit_Task_HR_Outcome\" /><bpmn:sequenceFlow id=\"Flow_14\" sourceRef=\"Event_Candidate_receive_Outcome\" targetRef=\"EndEvent_implicit_Event_Candidate_receive_Outcome\" /></bpmn:process><bpmndi:BPMNDiagram id=\"BPMNDiagram_Collaboration_1\"><bpmndi:BPMNPlane id=\"BPMNPlane_Collaboration_1\" bpmnElement=\"Collaboration_1\"><bpmndi:BPMNShape id=\"Participant_Candidate_di\" bpmnElement=\"Participant_Candidate\" isHorizontal=\"true\"><dc:Bounds x=\"-3\" y=\"0\" width=\"1176\" height=\"1204\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Lane_Candidate_di\" bpmnElement=\"Lane_Candidate\" isHorizontal=\"true\"><dc:Bounds x=\"27\" y=\"20\" width=\"1146\" height=\"694\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Lane_HR_di\" bpmnElement=\"Lane_HR\" isHorizontal=\"true\"><dc:Bounds x=\"27\" y=\"714\" width=\"1146\" height=\"314\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Lane_Hiring_Manager_di\" bpmnElement=\"Lane_Hiring_Manager\" isHorizontal=\"true\"><dc:Bounds x=\"27\" y=\"1028\" width=\"1146\" height=\"156\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Event_Candidate_receive_Outcome_di\" bpmnElement=\"Event_Candidate_receive_Outcome\"><dc:Bounds x=\"57\" y=\"58\" width=\"36\" height=\"36\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"EndEvent_implicit_Event_Candidate_receive_Outcome_di\" bpmnElement=\"EndEvent_implicit_Event_Candidate_receive_Outcome\"><dc:Bounds x=\"207\" y=\"58\" width=\"36\" height=\"36\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"StartEvent_implicit_Task_Candidate_Application_di\" bpmnElement=\"StartEvent_implicit_Task_Candidate_Application\"><dc:Bounds x=\"57\" y=\"198\" width=\"36\" height=\"36\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Task_Candidate_Application_di\" bpmnElement=\"Task_Candidate_Application\"><dc:Bounds x=\"175\" y=\"176\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"EndEvent_implicit_Task_Candidate_Application_di\" bpmnElement=\"EndEvent_implicit_Task_Candidate_Application\"><dc:Bounds x=\"357\" y=\"198\" width=\"36\" height=\"36\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"StartEvent_implicit_Event_HR_receive_Application_di\" bpmnElement=\"StartEvent_implicit_Event_HR_receive_Application\"><dc:Bounds x=\"57\" y=\"774\" width=\"36\" height=\"36\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Event_HR_receive_Application_di\" bpmnElement=\"Event_HR_receive_Application\"><dc:Bounds x=\"207\" y=\"774\" width=\"36\" height=\"36\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Parallel_parallel_HR_Check_References_HR_Inspect_Dossier_di\" bpmnElement=\"Parallel_parallel_HR_Check_References_HR_Inspect_Dossier\"><dc:Bounds x=\"350\" y=\"767\" width=\"50\" height=\"50\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Task_HR_Inspect_Dossier_di\" bpmnElement=\"Task_HR_Inspect_Dossier\"><dc:Bounds x=\"475\" y=\"752\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"ParallelJoin_parallel_join_HR_Check_References_HR_Inspect_Dossier_di\" bpmnElement=\"ParallelJoin_parallel_join_HR_Check_References_HR_Inspect_Dossier\"><dc:Bounds x=\"650\" y=\"767\" width=\"50\" height=\"50\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Task_Hiring_Manager_Decide_Outcome_di\" bpmnElement=\"Task_Hiring_Manager_Decide_Outcome\"><dc:Bounds x=\"775\" y=\"1066\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Task_HR_Outcome_di\" bpmnElement=\"Task_HR_Outcome\"><dc:Bounds x=\"925\" y=\"752\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"EndEvent_implicit_Task_HR_Outcome_di\" bpmnElement=\"EndEvent_implicit_Task_HR_Outcome\"><dc:Bounds x=\"1107\" y=\"774\" width=\"36\" height=\"36\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Task_HR_Check_References_di\" bpmnElement=\"Task_HR_Check_References\"><dc:Bounds x=\"475\" y=\"892\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Boundary_HR_Check_References_deadline_5_days_di\" bpmnElement=\"Boundary_HR_Check_References_deadline_5_days\"><dc:Bounds x=\"507\" y=\"954\" width=\"36\" height=\"36\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"Task_Send_Reminder_di\" bpmnElement=\"Task_Send_Reminder\"><dc:Bounds x=\"625\" y=\"596\" width=\"100\" height=\"80\" /></bpmndi:BPMNShape><bpmndi:BPMNShape id=\"EndEvent_implicit_Task_Send_Reminder_di\" bpmnElement=\"EndEvent_implicit_Task_Send_Reminder\"><dc:Bounds x=\"807\" y=\"618\" width=\"36\" height=\"36\" /></bpmndi:BPMNShape><bpmndi:BPMNEdge id=\"Flow_14_di\" bpmnElement=\"Flow_14\"><di:waypoint x=\"93\" y=\"76\" /><di:waypoint x=\"207\" y=\"76\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"Flow_9_di\" bpmnElement=\"Flow_9\"><di:waypoint x=\"93\" y=\"216\" /><di:waypoint x=\"175\" y=\"216\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"Flow_11_di\" bpmnElement=\"Flow_11\"><di:waypoint x=\"275\" y=\"216\" /><di:waypoint x=\"357\" y=\"216\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"Flow_10_di\" bpmnElement=\"Flow_10\"><di:waypoint x=\"93\" y=\"792\" /><di:waypoint x=\"207\" y=\"792\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"Flow_1_di\" bpmnElement=\"Flow_1\"><di:waypoint x=\"243\" y=\"792\" /><di:waypoint x=\"350\" y=\"792\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"Flow_5_di\" bpmnElement=\"Flow_5\"><di:waypoint x=\"400\" y=\"792\" /><di:waypoint x=\"475\" y=\"792\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"Flow_7_di\" bpmnElement=\"Flow_7\"><di:waypoint x=\"375\" y=\"817\" /><di:waypoint x=\"375\" y=\"932\" /><di:waypoint x=\"475\" y=\"932\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"Flow_6_di\" bpmnElement=\"Flow_6\"><di:waypoint x=\"575\" y=\"792\" /><di:waypoint x=\"650\" y=\"792\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"Flow_3_di\" bpmnElement=\"Flow_3\"><di:waypoint x=\"700\" y=\"792\" /><di:waypoint x=\"740\" y=\"792\" /><di:waypoint x=\"740\" y=\"1106\" /><di:waypoint x=\"775\" y=\"1106\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"Flow_4_di\" bpmnElement=\"Flow_4\"><di:waypoint x=\"875\" y=\"1106\" /><di:waypoint x=\"975\" y=\"1106\" /><di:waypoint x=\"975\" y=\"832\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"Flow_13_di\" bpmnElement=\"Flow_13\"><di:waypoint x=\"1025\" y=\"792\" /><di:waypoint x=\"1107\" y=\"792\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"Flow_8_di\" bpmnElement=\"Flow_8\"><di:waypoint x=\"575\" y=\"932\" /><di:waypoint x=\"675\" y=\"932\" /><di:waypoint x=\"675\" y=\"817\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"Flow_2_di\" bpmnElement=\"Flow_2\"><di:waypoint x=\"543\" y=\"972\" /><di:waypoint x=\"580\" y=\"972\" /><di:waypoint x=\"580\" y=\"636\" /><di:waypoint x=\"625\" y=\"636\" /></bpmndi:BPMNEdge><bpmndi:BPMNEdge id=\"Flow_12_di\" bpmnElement=\"Flow_12\"><di:waypoint x=\"725\" y=\"636\" /><di:waypoint x=\"807\" y=\"636\" /></bpmndi:BPMNEdge></bpmndi:BPMNPlane></bpmndi:BPMNDiagram></bpmn:definitions>"
+}

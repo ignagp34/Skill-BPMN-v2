@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_SYN010" targetNamespace="http://example.com/bpmn/SYN010">
+  <bpmn:collaboration id="Collaboration_SYN010">
+    <bpmn:participant id="Participant_Buyer" name="Buyer" processRef="Process_Buyer"/>
+    <bpmn:participant id="Participant_Supplier" name="Supplier" processRef="Process_Supplier"/>
+    <bpmn:messageFlow id="MessageFlow_PurchaseOrder" name="Purchase order" sourceRef="Task_SendPurchaseOrder" targetRef="Task_ReceiveOrder"/>
+    <bpmn:messageFlow id="MessageFlow_OrderConfirmation" name="Order confirmation" sourceRef="Task_SendOrderConfirmation" targetRef="Task_ReceiveOrderConfirmation"/>
+    <bpmn:messageFlow id="MessageFlow_RevisedOffer" name="Revised offer" sourceRef="Task_SendRevisedOffer" targetRef="Task_ReceiveRevisedOffer"/>
+    <bpmn:messageFlow id="MessageFlow_Acceptance" name="Acceptance" sourceRef="Task_SendAcceptance" targetRef="Task_ReceiveBuyerResponse"/>
+    <bpmn:messageFlow id="MessageFlow_Rejection" name="Rejection" sourceRef="Task_SendRejection" targetRef="Task_ReceiveBuyerResponse"/>
+    <bpmn:messageFlow id="MessageFlow_FinalConfirmation" name="Final confirmation" sourceRef="Task_SendFinalConfirmation" targetRef="Task_ReceiveFinalConfirmation"/>
+  </bpmn:collaboration>
+  <bpmn:process id="Process_Buyer" name="Buyer purchase confirmation" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_Buyer">
+      <bpmn:lane id="Lane_Buyer" name="Buyer">
+        <bpmn:flowNodeRef>StartEvent_Buyer</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendPurchaseOrder</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_SupplierResponse</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReceiveOrderConfirmation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReceiveRevisedOffer</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReviewRevisedOffer</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_AcceptRevisedOffer</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendAcceptance</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReceiveFinalConfirmation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendRejection</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_OrderAccepted</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_OrderConfirmed</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_OrderRejected</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_Buyer" name="Purchase required">
+      <bpmn:outgoing>Flow_B1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sendTask id="Task_SendPurchaseOrder" name="Send purchase order">
+      <bpmn:incoming>Flow_B1</bpmn:incoming>
+      <bpmn:outgoing>Flow_B2</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:exclusiveGateway id="Gateway_SupplierResponse" name="Supplier response received?" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_B2</bpmn:incoming>
+      <bpmn:outgoing>Flow_B3</bpmn:outgoing>
+      <bpmn:outgoing>Flow_B4</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:receiveTask id="Task_ReceiveOrderConfirmation" name="Receive order confirmation">
+      <bpmn:incoming>Flow_B3</bpmn:incoming>
+      <bpmn:outgoing>Flow_B5</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:endEvent id="EndEvent_OrderAccepted" name="Order accepted">
+      <bpmn:incoming>Flow_B5</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:receiveTask id="Task_ReceiveRevisedOffer" name="Receive revised offer">
+      <bpmn:incoming>Flow_B4</bpmn:incoming>
+      <bpmn:outgoing>Flow_B6</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:userTask id="Task_ReviewRevisedOffer" name="Review revised offer">
+      <bpmn:incoming>Flow_B6</bpmn:incoming>
+      <bpmn:outgoing>Flow_B7</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_AcceptRevisedOffer" name="Accept revised offer?" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_B7</bpmn:incoming>
+      <bpmn:outgoing>Flow_B8</bpmn:outgoing>
+      <bpmn:outgoing>Flow_B9</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sendTask id="Task_SendAcceptance" name="Send acceptance">
+      <bpmn:incoming>Flow_B8</bpmn:incoming>
+      <bpmn:outgoing>Flow_B10</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:receiveTask id="Task_ReceiveFinalConfirmation" name="Receive final confirmation">
+      <bpmn:incoming>Flow_B10</bpmn:incoming>
+      <bpmn:outgoing>Flow_B11</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:endEvent id="EndEvent_OrderConfirmed" name="Order confirmed">
+      <bpmn:incoming>Flow_B11</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sendTask id="Task_SendRejection" name="Send rejection">
+      <bpmn:incoming>Flow_B9</bpmn:incoming>
+      <bpmn:outgoing>Flow_B12</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:endEvent id="EndEvent_OrderRejected" name="Order rejected">
+      <bpmn:incoming>Flow_B12</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_B1" sourceRef="StartEvent_Buyer" targetRef="Task_SendPurchaseOrder"/>
+    <bpmn:sequenceFlow id="Flow_B2" sourceRef="Task_SendPurchaseOrder" targetRef="Gateway_SupplierResponse"/>
+    <bpmn:sequenceFlow id="Flow_B3" name="Confirmation" sourceRef="Gateway_SupplierResponse" targetRef="Task_ReceiveOrderConfirmation"/>
+    <bpmn:sequenceFlow id="Flow_B4" name="Revised offer" sourceRef="Gateway_SupplierResponse" targetRef="Task_ReceiveRevisedOffer"/>
+    <bpmn:sequenceFlow id="Flow_B5" sourceRef="Task_ReceiveOrderConfirmation" targetRef="EndEvent_OrderAccepted"/>
+    <bpmn:sequenceFlow id="Flow_B6" sourceRef="Task_ReceiveRevisedOffer" targetRef="Task_ReviewRevisedOffer"/>
+    <bpmn:sequenceFlow id="Flow_B7" sourceRef="Task_ReviewRevisedOffer" targetRef="Gateway_AcceptRevisedOffer"/>
+    <bpmn:sequenceFlow id="Flow_B8" name="Yes" sourceRef="Gateway_AcceptRevisedOffer" targetRef="Task_SendAcceptance"/>
+    <bpmn:sequenceFlow id="Flow_B9" name="No" sourceRef="Gateway_AcceptRevisedOffer" targetRef="Task_SendRejection"/>
+    <bpmn:sequenceFlow id="Flow_B10" sourceRef="Task_SendAcceptance" targetRef="Task_ReceiveFinalConfirmation"/>
+    <bpmn:sequenceFlow id="Flow_B11" sourceRef="Task_ReceiveFinalConfirmation" targetRef="EndEvent_OrderConfirmed"/>
+    <bpmn:sequenceFlow id="Flow_B12" sourceRef="Task_SendRejection" targetRef="EndEvent_OrderRejected"/>
+  </bpmn:process>
+  <bpmn:process id="Process_Supplier" name="Supplier order handling" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_Supplier">
+      <bpmn:lane id="Lane_Supplier" name="Supplier">
+        <bpmn:flowNodeRef>StartEvent_Supplier</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReceiveOrder</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_CheckStock</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_AllItemsAvailable</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendOrderConfirmation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendRevisedOffer</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReceiveBuyerResponse</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_BuyerAccepted</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendFinalConfirmation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_CloseOrderRequest</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_SupplierConfirmed</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_SupplierFinalConfirmed</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_SupplierRejected</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_Supplier" name="Order handling started">
+      <bpmn:outgoing>Flow_S1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:receiveTask id="Task_ReceiveOrder" name="Receive purchase order">
+      <bpmn:incoming>Flow_S1</bpmn:incoming>
+      <bpmn:outgoing>Flow_S2</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:serviceTask id="Task_CheckStock" name="Check stock availability">
+      <bpmn:incoming>Flow_S2</bpmn:incoming>
+      <bpmn:outgoing>Flow_S3</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="Gateway_AllItemsAvailable" name="All requested items available?" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_S3</bpmn:incoming>
+      <bpmn:outgoing>Flow_S4</bpmn:outgoing>
+      <bpmn:outgoing>Flow_S5</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sendTask id="Task_SendOrderConfirmation" name="Send order confirmation">
+      <bpmn:incoming>Flow_S4</bpmn:incoming>
+      <bpmn:outgoing>Flow_S6</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:endEvent id="EndEvent_SupplierConfirmed" name="Order confirmed">
+      <bpmn:incoming>Flow_S6</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sendTask id="Task_SendRevisedOffer" name="Send revised offer">
+      <bpmn:incoming>Flow_S5</bpmn:incoming>
+      <bpmn:outgoing>Flow_S7</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:receiveTask id="Task_ReceiveBuyerResponse" name="Receive buyer response">
+      <bpmn:incoming>Flow_S7</bpmn:incoming>
+      <bpmn:outgoing>Flow_S8</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:exclusiveGateway id="Gateway_BuyerAccepted" name="Buyer accepted?" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_S8</bpmn:incoming>
+      <bpmn:outgoing>Flow_S9</bpmn:outgoing>
+      <bpmn:outgoing>Flow_S10</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sendTask id="Task_SendFinalConfirmation" name="Send final confirmation">
+      <bpmn:incoming>Flow_S9</bpmn:incoming>
+      <bpmn:outgoing>Flow_S11</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:endEvent id="EndEvent_SupplierFinalConfirmed" name="Order confirmed">
+      <bpmn:incoming>Flow_S11</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:task id="Task_CloseOrderRequest" name="Close order request">
+      <bpmn:incoming>Flow_S10</bpmn:incoming>
+      <bpmn:outgoing>Flow_S12</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="EndEvent_SupplierRejected" name="Order rejected">
+      <bpmn:incoming>Flow_S12</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_S1" sourceRef="StartEvent_Supplier" targetRef="Task_ReceiveOrder"/>
+    <bpmn:sequenceFlow id="Flow_S2" sourceRef="Task_ReceiveOrder" targetRef="Task_CheckStock"/>
+    <bpmn:sequenceFlow id="Flow_S3" sourceRef="Task_CheckStock" targetRef="Gateway_AllItemsAvailable"/>
+    <bpmn:sequenceFlow id="Flow_S4" name="Yes" sourceRef="Gateway_AllItemsAvailable" targetRef="Task_SendOrderConfirmation"/>
+    <bpmn:sequenceFlow id="Flow_S5" name="No" sourceRef="Gateway_AllItemsAvailable" targetRef="Task_SendRevisedOffer"/>
+    <bpmn:sequenceFlow id="Flow_S6" sourceRef="Task_SendOrderConfirmation" targetRef="EndEvent_SupplierConfirmed"/>
+    <bpmn:sequenceFlow id="Flow_S7" sourceRef="Task_SendRevisedOffer" targetRef="Task_ReceiveBuyerResponse"/>
+    <bpmn:sequenceFlow id="Flow_S8" sourceRef="Task_ReceiveBuyerResponse" targetRef="Gateway_BuyerAccepted"/>
+    <bpmn:sequenceFlow id="Flow_S9" name="Accepted" sourceRef="Gateway_BuyerAccepted" targetRef="Task_SendFinalConfirmation"/>
+    <bpmn:sequenceFlow id="Flow_S10" name="Rejected" sourceRef="Gateway_BuyerAccepted" targetRef="Task_CloseOrderRequest"/>
+    <bpmn:sequenceFlow id="Flow_S11" sourceRef="Task_SendFinalConfirmation" targetRef="EndEvent_SupplierFinalConfirmed"/>
+    <bpmn:sequenceFlow id="Flow_S12" sourceRef="Task_CloseOrderRequest" targetRef="EndEvent_SupplierRejected"/>
+  </bpmn:process>
+</bpmn:definitions>

@@ -1,0 +1,39 @@
+(receive Grant application received)
+[Application Form]
+[Supporting Budget File]
+Grant Officer: user Register application
+[db Grants Database]
+Grant Officer: user Check application form
+[Supporting Budget File]
+Grant Officer: user Review budget file
+[Eligibility Rules]
+Grant Officer: user Consult eligibility rules
+Is information missing?
+Yes
+Grant Officer: user Record missing information
+Grant Officer: send Request completion
+(finish Completion requested)
+
+(receive Grant application received)
+[Application Form]
+[Supporting Budget File]
+Grant Officer: user Register application
+[db Grants Database]
+Grant Officer: user Check application form
+[Supporting Budget File]
+Grant Officer: user Review budget file
+[Eligibility Rules]
+Grant Officer: user Consult eligibility rules
+Is information missing?
+No
+//Incomplete applications must not be assessed for merit
+Grant Officer: user Write evaluation report
+[Evaluation Report]
+Grant Officer: user Store evaluation report
+[db Case Repository]
+Grant Officer: user Issue recommendation for decision
+[Recommendation]
+(finish Recommendation issued)
+
+== pools ==
+Public Administration Agency -> Grant Officer

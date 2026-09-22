@@ -1,0 +1,35 @@
+(start Application and budget received)
+[Application Form]
+[Budget File]
+Officer: Register application
+[db Grants Database]
+Check application form
+Review budget file
+//Incomplete applications must not be assessed for merit
+Consult eligibility rules
+Is application complete?
+No
+Record issue
+send Request for completion
+(finish Request for completion sent)
+
+(start Application and budget received)
+[Application Form]
+[Budget File]
+Officer: Register application
+[db Grants Database]
+Check application form
+Review budget file
+//Incomplete applications must not be assessed for merit
+Consult eligibility rules
+Is application complete?
+Yes
+Write evaluation report
+[Evaluation Report]
+Store report
+[db Case Repository]
+Issue recommendation
+(finish Recommendation issued)
+
+== pools ==
+Public Administration Agency -> Officer

@@ -1,0 +1,5 @@
+HR: receive Signed Contract
+Record Start Date
+Create Employee Profile|Prepare Laptop|Assign Mandatory Training
+Send Welcome Package
+Mark Onboarding Setup Complete

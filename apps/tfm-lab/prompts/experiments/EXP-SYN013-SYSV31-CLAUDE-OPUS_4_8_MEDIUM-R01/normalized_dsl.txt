@@ -1,0 +1,18 @@
+Assign Ticket to Support Agent
+Investigate Issue
+Work on Resolution
+Document the Fix
+Inform User
+Close Ticket
+
+Assign Ticket to Support Agent
+Investigate Issue
+Work on Resolution
+(timer SLA Deadline Reached)
+(escalate Escalate to Team Lead)
+Review Ticket
+Assign Additional Support
+Continue Work Until Resolved
+Document the Fix
+Inform User
+Close Ticket

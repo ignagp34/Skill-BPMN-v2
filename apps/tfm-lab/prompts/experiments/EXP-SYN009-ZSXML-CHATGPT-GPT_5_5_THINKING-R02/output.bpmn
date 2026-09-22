@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_SYN009" targetNamespace="http://example.com/bpmn/SYN009">
+  <bpmn:collaboration id="Collaboration_SYN009" name="Applicant and HR Interview Scheduling">
+    <bpmn:participant id="Participant_HR" name="HR Recruiter" processRef="Process_HR"/>
+    <bpmn:participant id="Participant_Applicant" name="Applicant" processRef="Process_Applicant"/>
+    <bpmn:messageFlow id="MessageFlow_Invitation" name="Invitation with proposed times" sourceRef="Task_SendInvitation" targetRef="Task_ReceiveInvitation"/>
+    <bpmn:messageFlow id="MessageFlow_SelectedTime" name="Selected interview time" sourceRef="Task_SendSelectedTime" targetRef="Task_ReceiveSelectedTime"/>
+    <bpmn:messageFlow id="MessageFlow_AlternativeRequest" name="Request for alternative times" sourceRef="Task_RequestAlternativeTimes" targetRef="Task_ReceiveAlternativeRequest"/>
+    <bpmn:messageFlow id="MessageFlow_NewTimes" name="New set of interview times" sourceRef="Task_SendNewTimes" targetRef="Task_ReceiveNewTimes"/>
+    <bpmn:messageFlow id="MessageFlow_AlternativeSelection" name="Selected alternative time" sourceRef="Task_SendAlternativeSelection" targetRef="Task_ReceiveAlternativeSelection"/>
+    <bpmn:messageFlow id="MessageFlow_Confirmation_Accepted" name="Interview confirmation" sourceRef="Task_ConfirmInterview_Accepted" targetRef="Task_ReceiveConfirmation_Accepted"/>
+    <bpmn:messageFlow id="MessageFlow_Confirmation_Alternative" name="Interview confirmation" sourceRef="Task_ConfirmInterview_Alternative" targetRef="Task_ReceiveConfirmation_Alternative"/>
+  </bpmn:collaboration>
+  <bpmn:process id="Process_HR" name="HR Interview Scheduling" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_HR">
+      <bpmn:lane id="Lane_Recruiter" name="Recruiter">
+        <bpmn:flowNodeRef>StartEvent_HR</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReviewApplication</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendInvitation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_HR_Response</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReceiveSelectedTime</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReceiveAlternativeRequest</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendNewTimes</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReceiveAlternativeSelection</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ConfirmInterview_Accepted</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ConfirmInterview_Alternative</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_HR_Accepted</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_HR_Alternative</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_HR" name="Application received">
+      <bpmn:outgoing>Flow_HR_1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="Task_ReviewApplication" name="Review application">
+      <bpmn:incoming>Flow_HR_1</bpmn:incoming>
+      <bpmn:outgoing>Flow_HR_2</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sendTask id="Task_SendInvitation" name="Send invitation with proposed times">
+      <bpmn:incoming>Flow_HR_2</bpmn:incoming>
+      <bpmn:outgoing>Flow_HR_3</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:eventBasedGateway id="Gateway_HR_Response" name="Await applicant response">
+      <bpmn:incoming>Flow_HR_3</bpmn:incoming>
+      <bpmn:outgoing>Flow_HR_4</bpmn:outgoing>
+      <bpmn:outgoing>Flow_HR_5</bpmn:outgoing>
+    </bpmn:eventBasedGateway>
+    <bpmn:receiveTask id="Task_ReceiveSelectedTime" name="Receive selected time">
+      <bpmn:incoming>Flow_HR_4</bpmn:incoming>
+      <bpmn:outgoing>Flow_HR_6</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:receiveTask id="Task_ReceiveAlternativeRequest" name="Receive request for alternative times">
+      <bpmn:incoming>Flow_HR_5</bpmn:incoming>
+      <bpmn:outgoing>Flow_HR_7</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:sendTask id="Task_SendNewTimes" name="Send new set of times">
+      <bpmn:incoming>Flow_HR_7</bpmn:incoming>
+      <bpmn:outgoing>Flow_HR_8</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:receiveTask id="Task_ReceiveAlternativeSelection" name="Receive selected alternative time">
+      <bpmn:incoming>Flow_HR_8</bpmn:incoming>
+      <bpmn:outgoing>Flow_HR_9</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:sendTask id="Task_ConfirmInterview_Accepted" name="Confirm interview">
+      <bpmn:incoming>Flow_HR_6</bpmn:incoming>
+      <bpmn:outgoing>Flow_HR_10</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:sendTask id="Task_ConfirmInterview_Alternative" name="Confirm interview">
+      <bpmn:incoming>Flow_HR_9</bpmn:incoming>
+      <bpmn:outgoing>Flow_HR_11</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:endEvent id="EndEvent_HR_Accepted" name="Interview time confirmed">
+      <bpmn:incoming>Flow_HR_10</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:endEvent id="EndEvent_HR_Alternative" name="Interview time confirmed">
+      <bpmn:incoming>Flow_HR_11</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_HR_1" sourceRef="StartEvent_HR" targetRef="Task_ReviewApplication"/>
+    <bpmn:sequenceFlow id="Flow_HR_2" sourceRef="Task_ReviewApplication" targetRef="Task_SendInvitation"/>
+    <bpmn:sequenceFlow id="Flow_HR_3" sourceRef="Task_SendInvitation" targetRef="Gateway_HR_Response"/>
+    <bpmn:sequenceFlow id="Flow_HR_4" sourceRef="Gateway_HR_Response" targetRef="Task_ReceiveSelectedTime"/>
+    <bpmn:sequenceFlow id="Flow_HR_5" sourceRef="Gateway_HR_Response" targetRef="Task_ReceiveAlternativeRequest"/>
+    <bpmn:sequenceFlow id="Flow_HR_6" sourceRef="Task_ReceiveSelectedTime" targetRef="Task_ConfirmInterview_Accepted"/>
+    <bpmn:sequenceFlow id="Flow_HR_7" sourceRef="Task_ReceiveAlternativeRequest" targetRef="Task_SendNewTimes"/>
+    <bpmn:sequenceFlow id="Flow_HR_8" sourceRef="Task_SendNewTimes" targetRef="Task_ReceiveAlternativeSelection"/>
+    <bpmn:sequenceFlow id="Flow_HR_9" sourceRef="Task_ReceiveAlternativeSelection" targetRef="Task_ConfirmInterview_Alternative"/>
+    <bpmn:sequenceFlow id="Flow_HR_10" sourceRef="Task_ConfirmInterview_Accepted" targetRef="EndEvent_HR_Accepted"/>
+    <bpmn:sequenceFlow id="Flow_HR_11" sourceRef="Task_ConfirmInterview_Alternative" targetRef="EndEvent_HR_Alternative"/>
+  </bpmn:process>
+  <bpmn:process id="Process_Applicant" name="Applicant Interview Scheduling" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_Applicant">
+      <bpmn:lane id="Lane_Applicant" name="Applicant">
+        <bpmn:flowNodeRef>StartEvent_Applicant</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReceiveInvitation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_TimeAcceptable</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SelectProposedTime</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendSelectedTime</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_RequestAlternativeTimes</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReceiveNewTimes</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SelectAlternativeTime</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendAlternativeSelection</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReceiveConfirmation_Accepted</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReceiveConfirmation_Alternative</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_Applicant_Accepted</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_Applicant_Alternative</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_Applicant" name="Scheduling begins">
+      <bpmn:outgoing>Flow_Applicant_1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:receiveTask id="Task_ReceiveInvitation" name="Receive invitation with proposed times">
+      <bpmn:incoming>Flow_Applicant_1</bpmn:incoming>
+      <bpmn:outgoing>Flow_Applicant_2</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:exclusiveGateway id="Gateway_TimeAcceptable" name="Is a proposed time acceptable?" default="Flow_Applicant_5">
+      <bpmn:incoming>Flow_Applicant_2</bpmn:incoming>
+      <bpmn:outgoing>Flow_Applicant_3</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Applicant_5</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Task_SelectProposedTime" name="Select proposed time">
+      <bpmn:incoming>Flow_Applicant_3</bpmn:incoming>
+      <bpmn:outgoing>Flow_Applicant_4</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sendTask id="Task_SendSelectedTime" name="Send selected time to HR">
+      <bpmn:incoming>Flow_Applicant_4</bpmn:incoming>
+      <bpmn:outgoing>Flow_Applicant_6</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:sendTask id="Task_RequestAlternativeTimes" name="Request alternative times">
+      <bpmn:incoming>Flow_Applicant_5</bpmn:incoming>
+      <bpmn:outgoing>Flow_Applicant_7</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:receiveTask id="Task_ReceiveNewTimes" name="Receive new set of times">
+      <bpmn:incoming>Flow_Applicant_7</bpmn:incoming>
+      <bpmn:outgoing>Flow_Applicant_8</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:userTask id="Task_SelectAlternativeTime" name="Select alternative time">
+      <bpmn:incoming>Flow_Applicant_8</bpmn:incoming>
+      <bpmn:outgoing>Flow_Applicant_9</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sendTask id="Task_SendAlternativeSelection" name="Send selected alternative time to HR">
+      <bpmn:incoming>Flow_Applicant_9</bpmn:incoming>
+      <bpmn:outgoing>Flow_Applicant_10</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:receiveTask id="Task_ReceiveConfirmation_Accepted" name="Receive interview confirmation">
+      <bpmn:incoming>Flow_Applicant_6</bpmn:incoming>
+      <bpmn:outgoing>Flow_Applicant_11</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:receiveTask id="Task_ReceiveConfirmation_Alternative" name="Receive interview confirmation">
+      <bpmn:incoming>Flow_Applicant_10</bpmn:incoming>
+      <bpmn:outgoing>Flow_Applicant_12</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:endEvent id="EndEvent_Applicant_Accepted" name="Interview time confirmed">
+      <bpmn:incoming>Flow_Applicant_11</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:endEvent id="EndEvent_Applicant_Alternative" name="Interview time confirmed">
+      <bpmn:incoming>Flow_Applicant_12</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Applicant_1" sourceRef="StartEvent_Applicant" targetRef="Task_ReceiveInvitation"/>
+    <bpmn:sequenceFlow id="Flow_Applicant_2" sourceRef="Task_ReceiveInvitation" targetRef="Gateway_TimeAcceptable"/>
+    <bpmn:sequenceFlow id="Flow_Applicant_3" name="Yes" sourceRef="Gateway_TimeAcceptable" targetRef="Task_SelectProposedTime">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[acceptable]]></bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_Applicant_4" sourceRef="Task_SelectProposedTime" targetRef="Task_SendSelectedTime"/>
+    <bpmn:sequenceFlow id="Flow_Applicant_5" name="No" sourceRef="Gateway_TimeAcceptable" targetRef="Task_RequestAlternativeTimes"/>
+    <bpmn:sequenceFlow id="Flow_Applicant_6" sourceRef="Task_SendSelectedTime" targetRef="Task_ReceiveConfirmation_Accepted"/>
+    <bpmn:sequenceFlow id="Flow_Applicant_7" sourceRef="Task_RequestAlternativeTimes" targetRef="Task_ReceiveNewTimes"/>
+    <bpmn:sequenceFlow id="Flow_Applicant_8" sourceRef="Task_ReceiveNewTimes" targetRef="Task_SelectAlternativeTime"/>
+    <bpmn:sequenceFlow id="Flow_Applicant_9" sourceRef="Task_SelectAlternativeTime" targetRef="Task_SendAlternativeSelection"/>
+    <bpmn:sequenceFlow id="Flow_Applicant_10" sourceRef="Task_SendAlternativeSelection" targetRef="Task_ReceiveConfirmation_Alternative"/>
+    <bpmn:sequenceFlow id="Flow_Applicant_11" sourceRef="Task_ReceiveConfirmation_Accepted" targetRef="EndEvent_Applicant_Accepted"/>
+    <bpmn:sequenceFlow id="Flow_Applicant_12" sourceRef="Task_ReceiveConfirmation_Alternative" targetRef="EndEvent_Applicant_Alternative"/>
+  </bpmn:process>
+</bpmn:definitions>

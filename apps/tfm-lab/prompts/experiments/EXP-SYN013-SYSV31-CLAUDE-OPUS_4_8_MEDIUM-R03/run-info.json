@@ -1,0 +1,31 @@
+{
+  "experimentId": "EXP-SYN013-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R03",
+  "processId": "SYN013",
+  "processFilename": "SYN013_support_ticket_sla_breach.md",
+  "processTitle": "Support ticket SLA breach",
+  "processSource": "synthetic",
+  "difficulty": "hard",
+  "expectedFeatures": [
+    "timer_event",
+    "escalation",
+    "exception_flow",
+    "single_pool"
+  ],
+  "systemPromptVersion": "SYSV31",
+  "provider": "CLAUDE",
+  "modelLabel": "OPUS_4_8_MEDIUM",
+  "executionSetting": "Claude Opus 4.8 (Medium reasoning, Agent SDK, fresh subagent context)",
+  "reasoningMode": "Medium",
+  "runNumber": 3,
+  "interfaceType": "agent",
+  "status": "raw_output_generated",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-06-14T11:11:35Z",
+  "notes": "",
+  "inputSystemTokens": 10916,
+  "inputProcessTokens": 266,
+  "inputTokens": 11182,
+  "outputTokens": 66,
+  "totalTokens": 11248,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

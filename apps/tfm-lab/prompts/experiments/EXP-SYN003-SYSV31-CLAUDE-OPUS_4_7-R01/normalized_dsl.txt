@@ -1,0 +1,7 @@
+(start Patient arrives)
+user Greet patient
+user Confirm appointment
+service Update arrival in system
+service Print visit label
+user Direct patient to waiting area
+(finish Check-in complete)

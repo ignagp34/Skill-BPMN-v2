@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_SYN007" targetNamespace="http://example.com/bpmn/SYN007">
+  <bpmn:collaboration id="Collaboration_SYN007">
+    <bpmn:participant id="Participant_HROperations" name="HR Operations Team" processRef="Process_SYN007"/>
+  </bpmn:collaboration>
+  <bpmn:process id="Process_SYN007" name="Employee onboarding setup" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_SYN007">
+      <bpmn:lane id="Lane_HROperations" name="HR Operations Team">
+        <bpmn:flowNodeRef>StartEvent_SignedContractReceived</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_RecordStartDate</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_ParallelFork</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_CreateEmployeeProfile</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PrepareLaptop</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_AssignMandatoryTraining</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_ParallelJoin</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendWelcomePackage</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_MarkSetupComplete</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_OnboardingSetupComplete</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_SignedContractReceived" name="Signed contract received">
+      <bpmn:outgoing>Flow_Start_RecordDate</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_RecordStartDate" name="Record start date">
+      <bpmn:incoming>Flow_Start_RecordDate</bpmn:incoming>
+      <bpmn:outgoing>Flow_RecordDate_Fork</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:parallelGateway id="Gateway_ParallelFork" name="Start onboarding preparations">
+      <bpmn:incoming>Flow_RecordDate_Fork</bpmn:incoming>
+      <bpmn:outgoing>Flow_Fork_Profile</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Fork_Laptop</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Fork_Training</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:serviceTask id="Task_CreateEmployeeProfile" name="Create employee profile in HR system">
+      <bpmn:incoming>Flow_Fork_Profile</bpmn:incoming>
+      <bpmn:outgoing>Flow_Profile_Join</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:task id="Task_PrepareLaptop" name="Prepare laptop">
+      <bpmn:incoming>Flow_Fork_Laptop</bpmn:incoming>
+      <bpmn:outgoing>Flow_Laptop_Join</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_AssignMandatoryTraining" name="Assign mandatory training">
+      <bpmn:incoming>Flow_Fork_Training</bpmn:incoming>
+      <bpmn:outgoing>Flow_Training_Join</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:parallelGateway id="Gateway_ParallelJoin" name="All preparations finished">
+      <bpmn:incoming>Flow_Profile_Join</bpmn:incoming>
+      <bpmn:incoming>Flow_Laptop_Join</bpmn:incoming>
+      <bpmn:incoming>Flow_Training_Join</bpmn:incoming>
+      <bpmn:outgoing>Flow_Join_Welcome</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:sendTask id="Task_SendWelcomePackage" name="Send welcome package to employee">
+      <bpmn:incoming>Flow_Join_Welcome</bpmn:incoming>
+      <bpmn:outgoing>Flow_Welcome_Complete</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:task id="Task_MarkSetupComplete" name="Mark onboarding setup as complete">
+      <bpmn:incoming>Flow_Welcome_Complete</bpmn:incoming>
+      <bpmn:outgoing>Flow_Complete_End</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="EndEvent_OnboardingSetupComplete" name="Onboarding setup complete">
+      <bpmn:incoming>Flow_Complete_End</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_RecordDate" sourceRef="StartEvent_SignedContractReceived" targetRef="Task_RecordStartDate"/>
+    <bpmn:sequenceFlow id="Flow_RecordDate_Fork" sourceRef="Task_RecordStartDate" targetRef="Gateway_ParallelFork"/>
+    <bpmn:sequenceFlow id="Flow_Fork_Profile" sourceRef="Gateway_ParallelFork" targetRef="Task_CreateEmployeeProfile"/>
+    <bpmn:sequenceFlow id="Flow_Fork_Laptop" sourceRef="Gateway_ParallelFork" targetRef="Task_PrepareLaptop"/>
+    <bpmn:sequenceFlow id="Flow_Fork_Training" sourceRef="Gateway_ParallelFork" targetRef="Task_AssignMandatoryTraining"/>
+    <bpmn:sequenceFlow id="Flow_Profile_Join" sourceRef="Task_CreateEmployeeProfile" targetRef="Gateway_ParallelJoin"/>
+    <bpmn:sequenceFlow id="Flow_Laptop_Join" sourceRef="Task_PrepareLaptop" targetRef="Gateway_ParallelJoin"/>
+    <bpmn:sequenceFlow id="Flow_Training_Join" sourceRef="Task_AssignMandatoryTraining" targetRef="Gateway_ParallelJoin"/>
+    <bpmn:sequenceFlow id="Flow_Join_Welcome" sourceRef="Gateway_ParallelJoin" targetRef="Task_SendWelcomePackage"/>
+    <bpmn:sequenceFlow id="Flow_Welcome_Complete" sourceRef="Task_SendWelcomePackage" targetRef="Task_MarkSetupComplete"/>
+    <bpmn:sequenceFlow id="Flow_Complete_End" sourceRef="Task_MarkSetupComplete" targetRef="EndEvent_OnboardingSetupComplete"/>
+  </bpmn:process>
+</bpmn:definitions>

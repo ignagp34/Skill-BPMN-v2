@@ -1,0 +1,54 @@
+Buyer Operations: (start Purchase required)
+Buyer Operations: (send Purchase Order)
+Buyer Operations: (receive Order Confirmation)
+Buyer Operations: user Record order as accepted
+Buyer Operations: (finish Order confirmed)
+
+Buyer Operations: (start Purchase required)
+Buyer Operations: (send Purchase Order)
+Buyer Operations: (receive Revised Offer)
+Buyer Operations: user Review revised offer
+Accept revised offer?
+Accept
+Buyer Operations: (send Revised Offer Acceptance)
+Buyer Operations: (receive Final Confirmation)
+Buyer Operations: user Record order as accepted
+Buyer Operations: (finish Order confirmed)
+
+Buyer Operations: (start Purchase required)
+Buyer Operations: (send Purchase Order)
+Buyer Operations: (receive Revised Offer)
+Buyer Operations: user Review revised offer
+Accept revised offer?
+Reject
+Buyer Operations: (send Revised Offer Rejection)
+Buyer Operations: (finish Revised offer rejected)
+
+Supplier Sales: (receive Purchase Order)
+Supplier Sales: user Check stock availability
+Are all requested items available?
+Yes
+Supplier Sales: (send Order Confirmation)
+Supplier Sales: (finish Order confirmed)
+
+Supplier Sales: (receive Purchase Order)
+Supplier Sales: user Check stock availability
+Are all requested items available?
+No
+Supplier Sales: (send Revised Offer)
+Supplier Sales: (receive Revised Offer Acceptance)
+Supplier Sales: (send Final Confirmation)
+Supplier Sales: (finish Order confirmed)
+
+Supplier Sales: (receive Purchase Order)
+Supplier Sales: user Check stock availability
+Are all requested items available?
+No
+Supplier Sales: (send Revised Offer)
+Supplier Sales: (receive Revised Offer Rejection)
+Supplier Sales: user Close order request
+Supplier Sales: (finish Order rejected)
+
+== pools ==
+Buyer -> Buyer Operations
+Supplier -> Supplier Sales

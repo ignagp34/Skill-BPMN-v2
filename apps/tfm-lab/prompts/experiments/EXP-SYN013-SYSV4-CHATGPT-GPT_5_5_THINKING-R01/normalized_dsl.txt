@@ -1,0 +1,20 @@
+(start High-priority ticket assigned)
+Support Agent: Investigate issue
+Support Agent: Work on resolution
+Support Agent: Document fix
+Support Agent: Inform user
+Support Agent: Close ticket
+(finish Ticket closed within SLA)
+
+(start High-priority ticket assigned)
+Support Agent: Investigate issue
+Support Agent: Work on resolution
+(deadline SLA deadline reached)
+(escalate SLA breach to team lead)
+Team Lead: Review ticket
+Team Lead: Assign additional support
+Support Team: Continue work on resolution
+Support Agent: Document fix
+Support Agent: Inform user
+Support Agent: Close ticket
+(finish Ticket closed after escalation)

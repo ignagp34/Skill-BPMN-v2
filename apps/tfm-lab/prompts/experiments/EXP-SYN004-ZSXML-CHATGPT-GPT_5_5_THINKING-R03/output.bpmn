@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_SYN004" targetNamespace="http://example.com/bpmn/SYN004">
+  <bpmn:collaboration id="Collaboration_SYN004">
+    <bpmn:participant id="Participant_ClaimsTeam" name="Insurance Claims Team" processRef="Process_SYN004"/>
+  </bpmn:collaboration>
+  <bpmn:process id="Process_SYN004" name="Insurance Claim Triage" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_SYN004">
+      <bpmn:lane id="Lane_ClaimsHandler" name="Claims Handler">
+        <bpmn:flowNodeRef>StartEvent_NewClaim</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_RegisterClaim</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReviewInformation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_ClaimComplete</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_RequestMissingInformation</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_CurrentReviewClosed</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_FastTrack</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_FastTrackApprove</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ForwardForAssessment</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_DetailedAssessment</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_AssessmentDecision</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_AssessmentApprove</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_RejectClaim</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_NoticeMerge</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendSettlementNotice</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendRejectionNotice</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_NotificationMerge</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_CustomerNotified</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_NewClaim" name="New home damage claim received">
+      <bpmn:outgoing>Flow_Start_Register</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="Task_RegisterClaim" name="Register claim">
+      <bpmn:incoming>Flow_Start_Register</bpmn:incoming>
+      <bpmn:outgoing>Flow_Register_Review</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_ReviewInformation" name="Review submitted information">
+      <bpmn:incoming>Flow_Register_Review</bpmn:incoming>
+      <bpmn:outgoing>Flow_Review_Complete</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_ClaimComplete" name="Claim complete?" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_Review_Complete</bpmn:incoming>
+      <bpmn:outgoing>Flow_Incomplete_Request</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Complete_FastTrack</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Task_RequestMissingInformation" name="Request missing information from customer">
+      <bpmn:incoming>Flow_Incomplete_Request</bpmn:incoming>
+      <bpmn:outgoing>Flow_Request_Close</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="EndEvent_CurrentReviewClosed" name="Current review closed">
+      <bpmn:incoming>Flow_Request_Close</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:exclusiveGateway id="Gateway_FastTrack" name="Damage below fast-track threshold?" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_Complete_FastTrack</bpmn:incoming>
+      <bpmn:outgoing>Flow_Below_Approve</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Above_Forward</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Task_FastTrackApprove" name="Approve claim">
+      <bpmn:incoming>Flow_Below_Approve</bpmn:incoming>
+      <bpmn:outgoing>Flow_FastApprove_NoticeMerge</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_ForwardForAssessment" name="Forward claim for detailed assessment">
+      <bpmn:incoming>Flow_Above_Forward</bpmn:incoming>
+      <bpmn:outgoing>Flow_Forward_Assess</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_DetailedAssessment" name="Perform detailed assessment">
+      <bpmn:incoming>Flow_Forward_Assess</bpmn:incoming>
+      <bpmn:outgoing>Flow_Assess_Decision</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_AssessmentDecision" name="Assessment decision" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_Assess_Decision</bpmn:incoming>
+      <bpmn:outgoing>Flow_Decision_Approve</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Decision_Reject</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Task_AssessmentApprove" name="Approve claim">
+      <bpmn:incoming>Flow_Decision_Approve</bpmn:incoming>
+      <bpmn:outgoing>Flow_AssessApprove_NoticeMerge</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_RejectClaim" name="Reject claim">
+      <bpmn:incoming>Flow_Decision_Reject</bpmn:incoming>
+      <bpmn:outgoing>Flow_Reject_RejectionNotice</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_NoticeMerge" name="Approved claim" gatewayDirection="Converging">
+      <bpmn:incoming>Flow_FastApprove_NoticeMerge</bpmn:incoming>
+      <bpmn:incoming>Flow_AssessApprove_NoticeMerge</bpmn:incoming>
+      <bpmn:outgoing>Flow_NoticeMerge_Settlement</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sendTask id="Task_SendSettlementNotice" name="Send settlement notice">
+      <bpmn:incoming>Flow_NoticeMerge_Settlement</bpmn:incoming>
+      <bpmn:outgoing>Flow_Settlement_NotificationMerge</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:sendTask id="Task_SendRejectionNotice" name="Send rejection notice">
+      <bpmn:incoming>Flow_Reject_RejectionNotice</bpmn:incoming>
+      <bpmn:outgoing>Flow_Rejection_NotificationMerge</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:exclusiveGateway id="Gateway_NotificationMerge" name="Customer notified" gatewayDirection="Converging">
+      <bpmn:incoming>Flow_Settlement_NotificationMerge</bpmn:incoming>
+      <bpmn:incoming>Flow_Rejection_NotificationMerge</bpmn:incoming>
+      <bpmn:outgoing>Flow_NotificationMerge_End</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="EndEvent_CustomerNotified" name="Customer notified">
+      <bpmn:incoming>Flow_NotificationMerge_End</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_Register" sourceRef="StartEvent_NewClaim" targetRef="Task_RegisterClaim"/>
+    <bpmn:sequenceFlow id="Flow_Register_Review" sourceRef="Task_RegisterClaim" targetRef="Task_ReviewInformation"/>
+    <bpmn:sequenceFlow id="Flow_Review_Complete" sourceRef="Task_ReviewInformation" targetRef="Gateway_ClaimComplete"/>
+    <bpmn:sequenceFlow id="Flow_Incomplete_Request" name="Clearly incomplete" sourceRef="Gateway_ClaimComplete" targetRef="Task_RequestMissingInformation">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${claimClearlyIncomplete}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_Complete_FastTrack" name="Complete" sourceRef="Gateway_ClaimComplete" targetRef="Gateway_FastTrack">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${claimComplete}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_Request_Close" sourceRef="Task_RequestMissingInformation" targetRef="EndEvent_CurrentReviewClosed"/>
+    <bpmn:sequenceFlow id="Flow_Below_Approve" name="Below threshold" sourceRef="Gateway_FastTrack" targetRef="Task_FastTrackApprove">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${estimatedDamageBelowThreshold}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_Above_Forward" name="Above threshold" sourceRef="Gateway_FastTrack" targetRef="Task_ForwardForAssessment">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${estimatedDamageAboveThreshold}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_FastApprove_NoticeMerge" sourceRef="Task_FastTrackApprove" targetRef="Gateway_NoticeMerge"/>
+    <bpmn:sequenceFlow id="Flow_Forward_Assess" sourceRef="Task_ForwardForAssessment" targetRef="Task_DetailedAssessment"/>
+    <bpmn:sequenceFlow id="Flow_Assess_Decision" sourceRef="Task_DetailedAssessment" targetRef="Gateway_AssessmentDecision"/>
+    <bpmn:sequenceFlow id="Flow_Decision_Approve" name="Approve" sourceRef="Gateway_AssessmentDecision" targetRef="Task_AssessmentApprove">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${assessmentApproved}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_Decision_Reject" name="Reject" sourceRef="Gateway_AssessmentDecision" targetRef="Task_RejectClaim">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${assessmentRejected}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_AssessApprove_NoticeMerge" sourceRef="Task_AssessmentApprove" targetRef="Gateway_NoticeMerge"/>
+    <bpmn:sequenceFlow id="Flow_Reject_RejectionNotice" sourceRef="Task_RejectClaim" targetRef="Task_SendRejectionNotice"/>
+    <bpmn:sequenceFlow id="Flow_NoticeMerge_Settlement" sourceRef="Gateway_NoticeMerge" targetRef="Task_SendSettlementNotice"/>
+    <bpmn:sequenceFlow id="Flow_Settlement_NotificationMerge" sourceRef="Task_SendSettlementNotice" targetRef="Gateway_NotificationMerge"/>
+    <bpmn:sequenceFlow id="Flow_Rejection_NotificationMerge" sourceRef="Task_SendRejectionNotice" targetRef="Gateway_NotificationMerge"/>
+    <bpmn:sequenceFlow id="Flow_NotificationMerge_End" sourceRef="Gateway_NotificationMerge" targetRef="EndEvent_CustomerNotified"/>
+  </bpmn:process>
+</bpmn:definitions>

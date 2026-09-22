@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  id="Definitions_SYN007"
+                  targetNamespace="http://example.com/bpmn/syn007">
+  <bpmn:collaboration id="Collaboration_SYN007">
+    <bpmn:participant id="Participant_HROperations" name="HR Operations Team" processRef="Process_SYN007"/>
+  </bpmn:collaboration>
+  <bpmn:process id="Process_SYN007" name="Employee onboarding setup" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_SYN007">
+      <bpmn:lane id="Lane_HROperations" name="HR Operations Team">
+        <bpmn:flowNodeRef>StartEvent_SignedContractReceived</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_RecordStartDate</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_ParallelSplit</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_CreateEmployeeProfile</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_PrepareLaptop</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_AssignMandatoryTraining</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_ParallelJoin</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendWelcomePackage</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_MarkSetupComplete</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_OnboardingSetupComplete</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_SignedContractReceived" name="Signed contract received">
+      <bpmn:outgoing>Flow_Start_RecordDate</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_RecordStartDate" name="Record start date">
+      <bpmn:incoming>Flow_Start_RecordDate</bpmn:incoming>
+      <bpmn:outgoing>Flow_RecordDate_Split</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:parallelGateway id="Gateway_ParallelSplit" name="Start onboarding preparation">
+      <bpmn:incoming>Flow_RecordDate_Split</bpmn:incoming>
+      <bpmn:outgoing>Flow_Split_Profile</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Split_Laptop</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Split_Training</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:task id="Task_CreateEmployeeProfile" name="Create employee profile in HR system">
+      <bpmn:incoming>Flow_Split_Profile</bpmn:incoming>
+      <bpmn:outgoing>Flow_Profile_Join</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_PrepareLaptop" name="Prepare laptop">
+      <bpmn:incoming>Flow_Split_Laptop</bpmn:incoming>
+      <bpmn:outgoing>Flow_Laptop_Join</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_AssignMandatoryTraining" name="Assign mandatory training">
+      <bpmn:incoming>Flow_Split_Training</bpmn:incoming>
+      <bpmn:outgoing>Flow_Training_Join</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:parallelGateway id="Gateway_ParallelJoin" name="Onboarding preparation finished">
+      <bpmn:incoming>Flow_Profile_Join</bpmn:incoming>
+      <bpmn:incoming>Flow_Laptop_Join</bpmn:incoming>
+      <bpmn:incoming>Flow_Training_Join</bpmn:incoming>
+      <bpmn:outgoing>Flow_Join_Welcome</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:sendTask id="Task_SendWelcomePackage" name="Send welcome package to employee">
+      <bpmn:incoming>Flow_Join_Welcome</bpmn:incoming>
+      <bpmn:outgoing>Flow_Welcome_MarkComplete</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:task id="Task_MarkSetupComplete" name="Mark onboarding setup as complete">
+      <bpmn:incoming>Flow_Welcome_MarkComplete</bpmn:incoming>
+      <bpmn:outgoing>Flow_MarkComplete_End</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="EndEvent_OnboardingSetupComplete" name="Onboarding setup complete">
+      <bpmn:incoming>Flow_MarkComplete_End</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_RecordDate" sourceRef="StartEvent_SignedContractReceived" targetRef="Task_RecordStartDate"/>
+    <bpmn:sequenceFlow id="Flow_RecordDate_Split" sourceRef="Task_RecordStartDate" targetRef="Gateway_ParallelSplit"/>
+    <bpmn:sequenceFlow id="Flow_Split_Profile" sourceRef="Gateway_ParallelSplit" targetRef="Task_CreateEmployeeProfile"/>
+    <bpmn:sequenceFlow id="Flow_Split_Laptop" sourceRef="Gateway_ParallelSplit" targetRef="Task_PrepareLaptop"/>
+    <bpmn:sequenceFlow id="Flow_Split_Training" sourceRef="Gateway_ParallelSplit" targetRef="Task_AssignMandatoryTraining"/>
+    <bpmn:sequenceFlow id="Flow_Profile_Join" sourceRef="Task_CreateEmployeeProfile" targetRef="Gateway_ParallelJoin"/>
+    <bpmn:sequenceFlow id="Flow_Laptop_Join" sourceRef="Task_PrepareLaptop" targetRef="Gateway_ParallelJoin"/>
+    <bpmn:sequenceFlow id="Flow_Training_Join" sourceRef="Task_AssignMandatoryTraining" targetRef="Gateway_ParallelJoin"/>
+    <bpmn:sequenceFlow id="Flow_Join_Welcome" sourceRef="Gateway_ParallelJoin" targetRef="Task_SendWelcomePackage"/>
+    <bpmn:sequenceFlow id="Flow_Welcome_MarkComplete" sourceRef="Task_SendWelcomePackage" targetRef="Task_MarkSetupComplete"/>
+    <bpmn:sequenceFlow id="Flow_MarkComplete_End" sourceRef="Task_MarkSetupComplete" targetRef="EndEvent_OnboardingSetupComplete"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_SYN007">
+    <bpmndi:BPMNPlane id="BPMNPlane_SYN007" bpmnElement="Collaboration_SYN007">
+      <bpmndi:BPMNShape id="Shape_Participant" bpmnElement="Participant_HROperations" isHorizontal="true">
+        <dc:Bounds x="100" y="80" width="1250" height="420"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Lane" bpmnElement="Lane_HROperations" isHorizontal="true">
+        <dc:Bounds x="130" y="80" width="1220" height="420"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Start" bpmnElement="StartEvent_SignedContractReceived">
+        <dc:Bounds x="170" y="272" width="36" height="36"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="140" y="315" width="96" height="28"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_RecordDate" bpmnElement="Task_RecordStartDate">
+        <dc:Bounds x="250" y="250" width="110" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Split" bpmnElement="Gateway_ParallelSplit">
+        <dc:Bounds x="405" y="265" width="50" height="50"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Profile" bpmnElement="Task_CreateEmployeeProfile">
+        <dc:Bounds x="510" y="125" width="150" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Laptop" bpmnElement="Task_PrepareLaptop">
+        <dc:Bounds x="510" y="250" width="150" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Training" bpmnElement="Task_AssignMandatoryTraining">
+        <dc:Bounds x="510" y="375" width="150" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Join" bpmnElement="Gateway_ParallelJoin">
+        <dc:Bounds x="720" y="265" width="50" height="50"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Welcome" bpmnElement="Task_SendWelcomePackage">
+        <dc:Bounds x="825" y="250" width="150" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_MarkComplete" bpmnElement="Task_MarkSetupComplete">
+        <dc:Bounds x="1030" y="250" width="150" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_End" bpmnElement="EndEvent_OnboardingSetupComplete">
+        <dc:Bounds x="1230" y="272" width="36" height="36"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1199" y="315" width="98" height="28"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_Start_RecordDate" bpmnElement="Flow_Start_RecordDate">
+        <di:waypoint x="206" y="290"/>
+        <di:waypoint x="250" y="290"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_RecordDate_Split" bpmnElement="Flow_RecordDate_Split">
+        <di:waypoint x="360" y="290"/>
+        <di:waypoint x="405" y="290"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Split_Profile" bpmnElement="Flow_Split_Profile">
+        <di:waypoint x="430" y="265"/>
+        <di:waypoint x="430" y="165"/>
+        <di:waypoint x="510" y="165"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Split_Laptop" bpmnElement="Flow_Split_Laptop">
+        <di:waypoint x="455" y="290"/>
+        <di:waypoint x="510" y="290"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Split_Training" bpmnElement="Flow_Split_Training">
+        <di:waypoint x="430" y="315"/>
+        <di:waypoint x="430" y="415"/>
+        <di:waypoint x="510" y="415"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Profile_Join" bpmnElement="Flow_Profile_Join">
+        <di:waypoint x="660" y="165"/>
+        <di:waypoint x="745" y="165"/>
+        <di:waypoint x="745" y="265"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Laptop_Join" bpmnElement="Flow_Laptop_Join">
+        <di:waypoint x="660" y="290"/>
+        <di:waypoint x="720" y="290"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Training_Join" bpmnElement="Flow_Training_Join">
+        <di:waypoint x="660" y="415"/>
+        <di:waypoint x="745" y="415"/>
+        <di:waypoint x="745" y="315"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Join_Welcome" bpmnElement="Flow_Join_Welcome">
+        <di:waypoint x="770" y="290"/>
+        <di:waypoint x="825" y="290"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Welcome_MarkComplete" bpmnElement="Flow_Welcome_MarkComplete">
+        <di:waypoint x="975" y="290"/>
+        <di:waypoint x="1030" y="290"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_MarkComplete_End" bpmnElement="Flow_MarkComplete_End">
+        <di:waypoint x="1180" y="290"/>
+        <di:waypoint x="1230" y="290"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

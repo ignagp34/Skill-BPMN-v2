@@ -1,0 +1,16 @@
+Support Agent: Assign high-priority ticket
+Investigate issue
+Work on resolution
+Document the fix
+Inform the user
+Close ticket
+
+...
+Work on resolution
+(deadline SLA reached)
+(escalate to Team Lead)
+Team Lead: Review ticket
+Assign additional support
+Support Agent: Continue work
+Document the fix
+...

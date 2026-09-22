@@ -1,0 +1,1029 @@
+{
+  "cases": [
+    {
+      "case_id": "case_001",
+      "zero_shot": {
+        "source_path": "data\\cases\\case_001\\zero_shot.bpmn",
+        "method": "zero_shot",
+        "case_id": "case_001",
+        "results": {
+          "xml_validity": {
+            "metric_name": "xml_validity",
+            "passed": false,
+            "score": 0.0,
+            "details": {
+              "validation_errors": [
+                "data/cases/case_001/zero_shot.bpmn:25:0:ERROR:SCHEMASV:SCHEMAV_CVC_COMPLEX_TYPE_3_2_2: Element '{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow', attribute 'default': The attribute 'default' is not allowed.",
+                "data/cases/case_001/zero_shot.bpmn:41:0:ERROR:SCHEMASV:SCHEMAV_CVC_COMPLEX_TYPE_3_2_2: Element '{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow', attribute 'default': The attribute 'default' is not allowed."
+              ]
+            }
+          },
+          "structural_connectedness": {
+            "metric_name": "structural_connectedness",
+            "passed": true,
+            "score": 1.0,
+            "details": {
+              "total_flow_nodes": 12,
+              "reachable_nodes": 12,
+              "orphan_nodes": [],
+              "broken_references": []
+            }
+          },
+          "element_degree": {
+            "metric_name": "element_degree",
+            "passed": false,
+            "score": 0.9166666666666666,
+            "details": {
+              "total_checked": 12,
+              "compliant": 11,
+              "violations": [
+                {
+                  "element_id": "task_review",
+                  "type": "userTask",
+                  "in_degree": 2,
+                  "out_degree": 1,
+                  "expected": "in=[1,1] out=[1,1]"
+                }
+              ]
+            }
+          },
+          "gateway_executability": {
+            "metric_name": "gateway_executability",
+            "passed": false,
+            "score": 0.0,
+            "details": {
+              "total_exclusive_gateways_diverging": 2,
+              "compliant": 0,
+              "issues": [
+                {
+                  "gateway_id": "gw_complete",
+                  "issues": [
+                    "missing default attribute",
+                    "flow sf4 is non-default but has no conditionExpression"
+                  ]
+                },
+                {
+                  "gateway_id": "gw_decision",
+                  "issues": [
+                    "missing default attribute",
+                    "flow sf8 is non-default but has no conditionExpression"
+                  ]
+                }
+              ]
+            }
+          },
+          "label_completeness": {
+            "metric_name": "label_completeness",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "total_labelable": 10,
+              "labeled": 10,
+              "unlabeled_elements": []
+            }
+          },
+          "size": {
+            "metric_name": "size",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "tnn": 12,
+              "tnsf": 12,
+              "tasks": 7,
+              "events": 3,
+              "gateways": 2,
+              "tnn_by_subtype": {
+                "startEvent": 1,
+                "userTask": 4,
+                "exclusiveGateway": 2,
+                "sendTask": 2,
+                "receiveTask": 1,
+                "endEvent": 2
+              },
+              "tnsf_per_process": [
+                12
+              ]
+            }
+          },
+          "control_flow_complexity": {
+            "metric_name": "control_flow_complexity",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "cfc_total": 4,
+              "split_count": 2,
+              "contributions": [
+                {
+                  "gateway_id": "gw_complete",
+                  "type": "exclusiveGateway",
+                  "outgoing": 2,
+                  "contribution": 2
+                },
+                {
+                  "gateway_id": "gw_decision",
+                  "type": "exclusiveGateway",
+                  "outgoing": 2,
+                  "contribution": 2
+                }
+              ]
+            }
+          },
+          "gateway_matching": {
+            "metric_name": "gateway_matching",
+            "passed": false,
+            "score": 0.0,
+            "details": {
+              "total_splits": 2,
+              "matched": 0,
+              "matched_pairs": [],
+              "unmatched": [
+                {
+                  "split_id": "gw_complete",
+                  "type": "exclusiveGateway",
+                  "issue": "no_common_join"
+                },
+                {
+                  "split_id": "gw_decision",
+                  "type": "exclusiveGateway",
+                  "issue": "no_common_join"
+                }
+              ]
+            }
+          },
+          "cnc": {
+            "metric_name": "cnc",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "tnn": 12,
+              "tnsf": 12,
+              "cnc": 1.0
+            }
+          },
+          "cyclicity": {
+            "metric_name": "cyclicity",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "has_cycle": true,
+              "cycle_count": 1,
+              "cycles": [
+                [
+                  "gw_complete",
+                  "task_request_info",
+                  "task_review"
+                ]
+              ]
+            }
+          }
+        }
+      },
+      "dsl": {
+        "source_path": "data\\cases\\case_001\\dsl.bpmn",
+        "method": "dsl",
+        "case_id": "case_001",
+        "results": {
+          "xml_validity": {
+            "metric_name": "xml_validity",
+            "passed": true,
+            "score": 1.0,
+            "details": {
+              "validation_errors": []
+            }
+          },
+          "structural_connectedness": {
+            "metric_name": "structural_connectedness",
+            "passed": true,
+            "score": 1.0,
+            "details": {
+              "total_flow_nodes": 12,
+              "reachable_nodes": 12,
+              "orphan_nodes": [],
+              "broken_references": []
+            }
+          },
+          "element_degree": {
+            "metric_name": "element_degree",
+            "passed": false,
+            "score": 0.9166666666666666,
+            "details": {
+              "total_checked": 12,
+              "compliant": 11,
+              "violations": [
+                {
+                  "element_id": "ut_1",
+                  "type": "userTask",
+                  "in_degree": 2,
+                  "out_degree": 1,
+                  "expected": "in=[1,1] out=[1,1]"
+                }
+              ]
+            }
+          },
+          "gateway_executability": {
+            "metric_name": "gateway_executability",
+            "passed": true,
+            "score": 1.0,
+            "details": {
+              "total_exclusive_gateways_diverging": 2,
+              "compliant": 2,
+              "issues": []
+            }
+          },
+          "label_completeness": {
+            "metric_name": "label_completeness",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "total_labelable": 10,
+              "labeled": 10,
+              "unlabeled_elements": []
+            }
+          },
+          "size": {
+            "metric_name": "size",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "tnn": 12,
+              "tnsf": 12,
+              "tasks": 7,
+              "events": 3,
+              "gateways": 2,
+              "tnn_by_subtype": {
+                "startEvent": 1,
+                "userTask": 4,
+                "exclusiveGateway": 2,
+                "sendTask": 2,
+                "receiveTask": 1,
+                "endEvent": 2
+              },
+              "tnsf_per_process": [
+                12
+              ]
+            }
+          },
+          "control_flow_complexity": {
+            "metric_name": "control_flow_complexity",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "cfc_total": 4,
+              "split_count": 2,
+              "contributions": [
+                {
+                  "gateway_id": "xgw_1",
+                  "type": "exclusiveGateway",
+                  "outgoing": 2,
+                  "contribution": 2
+                },
+                {
+                  "gateway_id": "xgw_2",
+                  "type": "exclusiveGateway",
+                  "outgoing": 2,
+                  "contribution": 2
+                }
+              ]
+            }
+          },
+          "gateway_matching": {
+            "metric_name": "gateway_matching",
+            "passed": false,
+            "score": 0.0,
+            "details": {
+              "total_splits": 2,
+              "matched": 0,
+              "matched_pairs": [],
+              "unmatched": [
+                {
+                  "split_id": "xgw_1",
+                  "type": "exclusiveGateway",
+                  "issue": "no_common_join"
+                },
+                {
+                  "split_id": "xgw_2",
+                  "type": "exclusiveGateway",
+                  "issue": "no_common_join"
+                }
+              ]
+            }
+          },
+          "cnc": {
+            "metric_name": "cnc",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "tnn": 12,
+              "tnsf": 12,
+              "cnc": 1.0
+            }
+          },
+          "cyclicity": {
+            "metric_name": "cyclicity",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "has_cycle": true,
+              "cycle_count": 1,
+              "cycles": [
+                [
+                  "ut_1",
+                  "ut_2",
+                  "xgw_1"
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case_002",
+      "zero_shot": {
+        "source_path": "data\\cases\\case_002\\zero_shot.bpmn",
+        "method": "zero_shot",
+        "case_id": "case_002",
+        "results": {
+          "xml_validity": {
+            "metric_name": "xml_validity",
+            "passed": false,
+            "score": 0.0,
+            "details": {
+              "validation_errors": [
+                "data/cases/case_002/zero_shot.bpmn:23:0:ERROR:SCHEMASV:SCHEMAV_CVC_COMPLEX_TYPE_3_2_2: Element '{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow', attribute 'default': The attribute 'default' is not allowed."
+              ]
+            }
+          },
+          "structural_connectedness": {
+            "metric_name": "structural_connectedness",
+            "passed": true,
+            "score": 1.0,
+            "details": {
+              "total_flow_nodes": 10,
+              "reachable_nodes": 10,
+              "orphan_nodes": [],
+              "broken_references": []
+            }
+          },
+          "element_degree": {
+            "metric_name": "element_degree",
+            "passed": true,
+            "score": 1.0,
+            "details": {
+              "total_checked": 10,
+              "compliant": 10,
+              "violations": []
+            }
+          },
+          "gateway_executability": {
+            "metric_name": "gateway_executability",
+            "passed": false,
+            "score": 0.0,
+            "details": {
+              "total_exclusive_gateways_diverging": 1,
+              "compliant": 0,
+              "issues": [
+                {
+                  "gateway_id": "gw_amount",
+                  "issues": [
+                    "missing default attribute",
+                    "flow sf4 is non-default but has no conditionExpression"
+                  ]
+                }
+              ]
+            }
+          },
+          "label_completeness": {
+            "metric_name": "label_completeness",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "total_labelable": 8,
+              "labeled": 8,
+              "unlabeled_elements": []
+            }
+          },
+          "size": {
+            "metric_name": "size",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "tnn": 10,
+              "tnsf": 10,
+              "tasks": 6,
+              "events": 2,
+              "gateways": 2,
+              "tnn_by_subtype": {
+                "startEvent": 1,
+                "userTask": 3,
+                "exclusiveGateway": 2,
+                "serviceTask": 2,
+                "sendTask": 1,
+                "endEvent": 1
+              },
+              "tnsf_per_process": [
+                10
+              ]
+            }
+          },
+          "control_flow_complexity": {
+            "metric_name": "control_flow_complexity",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "cfc_total": 2,
+              "split_count": 1,
+              "contributions": [
+                {
+                  "gateway_id": "gw_amount",
+                  "type": "exclusiveGateway",
+                  "outgoing": 2,
+                  "contribution": 2
+                }
+              ]
+            }
+          },
+          "gateway_matching": {
+            "metric_name": "gateway_matching",
+            "passed": true,
+            "score": 1.0,
+            "details": {
+              "total_splits": 1,
+              "matched": 1,
+              "matched_pairs": [
+                {
+                  "split_id": "gw_amount",
+                  "join_id": "gw_join",
+                  "type": "exclusiveGateway"
+                }
+              ],
+              "unmatched": []
+            }
+          },
+          "cnc": {
+            "metric_name": "cnc",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "tnn": 10,
+              "tnsf": 10,
+              "cnc": 1.0
+            }
+          },
+          "cyclicity": {
+            "metric_name": "cyclicity",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "has_cycle": false,
+              "cycle_count": 0,
+              "cycles": []
+            }
+          }
+        }
+      },
+      "dsl": {
+        "source_path": "data\\cases\\case_002\\dsl.bpmn",
+        "method": "dsl",
+        "case_id": "case_002",
+        "results": {
+          "xml_validity": {
+            "metric_name": "xml_validity",
+            "passed": true,
+            "score": 1.0,
+            "details": {
+              "validation_errors": []
+            }
+          },
+          "structural_connectedness": {
+            "metric_name": "structural_connectedness",
+            "passed": true,
+            "score": 1.0,
+            "details": {
+              "total_flow_nodes": 10,
+              "reachable_nodes": 10,
+              "orphan_nodes": [],
+              "broken_references": []
+            }
+          },
+          "element_degree": {
+            "metric_name": "element_degree",
+            "passed": true,
+            "score": 1.0,
+            "details": {
+              "total_checked": 10,
+              "compliant": 10,
+              "violations": []
+            }
+          },
+          "gateway_executability": {
+            "metric_name": "gateway_executability",
+            "passed": true,
+            "score": 1.0,
+            "details": {
+              "total_exclusive_gateways_diverging": 1,
+              "compliant": 1,
+              "issues": []
+            }
+          },
+          "label_completeness": {
+            "metric_name": "label_completeness",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "total_labelable": 8,
+              "labeled": 8,
+              "unlabeled_elements": []
+            }
+          },
+          "size": {
+            "metric_name": "size",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "tnn": 10,
+              "tnsf": 10,
+              "tasks": 6,
+              "events": 2,
+              "gateways": 2,
+              "tnn_by_subtype": {
+                "startEvent": 1,
+                "userTask": 3,
+                "exclusiveGateway": 2,
+                "serviceTask": 2,
+                "sendTask": 1,
+                "endEvent": 1
+              },
+              "tnsf_per_process": [
+                10
+              ]
+            }
+          },
+          "control_flow_complexity": {
+            "metric_name": "control_flow_complexity",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "cfc_total": 2,
+              "split_count": 1,
+              "contributions": [
+                {
+                  "gateway_id": "xgw_1",
+                  "type": "exclusiveGateway",
+                  "outgoing": 2,
+                  "contribution": 2
+                }
+              ]
+            }
+          },
+          "gateway_matching": {
+            "metric_name": "gateway_matching",
+            "passed": true,
+            "score": 1.0,
+            "details": {
+              "total_splits": 1,
+              "matched": 1,
+              "matched_pairs": [
+                {
+                  "split_id": "xgw_1",
+                  "join_id": "xgw_2",
+                  "type": "exclusiveGateway"
+                }
+              ],
+              "unmatched": []
+            }
+          },
+          "cnc": {
+            "metric_name": "cnc",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "tnn": 10,
+              "tnsf": 10,
+              "cnc": 1.0
+            }
+          },
+          "cyclicity": {
+            "metric_name": "cyclicity",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "has_cycle": false,
+              "cycle_count": 0,
+              "cycles": []
+            }
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case_003",
+      "zero_shot": {
+        "source_path": "data\\cases\\case_003\\zero_shot.bpmn",
+        "method": "zero_shot",
+        "case_id": "case_003",
+        "results": {
+          "xml_validity": {
+            "metric_name": "xml_validity",
+            "passed": true,
+            "score": 1.0,
+            "details": {
+              "validation_errors": []
+            }
+          },
+          "structural_connectedness": {
+            "metric_name": "structural_connectedness",
+            "passed": true,
+            "score": 1.0,
+            "details": {
+              "total_flow_nodes": 12,
+              "reachable_nodes": 12,
+              "orphan_nodes": [],
+              "broken_references": []
+            }
+          },
+          "element_degree": {
+            "metric_name": "element_degree",
+            "passed": false,
+            "score": 0.75,
+            "details": {
+              "total_checked": 12,
+              "compliant": 9,
+              "violations": [
+                {
+                  "element_id": "Task_RecibirNotificacion",
+                  "type": "receiveTask",
+                  "in_degree": 2,
+                  "out_degree": 0,
+                  "expected": "in=[1,1] out=[1,1]"
+                },
+                {
+                  "element_id": "Task_NotificarRechazo",
+                  "type": "sendTask",
+                  "in_degree": 1,
+                  "out_degree": 2,
+                  "expected": "in=[1,1] out=[1,1]"
+                },
+                {
+                  "element_id": "Task_ConfirmarNotificar",
+                  "type": "sendTask",
+                  "in_degree": 1,
+                  "out_degree": 2,
+                  "expected": "in=[1,1] out=[1,1]"
+                }
+              ]
+            }
+          },
+          "gateway_executability": {
+            "metric_name": "gateway_executability",
+            "passed": false,
+            "score": 0.0,
+            "details": {
+              "total_exclusive_gateways_diverging": 1,
+              "compliant": 0,
+              "issues": [
+                {
+                  "gateway_id": "Gateway_Aprobado",
+                  "issues": [
+                    "missing default attribute"
+                  ]
+                }
+              ]
+            }
+          },
+          "label_completeness": {
+            "metric_name": "label_completeness",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "total_labelable": 15,
+              "labeled": 15,
+              "unlabeled_elements": []
+            }
+          },
+          "size": {
+            "metric_name": "size",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "tnn": 12,
+              "tnsf": 12,
+              "tasks": 8,
+              "events": 3,
+              "gateways": 1,
+              "tnn_by_subtype": {
+                "startEvent": 1,
+                "userTask": 4,
+                "sendTask": 3,
+                "receiveTask": 1,
+                "exclusiveGateway": 1,
+                "endEvent": 2
+              },
+              "tnsf_per_process": [
+                12
+              ]
+            }
+          },
+          "control_flow_complexity": {
+            "metric_name": "control_flow_complexity",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "cfc_total": 2,
+              "split_count": 1,
+              "contributions": [
+                {
+                  "gateway_id": "Gateway_Aprobado",
+                  "type": "exclusiveGateway",
+                  "outgoing": 2,
+                  "contribution": 2
+                }
+              ]
+            }
+          },
+          "gateway_matching": {
+            "metric_name": "gateway_matching",
+            "passed": false,
+            "score": 0.0,
+            "details": {
+              "total_splits": 1,
+              "matched": 0,
+              "matched_pairs": [],
+              "unmatched": [
+                {
+                  "split_id": "Gateway_Aprobado",
+                  "type": "exclusiveGateway",
+                  "issue": "no_common_join"
+                }
+              ]
+            }
+          },
+          "cnc": {
+            "metric_name": "cnc",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "tnn": 12,
+              "tnsf": 12,
+              "cnc": 1.0
+            }
+          },
+          "cyclicity": {
+            "metric_name": "cyclicity",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "has_cycle": false,
+              "cycle_count": 0,
+              "cycles": []
+            }
+          }
+        }
+      },
+      "dsl": {
+        "source_path": "data\\cases\\case_003\\dsl.bpmn",
+        "method": "dsl",
+        "case_id": "case_003",
+        "results": {
+          "xml_validity": {
+            "metric_name": "xml_validity",
+            "passed": true,
+            "score": 1.0,
+            "details": {
+              "validation_errors": []
+            }
+          },
+          "structural_connectedness": {
+            "metric_name": "structural_connectedness",
+            "passed": true,
+            "score": 1.0,
+            "details": {
+              "total_flow_nodes": 12,
+              "reachable_nodes": 12,
+              "orphan_nodes": [],
+              "broken_references": []
+            }
+          },
+          "element_degree": {
+            "metric_name": "element_degree",
+            "passed": false,
+            "score": 0.75,
+            "details": {
+              "total_checked": 12,
+              "compliant": 9,
+              "violations": [
+                {
+                  "element_id": "Task_RecibirNotificacion",
+                  "type": "receiveTask",
+                  "in_degree": 2,
+                  "out_degree": 0,
+                  "expected": "in=[1,1] out=[1,1]"
+                },
+                {
+                  "element_id": "Task_NotificarRechazo",
+                  "type": "sendTask",
+                  "in_degree": 1,
+                  "out_degree": 2,
+                  "expected": "in=[1,1] out=[1,1]"
+                },
+                {
+                  "element_id": "Task_ConfirmarNotificar",
+                  "type": "sendTask",
+                  "in_degree": 1,
+                  "out_degree": 2,
+                  "expected": "in=[1,1] out=[1,1]"
+                }
+              ]
+            }
+          },
+          "gateway_executability": {
+            "metric_name": "gateway_executability",
+            "passed": false,
+            "score": 0.0,
+            "details": {
+              "total_exclusive_gateways_diverging": 1,
+              "compliant": 0,
+              "issues": [
+                {
+                  "gateway_id": "Gateway_Aprobado",
+                  "issues": [
+                    "missing default attribute"
+                  ]
+                }
+              ]
+            }
+          },
+          "label_completeness": {
+            "metric_name": "label_completeness",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "total_labelable": 15,
+              "labeled": 15,
+              "unlabeled_elements": []
+            }
+          },
+          "size": {
+            "metric_name": "size",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "tnn": 12,
+              "tnsf": 12,
+              "tasks": 8,
+              "events": 3,
+              "gateways": 1,
+              "tnn_by_subtype": {
+                "startEvent": 1,
+                "userTask": 4,
+                "sendTask": 3,
+                "receiveTask": 1,
+                "exclusiveGateway": 1,
+                "endEvent": 2
+              },
+              "tnsf_per_process": [
+                12
+              ]
+            }
+          },
+          "control_flow_complexity": {
+            "metric_name": "control_flow_complexity",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "cfc_total": 2,
+              "split_count": 1,
+              "contributions": [
+                {
+                  "gateway_id": "Gateway_Aprobado",
+                  "type": "exclusiveGateway",
+                  "outgoing": 2,
+                  "contribution": 2
+                }
+              ]
+            }
+          },
+          "gateway_matching": {
+            "metric_name": "gateway_matching",
+            "passed": false,
+            "score": 0.0,
+            "details": {
+              "total_splits": 1,
+              "matched": 0,
+              "matched_pairs": [],
+              "unmatched": [
+                {
+                  "split_id": "Gateway_Aprobado",
+                  "type": "exclusiveGateway",
+                  "issue": "no_common_join"
+                }
+              ]
+            }
+          },
+          "cnc": {
+            "metric_name": "cnc",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "tnn": 12,
+              "tnsf": 12,
+              "cnc": 1.0
+            }
+          },
+          "cyclicity": {
+            "metric_name": "cyclicity",
+            "passed": null,
+            "score": 1.0,
+            "details": {
+              "has_cycle": false,
+              "cycle_count": 0,
+              "cycles": []
+            }
+          }
+        }
+      }
+    }
+  ],
+  "aggregates": [
+    {
+      "metric_name": "xml_validity",
+      "zero_shot_mean": 0.3333333333333333,
+      "zero_shot_std": 0.5773502691896257,
+      "dsl_mean": 1.0,
+      "dsl_std": 0.0,
+      "n_cases": 3
+    },
+    {
+      "metric_name": "structural_connectedness",
+      "zero_shot_mean": 1.0,
+      "zero_shot_std": 0.0,
+      "dsl_mean": 1.0,
+      "dsl_std": 0.0,
+      "n_cases": 3
+    },
+    {
+      "metric_name": "element_degree",
+      "zero_shot_mean": 0.8888888888888888,
+      "zero_shot_std": 0.1272937693043289,
+      "dsl_mean": 0.8888888888888888,
+      "dsl_std": 0.1272937693043289,
+      "n_cases": 3
+    },
+    {
+      "metric_name": "gateway_executability",
+      "zero_shot_mean": 0.0,
+      "zero_shot_std": 0.0,
+      "dsl_mean": 0.6666666666666666,
+      "dsl_std": 0.5773502691896257,
+      "n_cases": 3
+    },
+    {
+      "metric_name": "label_completeness",
+      "zero_shot_mean": 1.0,
+      "zero_shot_std": 0.0,
+      "dsl_mean": 1.0,
+      "dsl_std": 0.0,
+      "n_cases": 3
+    },
+    {
+      "metric_name": "size",
+      "zero_shot_mean": 1.0,
+      "zero_shot_std": 0.0,
+      "dsl_mean": 1.0,
+      "dsl_std": 0.0,
+      "n_cases": 3
+    },
+    {
+      "metric_name": "control_flow_complexity",
+      "zero_shot_mean": 1.0,
+      "zero_shot_std": 0.0,
+      "dsl_mean": 1.0,
+      "dsl_std": 0.0,
+      "n_cases": 3
+    },
+    {
+      "metric_name": "gateway_matching",
+      "zero_shot_mean": 0.3333333333333333,
+      "zero_shot_std": 0.5773502691896257,
+      "dsl_mean": 0.3333333333333333,
+      "dsl_std": 0.5773502691896257,
+      "n_cases": 3
+    },
+    {
+      "metric_name": "cnc",
+      "zero_shot_mean": 1.0,
+      "zero_shot_std": 0.0,
+      "dsl_mean": 1.0,
+      "dsl_std": 0.0,
+      "n_cases": 3
+    },
+    {
+      "metric_name": "cyclicity",
+      "zero_shot_mean": 1.0,
+      "zero_shot_std": 0.0,
+      "dsl_mean": 1.0,
+      "dsl_std": 0.0,
+      "n_cases": 3
+    }
+  ]
+}

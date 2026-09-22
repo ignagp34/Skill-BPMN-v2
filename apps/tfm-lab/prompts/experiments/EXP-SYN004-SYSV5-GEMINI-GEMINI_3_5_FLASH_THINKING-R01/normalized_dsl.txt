@@ -1,0 +1,56 @@
+Claims Handler:
+(start Claim received)
+Register claim
+Review submitted information
+Is claim complete?
+No
+Request missing information
+Close current review
+(finish Current review closed)
+
+Claims Handler:
+(start Claim received)
+Register claim
+Review submitted information
+Is claim complete?
+Yes
+Is damage below fast-track threshold?
+Yes
+Approve claim
+Send settlement notice
+(finish Customer notified of settlement)
+
+Claims Handler:
+(start Claim received)
+Register claim
+Review submitted information
+Is claim complete?
+Yes
+Is damage below fast-track threshold?
+No
+Forward claim for detailed assessment
+Perform detailed assessment
+Is claim approved?
+Yes
+Approve claim
+Send settlement notice
+(finish Customer notified of settlement)
+
+Claims Handler:
+(start Claim received)
+Register claim
+Review submitted information
+Is claim complete?
+Yes
+Is damage below fast-track threshold?
+No
+Forward claim for detailed assessment
+Perform detailed assessment
+Is claim approved?
+No
+Reject claim
+Send rejection notice
+(finish Customer notified of rejection)
+
+== pools ==
+Claims Team -> Claims Handler

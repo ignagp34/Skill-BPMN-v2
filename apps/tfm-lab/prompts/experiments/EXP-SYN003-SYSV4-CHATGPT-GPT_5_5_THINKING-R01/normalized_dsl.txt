@@ -1,0 +1,8 @@
+(start Patient arrives for scheduled outpatient appointment)
+Medical clinic: Greet patient
+Medical clinic: Confirm appointment
+Medical clinic: Update patient arrival in system
+Medical clinic: Print visit label
+Medical clinic: Direct patient to waiting area
+Medical clinic: Complete check-in
+(finish Patient checked in)

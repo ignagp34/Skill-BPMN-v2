@@ -1,0 +1,31 @@
+{
+  "experimentId": "EXP-SYN011-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+  "processId": "SYN011",
+  "processFilename": "SYN011_public_grant_application_review.md",
+  "processTitle": "Public grant application review",
+  "processSource": "synthetic",
+  "difficulty": "medium",
+  "expectedFeatures": [
+    "data_objects",
+    "data_store",
+    "annotations",
+    "single_pool"
+  ],
+  "systemPromptVersion": "SYSV5",
+  "provider": "GEMINI",
+  "modelLabel": "GEMINI_3_5_FLASH_THINKING",
+  "executionSetting": "Gemini 3.5 Flash (High reasoning, Agent SDK, fresh subagent context)",
+  "reasoningMode": "High",
+  "runNumber": 2,
+  "interfaceType": "agent",
+  "status": "raw_output_generated",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-06-18T19:56:11Z",
+  "notes": "",
+  "inputSystemTokens": 14890,
+  "inputProcessTokens": 265,
+  "inputTokens": 15155,
+  "outputTokens": 181,
+  "totalTokens": 15336,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

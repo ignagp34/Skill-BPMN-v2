@@ -1,0 +1,7 @@
+case_id,method,xml_validity,structural_connectedness,element_degree,gateway_executability,label_completeness,size,control_flow_complexity,gateway_matching,cnc,cyclicity
+case_001,zero_shot,0.0,1.0,0.9166666666666666,0.0,1.0,1.0,1.0,0.0,1.0,1.0
+case_001,dsl,1.0,1.0,0.9166666666666666,1.0,1.0,1.0,1.0,0.0,1.0,1.0
+case_002,zero_shot,0.0,1.0,1.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+case_002,dsl,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+case_003,zero_shot,1.0,1.0,0.75,0.0,1.0,1.0,1.0,0.0,1.0,1.0
+case_003,dsl,1.0,1.0,0.75,0.0,1.0,1.0,1.0,0.0,1.0,1.0

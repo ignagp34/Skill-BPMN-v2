@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                  id="Definitions_SYN001"
+                  targetNamespace="http://example.com/bpmn/SYN001">
+  <bpmn:collaboration id="Collaboration_SYN001">
+    <bpmn:participant id="Participant_RegistrarOffice" name="University Registrar Office" processRef="Process_SYN001"/>
+  </bpmn:collaboration>
+  <bpmn:process id="Process_SYN001" name="University enrollment certificate" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_RegistrarOffice">
+      <bpmn:lane id="Lane_RegistrarClerk" name="Registrar Clerk">
+        <bpmn:flowNodeRef>StartEvent_RequestReceived</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_ReceiveRequest</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_LookUpRecord</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_GenerateCertificate</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_CheckCompleteness</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_SendCertificate</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_CloseRequest</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_RequestClosed</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_RequestReceived" name="Certificate request received">
+      <bpmn:outgoing>Flow_Start_Receive</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="Task_ReceiveRequest" name="Receive certificate request">
+      <bpmn:incoming>Flow_Start_Receive</bpmn:incoming>
+      <bpmn:outgoing>Flow_Receive_LookUp</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_LookUpRecord" name="Look up student record">
+      <bpmn:incoming>Flow_Receive_LookUp</bpmn:incoming>
+      <bpmn:outgoing>Flow_LookUp_Generate</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_GenerateCertificate" name="Generate enrollment certificate">
+      <bpmn:incoming>Flow_LookUp_Generate</bpmn:incoming>
+      <bpmn:outgoing>Flow_Generate_Check</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Task_CheckCompleteness" name="Check document for completeness">
+      <bpmn:incoming>Flow_Generate_Check</bpmn:incoming>
+      <bpmn:outgoing>Flow_Check_Send</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sendTask id="Task_SendCertificate" name="Send certificate to student by email">
+      <bpmn:incoming>Flow_Check_Send</bpmn:incoming>
+      <bpmn:outgoing>Flow_Send_Close</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:userTask id="Task_CloseRequest" name="Close request">
+      <bpmn:incoming>Flow_Send_Close</bpmn:incoming>
+      <bpmn:outgoing>Flow_Close_End</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="EndEvent_RequestClosed" name="Request closed">
+      <bpmn:incoming>Flow_Close_End</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_Receive" sourceRef="StartEvent_RequestReceived" targetRef="Task_ReceiveRequest"/>
+    <bpmn:sequenceFlow id="Flow_Receive_LookUp" sourceRef="Task_ReceiveRequest" targetRef="Task_LookUpRecord"/>
+    <bpmn:sequenceFlow id="Flow_LookUp_Generate" sourceRef="Task_LookUpRecord" targetRef="Task_GenerateCertificate"/>
+    <bpmn:sequenceFlow id="Flow_Generate_Check" sourceRef="Task_GenerateCertificate" targetRef="Task_CheckCompleteness"/>
+    <bpmn:sequenceFlow id="Flow_Check_Send" sourceRef="Task_CheckCompleteness" targetRef="Task_SendCertificate"/>
+    <bpmn:sequenceFlow id="Flow_Send_Close" sourceRef="Task_SendCertificate" targetRef="Task_CloseRequest"/>
+    <bpmn:sequenceFlow id="Flow_Close_End" sourceRef="Task_CloseRequest" targetRef="EndEvent_RequestClosed"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_SYN001">
+    <bpmndi:BPMNPlane id="BPMNPlane_SYN001" bpmnElement="Collaboration_SYN001">
+      <bpmndi:BPMNShape id="Shape_Participant_RegistrarOffice" bpmnElement="Participant_RegistrarOffice" isHorizontal="true">
+        <dc:Bounds x="100" y="80" width="1540" height="240"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Lane_RegistrarClerk" bpmnElement="Lane_RegistrarClerk" isHorizontal="true">
+        <dc:Bounds x="130" y="80" width="1510" height="240"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_StartEvent_RequestReceived" bpmnElement="StartEvent_RequestReceived">
+        <dc:Bounds x="180" y="182" width="36" height="36"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="145" y="225" width="106" height="28"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_ReceiveRequest" bpmnElement="Task_ReceiveRequest">
+        <dc:Bounds x="270" y="160" width="130" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_LookUpRecord" bpmnElement="Task_LookUpRecord">
+        <dc:Bounds x="450" y="160" width="130" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_GenerateCertificate" bpmnElement="Task_GenerateCertificate">
+        <dc:Bounds x="630" y="160" width="150" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_CheckCompleteness" bpmnElement="Task_CheckCompleteness">
+        <dc:Bounds x="830" y="160" width="150" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_SendCertificate" bpmnElement="Task_SendCertificate">
+        <dc:Bounds x="1030" y="160" width="160" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_CloseRequest" bpmnElement="Task_CloseRequest">
+        <dc:Bounds x="1240" y="160" width="130" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EndEvent_RequestClosed" bpmnElement="EndEvent_RequestClosed">
+        <dc:Bounds x="1430" y="182" width="36" height="36"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1403" y="225" width="90" height="14"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_Flow_Start_Receive" bpmnElement="Flow_Start_Receive">
+        <di:waypoint x="216" y="200"/>
+        <di:waypoint x="270" y="200"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Receive_LookUp" bpmnElement="Flow_Receive_LookUp">
+        <di:waypoint x="400" y="200"/>
+        <di:waypoint x="450" y="200"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_LookUp_Generate" bpmnElement="Flow_LookUp_Generate">
+        <di:waypoint x="580" y="200"/>
+        <di:waypoint x="630" y="200"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Generate_Check" bpmnElement="Flow_Generate_Check">
+        <di:waypoint x="780" y="200"/>
+        <di:waypoint x="830" y="200"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Check_Send" bpmnElement="Flow_Check_Send">
+        <di:waypoint x="980" y="200"/>
+        <di:waypoint x="1030" y="200"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Send_Close" bpmnElement="Flow_Send_Close">
+        <di:waypoint x="1190" y="200"/>
+        <di:waypoint x="1240" y="200"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Close_End" bpmnElement="Flow_Close_End">
+        <di:waypoint x="1370" y="200"/>
+        <di:waypoint x="1430" y="200"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

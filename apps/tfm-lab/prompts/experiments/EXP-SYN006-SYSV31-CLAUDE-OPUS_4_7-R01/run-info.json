@@ -1,0 +1,31 @@
+{
+  "experimentId": "EXP-SYN006-SYSV31-CLAUDE-OPUS_4_7-R01",
+  "processId": "SYN006",
+  "processFilename": "SYN006_bank_card_application_outcome.md",
+  "processTitle": "Bank card application outcome",
+  "processSource": "synthetic",
+  "difficulty": "medium",
+  "expectedFeatures": [
+    "xor_gateway",
+    "alternative_paths",
+    "merge",
+    "single_pool"
+  ],
+  "systemPromptVersion": "SYSV31",
+  "provider": "CLAUDE",
+  "modelLabel": "OPUS_4_7",
+  "executionSetting": "Claude Opus 4.7 (Agent SDK, fresh subagent context)",
+  "reasoningMode": "Adaptive",
+  "runNumber": 1,
+  "interfaceType": "agent",
+  "status": "raw_output_generated",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-05-23T16:49:27Z",
+  "notes": "",
+  "inputSystemTokens": 10916,
+  "inputProcessTokens": 313,
+  "inputTokens": 11229,
+  "outputTokens": 293,
+  "totalTokens": 11522,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

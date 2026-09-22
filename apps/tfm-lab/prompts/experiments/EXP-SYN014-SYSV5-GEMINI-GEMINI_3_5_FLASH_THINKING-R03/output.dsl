@@ -1,0 +1,43 @@
+Customer:
+(start Trip planned)
+user Book ticket
+(send Booking Request)
+(receive Payment Request)
+Pay before deadline?
+Yes
+user Pay booking
+(send Payment)
+(receive Ticket)
+(finish Ticket received)
+
+Customer:
+(start Trip planned)
+user Book ticket
+(send Booking Request)
+(receive Payment Request)
+Pay before deadline?
+No
+(receive Cancellation Notice)
+(finish Booking cancelled)
+
+Travel Agency:
+(receive Booking Request)
+service Create reservation
+(send Payment Request)
+(receive Payment)
+service Issue ticket
+(send Ticket)
+(finish Ticket issued)
+
+Travel Agency:
+(receive Booking Request)
+service Create reservation
+(send Payment Request)
+(timer Payment Deadline)
+service Cancel reservation automatically
+(send Cancellation Notice)
+(finish Reservation cancelled)
+
+== pools ==
+Traveler -> Customer
+Online Travel Agency -> Travel Agency

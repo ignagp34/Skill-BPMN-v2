@@ -1,0 +1,6 @@
+Clerk: Greet patient
+Confirm appointment
+Update arrival in system
+Print visit label
+Direct patient to waiting area
+Complete check-in

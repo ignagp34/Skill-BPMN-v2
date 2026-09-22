@@ -1,0 +1,33 @@
+{
+  "experimentId": "EXP-SYN015-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+  "processId": "SYN015",
+  "processFilename": "SYN015_software_procurement_stress_test.md",
+  "processTitle": "Software procurement stress test",
+  "processSource": "synthetic",
+  "difficulty": "stress",
+  "expectedFeatures": [
+    "multiple_lanes",
+    "xor_gateway",
+    "parallel_gateway",
+    "message_flow",
+    "data_objects",
+    "timer_or_exception_event"
+  ],
+  "systemPromptVersion": "SYSV5",
+  "provider": "CHATGPT",
+  "modelLabel": "GPT_5_5_THINKING",
+  "executionSetting": "ChatGPT 5.5 (High reasoning, fresh isolated subagent context)",
+  "reasoningMode": "High",
+  "runNumber": 3,
+  "interfaceType": "agent",
+  "status": "raw_output_generated",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-06-18T20:55:06Z",
+  "notes": "Model executed successfully; output generated in a fresh isolated context. Truncation or ambiguity: none.",
+  "inputSystemTokens": 14890,
+  "inputProcessTokens": 480,
+  "inputTokens": 15370,
+  "outputTokens": 1354,
+  "totalTokens": 16724,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

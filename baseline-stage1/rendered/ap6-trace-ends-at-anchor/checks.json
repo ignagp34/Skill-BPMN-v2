@@ -1,0 +1,18 @@
+{
+  "source": "packages/bpmn-core/tests/fixtures/_invalid/ap6-trace-ends-at-anchor.dsl",
+  "invalid": true,
+  "id": "ap6-trace-ends-at-anchor",
+  "status": "semantic_error",
+  "passed": true,
+  "checks": {
+    "bpmnDI": false,
+    "svg": false,
+    "png": false
+  },
+  "reimport": null,
+  "hashes": {
+    "normalized.dsl": "ba664faa7e719f14ab0ca3a495a73da4bd21757c1f294be0f720e10566f16d59",
+    "result.json": "1450a1808a55f93f611625de5ae6390f0431a78951e3915dff7e0cb36c118ea7"
+  },
+  "errors": []
+}

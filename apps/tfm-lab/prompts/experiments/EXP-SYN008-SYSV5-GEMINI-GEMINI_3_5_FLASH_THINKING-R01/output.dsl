@@ -1,0 +1,13 @@
+Department:
+(start Office equipment needed)
+Submit request
+Specialist:
+Review request
+Confirm items are on approved catalog
+Reserve budget|Create purchase order|Notify warehouse of expected delivery
+Send order confirmation
+Close request
+(finish Request closed)
+
+== pools ==
+Procurement Office -> Department; Specialist

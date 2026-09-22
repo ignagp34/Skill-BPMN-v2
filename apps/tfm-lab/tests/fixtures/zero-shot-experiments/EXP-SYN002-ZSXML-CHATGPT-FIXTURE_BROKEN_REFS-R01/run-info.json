@@ -1,0 +1,16 @@
+{
+  "representation": "zero_shot_xml",
+  "processId": "SYN002",
+  "processSource": "synthetic",
+  "difficulty": "easy",
+  "expectedFeatures": ["tasks", "start_end_events"],
+  "provider": "CHATGPT",
+  "modelLabel": "FIXTURE_BROKEN_REFS",
+  "runNumber": 1,
+  "inputTokens": null,
+  "outputTokens": null,
+  "totalTokens": null,
+  "elapsedSeconds": null,
+  "iterations": 1,
+  "postprocessing": []
+}

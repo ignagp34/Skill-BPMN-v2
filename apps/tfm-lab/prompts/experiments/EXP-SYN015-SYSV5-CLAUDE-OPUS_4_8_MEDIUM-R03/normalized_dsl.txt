@@ -1,0 +1,84 @@
+(start Software tool needed)
+[Business Justification]
+[Estimated Budget]
+Requester: Submit software request
+Manager: Review request
+Is the request approved?
+No
+Procurement: Inform requester of rejection
+(finish Request rejected by manager)
+
+(start Software tool needed)
+[Business Justification]
+[Estimated Budget]
+Requester: Submit software request
+Manager: Review request
+Is the request approved?
+Yes
+Procurement: Start sourcing process
+(send Request for Quotation)
+
+Supplier: (receive Request for Quotation)
+Supplier: Prepare quote
+Supplier: (send Quote)
+
+Procurement: (receive Quote)
+Procurement: Review quote
+Is the quote within budget?
+No
+Procurement: Ask requester to reduce scope
+Should the scope be reduced?
+No
+Procurement: (send Opportunity Closed)
+(finish Opportunity closed)
+
+...
+Should the scope be reduced?
+Yes
+Procurement: (send Request for Revised Quote)
+Procurement: (receive Revised Quote)
+Procurement: Review quote
+...
+
+...
+Procurement: Review quote
+Is the quote within budget?
+Yes
+IT Security: Review security questionnaire|Finance: Confirm budget availability
+...
+
+//Contract cannot be signed until both reviews are complete
+...
+IT Security: Review security questionnaire
+Did IT security find a critical risk?
+Yes
+Procurement: Reject request for security reasons
+Procurement: (send Security Rejection Notice)
+(finish Request rejected for security)
+...
+
+...
+Finance: Confirm budget availability
+((deadline 5 business days))
+Procurement: Notify requester of expiry
+(finish Request expired)
+...
+
+...
+IT Security: Review security questionnaire|Finance: Confirm budget availability
+Procurement: Prepare purchase recommendation
+Manager: Give final approval
+Procurement: (send Purchase Order)
+
+Supplier: (receive Purchase Order)
+Supplier: (send Order Confirmation)
+
+Procurement: (receive Order Confirmation)
+[db Contract Repository]
+Procurement: Record signed documents
+Procurement: Inform requester of approval
+(finish Software purchase approved and ordered)
+
+== pools ==
+Company -> Requester; Manager; Procurement; IT Security; Finance
+Supplier -> Supplier

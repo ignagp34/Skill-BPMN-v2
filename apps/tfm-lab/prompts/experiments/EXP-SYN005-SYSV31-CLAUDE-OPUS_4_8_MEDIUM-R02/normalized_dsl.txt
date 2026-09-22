@@ -1,0 +1,32 @@
+Employee: Submit Reimbursement Request
+Finance Specialist: Check Receipts and Verify Policy
+Are receipts present and request valid?
+Receipts missing
+Return Request to Employee
+
+Employee: Submit Reimbursement Request
+Finance Specialist: Check Receipts and Verify Policy
+Are receipts present and request valid?
+Valid, within limit
+Approve Request
+Schedule Payment
+
+Employee: Submit Reimbursement Request
+Finance Specialist: Check Receipts and Verify Policy
+Are receipts present and request valid?
+Valid, exceeds limit
+Send to Finance Manager
+Finance Manager: Decide on Request
+Approve or reject?
+Approve
+Finance Specialist: Schedule Payment
+
+Employee: Submit Reimbursement Request
+Finance Specialist: Check Receipts and Verify Policy
+Are receipts present and request valid?
+Valid, exceeds limit
+Send to Finance Manager
+Finance Manager: Decide on Request
+Approve or reject?
+Reject
+Finance Specialist: Send Rejection Message

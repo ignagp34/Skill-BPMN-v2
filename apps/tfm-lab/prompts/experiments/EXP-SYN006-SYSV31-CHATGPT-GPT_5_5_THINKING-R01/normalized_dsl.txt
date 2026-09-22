@@ -1,0 +1,63 @@
+Customer: Apply for new credit card
+Banking Officer: Receive application
+Check provided information
+Is mandatory information complete?
+No
+Ask customer to submit missing information
+(finish Application stopped)
+
+Customer: Apply for new credit card
+Banking Officer: Receive application
+Check provided information
+Is mandatory information complete?
+Yes
+Perform credit check
+What is the credit result?
+Approved
+Create card account
+Order card
+Send approval message to customer
+(finish Customer notified)
+
+Customer: Apply for new credit card
+Banking Officer: Receive application
+Check provided information
+Is mandatory information complete?
+Yes
+Perform credit check
+What is the credit result?
+Borderline
+Send application to supervisor for manual review
+Supervisor: Manually review application
+Does the supervisor approve?
+Yes
+Banking Officer: Create card account
+Order card
+Send approval message to customer
+(finish Customer notified)
+
+Customer: Apply for new credit card
+Banking Officer: Receive application
+Check provided information
+Is mandatory information complete?
+Yes
+Perform credit check
+What is the credit result?
+Borderline
+Send application to supervisor for manual review
+Supervisor: Manually review application
+Does the supervisor approve?
+No
+Banking Officer: Send rejection message to customer
+(finish Customer notified)
+
+Customer: Apply for new credit card
+Banking Officer: Receive application
+Check provided information
+Is mandatory information complete?
+Yes
+Perform credit check
+What is the credit result?
+Declined
+Send rejection message to customer
+(finish Customer notified)

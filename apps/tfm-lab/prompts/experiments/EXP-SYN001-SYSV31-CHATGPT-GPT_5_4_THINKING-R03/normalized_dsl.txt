@@ -1,0 +1,6 @@
+Registrar Clerk: receive Request for enrollment certificate
+Lookup student record
+Generate enrollment certificate
+Check document completeness
+send Enrollment certificate by email
+Close request

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+             targetNamespace="http://example.com/loan"
+             id="loan_application">
+
+  <process id="loan_process" name="Loan Application Process" isExecutable="false">
+
+    <startEvent id="start" name="Loan Application Submitted"/>
+
+    <sequenceFlow id="sf1" sourceRef="start" targetRef="task_review"/>
+
+    <userTask id="task_review" name="Review Application"/>
+
+    <sequenceFlow id="sf2" sourceRef="task_review" targetRef="gw_complete"/>
+
+    <exclusiveGateway id="gw_complete" name="Application Complete?"/>
+
+    <sequenceFlow id="sf3" sourceRef="gw_complete" targetRef="task_request_info">
+      <conditionExpression>not complete</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sf4" sourceRef="gw_complete" targetRef="task_credit_eval" default="sf4">
+    </sequenceFlow>
+
+    <userTask id="task_request_info" name="Request Missing Information"/>
+
+    <sequenceFlow id="sf5" sourceRef="task_request_info" targetRef="task_review"/>
+
+    <userTask id="task_credit_eval" name="Evaluate Credit Risk"/>
+
+    <sequenceFlow id="sf6" sourceRef="task_credit_eval" targetRef="gw_decision"/>
+
+    <exclusiveGateway id="gw_decision" name="Loan Approved?"/>
+
+    <sequenceFlow id="sf7" sourceRef="gw_decision" targetRef="task_prepare_agreement">
+      <conditionExpression>approved</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sf8" sourceRef="gw_decision" targetRef="task_reject_notification" default="sf8">
+    </sequenceFlow>
+
+    <userTask id="task_prepare_agreement" name="Prepare Loan Agreement"/>
+
+    <sequenceFlow id="sf9" sourceRef="task_prepare_agreement" targetRef="task_send_agreement"/>
+
+    <sendTask id="task_send_agreement" name="Send Agreement to Customer"/>
+
+    <sequenceFlow id="sf10" sourceRef="task_send_agreement" targetRef="task_receive_signed"/>
+
+    <receiveTask id="task_receive_signed" name="Receive Signed Agreement"/>
+
+    <sequenceFlow id="sf11" sourceRef="task_receive_signed" targetRef="end_approved"/>
+
+    <sendTask id="task_reject_notification" name="Send Rejection Notification"/>
+
+    <sequenceFlow id="sf12" sourceRef="task_reject_notification" targetRef="end_rejected"/>
+
+    <endEvent id="end_approved" name="Loan Process Completed"/>
+    <endEvent id="end_rejected" name="Loan Rejected"/>
+
+  </process>
+
+</definitions>

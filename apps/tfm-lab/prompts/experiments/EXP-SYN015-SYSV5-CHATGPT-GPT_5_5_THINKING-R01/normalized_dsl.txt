@@ -1,0 +1,230 @@
+(start Software tool needed)
+[Business justification document]
+[Estimated budget]
+Requester: user Submit software request
+Manager: user Review software request
+Does the manager approve the request?
+No
+Requester: (receive Manager rejection)
+Manager: (send Manager rejection)
+(finish Software request rejected by manager)
+
+(start Software tool needed)
+[Business justification document]
+[Estimated budget]
+Requester: user Submit software request
+Manager: user Review software request
+Does the manager approve the request?
+Yes
+Procurement: user Start sourcing process
+(send Request for Quotation)
+(receive Supplier Quote)
+[Supplier quote]
+user Review supplier quote
+Is the quoted amount within budget?
+No
+Requester: user Decide whether to reduce scope
+Should the scope be reduced?
+No
+Procurement: (send Opportunity Closed)
+Requester: (receive Opportunity closure notice)
+Procurement: (send Opportunity closure notice)
+(finish Software procurement opportunity closed)
+
+(start Software tool needed)
+[Business justification document]
+[Estimated budget]
+Requester: user Submit software request
+Manager: user Review software request
+Does the manager approve the request?
+Yes
+Procurement: user Start sourcing process
+(send Request for Quotation)
+(receive Supplier Quote)
+[Supplier quote]
+user Review supplier quote
+Is the quoted amount within budget?
+Yes
+IT Security: user Review supplier security questionnaire|Finance: user Confirm budget availability
+What is the review outcome?
+Critical security risk
+Procurement: user Reject request for security reasons
+Requester: (receive Security rejection)
+Procurement: (send Security rejection)
+(send Security Rejection Notice)
+(finish Software request rejected for security reasons)
+
+(start Software tool needed)
+[Business justification document]
+[Estimated budget]
+Requester: user Submit software request
+Manager: user Review software request
+Does the manager approve the request?
+Yes
+Procurement: user Start sourcing process
+(send Request for Quotation)
+(receive Supplier Quote)
+[Supplier quote]
+user Review supplier quote
+Is the quoted amount within budget?
+No
+Requester: user Decide whether to reduce scope
+Should the scope be reduced?
+Yes
+Procurement: (send Revised Quote Request)
+(receive Revised Supplier Quote)
+[Revised supplier quote]
+user Review revised quote
+IT Security: user Review supplier security questionnaire|Finance: user Confirm budget availability
+What is the review outcome?
+Critical security risk
+Procurement: user Reject request for security reasons
+Requester: (receive Security rejection)
+Procurement: (send Security rejection)
+(send Security Rejection Notice)
+(finish Software request rejected for security reasons)
+
+(start Software tool needed)
+[Business justification document]
+[Estimated budget]
+Requester: user Submit software request
+Manager: user Review software request
+Does the manager approve the request?
+Yes
+Procurement: user Start sourcing process
+(send Request for Quotation)
+(receive Supplier Quote)
+[Supplier quote]
+user Review supplier quote
+Is the quoted amount within budget?
+Yes
+IT Security: user Review supplier security questionnaire|Finance: user Confirm budget availability
+(deadline 5 business days)
+Procurement: user Expire software request
+Requester: (receive Budget confirmation timeout)
+Procurement: (send Budget confirmation timeout)
+(finish Software request expired)
+
+(start Software tool needed)
+[Business justification document]
+[Estimated budget]
+Requester: user Submit software request
+Manager: user Review software request
+Does the manager approve the request?
+Yes
+Procurement: user Start sourcing process
+(send Request for Quotation)
+(receive Supplier Quote)
+[Supplier quote]
+user Review supplier quote
+Is the quoted amount within budget?
+No
+Requester: user Decide whether to reduce scope
+Should the scope be reduced?
+Yes
+Procurement: (send Revised Quote Request)
+(receive Revised Supplier Quote)
+[Revised supplier quote]
+user Review revised quote
+IT Security: user Review supplier security questionnaire|Finance: user Confirm budget availability
+(deadline 5 business days)
+Procurement: user Expire software request
+Requester: (receive Budget confirmation timeout)
+Procurement: (send Budget confirmation timeout)
+(finish Software request expired)
+
+(start Software tool needed)
+[Business justification document]
+[Estimated budget]
+Requester: user Submit software request
+Manager: user Review software request
+Does the manager approve the request?
+Yes
+Procurement: user Start sourcing process
+(send Request for Quotation)
+(receive Supplier Quote)
+[Supplier quote]
+user Review supplier quote
+Is the quoted amount within budget?
+Yes
+IT Security: user Review supplier security questionnaire|Finance: user Confirm budget availability
+What is the review outcome?
+Both reviews completed successfully
+Procurement: user Prepare purchase recommendation
+Manager: user Give final approval
+//Contract cannot be signed until both reviews are complete
+Procurement: manual Sign contract
+(send Purchase Order)
+(receive Order Confirmation)
+[Signed contract documents]
+user Record signed documents
+[db Contract repository]
+Requester: (receive Purchase approved and ordered)
+Procurement: (send Purchase approved and ordered)
+(finish Software purchase approved and ordered)
+
+(start Software tool needed)
+[Business justification document]
+[Estimated budget]
+Requester: user Submit software request
+Manager: user Review software request
+Does the manager approve the request?
+Yes
+Procurement: user Start sourcing process
+(send Request for Quotation)
+(receive Supplier Quote)
+[Supplier quote]
+user Review supplier quote
+Is the quoted amount within budget?
+No
+Requester: user Decide whether to reduce scope
+Should the scope be reduced?
+Yes
+Procurement: (send Revised Quote Request)
+(receive Revised Supplier Quote)
+[Revised supplier quote]
+user Review revised quote
+IT Security: user Review supplier security questionnaire|Finance: user Confirm budget availability
+What is the review outcome?
+Both reviews completed successfully
+Procurement: user Prepare purchase recommendation
+Manager: user Give final approval
+//Contract cannot be signed until both reviews are complete
+Procurement: manual Sign contract
+(send Purchase Order)
+(receive Order Confirmation)
+[Signed contract documents]
+user Record signed documents
+[db Contract repository]
+Requester: (receive Purchase approved and ordered)
+Procurement: (send Purchase approved and ordered)
+(finish Software purchase approved and ordered)
+
+Supplier Operations: (receive Request for Quotation)
+user Prepare supplier quote
+[Supplier quote]
+(send Supplier Quote)
+(finish Initial quote submitted)
+
+Supplier Operations: (receive Revised Quote Request)
+user Prepare revised supplier quote
+[Revised supplier quote]
+(send Revised Supplier Quote)
+(finish Revised quote submitted)
+
+Supplier Operations: (receive Opportunity Closed)
+user Record closed opportunity
+(finish Opportunity closed by customer)
+
+Supplier Operations: (receive Security Rejection Notice)
+user Record security rejection
+(finish Opportunity rejected for security reasons)
+
+Supplier Operations: (receive Purchase Order)
+user Process purchase order
+(send Order Confirmation)
+(finish Purchase order confirmed)
+
+== pools ==
+Company -> Requester; Manager; Procurement; IT Security; Finance
+Supplier -> Supplier Operations

@@ -1,0 +1,69 @@
+(start Software tool needed)
+Requester: Submit software request
+[Business Justification]
+[Estimated Budget]
+Manager: Review request
+Is the request approved?
+No
+Requester: Inform requester of rejection
+(finish Request rejected by manager)
+
+(start Software tool needed)
+Requester: Submit software request
+[Business Justification]
+[Estimated Budget]
+Manager: Review request
+Is the request approved?
+Yes
+Procurement: Start sourcing process
+Procurement: send Request for Quotation
+Procurement: (receive Quote)
+Procurement: Review quote
+Is the quote within budget?
+No
+Procurement: Ask requester to reduce scope
+Should the scope be reduced?
+No
+Procurement: send Opportunity Closed
+(finish Opportunity closed)
+
+...
+Should the scope be reduced?
+Yes
+Procurement: send Revised Quotation Request
+Procurement: (receive Revised Quote)
+Procurement: Review quote
+...
+
+...
+Is the quote within budget?
+Yes
+Procurement: Conduct security and budget reviews
+//Contract cannot be signed until both reviews are complete
+IT Security: Review supplier security questionnaire|Finance: Confirm budget availability
+...
+
+...
+IT Security: Review supplier security questionnaire
+Does IT security find a critical risk?
+Yes
+Procurement: Inform requester of security rejection
+Procurement: send Supplier Security Rejection
+(finish Request rejected for security reasons)
+
+...
+Finance: Confirm budget availability
+((deadline 5 business days))
+Procurement: Notify requester of expiry
+(finish Request expired)
+
+...
+IT Security: Review supplier security questionnaire|Finance: Confirm budget availability
+Procurement: Prepare purchase recommendation
+Manager: Give final approval
+Procurement: send Purchase Order
+Procurement: (receive Order Confirmation)
+Procurement: Record signed documents
+[db Contract Repository]
+Procurement: Inform requester purchase approved
+(finish Software purchase approved and ordered)

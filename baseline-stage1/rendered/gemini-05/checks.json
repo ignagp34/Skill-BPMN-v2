@@ -1,0 +1,24 @@
+{
+  "source": "packages/bpmn-core/tests/fixtures/gemini-05.dsl",
+  "invalid": false,
+  "id": "gemini-05",
+  "status": "success",
+  "passed": true,
+  "checks": {
+    "bpmnDI": true,
+    "svg": true,
+    "png": true,
+    "width": 2236,
+    "height": 816
+  },
+  "reimport": true,
+  "hashes": {
+    "normalized.dsl": "1931f564a60c9fcc021bc1f204a184435fce311f5978286679c9409b15693c51",
+    "result.json": "cc3d2d2783969463e55dd44d6956091982df4ffa1d27301ba5cb8d921ab26014",
+    "semantic.bpmn": "6fcb7a77a2c8ea1bc7561ee23fe9038dfb438fa6f299b6596666bb03079d13a4",
+    "diagram.bpmn": "eac88073ecc9bd7a28e405bc69aaee88de397155789960b09ee49c9d7c3549fc",
+    "diagram.svg": "917e36fd65ef6fafdbf2e7ba5285d5baa4fdd697f0f94552c4b9a24329cef6a7",
+    "diagram.png": "58b2450f4b01a9273b4775e0c6fa35dbf1c9b9003978ea43b8b2631bd0ef8ef3"
+  },
+  "errors": []
+}

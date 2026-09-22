@@ -1,0 +1,113 @@
+(start Software procurement initiated)
+[Software Request]
+[Business Justification]
+[Estimated Budget]
+Requester: Submit software request
+Manager: Review request
+Is request approved?
+Yes
+Procurement: Start sourcing process
+Procurement: (send Request for Quotation)
+Procurement: (receive Quote)
+Procurement: Review quote and check budget
+Is quote within budget?
+Yes
+IT Security: Review security questionnaire | Finance: Confirm budget availability
+IT Security: Complete security review | Finance: Complete budget review
+//Note: The contract cannot be signed until both reviews are complete
+Procurement: Prepare purchase recommendation
+Manager: Give final approval
+Procurement: (send Purchase Order)
+Procurement: (receive Order Confirmation)
+Procurement: Record signed documents
+Procurement: Inform requester of approval
+(finish Software purchase approved and ordered)
+
+(start Software procurement initiated)
+[Software Request]
+[Business Justification]
+[Estimated Budget]
+Requester: Submit software request
+Manager: Review request
+Is request approved?
+No
+Manager: Inform requester of rejection
+(finish Software request rejected)
+
+...
+Procurement: Review quote and check budget
+Is quote within budget?
+No
+Procurement: Ask requester to reduce scope
+Requester: Decide on scope reduction
+...
+
+...
+Requester: Decide on scope reduction
+Is scope reduced?
+No
+Procurement: (send Opportunity Closed)
+(finish Procurement cancelled due to budget)
+
+...
+Requester: Decide on scope reduction
+Is scope reduced?
+Yes
+Procurement: (send Request for Quotation)
+...
+
+...
+IT Security: Review security questionnaire
+Is there a critical risk?
+No
+IT Security: Complete security review
+...
+
+...
+IT Security: Review security questionnaire
+Is there a critical risk?
+Yes
+Procurement: Inform requester of security rejection
+Procurement: (send Rejection Notification)
+(finish Request rejected for security reasons)
+
+...
+Finance: Confirm budget availability
+(deadline 5 business days)
+Procurement: Inform requester of expiration
+(finish Request expired)
+
+Supplier: (receive Request for Quotation)
+Supplier: Prepare quote
+Supplier: (send Quote)
+Supplier: (receive Purchase Order)
+Supplier: Confirm order
+Supplier: (send Order Confirmation)
+(finish Order completed)
+
+Supplier: (receive Request for Quotation)
+Supplier: Prepare quote
+Supplier: (send Quote)
+Supplier: (receive Request for Quotation)
+Supplier: Prepare quote
+Supplier: (send Quote)
+Supplier: (receive Purchase Order)
+Supplier: Confirm order
+Supplier: (send Order Confirmation)
+(finish Order completed)
+
+Supplier: (receive Request for Quotation)
+Supplier: Prepare quote
+Supplier: (send Quote)
+Supplier: (receive Opportunity Closed)
+(finish Opportunity closed)
+
+Supplier: (receive Request for Quotation)
+Supplier: Prepare quote
+Supplier: (send Quote)
+Supplier: (receive Rejection Notification)
+(finish Request rejected)
+
+== pools ==
+Buyer -> Requester; Manager; Procurement; IT Security; Finance
+Supplier -> Supplier

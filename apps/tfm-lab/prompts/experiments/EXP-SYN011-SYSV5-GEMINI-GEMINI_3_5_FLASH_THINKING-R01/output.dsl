@@ -1,0 +1,37 @@
+(receive Application and budget received)
+[Application form]
+[Supporting budget file]
+Officer: Register application
+[db Grants database]
+Officer: Check application form
+Officer: Review budget file
+Officer: Consult eligibility rules
+//Incomplete applications must not be assessed for merit
+Officer: Evaluate completeness
+Is the application complete?
+No
+Officer: Record issue
+Officer: send Request for completion
+(finish Request for completion sent)
+
+(receive Application and budget received)
+[Application form]
+[Supporting budget file]
+Officer: Register application
+[db Grants database]
+Officer: Check application form
+Officer: Review budget file
+Officer: Consult eligibility rules
+//Incomplete applications must not be assessed for merit
+Officer: Evaluate completeness
+Is the application complete?
+Yes
+Officer: Write evaluation report
+[Evaluation report]
+Officer: Store report in case repository
+[db Case repository]
+Officer: Issue recommendation for decision
+(finish Recommendation issued)
+
+== pools ==
+Agency -> Officer

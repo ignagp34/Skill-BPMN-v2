@@ -1,0 +1,7 @@
+Student: Request Enrollment Certificate
+Registrar Clerk: Receive Request
+Look Up Student Record
+Generate Certificate
+Check Document for Completeness
+Send Certificate by Email
+Close Request

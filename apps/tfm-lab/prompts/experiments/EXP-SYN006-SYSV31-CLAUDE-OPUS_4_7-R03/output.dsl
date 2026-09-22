@@ -1,0 +1,52 @@
+(receive Credit card application)
+Check provided information
+Is mandatory information missing?
+Yes
+Ask customer to submit missing information
+Stop application for now
+
+(receive Credit card application)
+Check provided information
+Is mandatory information missing?
+No
+Perform credit check
+What is the credit result?
+Approved
+Create card account
+Order card
+send Approval message
+
+(receive Credit card application)
+Check provided information
+Is mandatory information missing?
+No
+Perform credit check
+What is the credit result?
+Borderline
+Send application to supervisor for manual review
+Does supervisor approve application?
+Yes
+Create card account
+Order card
+send Approval message
+
+(receive Credit card application)
+Check provided information
+Is mandatory information missing?
+No
+Perform credit check
+What is the credit result?
+Borderline
+Send application to supervisor for manual review
+Does supervisor approve application?
+No
+send Rejection message
+
+(receive Credit card application)
+Check provided information
+Is mandatory information missing?
+No
+Perform credit check
+What is the credit result?
+Declined
+send Rejection message

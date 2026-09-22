@@ -1,0 +1,6 @@
+Department: Submit equipment request
+Procurement Specialist: Review request
+Confirm items are on approved catalog
+Reserve budget|Create purchase order|Notify warehouse of expected delivery
+Send order confirmation to requesting department
+Close request

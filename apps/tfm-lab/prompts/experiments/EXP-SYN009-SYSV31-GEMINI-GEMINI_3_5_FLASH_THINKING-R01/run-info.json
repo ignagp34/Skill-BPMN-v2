@@ -1,0 +1,29 @@
+{
+  "experimentId": "EXP-SYN009-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+  "processId": "SYN009",
+  "processFilename": "SYN009_applicant_hr_interview_scheduling.md",
+  "processTitle": "Applicant and HR interview scheduling",
+  "processSource": "synthetic",
+  "difficulty": "medium",
+  "expectedFeatures": [
+    "multiple_pools",
+    "message_flow",
+    "send_receive",
+    "xor_gateway"
+  ],
+  "systemPromptVersion": "SYSV31",
+  "provider": "GEMINI",
+  "modelLabel": "GEMINI_3_5_FLASH_THINKING",
+  "runNumber": 1,
+  "interfaceType": "agent",
+  "status": "raw_output_generated",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-05-23T17:16:34.612951+00:00",
+  "notes": "",
+  "inputSystemTokens": 10916,
+  "inputProcessTokens": 287,
+  "inputTokens": 11203,
+  "outputTokens": 105,
+  "totalTokens": 11308,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

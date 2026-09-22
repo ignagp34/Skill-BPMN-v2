@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             id="Definitions_Broken" targetNamespace="http://example.com/bpmn">
+  <process id="Process_Broken" isExecutable="false">
+    <startEvent id="Start_Broken" name="Start"/>
+    <task id="Task_Broken" name="Work"/>
+    <endEvent id="End_Broken" name="End"/>
+    <sequenceFlow id="Flow_1" sourceRef="Start_Broken" targetRef="Missing_Task"/>
+    <sequenceFlow id="Flow_2" sourceRef="Task_Broken" targetRef="End_Broken"/>
+  </process>
+</definitions>

@@ -1,0 +1,31 @@
+{
+  "experimentId": "EXP-SYN012-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+  "processId": "SYN012",
+  "processFilename": "SYN012_hospital_billing_adjustment.md",
+  "processTitle": "Hospital billing adjustment",
+  "processSource": "synthetic",
+  "difficulty": "medium",
+  "expectedFeatures": [
+    "data_objects",
+    "data_store",
+    "annotations",
+    "xor_gateway"
+  ],
+  "systemPromptVersion": "SYSV4",
+  "provider": "GEMINI",
+  "modelLabel": "GEMINI_3_5_FLASH_THINKING",
+  "executionSetting": "Gemini 3.5 Flash (High)",
+  "reasoningMode": "High",
+  "runNumber": 1,
+  "interfaceType": "agent",
+  "status": "raw_output_generated",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-06-18T19:15:19Z",
+  "notes": "",
+  "inputSystemTokens": 13249,
+  "inputProcessTokens": 266,
+  "inputTokens": 13515,
+  "outputTokens": 206,
+  "totalTokens": 13721,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

@@ -1,0 +1,14 @@
+Student:
+(start Student needs certificate)
+user Request enrollment certificate
+Registrar Clerk:
+receive Receive request
+user Look up student record
+user Generate certificate
+user Check document for completeness
+send Send certificate by email
+service Close request
+(finish Request closed)
+
+== pools ==
+University -> Student; Registrar Clerk

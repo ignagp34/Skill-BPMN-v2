@@ -1,0 +1,18 @@
+{
+  "source": "packages/bpmn-core/tests/fixtures/_invalid/ap7-anchor-buried.dsl",
+  "invalid": true,
+  "id": "ap7-anchor-buried",
+  "status": "semantic_error",
+  "passed": true,
+  "checks": {
+    "bpmnDI": false,
+    "svg": false,
+    "png": false
+  },
+  "reimport": null,
+  "hashes": {
+    "normalized.dsl": "93ec6dd861d4ebff2a2644f32e5c4f31d68eeab6629cf43c06930df2133cb675",
+    "result.json": "6014871e1e8f080dd9903c4377fcb5cbdff0176db2095612532a4ab2d3c980ae"
+  },
+  "errors": []
+}

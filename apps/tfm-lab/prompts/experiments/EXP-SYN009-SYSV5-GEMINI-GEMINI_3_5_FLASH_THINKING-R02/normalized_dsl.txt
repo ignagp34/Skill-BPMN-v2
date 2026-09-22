@@ -1,0 +1,45 @@
+Recruiter:
+(start Application received)
+user Review application
+(send Invitation)
+(receive Selected Time)
+user Confirm interview
+(send Confirmation)
+(finish Interview scheduled)
+
+Recruiter:
+(start Application received)
+user Review application
+(send Invitation)
+(receive Request for Alternative Times)
+user Propose new set of times
+(send New Times)
+(receive Selected Time)
+user Confirm interview
+(send Confirmation)
+(finish Interview scheduled)
+
+Applicant:
+(receive Invitation)
+user Decide on proposed times
+Are times acceptable?
+Yes
+(send Selected Time)
+(receive Confirmation)
+(finish Interview scheduled)
+
+Applicant:
+(receive Invitation)
+user Decide on proposed times
+Are times acceptable?
+No
+(send Request for Alternative Times)
+(receive New Times)
+user Select alternative time
+(send Selected Time)
+(receive Confirmation)
+(finish Interview scheduled)
+
+== pools ==
+HR -> Recruiter
+Applicant Pool -> Applicant

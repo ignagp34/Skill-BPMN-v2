@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             id="Definitions_NoDI"
+             targetNamespace="http://example.com/bpmn">
+  <process id="Process_NoDI" isExecutable="false">
+    <startEvent id="Start_NoDI" name="Start"/>
+    <task id="Task_NoDI" name="Work"/>
+    <endEvent id="End_NoDI" name="End"/>
+    <sequenceFlow id="Flow_NoDI_1" sourceRef="Start_NoDI" targetRef="Task_NoDI"/>
+    <sequenceFlow id="Flow_NoDI_2" sourceRef="Task_NoDI" targetRef="End_NoDI"/>
+  </process>
+</definitions>

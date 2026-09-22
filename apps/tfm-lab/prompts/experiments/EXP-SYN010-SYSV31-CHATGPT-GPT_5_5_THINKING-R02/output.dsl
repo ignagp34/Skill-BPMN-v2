@@ -1,0 +1,51 @@
+Buyer:
+send Purchase Order
+receive Order Confirmation
+Accept Order
+
+Buyer:
+send Purchase Order
+receive Revised Offer
+Review Revised Offer
+Does buyer accept revised offer?
+Yes
+send Revised Offer Acceptance
+receive Final Confirmation
+Accept Order
+
+Buyer:
+send Purchase Order
+receive Revised Offer
+Review Revised Offer
+Does buyer accept revised offer?
+No
+send Revised Offer Rejection
+Order Rejected
+
+Supplier:
+receive Purchase Order
+Check Stock Availability
+Are all requested items available?
+Yes
+send Order Confirmation
+Order Confirmed
+
+Supplier:
+receive Purchase Order
+Check Stock Availability
+Are all requested items available?
+No
+send Revised Offer
+receive Revised Offer Acceptance
+send Final Confirmation
+Order Confirmed
+
+Supplier:
+receive Purchase Order
+Check Stock Availability
+Are all requested items available?
+No
+send Revised Offer
+receive Revised Offer Rejection
+Close Order Request
+Order Rejected

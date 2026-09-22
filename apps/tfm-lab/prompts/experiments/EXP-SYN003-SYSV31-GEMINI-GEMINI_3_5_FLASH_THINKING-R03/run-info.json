@@ -1,0 +1,29 @@
+{
+  "experimentId": "EXP-SYN003-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+  "processId": "SYN003",
+  "processFilename": "SYN003_outpatient_checkin.md",
+  "processTitle": "Outpatient appointment check-in",
+  "processSource": "synthetic",
+  "difficulty": "easy",
+  "expectedFeatures": [
+    "sequential_flow",
+    "single_pool",
+    "tasks",
+    "start_end_events"
+  ],
+  "systemPromptVersion": "SYSV31",
+  "provider": "GEMINI",
+  "modelLabel": "GEMINI_3_5_FLASH_THINKING",
+  "runNumber": 3,
+  "interfaceType": "agent",
+  "status": "raw_output_generated",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-05-23T16:51:34.300939+00:00",
+  "notes": "",
+  "inputSystemTokens": 10916,
+  "inputProcessTokens": 206,
+  "inputTokens": 11122,
+  "outputTokens": 43,
+  "totalTokens": 11165,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

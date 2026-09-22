@@ -1,0 +1,8 @@
+IT Support:
+(receive Password reset request)
+user Verify employee identity
+service Reset password in directory system
+send Temporary password to employee
+user Record action in ticket
+user Resolve ticket
+(finish Ticket resolved)

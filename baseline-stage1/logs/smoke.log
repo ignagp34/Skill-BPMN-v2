@@ -1,0 +1,12 @@
+s17-document-approval: success_with_warnings; checks=true
+canon-1-cheeseburger: success; checks=true
+pool-map-message-event: success_with_warnings; checks=true
+gemini-03: success; checks=true
+gemini-04: success_with_warnings; checks=true
+gemini-05: success; checks=true
+s17-job-application: success_with_warnings; checks=true
+s17-pizza-order: success_with_warnings; checks=true
+es-almacen: success_with_warnings; checks=true
+ap6-trace-ends-at-anchor: semantic_error; checks=true
+ap7-anchor-buried: semantic_error; checks=true
+simple: success_with_warnings; checks=true

@@ -1,0 +1,1 @@
+Return only the BPMN Sketch Miner DSL output, without explanations.

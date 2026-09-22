@@ -1,0 +1,45 @@
+Claims Handler: receive New home damage claim
+Register claim
+Review submitted information
+Is claim complete?
+No
+Request missing information from customer
+Close current review
+
+Claims Handler: receive New home damage claim
+Register claim
+Review submitted information
+Is claim complete?
+Yes
+Is estimated damage below fast-track threshold?
+Yes
+Approve claim
+Send settlement notice
+
+Claims Handler: receive New home damage claim
+Register claim
+Review submitted information
+Is claim complete?
+Yes
+Is estimated damage below fast-track threshold?
+No
+Forward claim for detailed assessment
+Perform detailed assessment
+Is claim approved after detailed assessment?
+Yes
+Approve claim
+Send settlement notice
+
+Claims Handler: receive New home damage claim
+Register claim
+Review submitted information
+Is claim complete?
+Yes
+Is estimated damage below fast-track threshold?
+No
+Forward claim for detailed assessment
+Perform detailed assessment
+Is claim approved after detailed assessment?
+No
+Reject claim
+Send rejection notice

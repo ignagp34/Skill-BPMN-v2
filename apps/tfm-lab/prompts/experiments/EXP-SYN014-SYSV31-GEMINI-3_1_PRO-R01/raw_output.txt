@@ -1,0 +1,36 @@
+```
+Traveler:
+Book train ticket
+send Booking
+(receive Payment request)
+Pay booking
+send Payment
+(receive Ticket)
+(finish)
+
+Traveler:
+Book train ticket
+send Booking
+(receive Payment request)
+(receive Cancellation notice)
+(finish)
+
+Agency:
+(receive Booking)
+Create reservation
+send Payment request
+(receive Payment)
+Issue ticket
+send Ticket
+(finish)
+
+Agency:
+(receive Booking)
+Create reservation
+send Payment request
+(timer Payment deadline)
+Cancel reservation
+send Cancellation notice
+(finish)
+
+```

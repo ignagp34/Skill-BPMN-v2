@@ -1,0 +1,29 @@
+{
+  "experimentId": "EXP-SYN001-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+  "processId": "SYN001",
+  "processFilename": "SYN001_university_enrollment_certificate.md",
+  "processTitle": "University enrollment certificate",
+  "processSource": "synthetic",
+  "difficulty": "easy",
+  "expectedFeatures": [
+    "sequential_flow",
+    "single_pool",
+    "tasks",
+    "start_end_events"
+  ],
+  "systemPromptVersion": "SYSV31",
+  "provider": "GEMINI",
+  "modelLabel": "GEMINI_3_5_FLASH_THINKING",
+  "runNumber": 3,
+  "interfaceType": "agent",
+  "status": "raw_output_generated",
+  "officialResultJsonGeneratedByApp": false,
+  "createdAt": "2026-05-23T16:49:46.181741+00:00",
+  "notes": "",
+  "inputSystemTokens": 10916,
+  "inputProcessTokens": 201,
+  "inputTokens": 11117,
+  "outputTokens": 47,
+  "totalTokens": 11164,
+  "tokenSource": "tiktoken_o200k_base_estimate"
+}

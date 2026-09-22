@@ -1,0 +1,20 @@
+IT Support Center: Assign high-priority ticket
+Support Agent: Investigate issue
+Support Agent: Work on resolution
+Is issue resolved before SLA deadline?
+Yes
+Support Agent: Document fix
+Inform user
+Close ticket
+
+IT Support Center: Assign high-priority ticket
+Support Agent: Investigate issue
+Support Agent: Work on resolution
+(deadline SLA deadline)
+(escalate SLA breach)
+Team Lead: Review ticket
+Assign additional support
+Support Team: Continue work until issue is resolved
+Support Agent: Document fix
+Inform user
+Close ticket
