@@ -9,9 +9,9 @@ Evidencia en `evidence/layout-v0/REPORT.md`.
 - **Fase 0.** Los flujos de mensaje están ocultos por defecto en `render` y `render-dsl` (BPMN, SVG y PNG); `--message-flows shown` da la salida del TFM. Con flujos ocultos se guarda `layout-full.bpmn`, que es lo que evalúa `evaluate`. La paridad (12/12) y `tfm-history` se ejecutan con `shown`. `verify-source` da 3319/0 y `doctor` ok.
 - **`harness.mjs`.** Expone `HarnessSession` (un Vite y un Chromium para muchos renders) y acepta la app o página de harness de cada versión de layout.
 - **`tools/layout-lab/`** (ver su README). CLI `layout.mjs` con `bench-select`, `bench-render`, `metrics`, `compare`, `ab-batch`, `vote`, `montage` y `agreement`. Pruebas: `node --test tools/layout-lab/test/*.test.mjs` (6/6).
-  - Banco fijo de 50 DSL (32 del corpus y 18 fixtures). No hay ningún caso con 3 pools ni con subprocesos: hay que decidir si se añaden fixtures escritos a mano.
+  - Banco de 56 DSL: 32 del corpus, 18 fixtures y 6 procesos de IA con 3 pools escritos a mano (`fixtures/ai-3pools/`, añadidos con `bench-add`). Siguen sin cubrir los subprocesos. Render v0 de referencia: `skill-runs/layout/v0-20260925-b56`.
   - 35 métricas; el texto se mide en Chromium.
-  - Diagnóstico de v0: los peores defectos están en multi-pool (4× cruces por nodo y mensajes desalineados 762 px de media). El defecto duro más frecuente son las etiquetas sobre la banda de título de pool o carril (32/50 casos).
+  - Diagnóstico de v0: los peores defectos están en multi-pool (4× cruces por nodo y mensajes desalineados 762 px de media). El defecto duro más frecuente son las etiquetas sobre la banda de título de pool o carril (38/56 casos).
   - Página de votación local probada de extremo a extremo con un lote de humo v0 contra v0. No hay lote real.
 
 ## Siguiente

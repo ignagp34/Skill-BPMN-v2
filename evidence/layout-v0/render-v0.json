@@ -9,9 +9,9 @@
     }
   },
   "bench": "tools/layout-lab/bench",
-  "benchManifestSha256": "09b929a27fa7be7c37cf550c8fc848203cab4bfe37aa72b8b9842caf020c4582",
-  "startedAt": "2026-09-25T15:51:58.047Z",
-  "finishedAt": "2026-09-25T15:52:26.035Z",
+  "benchManifestSha256": "fe224c791ae2a6228c52eeee68444b6ca2821a02b36bb93817168f0b11c95924",
+  "startedAt": "2026-09-25T16:31:55.115Z",
+  "finishedAt": "2026-09-25T16:32:27.741Z",
   "runtime": {
     "node": "v24.12.0",
     "platform": "win32",
@@ -421,6 +421,54 @@
       "height": 362,
       "hidden": null,
       "semanticSha256": "536174946b629229c8e6b82121eadee430d52ad0e0c17d90e329cb47b91b5266"
+    },
+    {
+      "id": "h-ml-01-clasificador-imagenes",
+      "status": "success",
+      "width": 1730,
+      "height": 874,
+      "hidden": "success",
+      "semanticSha256": "8ca5844f3b84d9b9103916a001829e763eac83cfd66e23d2215475c1b35d2229"
+    },
+    {
+      "id": "h-ml-02-llm-fine-tuning",
+      "status": "success",
+      "width": 1930,
+      "height": 892,
+      "hidden": "success",
+      "semanticSha256": "61b1942a84d17f1e4f600feb4e85fd84f298c3389cb1efbd761fc3388a274e71"
+    },
+    {
+      "id": "h-ml-03-deteccion-fraude",
+      "status": "success",
+      "width": 1867,
+      "height": 874,
+      "hidden": "success",
+      "semanticSha256": "69a262680c0d5a8f6157caa6954a44abb9c566e1ad748bfdf20e0562d24f118a"
+    },
+    {
+      "id": "h-ml-04-deriva-datos",
+      "status": "success",
+      "width": 1516,
+      "height": 992,
+      "hidden": "success",
+      "semanticSha256": "99bbdefcec34f4ad2ca1f40f5d818a237d0c4c138a4d93df3a9dea9a0d12792b"
+    },
+    {
+      "id": "h-ml-05-rag-chatbot",
+      "status": "success",
+      "width": 1794,
+      "height": 1030,
+      "hidden": "success",
+      "semanticSha256": "a6e9fca60428abcdac010967be8bcc3267bd817cb72fe4de072403cd4a13f299"
+    },
+    {
+      "id": "h-ml-06-vision-medica",
+      "status": "success",
+      "width": 1902,
+      "height": 1048,
+      "hidden": "success",
+      "semanticSha256": "482bd8dcbc659aecced033732e60e2468d83a7596dbda24b1a5cd1c9e727caf5"
     }
   ]
 }

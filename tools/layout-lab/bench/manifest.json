@@ -46,8 +46,8 @@
     },
     "pools3": {
       "quota": 4,
-      "selected": 0,
-      "available": 0
+      "selected": 6,
+      "available": 6
     },
     "pools4plus": {
       "quota": 3,
@@ -56,28 +56,28 @@
     },
     "message-flows": {
       "quota": 12,
-      "selected": 12,
-      "available": 32
+      "selected": 18,
+      "available": 38
     },
     "boundary-events": {
       "quota": 6,
-      "selected": 6,
-      "available": 32
+      "selected": 8,
+      "available": 34
     },
     "loops": {
       "quota": 6,
-      "selected": 8,
-      "available": 21
+      "selected": 11,
+      "available": 24
     },
     "many-gateways": {
       "quota": 10,
-      "selected": 18,
-      "available": 90
+      "selected": 20,
+      "available": 92
     },
     "artifacts": {
       "quota": 8,
-      "selected": 16,
-      "available": 71
+      "selected": 22,
+      "available": 77
     },
     "subprocess": {
       "quota": 1,
@@ -86,8 +86,8 @@
     },
     "long-labels": {
       "quota": 6,
-      "selected": 14,
-      "available": 75
+      "selected": 18,
+      "available": 79
     },
     "size-small": {
       "quota": 8,
@@ -96,13 +96,13 @@
     },
     "size-medium": {
       "quota": 15,
-      "selected": 28,
-      "available": 246
+      "selected": 31,
+      "available": 249
     },
     "size-large": {
       "quota": 10,
-      "selected": 10,
-      "available": 38
+      "selected": 13,
+      "available": 41
     }
   },
   "cases": [
@@ -1629,6 +1629,218 @@
         "maxLabelLength": 13
       },
       "featuresFrom": "v0 render"
+    },
+    {
+      "id": "h-ml-01-clasificador-imagenes",
+      "origin": "handwritten",
+      "source": "tools/layout-lab/fixtures/ai-3pools/ml-01-clasificador-imagenes.dsl",
+      "processKey": "handwritten:ml-01-clasificador-imagenes",
+      "dslFile": "cases/h-ml-01-clasificador-imagenes.dsl",
+      "sha256": "d4e1b831addc30330c70846286dc2803dfbfca353f34e8d61226083be724242e",
+      "tags": [
+        "pools3",
+        "message-flows",
+        "loops",
+        "artifacts",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 3,
+        "lanes": 4,
+        "maxLanesInPool": 2,
+        "flowNodes": 23,
+        "tasks": 11,
+        "gateways": 2,
+        "events": 10,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 21,
+        "messageFlows": 4,
+        "artifacts": 3,
+        "loops": 1,
+        "maxLabelLength": 37
+      },
+      "featuresFrom": "v0 render"
+    },
+    {
+      "id": "h-ml-02-llm-fine-tuning",
+      "origin": "handwritten",
+      "source": "tools/layout-lab/fixtures/ai-3pools/ml-02-llm-fine-tuning.dsl",
+      "processKey": "handwritten:ml-02-llm-fine-tuning",
+      "dslFile": "cases/h-ml-02-llm-fine-tuning.dsl",
+      "sha256": "2e7c7877007224385b2f309c3100cf7001669f79001d0204d629c1196df8178a",
+      "tags": [
+        "pools3",
+        "message-flows",
+        "boundary-events",
+        "loops",
+        "many-gateways",
+        "artifacts",
+        "size-large"
+      ],
+      "features": {
+        "pools": 3,
+        "lanes": 4,
+        "maxLanesInPool": 2,
+        "flowNodes": 29,
+        "tasks": 13,
+        "gateways": 4,
+        "events": 12,
+        "subprocesses": 0,
+        "boundaryEvents": 1,
+        "sequenceFlows": 27,
+        "messageFlows": 4,
+        "artifacts": 1,
+        "loops": 1,
+        "maxLabelLength": 36
+      },
+      "featuresFrom": "v0 render"
+    },
+    {
+      "id": "h-ml-03-deteccion-fraude",
+      "origin": "handwritten",
+      "source": "tools/layout-lab/fixtures/ai-3pools/ml-03-deteccion-fraude.dsl",
+      "processKey": "handwritten:ml-03-deteccion-fraude",
+      "dslFile": "cases/h-ml-03-deteccion-fraude.dsl",
+      "sha256": "81ab3c58f68b2413345aa2004a7ea8f134b28175f67e40f416cbde97f174bc59",
+      "tags": [
+        "pools3",
+        "message-flows",
+        "artifacts",
+        "long-labels",
+        "size-large"
+      ],
+      "features": {
+        "pools": 3,
+        "lanes": 4,
+        "maxLanesInPool": 2,
+        "flowNodes": 31,
+        "tasks": 11,
+        "gateways": 2,
+        "events": 18,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 27,
+        "messageFlows": 5,
+        "artifacts": 3,
+        "loops": 0,
+        "maxLabelLength": 45
+      },
+      "featuresFrom": "v0 render"
+    },
+    {
+      "id": "h-ml-04-deriva-datos",
+      "origin": "handwritten",
+      "source": "tools/layout-lab/fixtures/ai-3pools/ml-04-deriva-datos.dsl",
+      "processKey": "handwritten:ml-04-deriva-datos",
+      "dslFile": "cases/h-ml-04-deriva-datos.dsl",
+      "sha256": "95f115b8be17b6c544a56bcbd49b18926961c2e6b1eac44438e1c1ba8239c00e",
+      "tags": [
+        "pools3",
+        "message-flows",
+        "artifacts",
+        "long-labels",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 3,
+        "lanes": 4,
+        "maxLanesInPool": 2,
+        "flowNodes": 20,
+        "tasks": 8,
+        "gateways": 2,
+        "events": 10,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 17,
+        "messageFlows": 3,
+        "artifacts": 2,
+        "loops": 0,
+        "maxLabelLength": 50
+      },
+      "featuresFrom": "v0 render"
+    },
+    {
+      "id": "h-ml-05-rag-chatbot",
+      "origin": "handwritten",
+      "source": "tools/layout-lab/fixtures/ai-3pools/ml-05-rag-chatbot.dsl",
+      "processKey": "handwritten:ml-05-rag-chatbot",
+      "dslFile": "cases/h-ml-05-rag-chatbot.dsl",
+      "sha256": "f2524d866db260667e206713cdcd61543be0f4ca47ff7a30d1a933cc33383a50",
+      "tags": [
+        "pools3",
+        "message-flows",
+        "loops",
+        "many-gateways",
+        "artifacts",
+        "long-labels",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 3,
+        "lanes": 5,
+        "maxLanesInPool": 3,
+        "flowNodes": 23,
+        "tasks": 9,
+        "gateways": 4,
+        "events": 10,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 22,
+        "messageFlows": 4,
+        "artifacts": 2,
+        "loops": 1,
+        "maxLabelLength": 58
+      },
+      "featuresFrom": "v0 render"
+    },
+    {
+      "id": "h-ml-06-vision-medica",
+      "origin": "handwritten",
+      "source": "tools/layout-lab/fixtures/ai-3pools/ml-06-vision-medica.dsl",
+      "processKey": "handwritten:ml-06-vision-medica",
+      "dslFile": "cases/h-ml-06-vision-medica.dsl",
+      "sha256": "7bfc37acbc7f225a1193e2031ffc65f87125236919ad75083f4660737f174ad3",
+      "tags": [
+        "pools3",
+        "message-flows",
+        "boundary-events",
+        "artifacts",
+        "long-labels",
+        "size-large"
+      ],
+      "features": {
+        "pools": 3,
+        "lanes": 5,
+        "maxLanesInPool": 2,
+        "flowNodes": 27,
+        "tasks": 12,
+        "gateways": 2,
+        "events": 13,
+        "subprocesses": 0,
+        "boundaryEvents": 1,
+        "sequenceFlows": 24,
+        "messageFlows": 4,
+        "artifacts": 2,
+        "loops": 0,
+        "maxLabelLength": 47
+      },
+      "featuresFrom": "v0 render"
+    }
+  ],
+  "additions": [
+    {
+      "at": "2026-09-25T16:31:47.234Z",
+      "reason": "Coverage gap: no 3-pool DSL in corpus or fixtures. Hand-written AI/ML processes (user request 2026-09-25), <= 20 activities each.",
+      "source": "tools/layout-lab/fixtures/ai-3pools",
+      "cases": [
+        "h-ml-01-clasificador-imagenes",
+        "h-ml-02-llm-fine-tuning",
+        "h-ml-03-deteccion-fraude",
+        "h-ml-04-deriva-datos",
+        "h-ml-05-rag-chatbot",
+        "h-ml-06-vision-medica"
+      ]
     }
   ]
 }

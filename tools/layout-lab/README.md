@@ -17,7 +17,8 @@ node --test tools/layout-lab/test/*.test.mjs
 
 | Pieza | Qué hace |
 | --- | --- |
-| `bench/` | Banco fijo: `manifest.json` (fuente, hash, características, etiquetas y cobertura) y `cases/*.dsl`. Lo crea una sola vez `bench-select`, que nunca sobrescribe. |
+| `bench/` | Banco fijo: `manifest.json` (fuente, hash, características, etiquetas y cobertura) y `cases/*.dsl`. Lo crea una sola vez `bench-select`, que nunca sobrescribe. `bench-add --dir … --reason …` solo añade casos escritos a mano (deben renderizar con v0) y registra la ampliación en `manifest.additions`. |
+| `fixtures/ai-3pools/` | 6 procesos de IA con 3 pools escritos a mano (≤ 20 actividades) para cubrir el hueco de 3 pools. |
 | `lib/layouts.mjs` | Versiones de layout seleccionables. v0 = harness congelado del TFM. Un candidato añade su propia app o página de harness y nunca edita v0. |
 | `lib/render-cases.mjs` | Render por lotes con el `HarnessSession` de la skill. Por caso, en una carpeta nueva: `diagram.*` (layout completo, con flujos de mensaje), `hidden.*` (sin ellos, lo que ve el usuario), `semantic.bpmn` y `text-boxes.json` (cajas de texto medidas en Chromium). |
 | `lib/metrics.mjs` | Registro de métricas (`hard`, `legibility`, `compactness`). Añadir una métrica = añadir una entrada. |

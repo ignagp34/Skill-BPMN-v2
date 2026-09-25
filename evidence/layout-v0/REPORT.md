@@ -44,7 +44,7 @@ Ejecución local (Windows 11, Node 24.12.0, Playwright 1.60.0, Chromium 148.0.77
   | Etiquetas largas | 14 | 75 |
   | Tamaño pequeño / medio / grande | 12 / 28 / 10 | — |
 
-- **Huecos:** no existe ningún DSL válido con exactamente 3 pools ni con subprocesos en el corpus ni en los fixtures. Para la idea A (pools independientes) conviene añadir casos de 3 pools. Hay que decidir si se escriben fixtures a mano o se dejan fuera.
+- **Huecos:** no existe ningún DSL válido con exactamente 3 pools ni con subprocesos en el corpus ni en los fixtures. Los 3 pools se cubren con la ampliación descrita más abajo; los subprocesos siguen sin cubrir.
 - Render v0 del banco: 50/50 correctos en 28 s. Los 32 casos del corpus dan un `diagram.bpmn` idéntico al guardado en el TFM, salvo el CRLF de Git. Un segundo render da métricas idénticas en los 50 casos (`determinism-rerun.json`: 0 casos afectados).
 
 ## Fase 2: métricas (`layout-metrics`)
@@ -79,7 +79,7 @@ Validación manual:
 - En `c-syn012-…-gemini-…-r03`, los objetos de datos pisan tareas y hay texto recortado en «Review Invoice…».
 - Las pruebas unitarias (`node --test tools/layout-lab/test/*.test.mjs`) pasan 6/6.
 
-### Diagnóstico de v0 (casos afectados de 50)
+### Diagnóstico de v0 (casos afectados de 50, banco inicial; `metrics-v0-bench50.json`)
 
 | Defecto | Casos | Total |
 | --- | --- | --- |
@@ -135,3 +135,44 @@ Valores por nodo de flujo, 1 pool (36 casos) frente a 2 o más pools (14 casos):
   - montajes;
   - kappa comprobada a mano (0,6875) con veredictos **sintéticos**, solo para probar el código.
 - No hay todavía lote de calibración real: requiere un candidato distinto de v0.
+
+## Ampliación del banco: 6 procesos de IA con 3 pools (2026-09-25)
+
+A petición del usuario se añadieron 6 DSL escritos a mano, sin modelo, en `tools/layout-lab/fixtures/ai-3pools/`, todos con 3 pools y temática de IA:
+
+| Caso | Tareas | Nodos | Qué cubre |
+| --- | --- | --- | --- |
+| clasificador de imágenes | 11 | 23 | bucle de reentrenamiento, datos, anotación |
+| fine-tuning de un LLM | 13 | 29 | paralelo, evento de borde no interruptor (48 h), bucle |
+| detección de fraude | 11 | 31 | gateway de eventos con temporizador, data store, anotación, inicio por temporizador |
+| deriva de datos | 8 | 20 | inicio por temporizador, dos decisiones |
+| chatbot RAG | 10 | 23 | paralelo, bucle de evaluación, etiquetas largas |
+| visión médica | 12 | 27 | evento de borde de error con reintento, fin por error |
+
+- Todos quedan por debajo de 20 actividades (entre 8 y 13 tareas).
+- Los seis compilan con v0 sin errores ni advertencias. Se revisaron visualmente y la semántica es la pretendida.
+- En la primera versión hubo dos defectos del DSL, corregidos antes de añadirlos:
+  - en fine-tuning, el carril del evento de borde heredaba otro pool;
+  - en el chatbot RAG, los fragmentos `...` generaban un inicio implícito.
+- Se añadieron con el comando nuevo `bench-add`, que no toca los casos existentes, exige un render v0 válido y registra la ampliación en `manifest.additions`. Es idempotente: repetirlo rechaza los 6.
+- El banco pasa a tener **56 casos**: 3 pools cubiertos con 6/6, multi-pool 20 y flujos de mensaje 18.
+- Render v0 del banco ampliado: 56/56 correctos. Diagnóstico en `metrics-v0.json`:
+
+  | Defecto | Casos |
+  | --- | --- |
+  | Tramos largos | 45 |
+  | **Etiquetas sobre la banda de título** | **38** |
+  | Cruces | 34 |
+  | Aristas superpuestas | 34 |
+  | Etiqueta atravesada por arista | 29 |
+  | Etiqueta sobre forma | 12 |
+  | Arista a través de forma | 11 |
+  | Etiqueta sobre etiqueta | 10 |
+  | Texto recortado | 10 |
+  | Solape forma–forma | 3 |
+  | Forma sobre banda | 2 |
+
+- Los seis casos nuevos repiten el patrón multi-pool:
+  - una etiqueta de evento de inicio sobre la banda de título en cada pool (3 por caso);
+  - desalineación media de los mensajes entre 338 y 638 px;
+  - dispersión de bordes de pool entre 924 y 1522 px.

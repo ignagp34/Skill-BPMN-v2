@@ -3,6 +3,7 @@
 // existing DSL, so every difference comes from the layout.
 //
 //   bench-select  [--out <benchDir>] [--size 50]                    one-off; never overwrites
+//   bench-add     --dir <folder of .dsl> --reason <text> [--bench <benchDir>]  hand-written cases, append-only
 //   bench-render  --layout <v> --out <dir> [--bench <benchDir>] [--only <id,id>]
 //   metrics       --render <dir>                                    metrics.json per case + summary
 //   compare       --base <renderDir> --candidate <renderDir> [--out <file>]
@@ -16,6 +17,7 @@ import { parseArgs, UsageError } from '../../skills/bpmn-desde-resumen/scripts/l
 
 const COMMANDS = {
   'bench-select': () => import('./commands/bench-select.mjs'),
+  'bench-add': () => import('./commands/bench-add.mjs'),
   'bench-render': () => import('./commands/bench-render.mjs'),
   metrics: () => import('./commands/metrics.mjs'),
   compare: () => import('./commands/compare.mjs'),
