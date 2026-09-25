@@ -1,0 +1,10 @@
+{
+  "note": "The 5 corpus experiments whose stored diagram.bpmn differs from the skill. For each, the original TFM runner (apps/tfm-lab/scripts/render-experiments.mts --force on a copy) run on 2026-09-25 produces the same bytes as the skill; the stored files come from an earlier engine version (evaluatedAt 2026-06). md5 prefixes, stored file compared with CRLF->LF.",
+  "cases": [
+    { "experiment": "EXP-SYN011-SYSV31-CHATGPT-GPT_5_5_THINKING-R02", "stored": "65800a46", "tfmRunnerToday": "ce1ef691", "skill": "ce1ef691" },
+    { "experiment": "EXP-SYN012-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03", "stored": "cfd4a27b", "tfmRunnerToday": "1c068413", "skill": "1c068413" },
+    { "experiment": "EXP-SYN013-SYSV31-CLAUDE-OPUS_4_7-R02", "stored": "67531ccd", "tfmRunnerToday": "d4d97053", "skill": "d4d97053" },
+    { "experiment": "EXP-SYN014-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01", "stored": "d6b642f9", "tfmRunnerToday": "25921b34", "skill": "25921b34" },
+    { "experiment": "EXP-SYN014-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02", "stored": "036b8181", "tfmRunnerToday": "87bfc93d", "skill": "87bfc93d" }
+  ]
+}

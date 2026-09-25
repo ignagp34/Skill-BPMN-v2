@@ -1,5 +1,9 @@
 # Plan e instrucciones: convertir BPMN-DSL-Monorepo en una skill
 
+## Fuente única de instrucciones
+
+Este `AGENTS.md` es la única fuente de instrucciones para todas las herramientas (Claude, ChatGPT/Codex, Gemini…). `CLAUDE.md` solo redirige aquí. Desde el 2026-09-25, cualquier cambio que el usuario pida sobre `CLAUDE.md` se aplica en este archivo, no en `CLAUDE.md`.
+
 ## Repositorio de trabajo vigente — actualización del usuario
 
 El 2026-09-22 el usuario autorizó crear el commit local de esta preparación en `Skill-BPMN-v2`. Esta autorización sustituye las restricciones anteriores sobre commits en el nuevo repositorio; se mantiene la prohibición de push y la protección completa del repositorio original. Las menciones posteriores a ausencia de commits describen el estado histórico previo a esta autorización.
@@ -36,7 +40,9 @@ En la comprobación del 2026-09-22, el clon seguía limpio y HEAD y origin/HEAD 
 
 1. Priorizar la fidelidad al comportamiento actual sobre simplificar o reescribir el motor.
 2. El modelo genera DSL; el motor genera el XML y su geometría. No sustituir esta vía por XML escrito directamente por el modelo, Mermaid, dibujos a mano o generación de imágenes.
-3. Usar el identificador `gpt-5.6-luna` y esfuerzo `high` en el subagente generador. Es la elección del usuario por coherencia y coste; no afirmar que equivale a GPT 5.5 ni que su calidad ya se ha medido.
+3. Modelo generador por host (actualizado por el usuario el 2026-09-25), definido **solo** en `skills/bpmn-desde-resumen/config/generators.json`: ChatGPT/Codex/Work → `gpt-5.6-luna`, esfuerzo `high`, subagente; Claude → `claude-opus-5-5`, esfuerzo `low`, subagente `bpmn-dsl-generator` (generado con `bpmn.mjs sync-agents`); cualquier otro host → genera el modelo de la conversación actual, registrando cuál. Sin API keys: se usa la cuenta de ChatGPT o Claude del usuario. Es la elección del usuario por coherencia y coste; no afirmar que un modelo equivale a otro ni que su calidad ya se ha medido. Cambiar un modelo = editar ese JSON y ejecutar `sync-agents`.
+9. El resultado debe ser exactamente el del TFM: mismo motor, harness, prompt v5 de la web y exportadores. El CLI de la skill solo orquesta (Node + Vite + Playwright/Chromium, igual que `apps/tfm-lab/scripts/render-experiments.mts`); no reimplementa nada del dibujo.
+10. Programar con principios SOLID y clean code: módulos pequeños de una sola responsabilidad, configuración separada del código y un único lugar por decisión, para que los cambios posteriores (p. ej. de modelo) sean triviales.
 4. La skill debe funcionar sin que el usuario abra una web, copie prompts o pegue DSL. Puede utilizar Chromium sin interfaz y un servidor local efímero como dependencias internas del renderizado existente.
 5. Entregar `.bpmn` con BPMN DI (posiciones y conectores), `.svg` y `.png`. 
 6. Mantener las aplicaciones y la evaluación existentes durante esta conversión. No eliminar corpus, versiones de prompts, esquemas, resultados ni pruebas.
@@ -131,55 +137,55 @@ Una prueba local, incluso en Linux o en un contenedor, no acredita compatibilida
 
 Aceptación: referencia reproducible disponible, con fallos preexistentes identificados y muestras revisadas visualmente. Las pruebas futuras comparan contra este motor congelado, no contra una referencia regenerada con el código candidato.
 
-### 2. Definir el contrato de la skill — pendiente
+### 2. Definir el contrato de la skill — completada (2026-09-25)
 
-- [ ] Crear dentro del repositorio `skills/bpmn-desde-resumen/` cuando se inicie la implementación; mantener un `SKILL.md` breve y referencias de lectura selectiva.
-- [ ] Contrato de entrada: resumen en lenguaje natural, destino de salida y opción de adjuntar prompt. Preservar idioma, actores, decisiones y restricciones del resumen; pedir aclaración solo si falta información material y registrar supuestos.
-- [ ] Separar instrucciones de generación, ejecución determinista y evaluación. El corpus completo y la evaluación no se cargan en el contexto de cada generación.
-- [ ] Definir estructura por ejecución: `diagram.bpmn`, `diagram.svg`, `diagram.png` y trazabilidad interna (`raw_output.txt`, `normalized.dsl`, `input_prompt.md`, `run-info.json`, `result.json`). El prompt se conserva para reproducibilidad y se adjunta al usuario solo cuando se solicite.
-- [ ] Definir estados de éxito, advertencias, error de generación, compilación, render y exportación parcial; nunca presentar los tres entregables como disponibles sin comprobarlos.
+- [x] Crear dentro del repositorio `skills/bpmn-desde-resumen/` cuando se inicie la implementación; mantener un `SKILL.md` breve y referencias de lectura selectiva.
+- [x] Contrato de entrada: resumen en lenguaje natural, destino de salida y opción de adjuntar prompt. Preservar idioma, actores, decisiones y restricciones del resumen; pedir aclaración solo si falta información material y registrar supuestos.
+- [x] Separar instrucciones de generación, ejecución determinista y evaluación. El corpus completo y la evaluación no se cargan en el contexto de cada generación.
+- [x] Definir estructura por ejecución: `diagram.bpmn`, `diagram.svg`, `diagram.png` y trazabilidad interna (`raw_output.txt`, `normalized.dsl`, `input_prompt.md`, `run-info.json`, `result.json`). El prompt se conserva para reproducibilidad y se adjunta al usuario solo cuando se solicite.
+- [x] Definir estados de éxito, advertencias, error de generación, compilación, render y exportación parcial; nunca presentar los tres entregables como disponibles sin comprobarlos.
 
 Aceptación: contrato inequívoco y ejemplo de uso desde un resumen hasta los tres archivos, sin exigir interacción con una web.
 
-### 3. Delegación al modelo — pendiente
+### 3. Delegación al modelo — instrucciones y registro listos; generación real pendiente
 
-- [ ] La skill debe solicitar un subagente con `model="gpt-5.6-luna"`, `reasoning_effort="high"` y contexto mínimo (`fork_turns="none"` cuando ese sea el contrato de la herramienta disponible).
-- [ ] Dar al generador el prompt v5 seleccionado completo y el resumen exacto, sin historiales de investigación ni instrucciones que reescriban el estilo del prompt. Su trabajo termina en el DSL; el proceso principal ejecuta el motor.
-- [ ] Verificar el modelo y esfuerzo realmente seleccionados en la ejecución. La metadata de `agents/openai.yaml` no sustituye la configuración de la llamada al subagente.
-- [ ] Si no existe la capacidad de delegar con ese modelo/esfuerzo, informar de la limitación; no sustituirlo silenciosamente ni afirmar que se utilizó Luna. No crear tareas independientes en la barra lateral para simular subagentes.
-- [ ] Conservar respuesta cruda y normalizarla con la lógica existente sin perder líneas vacías significativas. Registrar modelo, esfuerzo, prompt, hashes, intentos y consumo/tiempo si la herramienta los expone; no inventar métricas ausentes.
-- [ ] Permitir como máximo dos correcciones adicionales motivadas por diagnósticos concretos. Guardar cada intento y el primero sin reparar. No regenerar indefinidamente ni corregir solo para mejorar una puntuación.
+- [ ] (Instrucciones en `references/generation.md`; subagente de Claude generado; sin ninguna generación real todavía.) La skill debe solicitar el generador de `config/generators.json` para el host: en ChatGPT/Codex un subagente con `model="gpt-5.6-luna"`, `reasoning_effort="high"` y contexto mínimo (`fork_turns="none"` cuando ese sea el contrato de la herramienta); en Claude el subagente `bpmn-dsl-generator` (`claude-opus-5-5`, `low`, sin herramientas ni CLAUDE.md).
+- [x] Dar al generador el prompt v5 seleccionado completo y el resumen exacto, sin historiales de investigación ni instrucciones que reescriban el estilo del prompt. Su trabajo termina en el DSL; el proceso principal ejecuta el motor.
+- [ ] (Mecanismo listo: `--model/--effort/--evidence`, `matchesRequested`; falta una ejecución real.) Verificar el modelo y esfuerzo realmente seleccionados en la ejecución. La metadata de `agents/openai.yaml` no sustituye la configuración de la llamada al subagente.
+- [x] Si no existe la capacidad de delegar con ese modelo/esfuerzo, informar de la limitación; no sustituirlo silenciosamente ni afirmar que se utilizó Luna. No crear tareas independientes en la barra lateral para simular subagentes.
+- [x] Conservar respuesta cruda y normalizarla con la lógica existente sin perder líneas vacías significativas. Registrar modelo, esfuerzo, prompt, hashes, intentos y consumo/tiempo si la herramienta los expone; no inventar métricas ausentes.
+- [x] Permitir como máximo dos correcciones adicionales motivadas por diagnósticos concretos. Guardar cada intento y el primero sin reparar. No regenerar indefinidamente ni corregir solo para mejorar una puntuación.
 
 Aceptación: una generación real deja evidencia de Luna/high y produce DSL procesable, o comunica un fallo identificable sin ocultarlo.
 
-### 4. Adaptador portable y exportación — pendiente
+### 4. Adaptador portable y exportación — completada en local; Work pendiente
 
-- [ ] Crear un comando para procesar un DSL individual y un directorio de salida, independiente del catálogo de experimentos y del nombre `EXP-*`.
-- [ ] Reutilizar inicialmente el harness de tfm-lab y los exportadores compartidos; extraer módulos solo cuando sea necesario y sin duplicar el motor. Mantener `evaluateDslPipeline` como referencia del tratamiento de errores.
-- [ ] Ejecutar Chromium sin interfaz, con servidor limitado a localhost, puerto libre, timeout y cierre garantizado de navegador/servidor.
-- [ ] Escribir BPMN DI desde el layout final; exportar SVG del mismo modeler y PNG del mismo SVG. Comprobar que los tres representan la misma ejecución, no un diagrama anterior retenido tras un fallo.
-- [ ] Propagar errores parciales de exportación: el harness actual puede devolver SVG/PNG nulos aunque el pipeline haya renderizado. Comprobar disponibilidad, contenido y dimensiones por separado.
-- [ ] Usar directorios únicos por ejecución y aceptar rutas Windows con espacios. Conservar diagnóstico y archivos válidos si un formato falla; no sobrescribir históricos por defecto.
-- [ ] Revisar `interfaceType`, actualmente restringido a `"web"` en tipos/metadatos, para registrar la nueva vía de skill manteniendo lectura de resultados históricos.
+- [x] Crear un comando para procesar un DSL individual y un directorio de salida, independiente del catálogo de experimentos y del nombre `EXP-*`.
+- [x] Reutilizar inicialmente el harness de tfm-lab y los exportadores compartidos; extraer módulos solo cuando sea necesario y sin duplicar el motor. Mantener `evaluateDslPipeline` como referencia del tratamiento de errores.
+- [x] Ejecutar Chromium sin interfaz, con servidor limitado a localhost, puerto libre, timeout y cierre garantizado de navegador/servidor.
+- [x] Escribir BPMN DI desde el layout final; exportar SVG del mismo modeler y PNG del mismo SVG. Comprobar que los tres representan la misma ejecución, no un diagrama anterior retenido tras un fallo.
+- [x] Propagar errores parciales de exportación: el harness actual puede devolver SVG/PNG nulos aunque el pipeline haya renderizado. Comprobar disponibilidad, contenido y dimensiones por separado.
+- [x] Usar directorios únicos por ejecución y aceptar rutas Windows con espacios. Conservar diagnóstico y archivos válidos si un formato falla; no sobrescribir históricos por defecto.
+- [x] Revisar `interfaceType`, actualmente restringido a `"web"` en tipos/metadatos, para registrar la nueva vía de skill manteniendo lectura de resultados históricos.
 
 Aceptación: un DSL de prueba produce BPMN, SVG y PNG utilizables desde el comando del adaptador, sin pasos manuales y conservando la cadena completa de diseño. Registrar por separado resultados locales y resultados de Work web; no confundirlos.
 
-### 5. Comprobar paridad visual y semántica — pendiente
+### 5. Comprobar paridad visual y semántica — completada en local salvo Bizagi
 
-- [ ] Comparar el mismo DSL en el baseline y en el adaptador, sin llamar al modelo. Esto aísla el efecto del empaquetado y del render del cambio de modelo.
-- [ ] Comparar nodos, tipos, conexiones, nombres, condiciones, pools y carriles; comparar posiciones, dimensiones, waypoints y bounds de etiquetas del DI.
-- [ ] Buscar igualdad del SVG y PNG en el entorno fijado. Si hay diferencias no semánticas de serialización o rasterización, documentar su causa y una tolerancia medida; no aceptar un umbral amplio sin inspección.
-- [ ] Revisar visualmente recortes, solapes, legibilidad, cruces, distribución de carriles, etiquetas y artefactos. No exigir que el baseline sea perfecto: exigir que la conversión no lo empeore.
-- [ ] Reimportar los BPMN exportados; probar Bizagi cuando esté disponible y registrar versión y resultado. Si no se prueba, dejarlo explícitamente pendiente.
-- [ ] Verificar los casos de fallo: DSL inválido, ausencia de Chromium, timeout y fallo parcial de exportación.
+- [x] Comparar el mismo DSL en el baseline y en el adaptador, sin llamar al modelo. Esto aísla el efecto del empaquetado y del render del cambio de modelo.
+- [x] Comparar nodos, tipos, conexiones, nombres, condiciones, pools y carriles; comparar posiciones, dimensiones, waypoints y bounds de etiquetas del DI.
+- [x] Buscar igualdad del SVG y PNG en el entorno fijado. Si hay diferencias no semánticas de serialización o rasterización, documentar su causa y una tolerancia medida; no aceptar un umbral amplio sin inspección.
+- [x] Revisar visualmente recortes, solapes, legibilidad, cruces, distribución de carriles, etiquetas y artefactos. No exigir que el baseline sea perfecto: exigir que la conversión no lo empeore.
+- [ ] (Reimportación en bpmn-js hecha en cada render; Bizagi pendiente.) Reimportar los BPMN exportados; probar Bizagi cuando esté disponible y registrar versión y resultado. Si no se prueba, dejarlo explícitamente pendiente.
+- [x] Verificar los casos de fallo: DSL inválido, ausencia de Chromium, timeout y fallo parcial de exportación.
 
 Aceptación: ninguna regresión semántica o geométrica inexplicada en la muestra; diferencias visuales justificadas y revisadas. No atribuir a la skill una garantía visual basada solo en validación XML.
 
-### 6. Conservar e integrar evaluación — pendiente
+### 6. Conservar e integrar evaluación — ruta por ejecución lista; lotes pendientes
 
-- [ ] Mantener las diez métricas de `TFM-eval`, esquemas XSD, pruebas, comparación zero-shot y resultados históricos.
-- [ ] Conservar M1–M5 y M8 como puntuaciones; M6, M7, M9 y M10 son descriptivas y su `score=1.0` no significa excelencia ni debe mejorar artificialmente un promedio de calidad.
-- [ ] Añadir una ruta de evaluación opcional por ejecución o lote, con JSON/CSV en destinos nuevos. El orquestador actual fija la salida en `TFM-eval/results/experiments`; no usarlo sin aislar sus salidas para nuevas pruebas.
+- [x] Mantener las diez métricas de `TFM-eval`, esquemas XSD, pruebas, comparación zero-shot y resultados históricos.
+- [x] Conservar M1–M5 y M8 como puntuaciones; M6, M7, M9 y M10 son descriptivas y su `score=1.0` no significa excelencia ni debe mejorar artificialmente un promedio de calidad.
+- [x] Añadir una ruta de evaluación opcional por ejecución o lote, con JSON/CSV en destinos nuevos. El orquestador actual fija la salida en `TFM-eval/results/experiments`; no usarlo sin aislar sus salidas para nuevas pruebas.
 - [ ] Separar tres preguntas: fidelidad del motor al baseline, fidelidad del modelo al resumen y calidad visual del diagrama. Las métricas semánticas existentes no miden por sí solas las dos últimas.
 - [ ] Evaluar Luna/high con el mismo conjunto de resúmenes y prompt fijado. Definir antes del lote un número de repeticiones y límite de coste; registrar fallos, no solo ejecuciones exitosas.
 - [ ] Comparar GPT 5.5 histórico solo cuando proceso, prompt y condiciones sean comparables; identificar las diferencias de configuración. Distinguir primer intento de resultado reparado.
@@ -187,12 +193,12 @@ Aceptación: ninguna regresión semántica o geométrica inexplicada en la muest
 
 Aceptación: evaluación ejecutable sin la interfaz web, reportes trazables y capacidad de iterar sin contaminar datos históricos.
 
-### 7. Empaquetar y validar uso real — pendiente
+### 7. Empaquetar y validar uso real — skill escrita y validada; paquete y uso real pendientes
 
-- [ ] Completar `SKILL.md`, referencias necesarias, scripts y metadata de interfaz. Mantener automática la selección de la skill salvo petición contraria.
+- [x] Completar `SKILL.md`, referencias necesarias, scripts y metadata de interfaz. Mantener automática la selección de la skill salvo petición contraria.
 - [ ] Preparar un paquete reproducible con el motor, harness y recursos necesarios o un mecanismo explícito de instalación fijado al commit; no depender de una ruta absoluta de este equipo ni de descargar HEAD en cada uso.
 - [ ] Conservar dependencias y avisos pertinentes; no incluir todo el corpus o los entornos instalados en el contexto de generación. La evaluación y las aplicaciones siguen disponibles en el repositorio.
-- [ ] Ejecutar el validador de skill-creator y una prueba integral desde una ubicación limpia, fuera de la ruta de desarrollo original.
+- [ ] (Validador: válido. Copia limpia probada usando el motor del checkout vía `BPMN_SKILL_ENGINE_ROOT`; falta con un paquete autocontenido.) Ejecutar el validador de skill-creator y una prueba integral desde una ubicación limpia, fuera de la ruta de desarrollo original.
 - [ ] Validar al menos un resumen sencillo, uno con varios participantes y uno ambiguo o inválido. Verificar delegación, diagnósticos, entrega y prompt opcional.
 - [ ] Mostrar PNG en la respuesta y enlazar los tres archivos usando rutas absolutas. Adjuntar prompt e informes cuando se pidan, sin llenar la respuesta de archivos internos.
 - [ ] Instalar para uso habitual cuando el usuario solicite esa entrega; documentar dependencias reales y cualquier limitación restante.
@@ -219,3 +225,25 @@ El desarrollo vigente está en este clon nuevo; no se ha realizado ningún commi
 
 
 Prueba final del paquete: ZIP extraído en `portable-check/`, sin node_modules ni Git. Instalación frozen nueva (cache local reutilizada), verificación de 3319 archivos y smoke completo: códigos 0/0/0 (install/render/compare). Chromium se reutilizó desde la instalación local fijada; no se probó descarga en Work. Los diez casos conservan BPMN/PNG byte idénticos y SVG normalizados idénticos. Evidencia: `baseline-stage1/portable-summary.json`, `portable-comparison.json` y logs `portable-*`. La regeneración final del ZIP solo incorpora esta evidencia/documentación, sin cambios de código desde el ZIP probado.
+
+## Evidencia de etapas 2–5 — ejecución local 2026-09-25
+
+Detalle: `evidence/skill-stage2-5/REPORT.md` y `parity-summary.json`. Cero generaciones de modelo; Work web sin probar.
+
+- Skill en `skills/bpmn-desde-resumen/` (validador de skill-creator: válida). CLI `scripts/bpmn.mjs`: `prepare`, `render`, `repair-prompt`, `fail`, `render-dsl`, `evaluate`, `doctor`. Reutiliza sin cambios el harness `index.headless.html` (`renderExperiment`, `renderArtifactsFromLayout`); `smoke/verify-source.mjs` sigue en 3319/0.
+- Paridad (`tools/skill-parity/parity.mjs`): 10 casos válidos con BPMN, XML semántico y DSL normalizado idénticos al baseline y SVG idéntico normalizando marcadores; 2 inválidos con el mismo `semantic_error`. Fallos inyectados correctos: Chromium ausente y timeout → `infrastructure_error`; PNG no codificable → `partial_export` con BPMN y SVG.
+- Deriva del PNG: con las mismas versiones, el runner original ya no reproduce hoy los bytes PNG del 22/09 (antialiasing, máx. 4/255 en ≤1,6 % de píxeles, mismas dimensiones). El adaptador es idéntico byte a byte al runner original ejecutado hoy. Raster por software (SwiftShader) y determinista; causa exacta no identificada. Tolerancia medida solo para esa comparación: `PNG_TOLERANCE` en `tools/skill-parity/pngdiff.mjs`. `smoke/compare.mjs` (estricto) no se ha cambiado y hoy falla en PNG en esta máquina.
+- Prompt: `input_prompt.md` idéntico a `Handoff.tsx buildPrompt()` (comprobado contra la plantilla del fuente, CRLF del v5 conservado).
+- Evaluación: `evaluate` copia la ejecución a `<run>/evaluation/staging/EXP-SKILL-…` y escribe ahí las 10 métricas; `TFM-eval/results/` intacto.
+- Fidelidad al corpus del TFM (`tools/skill-parity/tfm-history.mjs`): 351 experimentos con DSL y `diagram.bpmn` → 346 idénticos al guardado (solo difiere el CRLF que añadió Git) y 351/351 con el mismo estado. Los 5 restantes (v3.1, 2026-06-14) vienen de un motor anterior: el runner original del TFM de hoy da los mismos bytes que la skill en los 5 (`evidence/skill-stage2-5/tfm-history-stale.json`).
+
+### Decisiones 2026-09-25
+
+- **Skill genérica respecto al host.** La parte determinista es un CLI de Node sin dependencias de un agente concreto. La generación la hace el host con el modelo de `config/generators.json` (decisión 3; sustituye la regla inicial de "fallar si no hay Luna"). El modelo real queda registrado por intento con `matchesRequested`; nunca se afirma haber usado un modelo que no se usó.
+- **`interfaceType`.** No se modifica el harness congelado (rompería `verify-source` y la paridad). `result.json` conserva `"web"` heredado; `run-info.json` registra `interfaceType: "skill"` (o `"skill-dsl"`). Los históricos se leen igual.
+- **Consistencia de la ejecución.** Un formato solo se entrega si pasa su comprobación (DI reimportable, cada elemento del DI dibujado en el SVG, PNG del tamaño del viewBox). La raíz de la ejecución refleja siempre el último intento.
+- **Descartado por el usuario (2026-09-25):** llamar a la API de OpenAI con `OPENAI_API_KEY`. No usar API keys.
+- **Refactor SOLID (2026-09-25):** `scripts/bpmn.mjs` solo despacha; `scripts/commands/` un archivo por comando; `scripts/lib/` una responsabilidad por módulo (argumentos, estados, motor, prompt, harness, artefactos, carpeta de ejecución, generadores). Tras el refactor la batería de paridad sigue pasando entera.
+- **Falso positivo corregido:** la comprobación SVG↔BPMN excluía IDs acabados en `_label`; una tarea "Print visit label" daba `partial_export`. Ya no se filtra.
+
+Siguiente paso: primera generación real (etapa 3) — en Claude Code con el subagente `bpmn-dsl-generator` (Opus 5.5/low; requiere reiniciar la sesión tras crear `.claude/agents/`) y en ChatGPT/Codex con Luna/high —, prueba del paquete en Work web y empaquetado autocontenido (etapa 7).

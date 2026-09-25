@@ -1,4 +1,10 @@
-# Estado actual de continuidad — etapa 1 local completada
+# Estado actual de continuidad — 2026-09-25: etapas 2, 4 y 5 completadas en local
+
+Skill en `skills/bpmn-desde-resumen/` (CLI `scripts/bpmn.mjs`), paridad y fallos en `tools/skill-parity/`, evidencia en `evidence/skill-stage2-5/REPORT.md`. Instrucciones únicas en `AGENTS.md` (`CLAUDE.md` solo redirige). Generador por host solo en `skills/bpmn-desde-resumen/config/generators.json` (ChatGPT: Luna/high; Claude: Opus 5.5/low vía `.claude/agents/bpmn-dsl-generator.md`, regenerado con `sync-agents`; otros: el modelo de la conversación; sin API keys). Skill = motor del TFM: 351/351 experimentos del corpus reproducidos. Siguiente: primera generación real (reiniciar Claude Code para cargar el subagente), prueba en Work web y paquete autocontenido. Ojo: el PNG del baseline del 22/09 ya no se reproduce byte a byte en esta máquina (deriva de raster documentada); usar `tools/skill-parity/pngdiff.mjs` para compararlo.
+
+---
+
+# Estado anterior — etapa 1 local completada
 
 Actualización del usuario (2026-09-22): autorizado el commit local de la etapa 1 en `Skill-BPMN-v2`. Prevalece sobre la indicación anterior de no hacer commits. Sigue sin autorizarse push; el repositorio original permanece protegido.
 

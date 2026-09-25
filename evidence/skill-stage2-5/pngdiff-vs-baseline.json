@@ -1,0 +1,102 @@
+[
+  {
+    "sameSize": true,
+    "width": 3286,
+    "height": 1094,
+    "pixels": 3594884,
+    "differing": 16312,
+    "maxDelta": 3,
+    "id": "canon-1-cheeseburger",
+    "differingRatio": 0.004538
+  },
+  {
+    "sameSize": true,
+    "width": 1336,
+    "height": 954,
+    "pixels": 1274544,
+    "differing": 5730,
+    "maxDelta": 4,
+    "id": "es-almacen",
+    "differingRatio": 0.004496
+  },
+  {
+    "sameSize": true,
+    "width": 1525,
+    "height": 1426,
+    "pixels": 2174650,
+    "differing": 23844,
+    "maxDelta": 4,
+    "id": "gemini-03",
+    "differingRatio": 0.010965
+  },
+  {
+    "sameSize": true,
+    "width": 1636,
+    "height": 626,
+    "pixels": 1024136,
+    "differing": 9802,
+    "maxDelta": 4,
+    "id": "gemini-04",
+    "differingRatio": 0.009571
+  },
+  {
+    "sameSize": true,
+    "width": 2236,
+    "height": 816,
+    "pixels": 1824576,
+    "differing": 7392,
+    "maxDelta": 3,
+    "id": "gemini-05",
+    "differingRatio": 0.004051
+  },
+  {
+    "sameSize": true,
+    "width": 522,
+    "height": 618,
+    "pixels": 322596,
+    "differing": 2837,
+    "maxDelta": 3,
+    "id": "pool-map-message-event",
+    "differingRatio": 0.008794
+  },
+  {
+    "sameSize": true,
+    "width": 350,
+    "height": 399,
+    "pixels": 139650,
+    "differing": 2243,
+    "maxDelta": 4,
+    "id": "s17-document-approval",
+    "differingRatio": 0.016062
+  },
+  {
+    "sameSize": true,
+    "width": 1186,
+    "height": 1214,
+    "pixels": 1439804,
+    "differing": 3568,
+    "maxDelta": 3,
+    "id": "s17-job-application",
+    "differingRatio": 0.002478
+  },
+  {
+    "sameSize": true,
+    "width": 736,
+    "height": 324,
+    "pixels": 238464,
+    "differing": 1585,
+    "maxDelta": 3,
+    "id": "s17-pizza-order",
+    "differingRatio": 0.006647
+  },
+  {
+    "sameSize": true,
+    "width": 586,
+    "height": 362,
+    "pixels": 212132,
+    "differing": 1116,
+    "maxDelta": 3,
+    "id": "simple",
+    "differingRatio": 0.005261
+  }
+]

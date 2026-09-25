@@ -39,3 +39,6 @@ Thumbs.db
 portable-check/
 smoke-output*/
 deliverables/
+
+# Skill runs (local outputs); evidence summaries live in evidence/.
+skill-runs/

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "s17-document-approval",
+    "diagram.bpmn": true,
+    "diagram.svg": false,
+    "svgNormalized": true,
+    "diagram.png": false
+  },
+  {
+    "id": "canon-1-cheeseburger",
+    "diagram.bpmn": true,
+    "diagram.svg": false,
+    "svgNormalized": true,
+    "diagram.png": false
+  },
+  {
+    "id": "pool-map-message-event",
+    "diagram.bpmn": true,
+    "diagram.svg": false,
+    "svgNormalized": true,
+    "diagram.png": false
+  },
+  {
+    "id": "gemini-03",
+    "diagram.bpmn": true,
+    "diagram.svg": false,
+    "svgNormalized": true,
+    "diagram.png": false
+  },
+  {
+    "id": "gemini-04",
+    "diagram.bpmn": true,
+    "diagram.svg": false,
+    "svgNormalized": true,
+    "diagram.png": false
+  },
+  {
+    "id": "gemini-05",
+    "diagram.bpmn": true,
+    "diagram.svg": false,
+    "svgNormalized": true,
+    "diagram.png": false
+  },
+  {
+    "id": "s17-job-application",
+    "diagram.bpmn": true,
+    "diagram.svg": false,
+    "svgNormalized": true,
+    "diagram.png": false
+  },
+  {
+    "id": "s17-pizza-order",
+    "diagram.bpmn": true,
+    "diagram.svg": false,
+    "svgNormalized": true,
+    "diagram.png": false
+  },
+  {
+    "id": "es-almacen",
+    "diagram.bpmn": true,
+    "diagram.svg": false,
+    "svgNormalized": true,
+    "diagram.png": false
+  },
+  {
+    "id": "simple",
+    "diagram.bpmn": true,
+    "diagram.svg": false,
+    "svgNormalized": true,
+    "diagram.png": false
+  }
+]

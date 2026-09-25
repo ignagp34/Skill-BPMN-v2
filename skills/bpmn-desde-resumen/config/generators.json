@@ -1,0 +1,23 @@
+{
+  "$comment": "Single source of truth: which model writes the DSL on each host. To change a model, edit only this file and then run `node scripts/bpmn.mjs sync-agents` (regenerates the Claude Code subagent). No API keys: generation always uses the user's own ChatGPT/Claude session.",
+  "profiles": {
+    "openai": {
+      "hosts": ["codex", "chatgpt", "chatgpt-work"],
+      "model": "gpt-5.6-luna",
+      "effort": "high",
+      "delegation": "subagent"
+    },
+    "claude": {
+      "hosts": ["claude-code", "claude-desktop", "claude-ai"],
+      "model": "claude-opus-5-5",
+      "effort": "low",
+      "delegation": "subagent",
+      "subagent": "bpmn-dsl-generator"
+    }
+  },
+  "fallback": {
+    "model": "current-conversation",
+    "effort": "current-conversation",
+    "delegation": "current-conversation"
+  }
+}

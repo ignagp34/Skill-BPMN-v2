@@ -1,0 +1,3 @@
+interface:
+  display_name: "BPMN desde resumen"
+  short_description: "Resumen de proceso → DSL → motor del TFM → PNG, SVG y BPMN con DI"

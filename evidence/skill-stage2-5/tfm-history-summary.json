@@ -1,0 +1,2467 @@
+{
+  "filter": "EXP-",
+  "total": 351,
+  "sampled": 351,
+  "identical": 346,
+  "bytesIdentical": 0,
+  "sameStatus": 351,
+  "rows": [
+    {
+      "experiment": "EXP-SYN001-SYSV31-CHATGPT-GPT_5_4_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN001-SYSV31-CHATGPT-GPT_5_4_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN001-SYSV31-CHATGPT-GPT_5_4_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN001-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN001-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN001-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN001-SYSV31-CLAUDE-OPUS_4_7-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN001-SYSV31-CLAUDE-OPUS_4_7-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN001-SYSV31-CLAUDE-OPUS_4_7-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN001-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN001-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN001-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN001-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN001-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN001-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN001-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN001-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN001-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN001-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN001-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN001-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN001-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN001-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN001-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN001-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN001-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN001-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN002-SYSV31-CHATGPT-GPT_5_4_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN002-SYSV31-CHATGPT-GPT_5_4_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN002-SYSV31-CHATGPT-GPT_5_4_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN002-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN002-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN002-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN002-SYSV31-CLAUDE-OPUS_4_7-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN002-SYSV31-CLAUDE-OPUS_4_7-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN002-SYSV31-CLAUDE-OPUS_4_7-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN002-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN002-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN002-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN002-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN002-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN002-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN002-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN002-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN002-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN002-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN002-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN002-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN002-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN002-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN002-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN002-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN002-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN002-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN003-SYSV31-CHATGPT-GPT_5_4_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN003-SYSV31-CHATGPT-GPT_5_4_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN003-SYSV31-CHATGPT-GPT_5_4_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN003-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN003-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN003-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN003-SYSV31-CLAUDE-OPUS_4_7-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN003-SYSV31-CLAUDE-OPUS_4_7-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN003-SYSV31-CLAUDE-OPUS_4_7-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN003-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN003-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN003-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN003-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN003-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN003-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN003-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN003-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN003-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN003-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN003-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN003-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN003-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN003-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN003-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN003-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN003-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN003-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN004-SYSV31-CHATGPT-GPT_5_4_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN004-SYSV31-CHATGPT-GPT_5_4_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN004-SYSV31-CHATGPT-GPT_5_4_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN004-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN004-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN004-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN004-SYSV31-CLAUDE-OPUS_4_7-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN004-SYSV31-CLAUDE-OPUS_4_7-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN004-SYSV31-CLAUDE-OPUS_4_7-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN004-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN004-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN004-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN004-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN004-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN004-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN004-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN004-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN004-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN004-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN004-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN004-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN004-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN004-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN004-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN004-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN004-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN004-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN005-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN005-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN005-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN005-SYSV31-CLAUDE-OPUS_4_7-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN005-SYSV31-CLAUDE-OPUS_4_7-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN005-SYSV31-CLAUDE-OPUS_4_7-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN005-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN005-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN005-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN005-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN005-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN005-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN005-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN005-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN005-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN005-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN005-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN005-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN005-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN005-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN005-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN005-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN005-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN005-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN006-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN006-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN006-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN006-SYSV31-CLAUDE-OPUS_4_7-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN006-SYSV31-CLAUDE-OPUS_4_7-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN006-SYSV31-CLAUDE-OPUS_4_7-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN006-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN006-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN006-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN006-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN006-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN006-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN006-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN006-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN006-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN006-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN006-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN006-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN006-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN006-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN006-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN007-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN007-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN007-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN007-SYSV31-CLAUDE-OPUS_4_7-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN007-SYSV31-CLAUDE-OPUS_4_7-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN007-SYSV31-CLAUDE-OPUS_4_7-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN007-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN007-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN007-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN007-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN007-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN007-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN007-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN007-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN007-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN007-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN007-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN007-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN007-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN007-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN007-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN008-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN008-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN008-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN008-SYSV31-CLAUDE-OPUS_4_7-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN008-SYSV31-CLAUDE-OPUS_4_7-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN008-SYSV31-CLAUDE-OPUS_4_7-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN008-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN008-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN008-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN008-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN008-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN008-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN008-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN008-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN008-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN008-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN008-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN008-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN008-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN008-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN008-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN009-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN009-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN009-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN009-SYSV31-CLAUDE-OPUS_4_7-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN009-SYSV31-CLAUDE-OPUS_4_7-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN009-SYSV31-CLAUDE-OPUS_4_7-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN009-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN009-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN009-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN009-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN009-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN009-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN009-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN009-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN009-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN009-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN009-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN009-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN009-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN009-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN009-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN010-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN010-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN010-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN010-SYSV31-CLAUDE-OPUS_4_7-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN010-SYSV31-CLAUDE-OPUS_4_7-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN010-SYSV31-CLAUDE-OPUS_4_7-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN010-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN010-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN010-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN010-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN010-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN010-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN010-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN010-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN010-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN010-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN010-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN010-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN010-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN010-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN011-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN011-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": false
+    },
+    {
+      "experiment": "EXP-SYN011-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN011-SYSV31-CLAUDE-OPUS_4_7-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN011-SYSV31-CLAUDE-OPUS_4_7-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN011-SYSV31-CLAUDE-OPUS_4_7-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN011-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN011-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN011-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN011-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN011-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN011-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN011-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN011-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN011-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN011-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN011-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN011-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN011-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN011-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN011-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN012-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN012-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN012-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN012-SYSV31-CLAUDE-OPUS_4_7-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN012-SYSV31-CLAUDE-OPUS_4_7-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN012-SYSV31-CLAUDE-OPUS_4_7-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN012-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN012-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN012-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": false
+    },
+    {
+      "experiment": "EXP-SYN012-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN012-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN012-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN012-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN012-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN012-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN012-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN012-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN012-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN012-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN012-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN012-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN013-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN013-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN013-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN013-SYSV31-CLAUDE-OPUS_4_7-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN013-SYSV31-CLAUDE-OPUS_4_7-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": false
+    },
+    {
+      "experiment": "EXP-SYN013-SYSV31-CLAUDE-OPUS_4_7-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN013-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN013-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN013-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN013-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN013-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN013-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN013-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN013-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN013-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN013-SYSV4-CLAUDE-OPUS_4_8_MEDIUM-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN013-SYSV4-CLAUDE-OPUS_4_8_MEDIUM-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN013-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN013-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN013-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN013-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN013-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN013-SYSV5-CLAUDE-OPUS_4_8_MEDIUM-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN013-SYSV5-CLAUDE-OPUS_4_8_MEDIUM-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN013-SYSV5-CLAUDE-OPUS_4_8_MEDIUM-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN013-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN013-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN013-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV31-CLAUDE-OPUS_4_7-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV31-CLAUDE-OPUS_4_7-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV31-CLAUDE-OPUS_4_7-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV31-GEMINI-3_1_PRO-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV31-GEMINI-3_1_PRO-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": false
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": false
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV4-CLAUDE-OPUS_4_8_MEDIUM-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV4-CLAUDE-OPUS_4_8_MEDIUM-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV4-CLAUDE-OPUS_4_8_MEDIUM-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV5-CLAUDE-OPUS_4_8_MEDIUM-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV5-CLAUDE-OPUS_4_8_MEDIUM-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV5-CLAUDE-OPUS_4_8_MEDIUM-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN014-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN015-SYSV31-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN015-SYSV31-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN015-SYSV31-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN015-SYSV31-CLAUDE-OPUS_4_7-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN015-SYSV31-CLAUDE-OPUS_ADAPTATIVE-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN015-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN015-SYSV4-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN015-SYSV4-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN015-SYSV4-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN015-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN015-SYSV5-CHATGPT-GPT_5_5_THINKING-R01",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN015-SYSV5-CHATGPT-GPT_5_5_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN015-SYSV5-CHATGPT-GPT_5_5_THINKING-R03",
+      "historicalStatus": "success_with_warnings",
+      "skillStatus": "success_with_warnings",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    },
+    {
+      "experiment": "EXP-SYN015-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02",
+      "historicalStatus": "success",
+      "skillStatus": "success",
+      "bpmnBytesIdentical": false,
+      "bpmnIdentical": true
+    }
+  ]
+}
