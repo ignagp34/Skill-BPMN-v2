@@ -23,7 +23,7 @@ Lee primero `AGENTS.md` (única fuente de instrucciones; `CLAUDE.md` solo rediri
 Plan en `plans/layout-iteracion-1.md`. Decisiones del usuario:
 - flujos de mensaje ocultos por defecto y **quitados también del `.bpmn`**;
 - proporción como ahora y, si hace falta un objetivo, **16:9**;
-- calibración humana con una **página ágil de votación A/B** (sin abrir archivos a mano);
+- calibración humana con una **página local de votación A/B** servida por el CLI en 127.0.0.1: votos con teclado guardados al instante en JSON y lotes reanudables. No usar Artifacts de claude.ai (serían demasiados). Sin abrir archivos a mano;
 - juez visual **Opus 5.5**;
 - **se puede cambiar todo el layout mientras el DSL y su interpretación (XML semántico) no cambien**; v0 (layout del TFM) queda seleccionable para comparar.
 

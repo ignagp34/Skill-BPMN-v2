@@ -212,7 +212,7 @@ Plan completo: `plans/layout-iteracion-1.md`. Pedido por el usuario: pools con a
 Decisiones del usuario (2026-09-25):
 - flujos de mensaje ocultos por defecto y quitados también del `.bpmn`;
 - proporción como ahora y, si hace falta un objetivo, 16:9;
-- calibración humana sí, con una página ágil de valoración A/B sin abrir archivos a mano;
+- calibración humana sí, con una **página local** de votación A/B (servidor efímero en 127.0.0.1, votos con teclado guardados al instante en JSON; no Artifacts de claude.ai, que serían demasiados), sin abrir archivos a mano;
 - juez visual Opus 5.5;
 - **se puede cambiar todo el layout mientras el DSL y su interpretación (XML semántico) no cambien**. Esto sustituye, para esta etapa, la restricción de "mantener orden, parámetros y algoritmos" de la sección Invariante del diseño; v0 sigue seleccionable.
 
