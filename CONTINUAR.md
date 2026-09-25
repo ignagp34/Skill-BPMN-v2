@@ -1,4 +1,44 @@
-# Estado actual de continuidad — 2026-09-25: etapas 2, 4 y 5 completadas en local
+# Resumen para continuar — 2026-09-25 (fin de sesión)
+
+Lee primero `AGENTS.md` (única fuente de instrucciones; `CLAUDE.md` solo redirige y los cambios pedidos sobre él van a `AGENTS.md`). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`, clon en `C:/Repositorios/Skill BPMN v2/Skill-BPMN-v2`. El original `BPMN-DSL-Monorepo` sigue protegido.
+
+## Qué hay hecho
+
+- **Skill** `skills/bpmn-desde-resumen/`, instalada en Claude Code. `~/.claude/skills/bpmn-desde-resumen` es un enlace (junction) a esa carpeta y la antigua `/bpmn` está en `~/.claude/skills-backup/bpmn-20260925`.
+- **CLI** `scripts/bpmn.mjs`: `prepare`, `render`, `repair-prompt`, `fail`, `render-dsl`, `evaluate`, `sync-agents`, `doctor`. Organización SOLID: `scripts/commands/` y `scripts/lib/`.
+- **Fidelidad al TFM:** usa el harness del TFM sin cambios y reproduce 351/351 experimentos del corpus (`evidence/skill-stage2-5/`). La batería `tools/skill-parity/parity.mjs` pasa entera.
+- **Generador por host**, definido solo en `config/generators.json`:
+  - ChatGPT/Codex/Work → `gpt-5.6-luna` high;
+  - Claude → `claude-opus-5-5` low, subagente `bpmn-dsl-generator` (plantilla en `templates/`, se instala con `sync-agents --target <proyecto o ~>`);
+  - resto → el modelo de la conversación.
+  - Sin API keys.
+- **Traspaso al generador por archivo:** `prepare`/`repair-prompt` devuelven `handoff.message`; el generador lee `input_prompt.md` y escribe `reply-0N.txt`. Arreglo del primer uso real, en el que el subagente sin herramientas se negó.
+  - Mecanismo verificado con un agente Opus genérico.
+  - Sigue pendiente la generación con el propio `bpmn-dsl-generator`: hay que abrir una sesión nueva para que cargue la definición corregida (Read, Write).
+  - Hay copias del subagente en `~/.claude/agents`, en `Skill-BPMN-v2/.claude/agents` y en la carpeta padre; `doctor` las comprueba todas.
+- **Deriva del PNG:** el PNG del baseline del 22/09 ya no se reproduce byte a byte (raster). Se compara con `tools/skill-parity/pngdiff.mjs`.
+
+## Siguiente trabajo: etapa 8, mejora del layout
+
+Plan en `plans/layout-iteracion-1.md`. Decisiones del usuario:
+- flujos de mensaje ocultos por defecto y **quitados también del `.bpmn`**;
+- proporción como ahora y, si hace falta un objetivo, **16:9**;
+- calibración humana con una **página ágil de votación A/B** (sin abrir archivos a mano);
+- juez visual **Opus 5.5**;
+- **se puede cambiar todo el layout mientras el DSL y su interpretación (XML semántico) no cambien**; v0 (layout del TFM) queda seleccionable para comparar.
+
+Orden propuesto:
+1. Fase 0: `--message-flows hidden|shown`, oculto por defecto, reutilizando `stripMessageFlows` de `company-web/src/ui/app.ts` y reexportando SVG/PNG con `renderArtifactsFromLayout`. La paridad y el corpus deben ejecutarse con `shown`.
+2. Banco `layout-bench` (~50 DSL estratificados).
+3. `layout-metrics` y diagnóstico de v0.
+4. Montajes A/B y página de votación.
+5. Primera mejora: auto-layout por pool, sustituyendo `layout-missing.ts` para los pools 2+.
+
+Pendientes aparte: generación real con Luna/high en ChatGPT/Codex, prueba en Work web, Bizagi y paquete autocontenido del motor.
+
+---
+
+# Estado anterior — 2026-09-25 (etapas 2, 4 y 5)
 
 Skill en `skills/bpmn-desde-resumen/` (CLI `scripts/bpmn.mjs`), paridad y fallos en `tools/skill-parity/`, evidencia en `evidence/skill-stage2-5/REPORT.md`. Instrucciones únicas en `AGENTS.md` (`CLAUDE.md` solo redirige). Generador por host solo en `skills/bpmn-desde-resumen/config/generators.json` (ChatGPT: Luna/high; Claude: Opus 5.5/low vía `.claude/agents/bpmn-dsl-generator.md`, regenerado con `sync-agents`; otros: el modelo de la conversación; sin API keys). Skill = motor del TFM: 351/351 experimentos del corpus reproducidos. Siguiente: primera generación real (reiniciar Claude Code para cargar el subagente), prueba en Work web y paquete autocontenido. Ojo: el PNG del baseline del 22/09 ya no se reproduce byte a byte en esta máquina (deriva de raster documentada); usar `tools/skill-parity/pngdiff.mjs` para compararlo.
 

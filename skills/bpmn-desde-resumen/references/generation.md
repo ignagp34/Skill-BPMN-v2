@@ -4,19 +4,19 @@ Qué modelo escribe el DSL en cada host lo decide **solo** `config/generators.js
 
 | Host (`--host`) | Perfil actual | Cómo delegar |
 | --- | --- | --- |
-| `chatgpt`, `chatgpt-work`, `codex` | `gpt-5.6-luna`, esfuerzo `high` | Herramienta de subagente con ese `model` y `reasoning_effort`, contexto mínimo (`fork_turns="none"` si la herramienta usa ese contrato). La metadata de `agents/openai.yaml` no configura el subagente. |
-| `claude-code`, `claude-desktop` | `claude-opus-5-5`, esfuerzo `low` | Subagente `bpmn-dsl-generator` (lo genera `CLI sync-agents` en `.claude/agents/` con ese modelo y esfuerzo, sin herramientas y sin CLAUDE.md). Si no aparece entre los agentes disponibles, hay que reiniciar la sesión tras el primer `sync-agents`. |
-| `claude-ai` u otro host sin subagentes | el de la conversación | Genera el propio modelo de la conversación con el prompt exacto; registra el modelo real. |
+| `chatgpt`, `chatgpt-work`, `codex` | `gpt-5.6-luna`, esfuerzo `high` | Herramienta de subagente con ese `model` y `reasoning_effort` y `handoff.message` como mensaje, contexto mínimo (`fork_turns="none"` si la herramienta usa ese contrato). La metadata de `agents/openai.yaml` no configura el subagente. |
+| `claude-code`, `claude-desktop` | `claude-opus-5-5`, esfuerzo `low` | Subagente `bpmn-dsl-generator` con `handoff.message` como prompt (lo genera `CLI sync-agents` en `.claude/agents/` con ese modelo y esfuerzo, solo con Read y Write, sin CLAUDE.md). Si no aparece entre los agentes disponibles, hay que reiniciar la sesión tras el primer `sync-agents`. |
+| `claude-ai` u otro host sin subagentes | el de la conversación | El propio modelo de la conversación sigue `handoff.message`: lee `promptFile` y escribe su respuesta en `replyFile`; registra el modelo real. |
 | Cualquier otro host (Gemini…) | `current-conversation` | Igual: genera el modelo con el que se está hablando y registra cuál es. |
 | El usuario trae su DSL | — | `CLI render-dsl`; no hay generación. |
 
 Cambiar de modelo: editar `config/generators.json` y ejecutar `CLI sync-agents`. `CLI doctor` avisa si el subagente de Claude no coincide con la configuración.
 
-## Qué recibe el generador
+## Traspaso por archivo
 
-- Un único mensaje: el contenido **exacto** de `promptFile` (`input_prompt.md`, o `attempts/0N/input_prompt.md` en una reparación). Sin historial, sin corpus, sin instrucciones de estilo añadidas, sin resumir ni traducir el prompt. Cuando genera el modelo de la conversación, trata ese archivo como la única instrucción de la respuesta.
-- Su trabajo termina en el DSL.
-- Guarda la respuesta completa sin editar (con los ``` si los trae) en `<runDir>/reply-0N.txt`. La normalización la hace el motor del TFM.
+- El prompt (~70 KB) **nunca** se copia en un mensaje. `prepare` y `repair-prompt` devuelven `handoff.message`: una instrucción breve que nombra `promptFile` (`input_prompt.md` o `attempts/0N/input_prompt.md`) y `replyFile` (`reply-0N.txt`). Envía ese mensaje tal cual, sin añadir historial, corpus ni instrucciones de estilo.
+- El generador lee `promptFile` completo, lo responde exactamente y escribe su respuesta sin editar (con los ``` si los trae) en `replyFile`. Su trabajo termina ahí; la normalización la hace el motor del TFM.
+- Si `replyFile` no existe o está vacío tras la delegación, no lo rellenes tú: registra el fallo (ver abajo).
 
 ## Qué registrar en `render`
 

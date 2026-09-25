@@ -4,6 +4,7 @@ import { resolve } from 'node:path';
 import { requireOption, UsageError } from '../lib/cli-args.mjs';
 import { engineRecord, findEngineRoot, PROMPT_COMPOSITION, SYSTEM_PROMPT_PATH, verifyEngine } from '../lib/engine.mjs';
 import { resolveGenerator } from '../lib/generators.mjs';
+import { composeHandoff, replyFileName } from '../lib/handoff.mjs';
 import { sha256 } from '../lib/hash.mjs';
 import { composeBasePrompt } from '../lib/prompt.mjs';
 import { RunStore } from '../lib/run-store.mjs';
@@ -37,6 +38,8 @@ export async function run(options) {
   await writeFile(store.path('summary.md'), summary);
   await writeFile(store.path('input_prompt.md'), prompt);
 
-  return { exit: 0, payload: { runDir: store.dir, runId: store.info.runId, promptFile: store.path('input_prompt.md'),
-    inputPromptSha256: store.info.prompt.inputPromptSha256, requestedGenerator, engineSourceVerified: engine.verified } };
+  const handoff = composeHandoff({ promptFile: store.path('input_prompt.md'), replyFile: store.path(replyFileName(1)) });
+  return { exit: 0, payload: { runDir: store.dir, runId: store.info.runId, promptFile: handoff.promptFile,
+    inputPromptSha256: store.info.prompt.inputPromptSha256, requestedGenerator, handoff,
+    engineSourceVerified: engine.verified } };
 }

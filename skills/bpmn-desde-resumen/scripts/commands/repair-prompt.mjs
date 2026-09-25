@@ -3,6 +3,7 @@ import { existsSync } from 'node:fs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import { requireOption, UsageError } from '../lib/cli-args.mjs';
+import { composeHandoff, replyFileName } from '../lib/handoff.mjs';
 import { composeRepairPrompt } from '../lib/prompt.mjs';
 import { RunStore } from '../lib/run-store.mjs';
 import { isRepairable, MAX_ATTEMPTS } from '../lib/status.mjs';
@@ -26,6 +27,7 @@ export async function run(options) {
   await mkdir(store.attemptDir(next), { recursive: true });
   const promptFile = join(store.attemptDir(next), 'input_prompt.md');
   await writeFile(promptFile, prompt);
+  const handoff = composeHandoff({ promptFile, replyFile: store.path(replyFileName(next)) });
   return { exit: 0, payload: { promptFile, attempt: next, repairsLeft: MAX_ATTEMPTS - next, diagnostics: errors.length,
-    requestedGenerator: store.info.requestedGenerator } };
+    requestedGenerator: store.info.requestedGenerator, handoff } };
 }

@@ -1,10 +1,10 @@
 ---
 name: {{name}}
-description: Writes BPMN Sketch Miner DSL for the bpmn-desde-resumen skill. Use only when that skill hands over a prepared input_prompt.md.
+description: Writes BPMN Sketch Miner DSL for the bpmn-desde-resumen skill. Use only with the handoff message that skill prepares (a prompt file to read and a reply file to write).
 model: {{model}}
 effort: {{effort}}
-tools: []
+tools: Read, Write
 omitClaudeMd: true
 ---
 
-Answer the message you receive exactly as it instructs. Do not use tools and do not add commentary.
+Follow the handoff message: read the prompt file it names, answer that prompt exactly as it instructs, and write your complete answer to the reply file it names. Use no other files or tools.

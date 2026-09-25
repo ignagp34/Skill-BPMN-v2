@@ -205,6 +205,23 @@ Aceptación: evaluación ejecutable sin la interfaz web, reportes trazables y ca
 
 Aceptación: la skill instalada resuelve resumen → Luna/high → DSL → motor original → PNG/BPMN/SVG con paridad demostrada y evaluación disponible.
 
+### 8. Mejora del layout — plan propuesto (2026-09-25), sin implementar
+
+Plan completo: `plans/layout-iteracion-1.md`. Pedido por el usuario: pools con auto-layout propio, flujos de mensaje ocultos por defecto, métricas de layout y evaluación visual con capturas. Condiciones: el layout del TFM (v0) se conserva intacto y seleccionable; cada mejora es una versión nueva, se cambia una idea cada vez, sin modelo en el bucle y con el XML semántico idéntico.
+
+Decisiones del usuario (2026-09-25):
+- flujos de mensaje ocultos por defecto y quitados también del `.bpmn`;
+- proporción como ahora y, si hace falta un objetivo, 16:9;
+- calibración humana sí, con una página ágil de valoración A/B sin abrir archivos a mano;
+- juez visual Opus 5.5;
+- **se puede cambiar todo el layout mientras el DSL y su interpretación (XML semántico) no cambien**. Esto sustituye, para esta etapa, la restricción de "mantener orden, parámetros y algoritmos" de la sección Invariante del diseño; v0 sigue seleccionable.
+
+- [ ] Fase 0: `--message-flows hidden|shown`, oculto por defecto (BPMN, SVG y PNG), reutilizando `stripMessageFlows` de company-web.
+- [ ] Fase 1: banco `layout-bench` estratificado (~50 DSL del corpus y fixtures, con hashes).
+- [ ] Fase 2: `layout-metrics`: restricciones duras, legibilidad y compacidad en banda; diagnóstico de v0.
+- [ ] Fase 3: juez visual A/B ciego (Opus 5.5) con orden invertido, rúbrica fija, calibración humana (~20 parejas) en una página ágil de votación y métrica compuesta ajustada a los juicios.
+- [ ] Fase 4–5: candidatos priorizados por el diagnóstico (primero pools independientes, luego orden/alineación entre pools y etiquetas); aceptación con métricas y juez; evidencia en `evidence/layout-vN/`.
+
 ## Disciplina de seguimiento
 
 Al continuar, marcar cada casilla solo con evidencia. Registrar cambios, comandos relevantes, resultados y limitaciones sin confundir lectura del código con pruebas ejecutadas. Empezar por la etapa 1; no optimizar el diseño hasta cerrar la paridad. Eliminar evaluación o cambiar modelo, esfuerzo, prompt base o algoritmos de layout requiere una petición posterior que cambie este alcance.
@@ -244,6 +261,7 @@ Detalle: `evidence/skill-stage2-5/REPORT.md` y `parity-summary.json`. Cero gener
 - **Consistencia de la ejecución.** Un formato solo se entrega si pasa su comprobación (DI reimportable, cada elemento del DI dibujado en el SVG, PNG del tamaño del viewBox). La raíz de la ejecución refleja siempre el último intento.
 - **Descartado por el usuario (2026-09-25):** llamar a la API de OpenAI con `OPENAI_API_KEY`. No usar API keys.
 - **Refactor SOLID (2026-09-25):** `scripts/bpmn.mjs` solo despacha; `scripts/commands/` un archivo por comando; `scripts/lib/` una responsabilidad por módulo (argumentos, estados, motor, prompt, harness, artefactos, carpeta de ejecución, generadores). Tras el refactor la batería de paridad sigue pasando entera.
+- **Traspaso al generador por archivo (arreglo 2026-09-25):** en la primera ejecución real desde Claude, el subagente se negó (estaba instalado con `tools: []` y "no uses herramientas") y copiar el prompt de 70 KB en el mensaje no era viable, así que la conversación redactó el DSL (registrado con `matchesRequested: false`). Ahora `prepare` y `repair-prompt` devuelven `handoff.message`: el generador lee `promptFile` y escribe su respuesta literal en `replyFile`. El subagente tiene solo `Read, Write`. `doctor` comprueba todas las copias del subagente: la del proyecto tiene prioridad y había una antigua en la carpeta padre. Mecanismo verificado con un agente Opus genérico (leyó 70 KB, escribió la respuesta y el render dio `success`). El subagente corregido requiere reiniciar la sesión para cargarse; sigue pendiente una generación con él.
 - **Falso positivo corregido:** la comprobación SVG↔BPMN excluía IDs acabados en `_label`; una tarea "Print visit label" daba `partial_export`. Ya no se filtra.
 
 Siguiente paso: primera generación real (etapa 3) — en Claude Code con el subagente `bpmn-dsl-generator` (Opus 5.5/low; requiere reiniciar la sesión tras crear `.claude/agents/`) y en ChatGPT/Codex con Luna/high —, prueba del paquete en Work web y empaquetado autocontenido (etapa 7).
