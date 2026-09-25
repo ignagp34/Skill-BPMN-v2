@@ -201,7 +201,7 @@ Aceptación: evaluación ejecutable sin la interfaz web, reportes trazables y ca
 - [ ] (Validador: válido. Copia limpia probada usando el motor del checkout vía `BPMN_SKILL_ENGINE_ROOT`; falta con un paquete autocontenido.) Ejecutar el validador de skill-creator y una prueba integral desde una ubicación limpia, fuera de la ruta de desarrollo original.
 - [ ] Validar al menos un resumen sencillo, uno con varios participantes y uno ambiguo o inválido. Verificar delegación, diagnósticos, entrega y prompt opcional.
 - [ ] Mostrar PNG en la respuesta y enlazar los tres archivos usando rutas absolutas. Adjuntar prompt e informes cuando se pidan, sin llenar la respuesta de archivos internos.
-- [ ] Instalar para uso habitual cuando el usuario solicite esa entrega; documentar dependencias reales y cualquier limitación restante.
+- [x] Instalar para uso habitual cuando el usuario solicite esa entrega; documentar dependencias reales y cualquier limitación restante. (2026-09-25, Claude Code local: `~/.claude/skills/bpmn-desde-resumen` es un enlace (junction) a `skills/bpmn-desde-resumen` de este clon, así que el motor se localiza solo y los cambios del repositorio se aplican al instante; subagente en `~/.claude/agents/bpmn-dsl-generator.md` vía `sync-agents --target ~`. La skill anterior `bpmn` se movió, sin borrarla, a `~/.claude/skills-backup/bpmn-20260925`. Depende de este clon con `node_modules` y del Chromium de `../.playwright`; la copia `anthropic-skills:bpmn` sincronizada desde claude.ai no se gestiona desde aquí.)
 
 Aceptación: la skill instalada resuelve resumen → Luna/high → DSL → motor original → PNG/BPMN/SVG con paridad demostrada y evaluación disponible.
 
