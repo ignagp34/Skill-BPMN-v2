@@ -29,7 +29,7 @@ export async function placeArtifacts(layoutXml: string): Promise<string> {
   return clearTitleBands(await placeArtifactsV0(layoutXml));
 }
 
-async function clearTitleBands(xml: string): Promise<string> {
+export async function clearTitleBands(xml: string): Promise<string> {
   const moddle = new BpmnModdle();
   const { rootElement } = await moddle.fromXML(xml);
   const defs = rootElement as any;

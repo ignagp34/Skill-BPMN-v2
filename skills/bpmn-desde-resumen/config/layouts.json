@@ -26,6 +26,11 @@
       "description": "v2 + title bands kept clear (idea E1): all pool/lane frames widened left by the deepest intrusion of any shape or (estimated) label into a title band; nothing else moves",
       "base": "v2",
       "harness": { "app": "tools/layout-lab/harness/v4", "page": "/index.headless.html" }
+    },
+    "v5": {
+      "description": "v4 + label-aware artifact placement: data object/store names and other elements' external labels count as footprint/obstacles, annotations sized to their text, associations may not leave through their artifact's name; v0 rules as fallback",
+      "base": "v4",
+      "harness": { "app": "tools/layout-lab/harness/v5", "page": "/index.headless.html" }
     }
   }
 }

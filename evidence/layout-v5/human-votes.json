@@ -1,0 +1,217 @@
+{
+  "schema": "layout-ab-votes-summary/1",
+  "batch": "skill-runs/layout/ab-v4-v5-20260925",
+  "seed": "v4-v5-20260925",
+  "view": "hidden",
+  "voter": "user",
+  "note": "Voting interrupted by a power cut after 11 pairs; votes were already on disk and the batch was resumed.",
+  "tally": {
+    "v5": 11,
+    "v4": 2,
+    "tie": 6
+  },
+  "decisive": 13,
+  "v5WinRateDecisive": 0.846,
+  "wilson95": [
+    0.578,
+    0.956
+  ],
+  "signTestTwoSidedP": 0.0225,
+  "pairs": [
+    {
+      "pairId": "p01",
+      "caseId": "f-s-a3-find-a-job",
+      "winner": "tie",
+      "sawAltView": null,
+      "tags": [],
+      "note": ""
+    },
+    {
+      "pairId": "p02",
+      "caseId": "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "tie",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": ""
+    },
+    {
+      "pairId": "p03",
+      "caseId": "c-syn011-sysv5-chatgpt-gpt_5_5_thinking-r02",
+      "winner": "v4",
+      "sawAltView": null,
+      "tags": [
+        "lines",
+        "alignment"
+      ],
+      "note": ""
+    },
+    {
+      "pairId": "p04",
+      "caseId": "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v5",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [
+        "labels",
+        "lines"
+      ],
+      "note": "Las líneas en los objetos de datos y bases de datos cercanas es mejor que sean rectas sin ángulos pero para el caso en el que estén muy alejados queda bien que tengan codo. en signed documents por ejemplo el codo queda mal. Ligeramente superior.2"
+    },
+    {
+      "pairId": "p05",
+      "caseId": "h-ml-06-vision-medica",
+      "winner": "v5",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": ""
+    },
+    {
+      "pairId": "p06",
+      "caseId": "f-canon-2-incoming-flight",
+      "winner": "v5",
+      "sawAltView": null,
+      "tags": [],
+      "note": ""
+    },
+    {
+      "pairId": "p07",
+      "caseId": "f-planta-residuos",
+      "winner": "v5",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [
+        "labels"
+      ],
+      "note": "Apunta para la siguiente, Combinar Bases de datos similares en el layout por ejemplo Registro de trazabilidad como mejora futura. Igual es ligeramente superior pero falta ajustar un poco más."
+    },
+    {
+      "pairId": "p08",
+      "caseId": "f-canon-4-composting",
+      "winner": "v5",
+      "sawAltView": null,
+      "tags": [
+        "labels",
+        "alignment"
+      ],
+      "note": "Esta es mucho mejor, sin ninguna pega."
+    },
+    {
+      "pairId": "p09",
+      "caseId": "f-gemini-03",
+      "winner": "tie",
+      "sawAltView": null,
+      "tags": [],
+      "note": ""
+    },
+    {
+      "pairId": "p10",
+      "caseId": "f-canon-5-marriage",
+      "winner": "v5",
+      "sawAltView": null,
+      "tags": [],
+      "note": "Caso de estudio. La base de datos de Civil Registry se podría mover horizontalmente a la derecha y quedaría mejor. Dando más espacio a la actividad registrer Marrriage"
+    },
+    {
+      "pairId": "p11",
+      "caseId": "c-syn011-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v5",
+      "sawAltView": null,
+      "tags": [
+        "labels"
+      ],
+      "note": "Case Rreposiory se podría mover horizontalmente a la izquierda un poco y quedaría mejor. Aplication form con lineas rectangulares. Añade como posible mejora mover las letras en eventos (en vez de abajo arriba con la misma separación que hay actualmente hacia abajo o algo superior)."
+    },
+    {
+      "pairId": "p12",
+      "caseId": "f-gemini-04",
+      "winner": "v4",
+      "sawAltView": null,
+      "tags": [
+        "labels"
+      ],
+      "note": "Parts arrvie quedaría mejor cerrca de parts abajo a la izquierda"
+    },
+    {
+      "pairId": "p13",
+      "caseId": "h-ml-03-deteccion-fraude",
+      "winner": "tie",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": ""
+    },
+    {
+      "pairId": "p14",
+      "caseId": "f-canon-3-conveyor-belt",
+      "winner": "v5",
+      "sawAltView": null,
+      "tags": [],
+      "note": "El último objeto mejor si fuese línea recta. Se podría colcoar el texto arriba para evitar que choque"
+    },
+    {
+      "pairId": "p15",
+      "caseId": "h-ml-04-deriva-datos",
+      "winner": "v5",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [
+        "labels"
+      ],
+      "note": "Este perfecto"
+    },
+    {
+      "pairId": "p16",
+      "caseId": "h-ml-05-rag-chatbot",
+      "winner": "v5",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": ""
+    },
+    {
+      "pairId": "p17",
+      "caseId": "f-gemini-05",
+      "winner": "tie",
+      "sawAltView": null,
+      "tags": [],
+      "note": ""
+    },
+    {
+      "pairId": "p18",
+      "caseId": "c-syn012-sysv5-gemini-gemini_3_5_flash_thinking-r03",
+      "winner": "tie",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": ""
+    },
+    {
+      "pairId": "p19",
+      "caseId": "c-syn012-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v5",
+      "sawAltView": null,
+      "tags": [
+        "labels"
+      ],
+      "note": "igual, juntando Bases de datos cercanas podría quedar mejor. Evitar codos. Marginalmente superior"
+    }
+  ]
+}

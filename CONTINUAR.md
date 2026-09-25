@@ -7,7 +7,8 @@
 - v1–v2 (planta-residuos): empate; v2 es la base.
 - v4 = v2 + E1 (bandas de título despejadas): pasa el filtro; etiquetas/formas en banda → 0 casos, área +1,7 % mediana. Voto: v4 16, empates 4, v2 0 → aceptado; es la base actual. `evidence/layout-v4/`.
 - v4 es el layout por defecto de la skill (aprobado por el usuario; `config/layouts.json`); `--layout v0` = TFM; la paridad usa v0 y pasa.
-- Siguiente: C′ (propuesta del usuario) o la colocación de artefactos (objetos de datos sobre etiquetas o líneas de carril, `placeArtifacts`).
+- v5 (artefactos conscientes de las etiquetas) hecho: mejora etiquetas cruzadas y texto desbordado, 2 regresiones duras; voto: v5 11, v4 2, 6 empates (`evidence/layout-v5/`); pendiente que el usuario decida si pasa a ser el defecto. Commit de v1–v4 y v4 por defecto: 2291771 (sin push).
+- Siguiente: decisión sobre v5 como defecto; ideas del usuario tras v5 (asociaciones rectas si el artefacto está cerca, etiquetas de eventos arriba, ajuste fino horizontal, agrupar almacenes parecidos); C′ (propuesta del usuario: alinear columnas entre pools con huecos) o la etiqueta de los carriles estrechos (el respaldo de v5 deja objetos sobre la línea entre carriles).
 
 ---
 
