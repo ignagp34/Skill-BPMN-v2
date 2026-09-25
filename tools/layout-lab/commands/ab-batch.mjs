@@ -49,10 +49,19 @@ export async function run(options) {
     const sides = { left: aOnLeft ? 'A' : 'B', right: aOnLeft ? 'B' : 'A' };
     const images = {};
     for (const side of ['left', 'right']) {
-      const source = imageOf(sides[side] === 'A' ? aDir : bDir, id, view);
+      const renderDir = sides[side] === 'A' ? aDir : bDir;
+      const source = imageOf(renderDir, id, view);
       const file = `images/${pairId}-${side}.png`;
       await copyFile(source, join(out, file));
       images[side] = { file, ...pngSize(await readFile(source)) };
+      // The other message-flow view, for the page's show/hide toggle (only when the case has message flows).
+      const altView = view === 'hidden' ? 'shown' : 'hidden';
+      const altSource = imageOf(renderDir, id, altView);
+      if (existsSync(join(renderDir, id, 'hidden.png')) && altSource !== source) {
+        const altFile = `images/${pairId}-${side}-${altView}.png`;
+        await copyFile(altSource, join(out, altFile));
+        images[side].alt = { view: altView, file: altFile, ...pngSize(await readFile(altSource)) };
+      }
     }
     pairs.push({ pairId, caseId: id, sides, images });
   }

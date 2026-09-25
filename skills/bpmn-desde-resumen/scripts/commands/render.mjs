@@ -1,5 +1,5 @@
 // render --run <runDir> --raw <file> --model <m> --effort <e> --host <h> [--evidence <text>] [--timeout-ms <n>]
-//        [--message-flows hidden|shown]
+//        [--message-flows hidden|shown] [--layout <version>]
 import { existsSync } from 'node:fs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
@@ -9,6 +9,7 @@ import { findEngineRoot } from '../lib/engine.mjs';
 import { declaredGenerator } from '../lib/generators.mjs';
 import { DEFAULT_TIMEOUT_MS, renderWithHarness } from '../lib/harness.mjs';
 import { sha256 } from '../lib/hash.mjs';
+import { parseLayout } from '../lib/layouts.mjs';
 import { FULL_LAYOUT_FILE, parseMessageFlows } from '../lib/message-flows.mjs';
 import { nowIso, RunStore } from '../lib/run-store.mjs';
 import { exitCodeFor, STATUS } from '../lib/status.mjs';
@@ -42,10 +43,10 @@ async function writeFiles(dir, files) {
 }
 
 /** Runs the engine on one raw generator answer and returns the attempt's outcome fields. */
-async function renderRawOutput(engineRoot, dir, input, { timeoutMs, messageFlows }) {
+async function renderRawOutput(engineRoot, dir, input, { timeoutMs, messageFlows, layout }) {
   let rendered;
   try {
-    rendered = await renderWithHarness(engineRoot, [input], { timeoutMs, messageFlows });
+    rendered = await renderWithHarness(engineRoot, [input], { timeoutMs, messageFlows, harness: layout.harness });
   } catch (error) {
     return { outcome: { status: STATUS.INFRASTRUCTURE_ERROR, error: error.message, infra: error.kind ?? 'harness' } };
   }
@@ -79,14 +80,16 @@ export async function renderAttempt(store, rawPath, options) {
   if (inputPrompt && !existsSync(join(dir, 'input_prompt.md'))) await writeFile(join(dir, 'input_prompt.md'), inputPrompt);
 
   const messageFlows = parseMessageFlows(options['message-flows']);
+  const layout = parseLayout(options.layout);
   const started = Date.now();
   const { outcome, runtime } = rawOutput.trim().length === 0
     ? { outcome: { status: STATUS.GENERATION_ERROR, error: 'Empty generator output.' } }
     : await renderRawOutput(findEngineRoot(), dir, harnessInput(store, n, rawOutput, inputPrompt, generator),
-      { timeoutMs: Number(options['timeout-ms'] ?? DEFAULT_TIMEOUT_MS), messageFlows });
+      { timeoutMs: Number(options['timeout-ms'] ?? DEFAULT_TIMEOUT_MS), messageFlows, layout });
 
   await store.recordAttempt({ n, kind: n === 1 ? 'initial' : 'repair', generator, durationMs: Date.now() - started,
-    inputPromptSha256: sha256(inputPrompt), rawOutputSha256: sha256(rawOutput), diagnostics: [], ...outcome }, runtime);
+    inputPromptSha256: sha256(inputPrompt), rawOutputSha256: sha256(rawOutput), diagnostics: [],
+    layout: { version: layout.name, harness: layout.harness }, ...outcome }, runtime);
   return { exit: exitCodeFor(store.info.status), payload: store.summary() };
 }
 

@@ -5,6 +5,7 @@
 - Resumen del proceso en lenguaje natural (archivo o texto), en cualquier idioma. Se conserva literal en `summary.md`; el idioma, actores, decisiones y restricciones son los del usuario.
 - Destino de salida (`--out`). Cada ejecución crea una carpeta nueva `bpmn-<fecha>-<hora>-<slug>/`; nunca se sobrescribe otra.
 - Opcional: adjuntar el prompt al usuario (se guarda siempre; se entrega solo si se pide).
+- Opcional: `--layout <versión>` en `render` y `render-dsl`. Por defecto, la versión `default` de `config/layouts.json` (**v4** desde el 2026-09-25, aprobada por el usuario tras la votación A/B; ver `evidence/layout-v4/`). `v0` es el layout exacto del TFM: la paridad, el corpus y `tfm-history` lo usan siempre. Cada intento registra `layout.version` y su harness en `attempt.json`/`run-info.json`. El XML semántico no depende del layout.
 - Opcional: `--message-flows hidden|shown` en `render` y `render-dsl`. Por defecto **`hidden`** (decisión del usuario, 2026-09-25, igual que el botón «Hide message flows» de la web). El layout se calcula con los flujos de mensaje; después se quitan del `.bpmn` (el `messageFlow` y su `BPMNEdge`) y el SVG/PNG se reexportan desde ese BPMN. Las posiciones no cambian. `shown` da la salida exacta del TFM: se usa para la paridad, el corpus y las métricas.
 
 ## Carpeta de una ejecución

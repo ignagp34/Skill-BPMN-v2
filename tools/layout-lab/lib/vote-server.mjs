@@ -27,10 +27,12 @@ async function readBody(req) {
 }
 
 /** Public view of the batch: no case ids, no variants. */
+const sizeOf = image => ({ width: image.width, height: image.height });
+const sideView = image => ({ ...sizeOf(image), alt: image.alt ? { view: image.alt.view, ...sizeOf(image.alt) } : null });
+
 const publicState = (batch, votes) => ({
   view: batch.view, rubric: RUBRIC,
-  pairs: batch.pairs.map(p => ({ pairId: p.pairId, left: { width: p.images.left.width, height: p.images.left.height },
-    right: { width: p.images.right.width, height: p.images.right.height } })),
+  pairs: batch.pairs.map(p => ({ pairId: p.pairId, left: sideView(p.images.left), right: sideView(p.images.right) })),
   votes: Object.fromEntries(Object.entries(votes.votes).map(([id, v]) => [id, { choice: v.choice, tags: v.tags, note: v.note }])),
 });
 
@@ -44,13 +46,15 @@ export async function startVoteServer(batchDir, { port = 0, onQuit } = {}) {
     'GET /': async (req, res) => send(res, 200, await readFile(PAGE), 'text/html; charset=utf-8'),
     'GET /api/state': async (req, res) => send(res, 200, publicState(batch, votes)),
     'POST /api/vote': async (req, res) => {
-      const { pairId, choice, tags = [], note = '', ms = null } = await readBody(req);
+      const { pairId, choice, tags = [], note = '', ms = null, sawAltView = false } = await readBody(req);
       const pair = pairs.get(pairId);
       if (!pair || !CHOICES.includes(choice)) return send(res, 400, { error: 'invalid vote' });
       const cleanTags = tags.filter(t => RUBRIC.some(r => r.key === t));
       const previous = votes.votes[pairId];
       votes.votes[pairId] = { choice, winner: winnerOf(pair, choice), caseId: pair.caseId, tags: cleanTags,
-        note: String(note).slice(0, 2000), ms: Number.isFinite(ms) ? ms : null, at: new Date().toISOString(),
+        note: String(note).slice(0, 2000), ms: Number.isFinite(ms) ? ms : null,
+        sawAltView: pair.images.left.alt ? { view: pair.images.left.alt.view, seen: sawAltView === true } : null,
+        at: new Date().toISOString(),
         revisions: (previous?.revisions ?? 0) + (previous ? 1 : 0) };
       writing = writing.then(() => writeJsonAtomic(join(batchDir, VOTES_FILE), votes));
       await writing;
@@ -62,11 +66,12 @@ export async function startVoteServer(batchDir, { port = 0, onQuit } = {}) {
   const server = createServer(async (req, res) => {
     try {
       const url = new URL(req.url, 'http://127.0.0.1');
-      const image = url.pathname.match(/^\/img\/(p\d+)\/(left|right)$/);
+      const image = url.pathname.match(/^\/img\/(p\d+)\/(left|right)(\/alt)?$/);
       if (req.method === 'GET' && image) {
-        const pair = pairs.get(image[1]);
-        return pair ? send(res, 200, await readFile(join(batchDir, pair.images[image[2]].file)), 'image/png')
-          : send(res, 404, { error: 'no such pair' });
+        const side = pairs.get(image[1])?.images[image[2]];
+        const file = image[3] ? side?.alt?.file : side?.file;
+        return file ? send(res, 200, await readFile(join(batchDir, file)), 'image/png')
+          : send(res, 404, { error: 'no such image' });
       }
       const handler = handlers[`${req.method} ${url.pathname}`];
       return handler ? await handler(req, res) : send(res, 404, { error: 'not found' });

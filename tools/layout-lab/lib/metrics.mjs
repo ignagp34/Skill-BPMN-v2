@@ -23,12 +23,19 @@ function titleBand(bounds, horizontal = true) {
     : { x: bounds.x, y: bounds.y, width: bounds.width, height: TITLE_BAND };
 }
 
-export function buildContext(model, text) {
+/**
+ * messageFlows 'hidden' drops message flows and their labels, i.e. what the user
+ * receives by default (skill decision 2026-09-25); the hard constraints are also
+ * evaluated in that view (see computeMetrics).
+ */
+export function buildContext(model, text, { messageFlows = 'shown' } = {}) {
+  const hidden = messageFlows === 'hidden';
+  const messageIds = new Set(model.edges.filter(e => e.type === 'messageFlow').map(e => e.id));
   const nodes = [...model.nodes.values()].filter(n => n.bounds);
   const expanded = new Set(nodes.filter(n => nodes.some(c => c.parentId === n.id)).map(n => n.id));
   const shapes = nodes.filter(n => !expanded.has(n.id));
   const flowNodes = shapes.filter(n => ['task', 'subprocess', 'event', 'gateway'].includes(n.kind));
-  const edges = model.edges.filter(e => e.waypoints.length >= 2).map(e => ({ ...e, segs: segments(e.waypoints) }));
+  const edges = model.edges.filter(e => e.waypoints.length >= 2 && !(hidden && messageIds.has(e.id))).map(e => ({ ...e, segs: segments(e.waypoints) }));
   const back = backEdges(model);
   const byId = new Map(nodes.map(n => [n.id, n]));
   const edgeById = new Map(edges.map(e => [e.id, e]));
@@ -38,7 +45,7 @@ export function buildContext(model, text) {
     ...model.lanes.filter(l => l.bounds).map(l => ({ id: l.id, rect: titleBand(l.bounds) }))];
   // Free-standing text: external labels, plus annotation text (it overflows its bracket freely).
   const isAnnotation = b => byId.get(b.id)?.kind === 'annotation';
-  const labels = text.boxes.filter(b => b.label || isAnnotation(b)).map(b => ({ ...b, rect: inset(b, TOL) }));
+  const labels = text.boxes.filter(b => (b.label || isAnnotation(b)) && !(hidden && messageIds.has(b.id))).map(b => ({ ...b, rect: inset(b, TOL) }));
   const inner = text.boxes.filter(b => !b.label);
   return { model, text, nodes, byId, edgeById, shapes, flowNodes, edges, back, leafLanes, participants, bands, labels, inner };
 }
@@ -280,7 +287,11 @@ export const METRICS = [
 
 const round = v => (typeof v === 'number' && Number.isFinite(v) ? Math.round(v * 1e4) / 1e4 : v ?? null);
 
-/** { values, details, counts } for one laid-out diagram. */
+/**
+ * { values, details, counts, hardVisible, hardVisibleDetails } for one laid-out
+ * diagram. values: complete layout (message flows shown). hardVisible: the hard
+ * constraints with message flows hidden, as delivered.
+ */
 export function computeMetrics(model, text) {
   const ctx = buildContext(model, text);
   const values = {}; const details = {};
@@ -289,8 +300,15 @@ export function computeMetrics(model, text) {
     values[m.key] = round(value);
     if (d?.length) details[m.key] = d;
   }
+  const visibleCtx = buildContext(model, text, { messageFlows: 'hidden' });
+  const hardVisible = {}; const hardVisibleDetails = {};
+  for (const m of METRICS.filter(m => m.group === 'hard')) {
+    const { value, details: d } = m.compute(visibleCtx);
+    hardVisible[m.key] = round(value);
+    if (d?.length) hardVisibleDetails[m.key] = d;
+  }
   const counts = { flowNodes: ctx.flowNodes.length, shapes: ctx.shapes.length, edges: ctx.edges.length,
     sequenceFlows: seqFlows(ctx).length, messageFlows: msgFlows(ctx).length, labels: ctx.labels.length,
     pools: ctx.participants.length, lanes: ctx.leafLanes.length };
-  return { values, details, counts };
+  return { values, details, counts, hardVisible, hardVisibleDetails };
 }

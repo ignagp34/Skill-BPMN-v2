@@ -1,7 +1,12 @@
 // node --test tools/layout-lab/test/*.test.mjs
 import assert from 'node:assert/strict';
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
 import { test } from 'node:test';
+import { TFM_HARNESS } from '../../../skills/bpmn-desde-resumen/scripts/lib/harness.mjs';
 import { rng, shuffle, winnerOf } from '../lib/ab.mjs';
+import { REPO_ROOT } from '../lib/bench.mjs';
+import { LAYOUTS, layoutVersion } from '../lib/layouts.mjs';
 import { backEdges, parseBpmn, structuralFeatures } from '../lib/bpmn-model.mjs';
 import { collinearOverlap, segmentHitsRect, segmentsCross, rectPolylineDistance } from '../lib/geometry.mjs';
 import { computeMetrics } from '../lib/metrics.mjs';
@@ -86,4 +91,16 @@ test('Cohen kappa and blind A/B helpers', () => {
   const pair = { sides: { left: 'B', right: 'A' } };
   assert.equal(winnerOf(pair, 'left'), 'B');
   assert.equal(winnerOf(pair, 'tie'), 'tie');
+});
+
+test('layout registry: v0 is the TFM harness, candidates bring their own harness files', () => {
+  assert.deepEqual(layoutVersion('v0').harness, TFM_HARNESS);
+  for (const [name, layout] of Object.entries(LAYOUTS)) {
+    if (name === 'v0') continue;
+    assert.notEqual(layout.harness.app, TFM_HARNESS.app, `${name} must not reuse the v0 app`);
+    for (const file of ['vite.config.ts', layout.harness.page.replace(/^\//, '')]) {
+      assert.ok(existsSync(join(REPO_ROOT, layout.harness.app, file)), `${name}: ${file}`);
+    }
+  }
+  assert.throws(() => layoutVersion('nope'), /Unknown layout version/);
 });

@@ -1,0 +1,227 @@
+{
+  "schema": "layout-ab-votes-summary/1",
+  "batch": "skill-runs/layout/ab-v2-v4-20260925",
+  "seed": "v2-v4-20260925",
+  "view": "hidden",
+  "voter": "user",
+  "tally": {
+    "v4": 16,
+    "tie": 4,
+    "v2": 0
+  },
+  "decisive": 16,
+  "v4WinRateDecisive": 1,
+  "wilson95": [
+    0.806,
+    1
+  ],
+  "signTestTwoSidedP": 0.000031,
+  "pairs": [
+    {
+      "pairId": "p01",
+      "caseId": "c-syn009-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v4",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "seconds": 10
+    },
+    {
+      "pairId": "p02",
+      "caseId": "c-syn005-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v4",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "seconds": 11
+    },
+    {
+      "pairId": "p03",
+      "caseId": "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v4",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "seconds": 8
+    },
+    {
+      "pairId": "p04",
+      "caseId": "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v4",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "seconds": 5
+    },
+    {
+      "pairId": "p05",
+      "caseId": "f-canon-2-incoming-flight",
+      "winner": "v4",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "seconds": 5
+    },
+    {
+      "pairId": "p06",
+      "caseId": "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v4",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "seconds": 2
+    },
+    {
+      "pairId": "p07",
+      "caseId": "c-syn010-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v4",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "seconds": 10
+    },
+    {
+      "pairId": "p08",
+      "caseId": "c-syn010-sysv5-chatgpt-gpt_5_5_thinking-r01",
+      "winner": "v4",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "seconds": 4
+    },
+    {
+      "pairId": "p09",
+      "caseId": "c-syn002-sysv4-gemini-gemini_3_5_flash_thinking-r01",
+      "winner": "v4",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "seconds": 1
+    },
+    {
+      "pairId": "p10",
+      "caseId": "f-planta-residuos",
+      "winner": "v4",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "seconds": 6
+    },
+    {
+      "pairId": "p11",
+      "caseId": "c-syn007-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v4",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "seconds": 3
+    },
+    {
+      "pairId": "p12",
+      "caseId": "c-syn013-sysv31-claude-opus_4_8_medium-r01",
+      "winner": "tie",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "seconds": 4
+    },
+    {
+      "pairId": "p13",
+      "caseId": "c-syn011-sysv5-chatgpt-gpt_5_5_thinking-r02",
+      "winner": "v4",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "seconds": 4
+    },
+    {
+      "pairId": "p14",
+      "caseId": "h-ml-06-vision-medica",
+      "winner": "v4",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [
+        "labels"
+      ],
+      "note": "",
+      "seconds": 8
+    },
+    {
+      "pairId": "p15",
+      "caseId": "c-syn007-sysv4-chatgpt-gpt_5_5_thinking-r02",
+      "winner": "v4",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "seconds": 3
+    },
+    {
+      "pairId": "p16",
+      "caseId": "c-syn013-sysv4-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v4",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "seconds": 2
+    },
+    {
+      "pairId": "p17",
+      "caseId": "c-syn006-sysv31-gemini-gemini_3_5_flash_thinking-r01",
+      "winner": "tie",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "seconds": 3
+    },
+    {
+      "pairId": "p18",
+      "caseId": "c-syn004-sysv31-claude-opus_4_8_medium-r03",
+      "winner": "tie",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "seconds": 1
+    },
+    {
+      "pairId": "p19",
+      "caseId": "f-gemini-04",
+      "winner": "tie",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "seconds": 1
+    },
+    {
+      "pairId": "p20",
+      "caseId": "c-syn014-sysv5-claude-opus_4_8_medium-r01",
+      "winner": "v4",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "seconds": 3
+    }
+  ]
+}

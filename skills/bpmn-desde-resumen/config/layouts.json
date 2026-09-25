@@ -1,0 +1,31 @@
+{
+  "_comment": "Layout versions (stage 8, plans/layout-iteracion-1.md). The only place that decides which layout the skill uses. v0 is the frozen TFM layout; every candidate is the TFM harness with some render modules swapped (tools/layout-lab/harness/). Harness paths are relative to the engine root. Change the default only with the user's approval.",
+  "default": "v4",
+  "defaultDecision": "User, 2026-09-25: v4 won the A/B vote against v2 (16-0, 4 ties) and passes the objective gate.",
+  "versions": {
+    "v0": {
+      "description": "TFM layout (frozen engine f558eb0, apps/tfm-lab headless harness). Parity and corpus checks always use it.",
+      "harness": { "app": "apps/tfm-lab", "page": "/index.headless.html" }
+    },
+    "v1": {
+      "description": "v0 + own bpmn-auto-layout pass per pool (idea A): replaces the layout-missing stride for pools 2+, stride kept as fallback for unreachable nodes; all later phases are v0",
+      "base": "v0",
+      "harness": { "app": "tools/layout-lab/harness/v1", "page": "/index.headless.html" }
+    },
+    "v2": {
+      "description": "v1 + vertical pool order minimising pools crossed by message flows (idea B); ties keep the DSL order",
+      "base": "v1",
+      "harness": { "app": "tools/layout-lab/harness/v2", "page": "/index.headless.html" }
+    },
+    "v3": {
+      "description": "v2 + per-pool horizontal shift aligning message flow ends (idea C); frames keep a common left edge. Lost the vote in both views.",
+      "base": "v2",
+      "harness": { "app": "tools/layout-lab/harness/v3", "page": "/index.headless.html" }
+    },
+    "v4": {
+      "description": "v2 + title bands kept clear (idea E1): all pool/lane frames widened left by the deepest intrusion of any shape or (estimated) label into a title band; nothing else moves",
+      "base": "v2",
+      "harness": { "app": "tools/layout-lab/harness/v4", "page": "/index.headless.html" }
+    }
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "schema": "layout-ab-votes-summary/1",
+  "batch": "skill-runs/layout/ab-v2-v3-20260925",
+  "seed": "v2-v3-20260925",
+  "view": "hidden",
+  "voter": "user",
+  "tally": {
+    "v2": 15
+  },
+  "pairs": [
+    {
+      "pairId": "p01",
+      "caseId": "h-ml-03-deteccion-fraude",
+      "winner": "v2",
+      "tags": [],
+      "note": "El primer lane tiene la entrada más cercana, por lo demás es similar",
+      "seconds": 89
+    },
+    {
+      "pairId": "p02",
+      "caseId": "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r01",
+      "winner": "v2",
+      "tags": [],
+      "note": "",
+      "seconds": 13
+    },
+    {
+      "pairId": "p03",
+      "caseId": "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v2",
+      "tags": [],
+      "note": "",
+      "seconds": 2
+    },
+    {
+      "pairId": "p04",
+      "caseId": "f-pool-map-message-event",
+      "winner": "v2",
+      "tags": [],
+      "note": "",
+      "seconds": 7
+    },
+    {
+      "pairId": "p05",
+      "caseId": "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v2",
+      "tags": [],
+      "note": "",
+      "seconds": 13
+    },
+    {
+      "pairId": "p06",
+      "caseId": "c-syn014-sysv5-gemini-gemini_3_5_flash_thinking-r01",
+      "winner": "v2",
+      "tags": [],
+      "note": "",
+      "seconds": 3
+    },
+    {
+      "pairId": "p07",
+      "caseId": "f-planta-residuos",
+      "winner": "v2",
+      "tags": [],
+      "note": "",
+      "seconds": 3
+    },
+    {
+      "pairId": "p08",
+      "caseId": "c-syn014-sysv5-claude-opus_4_8_medium-r01",
+      "winner": "v2",
+      "tags": [],
+      "note": "",
+      "seconds": 2
+    },
+    {
+      "pairId": "p09",
+      "caseId": "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v2",
+      "tags": [],
+      "note": "",
+      "seconds": 2
+    },
+    {
+      "pairId": "p10",
+      "caseId": "h-ml-04-deriva-datos",
+      "winner": "v2",
+      "tags": [],
+      "note": "",
+      "seconds": 6
+    },
+    {
+      "pairId": "p11",
+      "caseId": "h-ml-05-rag-chatbot",
+      "winner": "v2",
+      "tags": [],
+      "note": "",
+      "seconds": 4
+    },
+    {
+      "pairId": "p12",
+      "caseId": "h-ml-06-vision-medica",
+      "winner": "v2",
+      "tags": [],
+      "note": "",
+      "seconds": 3
+    },
+    {
+      "pairId": "p13",
+      "caseId": "c-syn010-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v2",
+      "tags": [],
+      "note": "",
+      "seconds": 2
+    },
+    {
+      "pairId": "p14",
+      "caseId": "c-syn010-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v2",
+      "tags": [],
+      "note": "",
+      "seconds": 4
+    },
+    {
+      "pairId": "p15",
+      "caseId": "c-syn010-sysv5-chatgpt-gpt_5_5_thinking-r01",
+      "winner": "v2",
+      "tags": [],
+      "note": "No sé si la idea es que se viese mejor el flujo de mensajes. Si es así al estar oculto no lo he podido apreciar. Sería conveniente añadir un botón de ver/ocultar flujo de mensajes en la aplicación",
+      "seconds": 101
+    }
+  ]
+}

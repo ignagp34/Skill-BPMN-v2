@@ -1,0 +1,193 @@
+{
+  "schema": "layout-ab-votes-summary/1",
+  "batch": "skill-runs/layout/ab-v2-v3-shown-20260925",
+  "seed": "v2-v3-shown-20260925",
+  "view": "shown",
+  "voter": "user",
+  "tally": {
+    "v2": 12,
+    "v3": 3
+  },
+  "pairs": [
+    {
+      "pairId": "p01",
+      "caseId": "h-ml-03-deteccion-fraude",
+      "winner": "v2",
+      "sawAltView": {
+        "view": "hidden",
+        "seen": true
+      },
+      "tags": [],
+      "note": "Aun así, no queda del todo bien. Quizás se podría mantener la entrada al borde pero mantener líneas más largas para que coincida los mensajes. La idea sería añadir algo así como eventos o actividades vacías al autolayou. Me explico: compra con tarjeta justo encima de solicitud de aprobación. Introducir datos de pago justo encima de consultar historial. solicitud de autorización quizás encima de petición de puntuación. Pero alerta posible encima de alerta posible se quedarían 3 \"actividades- eventos del pool de en medio sin actividades-eventos del arriba\".",
+      "seconds": 425
+    },
+    {
+      "pairId": "p02",
+      "caseId": "c-syn010-sysv5-chatgpt-gpt_5_5_thinking-r01",
+      "winner": "v2",
+      "sawAltView": {
+        "view": "hidden",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "seconds": 17
+    },
+    {
+      "pairId": "p03",
+      "caseId": "c-syn014-sysv5-claude-opus_4_8_medium-r01",
+      "winner": "v2",
+      "sawAltView": {
+        "view": "hidden",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "seconds": 4
+    },
+    {
+      "pairId": "p04",
+      "caseId": "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v3",
+      "sawAltView": {
+        "view": "hidden",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "seconds": 26
+    },
+    {
+      "pairId": "p05",
+      "caseId": "f-pool-map-message-event",
+      "winner": "v2",
+      "sawAltView": {
+        "view": "hidden",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "seconds": 19
+    },
+    {
+      "pairId": "p06",
+      "caseId": "h-ml-05-rag-chatbot",
+      "winner": "v2",
+      "sawAltView": {
+        "view": "hidden",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "seconds": 2
+    },
+    {
+      "pairId": "p07",
+      "caseId": "c-syn010-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v2",
+      "sawAltView": {
+        "view": "hidden",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "seconds": 6
+    },
+    {
+      "pairId": "p08",
+      "caseId": "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v3",
+      "sawAltView": {
+        "view": "hidden",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "seconds": 28
+    },
+    {
+      "pairId": "p09",
+      "caseId": "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r01",
+      "winner": "v2",
+      "sawAltView": {
+        "view": "hidden",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "seconds": 9
+    },
+    {
+      "pairId": "p10",
+      "caseId": "f-planta-residuos",
+      "winner": "v2",
+      "sawAltView": {
+        "view": "hidden",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "seconds": 30
+    },
+    {
+      "pairId": "p11",
+      "caseId": "c-syn014-sysv5-gemini-gemini_3_5_flash_thinking-r01",
+      "winner": "v2",
+      "sawAltView": {
+        "view": "hidden",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "seconds": 4
+    },
+    {
+      "pairId": "p12",
+      "caseId": "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v2",
+      "sawAltView": {
+        "view": "hidden",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "seconds": 13
+    },
+    {
+      "pairId": "p13",
+      "caseId": "h-ml-04-deriva-datos",
+      "winner": "v2",
+      "sawAltView": {
+        "view": "hidden",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "seconds": 3
+    },
+    {
+      "pairId": "p14",
+      "caseId": "h-ml-06-vision-medica",
+      "winner": "v2",
+      "sawAltView": {
+        "view": "hidden",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "seconds": 4
+    },
+    {
+      "pairId": "p15",
+      "caseId": "c-syn010-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v3",
+      "sawAltView": {
+        "view": "hidden",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "seconds": 7
+    }
+  ]
+}

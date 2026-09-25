@@ -2,6 +2,8 @@
   "_comment": "Pre-registered acceptance rules for a layout candidate (plans/layout-iteracion-1.md, fase 5). Change them only before rendering a candidate, never after seeing its results.",
   "semanticMustBeIdentical": true,
   "hardConstraintRegressionsAllowed": 0,
+  "hiddenMessageFlowsCountInHard": false,
+  "hiddenMessageFlowsNote": "User decision 2026-09-25, taken after the v1 votes and before rendering v2: message flows are hidden in what the user receives, so hard constraints are counted with them (and their labels) removed. Legibility metrics still see them.",
   "areaGrowthMax": 0.15,
   "areaGrowthMaxNote": "A candidate may not exceed the base diagram area by more than this fraction in any case unless the visual judge justifies it.",
   "judge": {

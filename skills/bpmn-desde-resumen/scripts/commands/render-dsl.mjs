@@ -1,4 +1,5 @@
 // render-dsl --dsl <file> --out <dir> [--label <slug>] [--timeout-ms <n>] [--message-flows hidden|shown]
+//            [--layout <version>]
 // (no generation)
 import { readFile } from 'node:fs/promises';
 import { basename, resolve } from 'node:path';

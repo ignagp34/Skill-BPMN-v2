@@ -1,3 +1,38 @@
+# Resumen para continuar — 2026-09-25 (etapa 8: candidatos v2 y v3)
+
+- Decisiones del usuario: v1 aceptado como base por su voto; juez aplazado; flujos de mensaje ocultos fuera de las reglas duras (`acceptance.json`); una idea por candidato.
+- v2 (B, orden de pools): solo cambia planta-residuos, mejora sin regresiones. v3 (C, alineación entre pools): mensajes mucho más cortos, pero 1 regresión dura (placeArtifacts) y área +26/45/51 % en 3 casos. Evidencia `evidence/layout-v2/` y `evidence/layout-v3/`.
+- Votado `ab-v2-v3-20260925` con los mensajes ocultos: v2 15/15. El usuario pide no descartar v3 por eso: la página de votación tiene ahora un conmutador M (ver u ocultar los flujos de mensaje).
+- Votado `ab-v2-v3-shown-20260925` con los mensajes visibles: v2 12, v3 3. El usuario propone C′: alinear columnas entre pools insertando huecos, manteniendo las entradas a la izquierda.
+- v1–v2 (planta-residuos): empate; v2 es la base.
+- v4 = v2 + E1 (bandas de título despejadas): pasa el filtro; etiquetas/formas en banda → 0 casos, área +1,7 % mediana. Voto: v4 16, empates 4, v2 0 → aceptado; es la base actual. `evidence/layout-v4/`.
+- v4 es el layout por defecto de la skill (aprobado por el usuario; `config/layouts.json`); `--layout v0` = TFM; la paridad usa v0 y pasa.
+- Siguiente: C′ (propuesta del usuario) o la colocación de artefactos (objetos de datos sobre etiquetas o líneas de carril, `placeArtifacts`).
+
+---
+
+# Resumen anterior — 2026-09-25 (etapa 8: candidato v1)
+
+Lee primero `AGENTS.md` (única fuente de instrucciones). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`. Esta sesión no ha hecho commits.
+
+## Hecho en esta sesión
+
+Evidencia en `evidence/layout-v1/REPORT.md`.
+
+- **v1 = auto-layout por pool** en `tools/layout-lab/harness/v1/`: el harness del TFM sin cambios más un plugin de Vite que resuelve el `./layout-missing.js` de `render/index.ts` a `per-pool-layout.ts`. Registrado en `lib/layouts.mjs`. v0 intacto (`verify-source` 3319/0). Pruebas del lab 7/7.
+- Render `skill-runs/layout/v1-20260925-b56`: 56/56, XML semántico idéntico; los 36 casos de un pool, idénticos byte a byte a v0.
+- `compare`: **no pasa el filtro preregistrado**. Regresiones duras en 17 casos, casi todas de flujos de mensaje (atraviesan formas 42 → 115; los de secuencia 12 → 1), y 14 casos por encima de +15 % de área. Mejoran cruces (15/19), aristas largas (16/19) y codos (15/19). Nuevos defectos de banda de título vienen de `placeArtifacts`/`placeLabels` de v0.
+- Lote A/B `skill-runs/layout/ab-v0-v1-20260925/` (19 parejas, vista oculta, semilla `v0-v1-20260925`). Votado por el usuario: **v1 17, empates 2, v0 0** (`evidence/layout-v1/human-votes.json`).
+
+## Siguiente
+
+1. Hecho: votos del usuario (v1 17 / empate 2 / v0 0).
+2. Juez Opus 5.5 con `montage` y `judge/judge-prompt.md` (dos órdenes) → `agreement`.
+3. Decidir con el usuario, antes de ver al juez, cómo cuentan los flujos de mensaje ocultos en las reglas duras; hoy cuentan.
+4. Candidatos siguientes: B/C (orden y alineación entre pools) y E (etiquetas/artefactos fuera de la banda de título).
+
+---
+
 # Resumen para continuar — 2026-09-25 (etapa 8: fase 0 y herramientas de layout)
 
 Lee primero `AGENTS.md` (única fuente de instrucciones). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`. El original sigue protegido. Esta sesión no ha hecho commits.

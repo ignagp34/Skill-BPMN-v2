@@ -1,0 +1,474 @@
+{
+  "schema": "layout-render/1",
+  "layout": {
+    "name": "v4",
+    "description": "v2 + title bands kept clear (idea E1): all pool/lane frames widened left by the deepest intrusion of any shape or (estimated) label into a title band; nothing else moves",
+    "harness": {
+      "app": "tools/layout-lab/harness/v4",
+      "page": "/index.headless.html"
+    }
+  },
+  "bench": "C:\\Repositorios\\Skill BPMN v2\\Skill-BPMN-v2\\tools\\layout-lab\\bench",
+  "benchManifestSha256": "fe224c791ae2a6228c52eeee68444b6ca2821a02b36bb93817168f0b11c95924",
+  "startedAt": "2026-09-25T17:24:08.966Z",
+  "finishedAt": "2026-09-25T17:24:41.761Z",
+  "runtime": {
+    "node": "v24.12.0",
+    "platform": "win32",
+    "arch": "x64",
+    "os": "10.0.26200",
+    "playwright": "1.60.0",
+    "vite": "8.0.13",
+    "chromium": "148.0.7778.96"
+  },
+  "cases": [
+    {
+      "id": "c-syn001-sysv31-claude-opus_4_7-r03",
+      "status": "success_with_warnings",
+      "width": 1342,
+      "height": 362,
+      "hidden": null,
+      "semanticSha256": "9669bc35e5eacf34c6cbcefdf03af6d10ecd4a7bcf28cd32986140bb31b2956a"
+    },
+    {
+      "id": "c-syn001-sysv5-chatgpt-gpt_5_5_thinking-r01",
+      "status": "success",
+      "width": 1219,
+      "height": 206,
+      "hidden": null,
+      "semanticSha256": "19b0cdd788a07baa65324ecfd517a3ee8c53ff242187a1ea7e0999b4b824559e"
+    },
+    {
+      "id": "c-syn002-sysv31-claude-opus_4_8_medium-r03",
+      "status": "success_with_warnings",
+      "width": 1342,
+      "height": 362,
+      "hidden": null,
+      "semanticSha256": "0bcac55611770c28ad43fb8c721755dacd7023b18c9eba4fd41124412460b168"
+    },
+    {
+      "id": "c-syn002-sysv4-gemini-gemini_3_5_flash_thinking-r01",
+      "status": "success",
+      "width": 1069,
+      "height": 206,
+      "hidden": null,
+      "semanticSha256": "0fffb0d2b065375330b7e56c0192abda815d38c2dae8c908b0b13b7d620ae236"
+    },
+    {
+      "id": "c-syn003-sysv4-chatgpt-gpt_5_5_thinking-r02",
+      "status": "success",
+      "width": 1069,
+      "height": 206,
+      "hidden": null,
+      "semanticSha256": "fe3ebe070cc1f113e57a70617b680d6193f8368e7a90dfdd818f401244dec7f4"
+    },
+    {
+      "id": "c-syn003-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "status": "success",
+      "width": 1219,
+      "height": 206,
+      "hidden": null,
+      "semanticSha256": "9b174715592c3e63e26507ef37b8ccd65e19072fc65f8901039531a0dd8b179a"
+    },
+    {
+      "id": "c-syn004-sysv31-claude-opus_4_8_medium-r03",
+      "status": "success_with_warnings",
+      "width": 1492,
+      "height": 486,
+      "hidden": null,
+      "semanticSha256": "0e03a9c0d2dfc123e38459545b4c757103ac2e5d06595305694da5c36f3af836"
+    },
+    {
+      "id": "c-syn004-sysv4-gemini-gemini_3_5_flash_thinking-r03",
+      "status": "success",
+      "width": 1519,
+      "height": 486,
+      "hidden": null,
+      "semanticSha256": "5fdd6c3603b2c38f6623cbf511861c8b2f826ab82e65784ac03fe02334fe1007"
+    },
+    {
+      "id": "c-syn005-sysv4-chatgpt-gpt_5_5_thinking-r01",
+      "status": "success",
+      "width": 1969,
+      "height": 798,
+      "hidden": null,
+      "semanticSha256": "c339d581d51ed8570a3810b9269046c99bc5c277487ab21a07395fb24505b9a1"
+    },
+    {
+      "id": "c-syn005-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "status": "success",
+      "width": 3019,
+      "height": 1078,
+      "hidden": null,
+      "semanticSha256": "58dd7caa448ce71c4f40c612471cff4118098355408138195361d27b2fc6fdfc"
+    },
+    {
+      "id": "c-syn006-sysv31-gemini-gemini_3_5_flash_thinking-r01",
+      "status": "success_with_warnings",
+      "width": 1642,
+      "height": 782,
+      "hidden": null,
+      "semanticSha256": "5f7efb985e6a6049d0fda26f713d0a5ca4e379e1a993844471081146cbb46837"
+    },
+    {
+      "id": "c-syn006-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+      "status": "success_with_warnings",
+      "width": 1642,
+      "height": 782,
+      "hidden": null,
+      "semanticSha256": "7a64eb60398f0cf6c48549fd5bc3c64ccc4faca0e3f866069256cb8685ac78e0"
+    },
+    {
+      "id": "c-syn007-sysv4-chatgpt-gpt_5_5_thinking-r02",
+      "status": "success",
+      "width": 1369,
+      "height": 486,
+      "hidden": null,
+      "semanticSha256": "1e5ab5cf5e8d299c8b9b499cdd94d620422aa0271d2ac921b7e063b1981443cd"
+    },
+    {
+      "id": "c-syn007-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "status": "success",
+      "width": 1219,
+      "height": 642,
+      "hidden": null,
+      "semanticSha256": "e1a7a850d69aff8659fd1cb5ccfcad847b4f695151721527af3f741226536dfa"
+    },
+    {
+      "id": "c-syn008-sysv31-claude-opus_4_7-r01",
+      "status": "success_with_warnings",
+      "width": 1492,
+      "height": 642,
+      "hidden": null,
+      "semanticSha256": "2fb1e3c8dba33c4fec93053a506d9c5b8adca333e8ee4169f5cadf49366abc80"
+    },
+    {
+      "id": "c-syn008-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "status": "success",
+      "width": 1519,
+      "height": 642,
+      "hidden": null,
+      "semanticSha256": "1e577a23791e3f6f385d4b98f2aacf12b42895c789739c4f8c77896a5dcc7569"
+    },
+    {
+      "id": "c-syn009-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+      "status": "success_with_warnings",
+      "width": 1942,
+      "height": 642,
+      "hidden": null,
+      "semanticSha256": "09f47c39ce88833a3f273e1115371bbbf1a8fc92bf58146f162b0247ab35ce9b"
+    },
+    {
+      "id": "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r01",
+      "status": "success",
+      "width": 1369,
+      "height": 720,
+      "hidden": "success",
+      "semanticSha256": "2d49491447cede7414ee6ccd8a4eaf5c2e0829441264a988db094cb5cdf3620d"
+    },
+    {
+      "id": "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "status": "success",
+      "width": 1369,
+      "height": 742,
+      "hidden": "success",
+      "semanticSha256": "cec542a5c825d8ffd7228a04088fdcb131d27bc3e2e7a6ca745bf6e4b1a069b3"
+    },
+    {
+      "id": "c-syn010-sysv5-chatgpt-gpt_5_5_thinking-r01",
+      "status": "success",
+      "width": 1219,
+      "height": 1000,
+      "hidden": "success",
+      "semanticSha256": "1d17d68c3495c3868fb76bb10b23882dba9d0ccbebb9b6625e5ae9ce7e04d108"
+    },
+    {
+      "id": "c-syn010-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "status": "success",
+      "width": 1369,
+      "height": 1000,
+      "hidden": "success",
+      "semanticSha256": "0e5dfa488b1cf0686598478136f535eed2ebc5acc754bf3b1eb3b0addf2d635e"
+    },
+    {
+      "id": "c-syn010-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "status": "success",
+      "width": 1369,
+      "height": 1000,
+      "hidden": "success",
+      "semanticSha256": "7cce290a3aec1afe33f4ea392160f06f299772e47c23c3eb2ee78feb1d9c88e4"
+    },
+    {
+      "id": "c-syn011-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+      "status": "success_with_warnings",
+      "width": 1519,
+      "height": 361,
+      "hidden": null,
+      "semanticSha256": "b561543f42d66b921d523ccf97007f1a5bbffaf11c11b2d85ba26da5ba798e2c"
+    },
+    {
+      "id": "c-syn011-sysv5-chatgpt-gpt_5_5_thinking-r02",
+      "status": "success_with_warnings",
+      "width": 1519,
+      "height": 361,
+      "hidden": null,
+      "semanticSha256": "25816388114b32175066629bed31da8439835e17fa798f1d4b76f7befaae38c7"
+    },
+    {
+      "id": "c-syn012-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "status": "success_with_warnings",
+      "width": 1519,
+      "height": 347,
+      "hidden": null,
+      "semanticSha256": "caba8c4b6c516906ac03c4521576a5831ead329f9c3a9880c312746e4ac5b209"
+    },
+    {
+      "id": "c-syn012-sysv5-gemini-gemini_3_5_flash_thinking-r03",
+      "status": "success_with_warnings",
+      "width": 1369,
+      "height": 722,
+      "hidden": "success_with_warnings",
+      "semanticSha256": "e7ccc59a580037dfb169918a9f6e50c67bb627e9c6bed6168bc36f8256bfa18c"
+    },
+    {
+      "id": "c-syn013-sysv31-claude-opus_4_8_medium-r01",
+      "status": "success_with_warnings",
+      "width": 1524,
+      "height": 346,
+      "hidden": null,
+      "semanticSha256": "fbaa6a68b6b401e9b9491a75fcfcdcb1f602e7b90a644424ffc3300b870a5806"
+    },
+    {
+      "id": "c-syn013-sysv4-chatgpt-gpt_5_5_thinking-r03",
+      "status": "success_with_warnings",
+      "width": 1519,
+      "height": 464,
+      "hidden": null,
+      "semanticSha256": "13ece10b8e99a0c48de3dd8a8db813566d7b6e15ff732a26980aa8e76d4d5d77"
+    },
+    {
+      "id": "c-syn014-sysv5-claude-opus_4_8_medium-r01",
+      "status": "success_with_warnings",
+      "width": 1519,
+      "height": 1022,
+      "hidden": "success_with_warnings",
+      "semanticSha256": "e7afa8b80d4a62bef33721c30bea29a0ca06ace480a64740bfdbc9785f853870"
+    },
+    {
+      "id": "c-syn014-sysv5-gemini-gemini_3_5_flash_thinking-r01",
+      "status": "success",
+      "width": 1519,
+      "height": 720,
+      "hidden": "success",
+      "semanticSha256": "2e9f94eac98ff590cde65322b0192966ef9bbc599771073b33678cbbe7e4259c"
+    },
+    {
+      "id": "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "status": "success_with_warnings",
+      "width": 3651,
+      "height": 3186,
+      "hidden": "success_with_warnings",
+      "semanticSha256": "259af0a6701a38538f5574264f284e1958b3ca3bd5ed8c2feba28c0de5ce1116"
+    },
+    {
+      "id": "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "status": "success",
+      "width": 3626,
+      "height": 1789,
+      "hidden": "success",
+      "semanticSha256": "c12d420b61b7b62247d989db555f2c31f68437a0e5f73fde370b950e4cfb41af"
+    },
+    {
+      "id": "f-canon-1-cheeseburger",
+      "status": "success",
+      "width": 3319,
+      "height": 1094,
+      "hidden": null,
+      "semanticSha256": "7e6d643ff11830e2618a102db55800d1442e36ccaa292e45857ca72b4ad89767"
+    },
+    {
+      "id": "f-canon-2-incoming-flight",
+      "status": "success",
+      "width": 3019,
+      "height": 2294,
+      "hidden": null,
+      "semanticSha256": "38bf8b63b6ebeb3ffff251548fa44025bffeb027018c171fe9fc7b4495714e5f"
+    },
+    {
+      "id": "f-canon-3-conveyor-belt",
+      "status": "success",
+      "width": 3442,
+      "height": 1298,
+      "hidden": null,
+      "semanticSha256": "c46a7d6ab1cb80a2190de516038b71e7cf4d9a3e87ca9728b4b920607a3524c8"
+    },
+    {
+      "id": "f-canon-4-composting",
+      "status": "success_with_warnings",
+      "width": 3142,
+      "height": 814,
+      "hidden": null,
+      "semanticSha256": "a6686e60e601bfe618df18ff1bc0b33e56de7503088137ee7cd44849d721068b"
+    },
+    {
+      "id": "f-canon-5-marriage",
+      "status": "success_with_warnings",
+      "width": 2542,
+      "height": 1126,
+      "hidden": null,
+      "semanticSha256": "45eff1025fc93c84eabc92f9d9503358a2b4e163d554b82c9e8ffb54de17bbbc"
+    },
+    {
+      "id": "f-es-almacen",
+      "status": "success_with_warnings",
+      "width": 1369,
+      "height": 954,
+      "hidden": null,
+      "semanticSha256": "e1ab1567163d4a5ec97f9d0771c8b9c243db19e06b826c1c0ba86f5b05ea3eec"
+    },
+    {
+      "id": "f-gemini-03",
+      "status": "success",
+      "width": 1551,
+      "height": 1706,
+      "hidden": null,
+      "semanticSha256": "593368035d35f0ad1314d0113b712c6c1de1e5bc64c04d4c23be2c14107ec9e8"
+    },
+    {
+      "id": "f-gemini-04",
+      "status": "success_with_warnings",
+      "width": 1642,
+      "height": 626,
+      "hidden": null,
+      "semanticSha256": "1bd2fdef7a7cf4a9cfe285426b3ba7b93be329dfac105fa893fef24f1f017540"
+    },
+    {
+      "id": "f-gemini-05",
+      "status": "success",
+      "width": 2269,
+      "height": 816,
+      "hidden": null,
+      "semanticSha256": "6fcb7a77a2c8ea1bc7561ee23fe9038dfb438fa6f299b6596666bb03079d13a4"
+    },
+    {
+      "id": "f-planta-residuos",
+      "status": "success_with_warnings",
+      "width": 3501,
+      "height": 7004,
+      "hidden": "success_with_warnings",
+      "semanticSha256": "087da92d200f64292b655cca24259e5eea916b64c9c958c953ab360399d3d0ec"
+    },
+    {
+      "id": "f-pool-map-message-event",
+      "status": "success_with_warnings",
+      "width": 595,
+      "height": 618,
+      "hidden": "success_with_warnings",
+      "semanticSha256": "6d31ab3999b6f9c5f231f1a393f4f9b95563ca1b923d9a7e3f722bfb2a1747bf"
+    },
+    {
+      "id": "f-pool-map-missing-message-flow",
+      "status": "success_with_warnings",
+      "width": 592,
+      "height": 618,
+      "hidden": null,
+      "semanticSha256": "f25847cbd49fedefbfe6d693c126faa8795573aa8d239a05895689fe3af62be9"
+    },
+    {
+      "id": "f-s-a3-find-a-job",
+      "status": "success_with_warnings",
+      "width": 2978,
+      "height": 526,
+      "hidden": null,
+      "semanticSha256": "da2e4208442c00d09a240b1b007253237305c2d034832311c0e1c58e1bcf267a"
+    },
+    {
+      "id": "f-s17-document-approval",
+      "status": "success_with_warnings",
+      "width": 356,
+      "height": 399,
+      "hidden": null,
+      "semanticSha256": "58a947b735cb0b30e90a07bcf87fc664c6dd4aa6c744bc5cdc00467a0bc6feb3"
+    },
+    {
+      "id": "f-s17-job-application",
+      "status": "success_with_warnings",
+      "width": 1195,
+      "height": 1214,
+      "hidden": null,
+      "semanticSha256": "34fa5b0f8ba96b2ec5f11d7c4013fd73397777569743cfdd7f1340821555289e"
+    },
+    {
+      "id": "f-s17-order-to-ship",
+      "status": "success_with_warnings",
+      "width": 1042,
+      "height": 658,
+      "hidden": null,
+      "semanticSha256": "030118acef0d0e33b5f569ef6ca24e87f40c330a0627d88121e4c5028e5f5d7a"
+    },
+    {
+      "id": "f-s17-pizza-order",
+      "status": "success_with_warnings",
+      "width": 742,
+      "height": 324,
+      "hidden": null,
+      "semanticSha256": "ccd9461e1ca5e1790c0a20d1e100430c4d41311e7de38dc3450507b1c5041c6b"
+    },
+    {
+      "id": "f-simple",
+      "status": "success_with_warnings",
+      "width": 592,
+      "height": 362,
+      "hidden": null,
+      "semanticSha256": "536174946b629229c8e6b82121eadee430d52ad0e0c17d90e329cb47b91b5266"
+    },
+    {
+      "id": "h-ml-01-clasificador-imagenes",
+      "status": "success",
+      "width": 1819,
+      "height": 1014,
+      "hidden": "success",
+      "semanticSha256": "8ca5844f3b84d9b9103916a001829e763eac83cfd66e23d2215475c1b35d2229"
+    },
+    {
+      "id": "h-ml-02-llm-fine-tuning",
+      "status": "success",
+      "width": 1969,
+      "height": 1294,
+      "hidden": "success",
+      "semanticSha256": "61b1942a84d17f1e4f600feb4e85fd84f298c3389cb1efbd761fc3388a274e71"
+    },
+    {
+      "id": "h-ml-03-deteccion-fraude",
+      "status": "success",
+      "width": 1684,
+      "height": 1154,
+      "hidden": "success",
+      "semanticSha256": "69a262680c0d5a8f6157caa6954a44abb9c566e1ad748bfdf20e0562d24f118a"
+    },
+    {
+      "id": "h-ml-04-deriva-datos",
+      "status": "success",
+      "width": 1369,
+      "height": 1132,
+      "hidden": "success",
+      "semanticSha256": "99bbdefcec34f4ad2ca1f40f5d818a237d0c4c138a4d93df3a9dea9a0d12792b"
+    },
+    {
+      "id": "h-ml-05-rag-chatbot",
+      "status": "success",
+      "width": 1851,
+      "height": 1310,
+      "hidden": "success",
+      "semanticSha256": "a6e9fca60428abcdac010967be8bcc3267bd817cb72fe4de072403cd4a13f299"
+    },
+    {
+      "id": "h-ml-06-vision-medica",
+      "status": "success",
+      "width": 1969,
+      "height": 1310,
+      "hidden": "success",
+      "semanticSha256": "482bd8dcbc659aecced033732e60e2468d83a7596dbda24b1a5cd1c9e727caf5"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Plan — iteración 1 de mejora del layout
 
-Estado (2026-09-25): **fase 0, banco, métricas y herramientas de votación y juez implementados** (`tools/layout-lab/`, evidencia en `evidence/layout-v0/REPORT.md`). Todavía no hay ningún candidato de layout, ni calibración real, ni juez ejecutado.
+Estado (2026-09-25): **fase 0, banco, métricas y herramientas de votación y juez implementados** (`tools/layout-lab/`, evidencia en `evidence/layout-v0/REPORT.md`). Primer candidato **v1** (idea A, pools con auto-layout propio) implementado y comparado: no pasa el filtro objetivo preregistrado (regresiones en flujos de mensaje y área) aunque mejora el flujo de secuencia; lote A/B de 19 parejas listo para votar (`evidence/layout-v1/REPORT.md`). El usuario votó v1 (17–0, 2 empates) y lo aceptó como base; v2 (idea B) y v3 (idea C) implementados, pendientes de voto (`evidence/layout-v2/`, `evidence/layout-v3/`). Juez aplazado por decisión del usuario. v3 perdió en las dos vistas (15–0 ocultos, 12–3 visibles); v2 empató con v1 en su único caso y es la base. v4 = v2 + E1 (bandas de título) pasa el filtro y ganó el voto 16–0 con 4 empates: primer candidato aceptado (`evidence/layout-v4/`).
 
 ## Punto de partida
 

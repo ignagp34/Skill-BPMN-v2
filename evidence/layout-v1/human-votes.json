@@ -1,0 +1,193 @@
+{
+  "schema": "layout-ab-votes-summary/1",
+  "batch": "skill-runs/layout/ab-v0-v1-20260925",
+  "seed": "v0-v1-20260925",
+  "view": "hidden",
+  "voter": "user",
+  "tally": {
+    "v1": 17,
+    "tie": 2
+  },
+  "decisive": 17,
+  "v1WinRateDecisive": 1,
+  "wilson95": [
+    0.816,
+    1
+  ],
+  "signTestTwoSidedP": 0.000015,
+  "pairs": [
+    {
+      "pairId": "p01",
+      "caseId": "h-ml-05-rag-chatbot",
+      "winner": "v1",
+      "tags": [
+        "alignment"
+      ],
+      "note": "",
+      "seconds": 60
+    },
+    {
+      "pairId": "p02",
+      "caseId": "h-ml-04-deriva-datos",
+      "winner": "v1",
+      "tags": [],
+      "note": "",
+      "seconds": 27
+    },
+    {
+      "pairId": "p03",
+      "caseId": "c-syn014-sysv5-claude-opus_4_8_medium-r01",
+      "winner": "v1",
+      "tags": [
+        "alignment"
+      ],
+      "note": "",
+      "seconds": 7
+    },
+    {
+      "pairId": "p04",
+      "caseId": "f-planta-residuos",
+      "winner": "v1",
+      "tags": [
+        "alignment",
+        "pools"
+      ],
+      "note": "",
+      "seconds": 67
+    },
+    {
+      "pairId": "p05",
+      "caseId": "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r01",
+      "winner": "v1",
+      "tags": [
+        "flow",
+        "lines",
+        "alignment",
+        "pools"
+      ],
+      "note": "",
+      "seconds": 28
+    },
+    {
+      "pairId": "p06",
+      "caseId": "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v1",
+      "tags": [],
+      "note": "",
+      "seconds": 20
+    },
+    {
+      "pairId": "p07",
+      "caseId": "c-syn012-sysv5-gemini-gemini_3_5_flash_thinking-r03",
+      "winner": "v1",
+      "tags": [],
+      "note": "",
+      "seconds": 4
+    },
+    {
+      "pairId": "p08",
+      "caseId": "h-ml-06-vision-medica",
+      "winner": "v1",
+      "tags": [
+        "alignment",
+        "pools",
+        "flow"
+      ],
+      "note": "",
+      "seconds": 15
+    },
+    {
+      "pairId": "p09",
+      "caseId": "c-syn014-sysv5-gemini-gemini_3_5_flash_thinking-r01",
+      "winner": "v1",
+      "tags": [],
+      "note": "",
+      "seconds": 4
+    },
+    {
+      "pairId": "p10",
+      "caseId": "h-ml-01-clasificador-imagenes",
+      "winner": "v1",
+      "tags": [],
+      "note": "",
+      "seconds": 4
+    },
+    {
+      "pairId": "p11",
+      "caseId": "c-syn010-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v1",
+      "tags": [],
+      "note": "",
+      "seconds": 3
+    },
+    {
+      "pairId": "p12",
+      "caseId": "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v1",
+      "tags": [],
+      "note": "",
+      "seconds": 5
+    },
+    {
+      "pairId": "p13",
+      "caseId": "h-ml-03-deteccion-fraude",
+      "winner": "v1",
+      "tags": [],
+      "note": "",
+      "seconds": 4
+    },
+    {
+      "pairId": "p14",
+      "caseId": "f-pool-map-missing-message-flow",
+      "winner": "tie",
+      "tags": [],
+      "note": "",
+      "seconds": 5
+    },
+    {
+      "pairId": "p15",
+      "caseId": "f-gemini-03",
+      "winner": "v1",
+      "tags": [],
+      "note": "",
+      "seconds": 12
+    },
+    {
+      "pairId": "p16",
+      "caseId": "c-syn010-sysv5-chatgpt-gpt_5_5_thinking-r01",
+      "winner": "v1",
+      "tags": [],
+      "note": "",
+      "seconds": 9
+    },
+    {
+      "pairId": "p17",
+      "caseId": "c-syn010-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v1",
+      "tags": [],
+      "note": "",
+      "seconds": 5
+    },
+    {
+      "pairId": "p18",
+      "caseId": "h-ml-02-llm-fine-tuning",
+      "winner": "v1",
+      "tags": [
+        "flow",
+        "lines",
+        "alignment",
+        "pools"
+      ],
+      "note": "",
+      "seconds": 10
+    },
+    {
+      "pairId": "p19",
+      "caseId": "f-pool-map-message-event",
+      "winner": "tie",
+      "tags": [],
+      "note": "",
+      "seconds": 2
+    }
+  ]
+}

@@ -158,8 +158,8 @@ export class HarnessSession {
  * page each. Server and browser are always closed. Infrastructure failures
  * before rendering are thrown; per-input failures are returned as { error }.
  */
-export async function renderWithHarness(root, inputs, options = {}) {
-  const session = await HarnessSession.open(root);
+export async function renderWithHarness(root, inputs, { harness = TFM_HARNESS, ...options } = {}) {
+  const session = await HarnessSession.open(root, harness);
   try {
     const results = [];
     for (const input of inputs) results.push(await session.render(input, options));

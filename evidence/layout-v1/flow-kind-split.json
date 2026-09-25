@@ -1,0 +1,465 @@
+{
+  "schema": "layout-flow-kind-split/1",
+  "note": "post hoc; informative only",
+  "totals": {
+    "edgeThroughShape": {
+      "v0": {
+        "sequence": 12,
+        "message": 42
+      },
+      "v1": {
+        "sequence": 1,
+        "message": 115
+      }
+    },
+    "labelEdgeOverlaps": {
+      "v0": {
+        "sequence": 105,
+        "message": 66
+      },
+      "v1": {
+        "sequence": 59,
+        "message": 129
+      }
+    }
+  },
+  "cases": [
+    {
+      "id": "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r01",
+      "edgeThroughShape": {
+        "v0": {
+          "sequence": 0,
+          "message": 2
+        },
+        "v1": {
+          "sequence": 0,
+          "message": 7
+        }
+      },
+      "labelEdgeOverlaps": {
+        "v0": {
+          "sequence": 0,
+          "message": 3
+        },
+        "v1": {
+          "sequence": 0,
+          "message": 6
+        }
+      }
+    },
+    {
+      "id": "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "edgeThroughShape": {
+        "v0": {
+          "sequence": 0,
+          "message": 2
+        },
+        "v1": {
+          "sequence": 0,
+          "message": 7
+        }
+      },
+      "labelEdgeOverlaps": {
+        "v0": {
+          "sequence": 0,
+          "message": 3
+        },
+        "v1": {
+          "sequence": 0,
+          "message": 8
+        }
+      }
+    },
+    {
+      "id": "c-syn010-sysv5-chatgpt-gpt_5_5_thinking-r01",
+      "edgeThroughShape": {
+        "v0": {
+          "sequence": 0,
+          "message": 4
+        },
+        "v1": {
+          "sequence": 0,
+          "message": 8
+        }
+      },
+      "labelEdgeOverlaps": {
+        "v0": {
+          "sequence": 7,
+          "message": 7
+        },
+        "v1": {
+          "sequence": 1,
+          "message": 13
+        }
+      }
+    },
+    {
+      "id": "c-syn010-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "edgeThroughShape": {
+        "v0": {
+          "sequence": 0,
+          "message": 4
+        },
+        "v1": {
+          "sequence": 0,
+          "message": 6
+        }
+      },
+      "labelEdgeOverlaps": {
+        "v0": {
+          "sequence": 6,
+          "message": 7
+        },
+        "v1": {
+          "sequence": 1,
+          "message": 8
+        }
+      }
+    },
+    {
+      "id": "c-syn010-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "edgeThroughShape": {
+        "v0": {
+          "sequence": 0,
+          "message": 4
+        },
+        "v1": {
+          "sequence": 0,
+          "message": 8
+        }
+      },
+      "labelEdgeOverlaps": {
+        "v0": {
+          "sequence": 6,
+          "message": 8
+        },
+        "v1": {
+          "sequence": 1,
+          "message": 11
+        }
+      }
+    },
+    {
+      "id": "c-syn012-sysv5-gemini-gemini_3_5_flash_thinking-r03",
+      "edgeThroughShape": {
+        "v0": {
+          "sequence": 0,
+          "message": 0
+        },
+        "v1": {
+          "sequence": 1,
+          "message": 2
+        }
+      },
+      "labelEdgeOverlaps": {
+        "v0": {
+          "sequence": 11,
+          "message": 1
+        },
+        "v1": {
+          "sequence": 5,
+          "message": 3
+        }
+      }
+    },
+    {
+      "id": "c-syn014-sysv5-claude-opus_4_8_medium-r01",
+      "edgeThroughShape": {
+        "v0": {
+          "sequence": 0,
+          "message": 0
+        },
+        "v1": {
+          "sequence": 0,
+          "message": 2
+        }
+      },
+      "labelEdgeOverlaps": {
+        "v0": {
+          "sequence": 2,
+          "message": 2
+        },
+        "v1": {
+          "sequence": 0,
+          "message": 3
+        }
+      }
+    },
+    {
+      "id": "c-syn014-sysv5-gemini-gemini_3_5_flash_thinking-r01",
+      "edgeThroughShape": {
+        "v0": {
+          "sequence": 0,
+          "message": 1
+        },
+        "v1": {
+          "sequence": 0,
+          "message": 2
+        }
+      },
+      "labelEdgeOverlaps": {
+        "v0": {
+          "sequence": 3,
+          "message": 4
+        },
+        "v1": {
+          "sequence": 0,
+          "message": 4
+        }
+      }
+    },
+    {
+      "id": "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "edgeThroughShape": {
+        "v0": {
+          "sequence": 0,
+          "message": 6
+        },
+        "v1": {
+          "sequence": 0,
+          "message": 14
+        }
+      },
+      "labelEdgeOverlaps": {
+        "v0": {
+          "sequence": 10,
+          "message": 5
+        },
+        "v1": {
+          "sequence": 12,
+          "message": 19
+        }
+      }
+    },
+    {
+      "id": "f-gemini-03",
+      "edgeThroughShape": {
+        "v0": {
+          "sequence": 0,
+          "message": 0
+        },
+        "v1": {
+          "sequence": 0,
+          "message": 0
+        }
+      },
+      "labelEdgeOverlaps": {
+        "v0": {
+          "sequence": 2,
+          "message": 0
+        },
+        "v1": {
+          "sequence": 3,
+          "message": 0
+        }
+      }
+    },
+    {
+      "id": "f-planta-residuos",
+      "edgeThroughShape": {
+        "v0": {
+          "sequence": 12,
+          "message": 17
+        },
+        "v1": {
+          "sequence": 0,
+          "message": 44
+        }
+      },
+      "labelEdgeOverlaps": {
+        "v0": {
+          "sequence": 39,
+          "message": 18
+        },
+        "v1": {
+          "sequence": 26,
+          "message": 33
+        }
+      }
+    },
+    {
+      "id": "f-pool-map-message-event",
+      "edgeThroughShape": {
+        "v0": {
+          "sequence": 0,
+          "message": 1
+        },
+        "v1": {
+          "sequence": 0,
+          "message": 1
+        }
+      },
+      "labelEdgeOverlaps": {
+        "v0": {
+          "sequence": 0,
+          "message": 0
+        },
+        "v1": {
+          "sequence": 0,
+          "message": 0
+        }
+      }
+    },
+    {
+      "id": "f-pool-map-missing-message-flow",
+      "edgeThroughShape": {
+        "v0": {
+          "sequence": 0,
+          "message": 0
+        },
+        "v1": {
+          "sequence": 0,
+          "message": 0
+        }
+      },
+      "labelEdgeOverlaps": {
+        "v0": {
+          "sequence": 0,
+          "message": 0
+        },
+        "v1": {
+          "sequence": 0,
+          "message": 0
+        }
+      }
+    },
+    {
+      "id": "h-ml-01-clasificador-imagenes",
+      "edgeThroughShape": {
+        "v0": {
+          "sequence": 0,
+          "message": 0
+        },
+        "v1": {
+          "sequence": 0,
+          "message": 2
+        }
+      },
+      "labelEdgeOverlaps": {
+        "v0": {
+          "sequence": 3,
+          "message": 1
+        },
+        "v1": {
+          "sequence": 2,
+          "message": 3
+        }
+      }
+    },
+    {
+      "id": "h-ml-02-llm-fine-tuning",
+      "edgeThroughShape": {
+        "v0": {
+          "sequence": 0,
+          "message": 0
+        },
+        "v1": {
+          "sequence": 0,
+          "message": 2
+        }
+      },
+      "labelEdgeOverlaps": {
+        "v0": {
+          "sequence": 1,
+          "message": 0
+        },
+        "v1": {
+          "sequence": 0,
+          "message": 3
+        }
+      }
+    },
+    {
+      "id": "h-ml-03-deteccion-fraude",
+      "edgeThroughShape": {
+        "v0": {
+          "sequence": 0,
+          "message": 1
+        },
+        "v1": {
+          "sequence": 0,
+          "message": 4
+        }
+      },
+      "labelEdgeOverlaps": {
+        "v0": {
+          "sequence": 6,
+          "message": 3
+        },
+        "v1": {
+          "sequence": 2,
+          "message": 6
+        }
+      }
+    },
+    {
+      "id": "h-ml-04-deriva-datos",
+      "edgeThroughShape": {
+        "v0": {
+          "sequence": 0,
+          "message": 0
+        },
+        "v1": {
+          "sequence": 0,
+          "message": 1
+        }
+      },
+      "labelEdgeOverlaps": {
+        "v0": {
+          "sequence": 3,
+          "message": 2
+        },
+        "v1": {
+          "sequence": 1,
+          "message": 3
+        }
+      }
+    },
+    {
+      "id": "h-ml-05-rag-chatbot",
+      "edgeThroughShape": {
+        "v0": {
+          "sequence": 0,
+          "message": 0
+        },
+        "v1": {
+          "sequence": 0,
+          "message": 3
+        }
+      },
+      "labelEdgeOverlaps": {
+        "v0": {
+          "sequence": 2,
+          "message": 1
+        },
+        "v1": {
+          "sequence": 2,
+          "message": 3
+        }
+      }
+    },
+    {
+      "id": "h-ml-06-vision-medica",
+      "edgeThroughShape": {
+        "v0": {
+          "sequence": 0,
+          "message": 0
+        },
+        "v1": {
+          "sequence": 0,
+          "message": 2
+        }
+      },
+      "labelEdgeOverlaps": {
+        "v0": {
+          "sequence": 4,
+          "message": 1
+        },
+        "v1": {
+          "sequence": 3,
+          "message": 3
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "layout-ab-votes-summary/1",
+  "batch": "skill-runs/layout/ab-v1-v2-alt-20260925",
+  "seed": "v1-v2-alt-20260925",
+  "view": "hidden",
+  "voter": "user",
+  "tally": {
+    "tie": 1
+  },
+  "pairs": [
+    {
+      "pairId": "p01",
+      "caseId": "f-planta-residuos",
+      "winner": "tie",
+      "sawAltView": {
+        "view": "shown",
+        "seen": true
+      },
+      "tags": [],
+      "note": ""
+    }
+  ]
+}

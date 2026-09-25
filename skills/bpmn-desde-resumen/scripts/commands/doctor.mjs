@@ -6,6 +6,7 @@ import os from 'node:os';
 import { configureBrowsersPath, findEngineRoot, SYSTEM_PROMPT_PATH, verifyEngine } from '../lib/engine.mjs';
 import { loadGeneratorConfig } from '../lib/generators.mjs';
 import { launchChromium } from '../lib/harness.mjs';
+import { DEFAULT_LAYOUT, layoutVersion } from '../lib/layouts.mjs';
 import { sha256 } from '../lib/hash.mjs';
 import { subagentState } from './sync-agents.mjs';
 
@@ -30,6 +31,9 @@ export async function run() {
     report.engine = await verifyEngine(engineRoot);
     report.systemPromptSha256 = sha256(await readFile(join(engineRoot, SYSTEM_PROMPT_PATH)));
     report.generators = loadGeneratorConfig().profiles;
+    const layout = layoutVersion(DEFAULT_LAYOUT);
+    report.layout = { default: layout.name, harness: layout.harness,
+      harnessPresent: existsSync(join(engineRoot, layout.harness.app, 'vite.config.ts')) };
     // A project copy overrides the user copy, so every scope must match config.
     // Project copies are optional; the user copy is the one every project falls back to.
     const user = subagentState(os.homedir());

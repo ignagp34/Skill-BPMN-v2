@@ -43,7 +43,12 @@ export async function run(options) {
         const v = verdict(m, vb, vc);
         if (v > 0) row.better.push(m.key); else if (v < 0) row.worse.push(m.key);
       }
-      row.hardRegressions = METRICS.filter(m => m.group === 'hard' && row.deltas[m.key] > 0).map(m => m.key);
+      // Hidden message flows do not count unless the rules say so (user decision 2026-09-25).
+      const hard = (metrics, key) => (rules.hiddenMessageFlowsCountInHard === false
+        ? metrics.hardVisible?.[key] ?? metrics.values[key] : metrics.values[key]);
+      row.hardDeltas = Object.fromEntries(METRICS.filter(m => m.group === 'hard')
+        .map(m => [m.key, hard(mc, m.key) - hard(mb, m.key)]));
+      row.hardRegressions = Object.entries(row.hardDeltas).filter(([, d]) => d > 0).map(([k]) => k);
       row.areaGrowth = mb.values.area ? mc.values.area / mb.values.area - 1 : null;
       row.changed = METRICS.some(m => row.deltas[m.key]);
     }
