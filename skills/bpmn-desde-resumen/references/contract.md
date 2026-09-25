@@ -5,19 +5,21 @@
 - Resumen del proceso en lenguaje natural (archivo o texto), en cualquier idioma. Se conserva literal en `summary.md`; el idioma, actores, decisiones y restricciones son los del usuario.
 - Destino de salida (`--out`). Cada ejecución crea una carpeta nueva `bpmn-<fecha>-<hora>-<slug>/`; nunca se sobrescribe otra.
 - Opcional: adjuntar el prompt al usuario (se guarda siempre; se entrega solo si se pide).
+- Opcional: `--message-flows hidden|shown` en `render` y `render-dsl`. Por defecto **`hidden`** (decisión del usuario, 2026-09-25, igual que el botón «Hide message flows» de la web). El layout se calcula con los flujos de mensaje; después se quitan del `.bpmn` (el `messageFlow` y su `BPMNEdge`) y el SVG/PNG se reexportan desde ese BPMN. Las posiciones no cambian. `shown` da la salida exacta del TFM: se usa para la paridad, el corpus y las métricas.
 
 ## Carpeta de una ejecución
 
 | Archivo | Contenido |
 | --- | --- |
-| `diagram.bpmn` | BPMN 2.0 con DI (formas, conectores, etiquetas) del layout final. Reimportado en bpmn-js antes de aceptarlo. |
+| `diagram.bpmn` | BPMN 2.0 con DI (formas, conectores, etiquetas) del layout final, sin flujos de mensaje salvo con `--message-flows shown`. Reimportado en bpmn-js antes de aceptarlo. |
 | `diagram.svg` | `saveSVG` del mismo modeler. |
 | `diagram.png` | El mismo SVG rasterizado con Canvas; tamaño = techo del viewBox; sin fondo añadido. |
 | `summary.md` | Resumen literal. |
 | `input_prompt.md` | Prompt v5 de la web + resumen, composición de `Handoff.tsx`. |
 | `raw_output.txt` | Respuesta cruda del último intento. |
 | `normalized.dsl` | DSL tras la normalización original. |
-| `semantic.bpmn` | XML semántico antes del layout. |
+| `semantic.bpmn` | XML semántico antes del layout (incluye los flujos de mensaje siempre). |
+| `layout-full.bpmn` | Solo con flujos de mensaje ocultos que existan: el layout completo, con ellos. `evaluate` lo usa en lugar de `diagram.bpmn`. |
 | `result.json` | Resultado del harness original (diagnósticos, métricas). Su `interfaceType: "web"` es metadata heredada del harness congelado. |
 | `run-info.json` | Trazabilidad: `interfaceType: "skill"`, motor y verificación de su código, hashes de prompt y resumen, generador pedido (de `config/generators.json`) y declarado por intento, runtime (Node, Playwright, Chromium), comprobaciones y estado. |
 | `attempts/0N/` | Cada intento completo, incluido el primero sin reparar. |

@@ -1,3 +1,27 @@
+# Resumen para continuar — 2026-09-25 (etapa 8: fase 0 y herramientas de layout)
+
+Lee primero `AGENTS.md` (única fuente de instrucciones). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`. El original sigue protegido. Esta sesión no ha hecho commits.
+
+## Hecho en esta sesión
+
+Evidencia en `evidence/layout-v0/REPORT.md`.
+
+- **Fase 0.** Los flujos de mensaje están ocultos por defecto en `render` y `render-dsl` (BPMN, SVG y PNG); `--message-flows shown` da la salida del TFM. Con flujos ocultos se guarda `layout-full.bpmn`, que es lo que evalúa `evaluate`. La paridad (12/12) y `tfm-history` se ejecutan con `shown`. `verify-source` da 3319/0 y `doctor` ok.
+- **`harness.mjs`.** Expone `HarnessSession` (un Vite y un Chromium para muchos renders) y acepta la app o página de harness de cada versión de layout.
+- **`tools/layout-lab/`** (ver su README). CLI `layout.mjs` con `bench-select`, `bench-render`, `metrics`, `compare`, `ab-batch`, `vote`, `montage` y `agreement`. Pruebas: `node --test tools/layout-lab/test/*.test.mjs` (6/6).
+  - Banco fijo de 50 DSL (32 del corpus y 18 fixtures). No hay ningún caso con 3 pools ni con subprocesos: hay que decidir si se añaden fixtures escritos a mano.
+  - 35 métricas; el texto se mide en Chromium.
+  - Diagnóstico de v0: los peores defectos están en multi-pool (4× cruces por nodo y mensajes desalineados 762 px de media). El defecto duro más frecuente son las etiquetas sobre la banda de título de pool o carril (32/50 casos).
+  - Página de votación local probada de extremo a extremo con un lote de humo v0 contra v0. No hay lote real.
+
+## Siguiente
+
+1. Primer candidato **v1**: auto-layout por pool (idea A), sustituyendo `layout-missing.ts` para los pools 2+. Hace falta un harness propio (app o página nueva que componga las fases de bpmn-core con el cambio), registrado en `tools/layout-lab/lib/layouts.mjs`. No se toca v0.
+2. `bench-render` v1 → `compare` contra v0 (reglas en `config/acceptance.json`) → `ab-batch` de ~20 parejas → el usuario vota con `vote` → juez Opus 5.5 con `montage` y `judge/judge-prompt.md` → `agreement`.
+3. Un candidato barato aparte: etiquetas fuera de la banda de título (idea E).
+
+---
+
 # Resumen para continuar — 2026-09-25 (fin de sesión)
 
 Lee primero `AGENTS.md` (única fuente de instrucciones; `CLAUDE.md` solo redirige y los cambios pedidos sobre él van a `AGENTS.md`). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`, clon en `C:/Repositorios/Skill BPMN v2/Skill-BPMN-v2`. El original `BPMN-DSL-Monorepo` sigue protegido.

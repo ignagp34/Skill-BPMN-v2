@@ -1,4 +1,5 @@
-// render-dsl --dsl <file> --out <dir> [--label <slug>] [--timeout-ms <n>]   (no generation)
+// render-dsl --dsl <file> --out <dir> [--label <slug>] [--timeout-ms <n>] [--message-flows hidden|shown]
+// (no generation)
 import { readFile } from 'node:fs/promises';
 import { basename, resolve } from 'node:path';
 import { requireOption } from '../lib/cli-args.mjs';

@@ -1,0 +1,523 @@
+{
+  "startedAt": "2026-09-25T16:03:34.509Z",
+  "node": "v24.12.0",
+  "platform": "win32-x64",
+  "modelCalls": 0,
+  "pngTolerance": {
+    "maxDelta": 4,
+    "maxDifferingRatio": 0.02
+  },
+  "sameDayReference": "C:\\Repositorios\\Skill BPMN v2\\Skill-BPMN-v2\\skill-runs\\smoke-20260925-phase0",
+  "parity": [
+    {
+      "id": "s17-document-approval",
+      "invalid": false,
+      "baselineStatus": "success_with_warnings",
+      "adapterStatus": "success_with_warnings",
+      "exit": 0,
+      "diagram.bpmn": true,
+      "diagram.png": false,
+      "semantic.bpmn": true,
+      "normalized.dsl": true,
+      "diagram.svg": false,
+      "svgNormalized": true,
+      "checks": {
+        "bpmn": true,
+        "bpmnShapes": 7,
+        "bpmnEdges": 3,
+        "svg": true,
+        "svgWidth": 350,
+        "svgHeight": 399,
+        "png": true,
+        "pngWidth": 350,
+        "pngHeight": 399,
+        "svgMatchesBpmn": true,
+        "pngMatchesSvg": true,
+        "missingInSvg": []
+      },
+      "reference": {
+        "diagram.bpmn": true,
+        "diagram.png": true,
+        "svgNormalized": true
+      },
+      "pngPixels": {
+        "sameSize": true,
+        "width": 350,
+        "height": 399,
+        "pixels": 139650,
+        "differing": 2243,
+        "maxDelta": 4,
+        "id": "s17-document-approval",
+        "differingRatio": 0.016062,
+        "withinTolerance": true
+      },
+      "passed": true
+    },
+    {
+      "id": "canon-1-cheeseburger",
+      "invalid": false,
+      "baselineStatus": "success",
+      "adapterStatus": "success",
+      "exit": 0,
+      "diagram.bpmn": true,
+      "diagram.png": false,
+      "semantic.bpmn": true,
+      "normalized.dsl": true,
+      "diagram.svg": false,
+      "svgNormalized": true,
+      "checks": {
+        "bpmn": true,
+        "bpmnShapes": 34,
+        "bpmnEdges": 30,
+        "svg": true,
+        "svgWidth": 3286,
+        "svgHeight": 1094,
+        "png": true,
+        "pngWidth": 3286,
+        "pngHeight": 1094,
+        "svgMatchesBpmn": true,
+        "pngMatchesSvg": true,
+        "missingInSvg": []
+      },
+      "reference": {
+        "diagram.bpmn": true,
+        "diagram.png": true,
+        "svgNormalized": true
+      },
+      "pngPixels": {
+        "sameSize": true,
+        "width": 3286,
+        "height": 1094,
+        "pixels": 3594884,
+        "differing": 16312,
+        "maxDelta": 3,
+        "id": "canon-1-cheeseburger",
+        "differingRatio": 0.004538,
+        "withinTolerance": true
+      },
+      "passed": true
+    },
+    {
+      "id": "pool-map-message-event",
+      "invalid": false,
+      "baselineStatus": "success_with_warnings",
+      "adapterStatus": "success_with_warnings",
+      "exit": 0,
+      "diagram.bpmn": true,
+      "diagram.png": false,
+      "semantic.bpmn": true,
+      "normalized.dsl": true,
+      "diagram.svg": false,
+      "svgNormalized": true,
+      "checks": {
+        "bpmn": true,
+        "bpmnShapes": 12,
+        "bpmnEdges": 6,
+        "svg": true,
+        "svgWidth": 522,
+        "svgHeight": 618,
+        "png": true,
+        "pngWidth": 522,
+        "pngHeight": 618,
+        "svgMatchesBpmn": true,
+        "pngMatchesSvg": true,
+        "missingInSvg": []
+      },
+      "reference": {
+        "diagram.bpmn": true,
+        "diagram.png": true,
+        "svgNormalized": true
+      },
+      "pngPixels": {
+        "sameSize": true,
+        "width": 522,
+        "height": 618,
+        "pixels": 322596,
+        "differing": 2837,
+        "maxDelta": 3,
+        "id": "pool-map-message-event",
+        "differingRatio": 0.008794,
+        "withinTolerance": true
+      },
+      "passed": true
+    },
+    {
+      "id": "gemini-03",
+      "invalid": false,
+      "baselineStatus": "success",
+      "adapterStatus": "success",
+      "exit": 0,
+      "diagram.bpmn": true,
+      "diagram.png": false,
+      "semantic.bpmn": true,
+      "normalized.dsl": true,
+      "diagram.svg": false,
+      "svgNormalized": true,
+      "checks": {
+        "bpmn": true,
+        "bpmnShapes": 46,
+        "bpmnEdges": 37,
+        "svg": true,
+        "svgWidth": 1525,
+        "svgHeight": 1426,
+        "png": true,
+        "pngWidth": 1525,
+        "pngHeight": 1426,
+        "svgMatchesBpmn": true,
+        "pngMatchesSvg": true,
+        "missingInSvg": []
+      },
+      "reference": {
+        "diagram.bpmn": true,
+        "diagram.png": true,
+        "svgNormalized": true
+      },
+      "pngPixels": {
+        "sameSize": true,
+        "width": 1525,
+        "height": 1426,
+        "pixels": 2174650,
+        "differing": 23844,
+        "maxDelta": 4,
+        "id": "gemini-03",
+        "differingRatio": 0.010965,
+        "withinTolerance": true
+      },
+      "passed": true
+    },
+    {
+      "id": "gemini-04",
+      "invalid": false,
+      "baselineStatus": "success_with_warnings",
+      "adapterStatus": "success_with_warnings",
+      "exit": 0,
+      "diagram.bpmn": true,
+      "diagram.png": false,
+      "semantic.bpmn": true,
+      "normalized.dsl": true,
+      "diagram.svg": false,
+      "svgNormalized": true,
+      "checks": {
+        "bpmn": true,
+        "bpmnShapes": 22,
+        "bpmnEdges": 24,
+        "svg": true,
+        "svgWidth": 1636,
+        "svgHeight": 626,
+        "png": true,
+        "pngWidth": 1636,
+        "pngHeight": 626,
+        "svgMatchesBpmn": true,
+        "pngMatchesSvg": true,
+        "missingInSvg": []
+      },
+      "reference": {
+        "diagram.bpmn": true,
+        "diagram.png": true,
+        "svgNormalized": true
+      },
+      "pngPixels": {
+        "sameSize": true,
+        "width": 1636,
+        "height": 626,
+        "pixels": 1024136,
+        "differing": 9802,
+        "maxDelta": 4,
+        "id": "gemini-04",
+        "differingRatio": 0.009571,
+        "withinTolerance": true
+      },
+      "passed": true
+    },
+    {
+      "id": "gemini-05",
+      "invalid": false,
+      "baselineStatus": "success",
+      "adapterStatus": "success",
+      "exit": 0,
+      "diagram.bpmn": true,
+      "diagram.png": false,
+      "semantic.bpmn": true,
+      "normalized.dsl": true,
+      "diagram.svg": false,
+      "svgNormalized": true,
+      "checks": {
+        "bpmn": true,
+        "bpmnShapes": 23,
+        "bpmnEdges": 19,
+        "svg": true,
+        "svgWidth": 2236,
+        "svgHeight": 816,
+        "png": true,
+        "pngWidth": 2236,
+        "pngHeight": 816,
+        "svgMatchesBpmn": true,
+        "pngMatchesSvg": true,
+        "missingInSvg": []
+      },
+      "reference": {
+        "diagram.bpmn": true,
+        "diagram.png": true,
+        "svgNormalized": true
+      },
+      "pngPixels": {
+        "sameSize": true,
+        "width": 2236,
+        "height": 816,
+        "pixels": 1824576,
+        "differing": 7392,
+        "maxDelta": 3,
+        "id": "gemini-05",
+        "differingRatio": 0.004051,
+        "withinTolerance": true
+      },
+      "passed": true
+    },
+    {
+      "id": "s17-job-application",
+      "invalid": false,
+      "baselineStatus": "success_with_warnings",
+      "adapterStatus": "success_with_warnings",
+      "exit": 0,
+      "diagram.bpmn": true,
+      "diagram.png": false,
+      "semantic.bpmn": true,
+      "normalized.dsl": true,
+      "diagram.svg": false,
+      "svgNormalized": true,
+      "checks": {
+        "bpmn": true,
+        "bpmnShapes": 21,
+        "bpmnEdges": 14,
+        "svg": true,
+        "svgWidth": 1186,
+        "svgHeight": 1214,
+        "png": true,
+        "pngWidth": 1186,
+        "pngHeight": 1214,
+        "svgMatchesBpmn": true,
+        "pngMatchesSvg": true,
+        "missingInSvg": []
+      },
+      "reference": {
+        "diagram.bpmn": true,
+        "diagram.png": true,
+        "svgNormalized": true
+      },
+      "pngPixels": {
+        "sameSize": true,
+        "width": 1186,
+        "height": 1214,
+        "pixels": 1439804,
+        "differing": 3568,
+        "maxDelta": 3,
+        "id": "s17-job-application",
+        "differingRatio": 0.002478,
+        "withinTolerance": true
+      },
+      "passed": true
+    },
+    {
+      "id": "s17-pizza-order",
+      "invalid": false,
+      "baselineStatus": "success_with_warnings",
+      "adapterStatus": "success_with_warnings",
+      "exit": 0,
+      "diagram.bpmn": true,
+      "diagram.png": false,
+      "semantic.bpmn": true,
+      "normalized.dsl": true,
+      "diagram.svg": false,
+      "svgNormalized": true,
+      "checks": {
+        "bpmn": true,
+        "bpmnShapes": 9,
+        "bpmnEdges": 6,
+        "svg": true,
+        "svgWidth": 736,
+        "svgHeight": 324,
+        "png": true,
+        "pngWidth": 736,
+        "pngHeight": 324,
+        "svgMatchesBpmn": true,
+        "pngMatchesSvg": true,
+        "missingInSvg": []
+      },
+      "reference": {
+        "diagram.bpmn": true,
+        "diagram.png": true,
+        "svgNormalized": true
+      },
+      "pngPixels": {
+        "sameSize": true,
+        "width": 736,
+        "height": 324,
+        "pixels": 238464,
+        "differing": 1585,
+        "maxDelta": 3,
+        "id": "s17-pizza-order",
+        "differingRatio": 0.006647,
+        "withinTolerance": true
+      },
+      "passed": true
+    },
+    {
+      "id": "es-almacen",
+      "invalid": false,
+      "baselineStatus": "success_with_warnings",
+      "adapterStatus": "success_with_warnings",
+      "exit": 0,
+      "diagram.bpmn": true,
+      "diagram.png": false,
+      "semantic.bpmn": true,
+      "normalized.dsl": true,
+      "diagram.svg": false,
+      "svgNormalized": true,
+      "checks": {
+        "bpmn": true,
+        "bpmnShapes": 18,
+        "bpmnEdges": 11,
+        "svg": true,
+        "svgWidth": 1336,
+        "svgHeight": 954,
+        "png": true,
+        "pngWidth": 1336,
+        "pngHeight": 954,
+        "svgMatchesBpmn": true,
+        "pngMatchesSvg": true,
+        "missingInSvg": []
+      },
+      "reference": {
+        "diagram.bpmn": true,
+        "diagram.png": true,
+        "svgNormalized": true
+      },
+      "pngPixels": {
+        "sameSize": true,
+        "width": 1336,
+        "height": 954,
+        "pixels": 1274544,
+        "differing": 5730,
+        "maxDelta": 4,
+        "id": "es-almacen",
+        "differingRatio": 0.004496,
+        "withinTolerance": true
+      },
+      "passed": true
+    },
+    {
+      "id": "ap6-trace-ends-at-anchor",
+      "invalid": true,
+      "baselineStatus": "semantic_error",
+      "adapterStatus": "semantic_error",
+      "exit": 2,
+      "passed": true
+    },
+    {
+      "id": "ap7-anchor-buried",
+      "invalid": true,
+      "baselineStatus": "semantic_error",
+      "adapterStatus": "semantic_error",
+      "exit": 2,
+      "passed": true
+    },
+    {
+      "id": "simple",
+      "invalid": false,
+      "baselineStatus": "success_with_warnings",
+      "adapterStatus": "success_with_warnings",
+      "exit": 0,
+      "diagram.bpmn": true,
+      "diagram.png": false,
+      "semantic.bpmn": true,
+      "normalized.dsl": true,
+      "diagram.svg": false,
+      "svgNormalized": true,
+      "checks": {
+        "bpmn": true,
+        "bpmnShapes": 7,
+        "bpmnEdges": 3,
+        "svg": true,
+        "svgWidth": 586,
+        "svgHeight": 362,
+        "png": true,
+        "pngWidth": 586,
+        "pngHeight": 362,
+        "svgMatchesBpmn": true,
+        "pngMatchesSvg": true,
+        "missingInSvg": []
+      },
+      "reference": {
+        "diagram.bpmn": true,
+        "diagram.png": true,
+        "svgNormalized": true
+      },
+      "pngPixels": {
+        "sameSize": true,
+        "width": 586,
+        "height": 362,
+        "pixels": 212132,
+        "differing": 1116,
+        "maxDelta": 3,
+        "id": "simple",
+        "differingRatio": 0.005261,
+        "withinTolerance": true
+      },
+      "passed": true
+    }
+  ],
+  "faults": [
+    {
+      "name": "chromium-missing",
+      "exit": 1,
+      "status": "infrastructure_error",
+      "missing": [
+        "diagram.bpmn",
+        "diagram.svg",
+        "diagram.png"
+      ],
+      "error": "Chromium could not be launched (browserType.launch: Executable doesn't exist at C:\\Users\\ignag\\AppData\\Local\\Temp\\no-chromium-WayaHp\\chromium_headless_shell-1223\\chrome-headless-shell-win64\\chrome-headless-shell.exe). Install it with: node apps/tfm-lab/node_modules/playwright/cli.js install chromium",
+      "passed": true
+    },
+    {
+      "name": "timeout",
+      "exit": 1,
+      "status": "infrastructure_error",
+      "missing": [
+        "diagram.bpmn",
+        "diagram.svg",
+        "diagram.png"
+      ],
+      "error": "render timeout after 50 ms",
+      "passed": true
+    },
+    {
+      "name": "png-export-fails",
+      "exit": 4,
+      "status": "partial_export",
+      "missing": [
+        "diagram.png"
+      ],
+      "error": null,
+      "passed": true
+    }
+  ],
+  "flow": {
+    "promptMatchesHandoff": true,
+    "firstStatus": "semantic_error",
+    "firstExit": 2,
+    "canRepair": true,
+    "repairPromptExtendsBase": true,
+    "secondStatus": "success_with_warnings",
+    "secondExit": 0,
+    "rootMirrorsLast": true,
+    "firstAttemptKept": true,
+    "generatorRecorded": true,
+    "limitEnforced": true,
+    "generationFailure": true,
+    "emptyOutput": true,
+    "passed": true
+  },
+  "finishedAt": "2026-09-25T16:04:17.167Z",
+  "passed": true
+}

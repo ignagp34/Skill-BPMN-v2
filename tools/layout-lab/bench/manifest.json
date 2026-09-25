@@ -1,0 +1,1634 @@
+{
+  "schema": "layout-bench/1",
+  "createdAt": "2026-09-25T15:51:33.263Z",
+  "selection": {
+    "size": 50,
+    "quotas": {
+      "pool1-nolanes": 6,
+      "pool1-lanes": 10,
+      "pools2": 12,
+      "pools3": 4,
+      "pools4plus": 3,
+      "message-flows": 12,
+      "boundary-events": 6,
+      "loops": 6,
+      "many-gateways": 10,
+      "artifacts": 8,
+      "subprocess": 1,
+      "long-labels": 6,
+      "size-small": 8,
+      "size-medium": 15,
+      "size-large": 10
+    },
+    "maxPerProcess": 5,
+    "algorithm": "greedy relative-deficit, tie-break sha256(id)",
+    "candidates": {
+      "corpus": 351,
+      "fixtures": 18
+    },
+    "eligibility": "corpus: historical status success/success_with_warnings with stored diagram.bpmn; fixtures: valid v0 render"
+  },
+  "coverage": {
+    "pool1-nolanes": {
+      "quota": 6,
+      "selected": 15,
+      "available": 135
+    },
+    "pool1-lanes": {
+      "quota": 10,
+      "selected": 21,
+      "available": 174
+    },
+    "pools2": {
+      "quota": 12,
+      "selected": 12,
+      "available": 58
+    },
+    "pools3": {
+      "quota": 4,
+      "selected": 0,
+      "available": 0
+    },
+    "pools4plus": {
+      "quota": 3,
+      "selected": 2,
+      "available": 2
+    },
+    "message-flows": {
+      "quota": 12,
+      "selected": 12,
+      "available": 32
+    },
+    "boundary-events": {
+      "quota": 6,
+      "selected": 6,
+      "available": 32
+    },
+    "loops": {
+      "quota": 6,
+      "selected": 8,
+      "available": 21
+    },
+    "many-gateways": {
+      "quota": 10,
+      "selected": 18,
+      "available": 90
+    },
+    "artifacts": {
+      "quota": 8,
+      "selected": 16,
+      "available": 71
+    },
+    "subprocess": {
+      "quota": 1,
+      "selected": 0,
+      "available": 0
+    },
+    "long-labels": {
+      "quota": 6,
+      "selected": 14,
+      "available": 75
+    },
+    "size-small": {
+      "quota": 8,
+      "selected": 12,
+      "available": 85
+    },
+    "size-medium": {
+      "quota": 15,
+      "selected": 28,
+      "available": 246
+    },
+    "size-large": {
+      "quota": 10,
+      "selected": 10,
+      "available": 38
+    }
+  },
+  "cases": [
+    {
+      "id": "c-syn001-sysv31-claude-opus_4_7-r03",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN001-SYSV31-CLAUDE-OPUS_4_7-R03/output.dsl",
+      "processKey": "SYN001",
+      "dslFile": "cases/c-syn001-sysv31-claude-opus_4_7-r03.dsl",
+      "sha256": "3a28c071bffea482a2cac0e38bb5e7d1bd81422257de4a33d825abffed7e6f9d",
+      "tags": [
+        "pool1-lanes",
+        "size-small"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 2,
+        "maxLanesInPool": 2,
+        "flowNodes": 9,
+        "tasks": 7,
+        "gateways": 0,
+        "events": 2,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 8,
+        "messageFlows": 0,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 31
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn001-sysv5-chatgpt-gpt_5_5_thinking-r01",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN001-SYSV5-CHATGPT-GPT_5_5_THINKING-R01/output.dsl",
+      "processKey": "SYN001",
+      "dslFile": "cases/c-syn001-sysv5-chatgpt-gpt_5_5_thinking-r01.dsl",
+      "sha256": "b4c188b81e8808004ef9aeebae9da139c76b922faefe9cc4ae520346165e4cd4",
+      "tags": [
+        "pool1-nolanes",
+        "size-small"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 1,
+        "maxLanesInPool": 1,
+        "flowNodes": 8,
+        "tasks": 6,
+        "gateways": 0,
+        "events": 2,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 7,
+        "messageFlows": 0,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 36
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn002-sysv31-claude-opus_4_8_medium-r03",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN002-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R03/output.dsl",
+      "processKey": "SYN002",
+      "dslFile": "cases/c-syn002-sysv31-claude-opus_4_8_medium-r03.dsl",
+      "sha256": "6d5129e8b567893ffe58aa37a5b01b7a4a9b7e4f31a4e53c03951cb95de4baa4",
+      "tags": [
+        "pool1-lanes",
+        "size-small"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 2,
+        "maxLanesInPool": 2,
+        "flowNodes": 9,
+        "tasks": 7,
+        "gateways": 0,
+        "events": 2,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 8,
+        "messageFlows": 0,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 34
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn002-sysv4-gemini-gemini_3_5_flash_thinking-r01",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN002-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R01/output.dsl",
+      "processKey": "SYN002",
+      "dslFile": "cases/c-syn002-sysv4-gemini-gemini_3_5_flash_thinking-r01.dsl",
+      "sha256": "14b86567ead70ab664edfdab970935036f0907e5d6429277a629fdd8d6170d5c",
+      "tags": [
+        "pool1-nolanes",
+        "size-small"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 1,
+        "maxLanesInPool": 1,
+        "flowNodes": 7,
+        "tasks": 5,
+        "gateways": 0,
+        "events": 2,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 6,
+        "messageFlows": 0,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 35
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn003-sysv4-chatgpt-gpt_5_5_thinking-r02",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN003-SYSV4-CHATGPT-GPT_5_5_THINKING-R02/output.dsl",
+      "processKey": "SYN003",
+      "dslFile": "cases/c-syn003-sysv4-chatgpt-gpt_5_5_thinking-r02.dsl",
+      "sha256": "46f2b2019276c659a7908cf78a62cf7555b6ab5de7d8744dfb63e2acd9e2e271",
+      "tags": [
+        "pool1-nolanes",
+        "long-labels",
+        "size-small"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 1,
+        "maxLanesInPool": 1,
+        "flowNodes": 7,
+        "tasks": 5,
+        "gateways": 0,
+        "events": 2,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 6,
+        "messageFlows": 0,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 52
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn003-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN003-SYSV5-CHATGPT-GPT_5_5_THINKING-R03/output.dsl",
+      "processKey": "SYN003",
+      "dslFile": "cases/c-syn003-sysv5-chatgpt-gpt_5_5_thinking-r03.dsl",
+      "sha256": "ed8ce9541d979f980345e59c117ae66caeb4a558b1156382a0488e629161f1b1",
+      "tags": [
+        "pool1-nolanes",
+        "long-labels",
+        "size-small"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 1,
+        "maxLanesInPool": 1,
+        "flowNodes": 8,
+        "tasks": 6,
+        "gateways": 0,
+        "events": 2,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 7,
+        "messageFlows": 0,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 52
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn004-sysv31-claude-opus_4_8_medium-r03",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN004-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R03/output.dsl",
+      "processKey": "SYN004",
+      "dslFile": "cases/c-syn004-sysv31-claude-opus_4_8_medium-r03.dsl",
+      "sha256": "fdc0dc52e79df22985e9457d35633131b7e816a6051bf1fb21ece6375b534744",
+      "tags": [
+        "pool1-nolanes",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 1,
+        "maxLanesInPool": 1,
+        "flowNodes": 17,
+        "tasks": 10,
+        "gateways": 3,
+        "events": 4,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 17,
+        "messageFlows": 0,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 37
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn004-sysv4-gemini-gemini_3_5_flash_thinking-r03",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN004-SYSV4-GEMINI-GEMINI_3_5_FLASH_THINKING-R03/output.dsl",
+      "processKey": "SYN004",
+      "dslFile": "cases/c-syn004-sysv4-gemini-gemini_3_5_flash_thinking-r03.dsl",
+      "sha256": "75e954278038899b4d1354d993b3ad6d04ab4724b0fd0e6a550268478538b6eb",
+      "tags": [
+        "pool1-nolanes",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 1,
+        "maxLanesInPool": 1,
+        "flowNodes": 17,
+        "tasks": 10,
+        "gateways": 3,
+        "events": 4,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 17,
+        "messageFlows": 0,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 37
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn005-sysv4-chatgpt-gpt_5_5_thinking-r01",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN005-SYSV4-CHATGPT-GPT_5_5_THINKING-R01/output.dsl",
+      "processKey": "SYN005",
+      "dslFile": "cases/c-syn005-sysv4-chatgpt-gpt_5_5_thinking-r01.dsl",
+      "sha256": "fc4a68ea1e6375cda355de3ae2a85aec250cfcdb0f086cdf4fd7f7c1af67445b",
+      "tags": [
+        "pool1-lanes",
+        "many-gateways",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 3,
+        "maxLanesInPool": 3,
+        "flowNodes": 20,
+        "tasks": 12,
+        "gateways": 4,
+        "events": 4,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 20,
+        "messageFlows": 0,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 42
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn005-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN005-SYSV5-CHATGPT-GPT_5_5_THINKING-R03/output.dsl",
+      "processKey": "SYN005",
+      "dslFile": "cases/c-syn005-sysv5-chatgpt-gpt_5_5_thinking-r03.dsl",
+      "sha256": "76c495d63be01ad8ac26142da01a06aa82bee6d558b7757e68a3fa4286de34eb",
+      "tags": [
+        "pool1-lanes",
+        "many-gateways",
+        "long-labels",
+        "size-large"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 3,
+        "maxLanesInPool": 3,
+        "flowNodes": 25,
+        "tasks": 15,
+        "gateways": 5,
+        "events": 5,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 25,
+        "messageFlows": 0,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 50
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn006-sysv31-gemini-gemini_3_5_flash_thinking-r01",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN006-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R01/output.dsl",
+      "processKey": "SYN006",
+      "dslFile": "cases/c-syn006-sysv31-gemini-gemini_3_5_flash_thinking-r01.dsl",
+      "sha256": "bbdc1fa369465bf1215c1a64844514daa481850b83a5b3b57aea72970d4a0d22",
+      "tags": [
+        "pool1-lanes",
+        "many-gateways",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 2,
+        "maxLanesInPool": 2,
+        "flowNodes": 18,
+        "tasks": 9,
+        "gateways": 5,
+        "events": 4,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 19,
+        "messageFlows": 0,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 42
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn006-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN006-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02/output.dsl",
+      "processKey": "SYN006",
+      "dslFile": "cases/c-syn006-sysv31-gemini-gemini_3_5_flash_thinking-r02.dsl",
+      "sha256": "e1900f45c4b8020b0176a58a402d23210f8e8df267e4b95c6b744c17ae3f7528",
+      "tags": [
+        "pool1-lanes",
+        "many-gateways",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 2,
+        "maxLanesInPool": 2,
+        "flowNodes": 19,
+        "tasks": 10,
+        "gateways": 5,
+        "events": 4,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 20,
+        "messageFlows": 0,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 42
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn007-sysv4-chatgpt-gpt_5_5_thinking-r02",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN007-SYSV4-CHATGPT-GPT_5_5_THINKING-R02/output.dsl",
+      "processKey": "SYN007",
+      "dslFile": "cases/c-syn007-sysv4-chatgpt-gpt_5_5_thinking-r02.dsl",
+      "sha256": "3ff48a50c64411936e0ecefd45b9d44e59bcaee63e1ac9678721f8df76c12a0d",
+      "tags": [
+        "pool1-nolanes",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 1,
+        "maxLanesInPool": 1,
+        "flowNodes": 11,
+        "tasks": 7,
+        "gateways": 2,
+        "events": 2,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 12,
+        "messageFlows": 0,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 36
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn007-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN007-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02/output.dsl",
+      "processKey": "SYN007",
+      "dslFile": "cases/c-syn007-sysv5-gemini-gemini_3_5_flash_thinking-r02.dsl",
+      "sha256": "971f7310831bdd1d708410054e6e0f12a6b7f0769e0286ca5ef72aca9f7ab861",
+      "tags": [
+        "pool1-lanes",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 2,
+        "maxLanesInPool": 2,
+        "flowNodes": 10,
+        "tasks": 6,
+        "gateways": 2,
+        "events": 2,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 11,
+        "messageFlows": 0,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 36
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn008-sysv31-claude-opus_4_7-r01",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN008-SYSV31-CLAUDE-OPUS_4_7-R01/output.dsl",
+      "processKey": "SYN008",
+      "dslFile": "cases/c-syn008-sysv31-claude-opus_4_7-r01.dsl",
+      "sha256": "7976109fbb6dc5ec086a9acf9e7856072d6c18f58a0160d07fbacf9fc4cdb75d",
+      "tags": [
+        "pool1-lanes",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 2,
+        "maxLanesInPool": 2,
+        "flowNodes": 12,
+        "tasks": 8,
+        "gateways": 2,
+        "events": 2,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 13,
+        "messageFlows": 0,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 24
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn008-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN008-SYSV5-CHATGPT-GPT_5_5_THINKING-R03/output.dsl",
+      "processKey": "SYN008",
+      "dslFile": "cases/c-syn008-sysv5-chatgpt-gpt_5_5_thinking-r03.dsl",
+      "sha256": "1c4669d109262c5c163c87b396b95e5e0a9d50bc9f6f847a387b6b0bbea25b87",
+      "tags": [
+        "pool1-lanes",
+        "long-labels",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 2,
+        "maxLanesInPool": 2,
+        "flowNodes": 12,
+        "tasks": 8,
+        "gateways": 2,
+        "events": 2,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 13,
+        "messageFlows": 0,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 48
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn009-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN009-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02/output.dsl",
+      "processKey": "SYN009",
+      "dslFile": "cases/c-syn009-sysv31-gemini-gemini_3_5_flash_thinking-r02.dsl",
+      "sha256": "f0215e2a53bcd9efff85448233830421afb90fd3ae658b032251a05e900dcf92",
+      "tags": [
+        "pool1-lanes",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 2,
+        "maxLanesInPool": 2,
+        "flowNodes": 17,
+        "tasks": 8,
+        "gateways": 2,
+        "events": 7,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 17,
+        "messageFlows": 0,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 30
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r01",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN009-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01/output.dsl",
+      "processKey": "SYN009",
+      "dslFile": "cases/c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r01.dsl",
+      "sha256": "adeb9a675d8e3f4fa3f580a31edb9b3d91eb925ddf8b7cef97d69cfda5751476",
+      "tags": [
+        "pools2",
+        "message-flows",
+        "many-gateways",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 2,
+        "lanes": 2,
+        "maxLanesInPool": 1,
+        "flowNodes": 22,
+        "tasks": 5,
+        "gateways": 4,
+        "events": 13,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 22,
+        "messageFlows": 5,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 33
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN009-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02/output.dsl",
+      "processKey": "SYN009",
+      "dslFile": "cases/c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r02.dsl",
+      "sha256": "54476d7494739ee183343141b5e3496eedd0e9ff884ee83443d23354a80d8389",
+      "tags": [
+        "pools2",
+        "message-flows",
+        "many-gateways",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 2,
+        "lanes": 2,
+        "maxLanesInPool": 1,
+        "flowNodes": 22,
+        "tasks": 5,
+        "gateways": 4,
+        "events": 13,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 22,
+        "messageFlows": 5,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 29
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn010-sysv5-chatgpt-gpt_5_5_thinking-r01",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN010-SYSV5-CHATGPT-GPT_5_5_THINKING-R01/output.dsl",
+      "processKey": "SYN010",
+      "dslFile": "cases/c-syn010-sysv5-chatgpt-gpt_5_5_thinking-r01.dsl",
+      "sha256": "2dd5bc75824a6650225df6ff9a77e44f024dc3eb210d3d72311e4a5ea1dca2c4",
+      "tags": [
+        "pools2",
+        "message-flows",
+        "many-gateways",
+        "size-large"
+      ],
+      "features": {
+        "pools": 2,
+        "lanes": 2,
+        "maxLanesInPool": 1,
+        "flowNodes": 27,
+        "tasks": 4,
+        "gateways": 6,
+        "events": 17,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 27,
+        "messageFlows": 6,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 34
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn010-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN010-SYSV5-CHATGPT-GPT_5_5_THINKING-R03/output.dsl",
+      "processKey": "SYN010",
+      "dslFile": "cases/c-syn010-sysv5-chatgpt-gpt_5_5_thinking-r03.dsl",
+      "sha256": "0b5a2784adf60fa9ff9043a79b60adeea7ce8bc328fa85edfb4a2801891d5a4d",
+      "tags": [
+        "pools2",
+        "message-flows",
+        "many-gateways",
+        "size-large"
+      ],
+      "features": {
+        "pools": 2,
+        "lanes": 2,
+        "maxLanesInPool": 1,
+        "flowNodes": 29,
+        "tasks": 6,
+        "gateways": 6,
+        "events": 17,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 29,
+        "messageFlows": 6,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 34
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn010-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN010-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02/output.dsl",
+      "processKey": "SYN010",
+      "dslFile": "cases/c-syn010-sysv5-gemini-gemini_3_5_flash_thinking-r02.dsl",
+      "sha256": "3c3a20e9dfc1deb7ec78b8fb70213251341349738267e2a8f4d382ec237de3a1",
+      "tags": [
+        "pools2",
+        "message-flows",
+        "many-gateways",
+        "size-large"
+      ],
+      "features": {
+        "pools": 2,
+        "lanes": 2,
+        "maxLanesInPool": 1,
+        "flowNodes": 28,
+        "tasks": 5,
+        "gateways": 6,
+        "events": 17,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 28,
+        "messageFlows": 6,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 24
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn011-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN011-SYSV31-GEMINI-GEMINI_3_5_FLASH_THINKING-R02/output.dsl",
+      "processKey": "SYN011",
+      "dslFile": "cases/c-syn011-sysv31-gemini-gemini_3_5_flash_thinking-r02.dsl",
+      "sha256": "6233ac3623d951eb4255639b706675a646dfb73543c8c5abb4297dd671994042",
+      "tags": [
+        "pool1-nolanes",
+        "artifacts",
+        "long-labels",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 1,
+        "maxLanesInPool": 1,
+        "flowNodes": 13,
+        "tasks": 9,
+        "gateways": 1,
+        "events": 3,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 12,
+        "messageFlows": 0,
+        "artifacts": 6,
+        "loops": 0,
+        "maxLabelLength": 54
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn011-sysv5-chatgpt-gpt_5_5_thinking-r02",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN011-SYSV5-CHATGPT-GPT_5_5_THINKING-R02/output.dsl",
+      "processKey": "SYN011",
+      "dslFile": "cases/c-syn011-sysv5-chatgpt-gpt_5_5_thinking-r02.dsl",
+      "sha256": "61bba31c14a7ec8fe046780a46c711628a36ca0087a6cc10e2ab88846959d9b2",
+      "tags": [
+        "pool1-nolanes",
+        "artifacts",
+        "long-labels",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 1,
+        "maxLanesInPool": 1,
+        "flowNodes": 13,
+        "tasks": 9,
+        "gateways": 1,
+        "events": 3,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 12,
+        "messageFlows": 0,
+        "artifacts": 9,
+        "loops": 0,
+        "maxLabelLength": 54
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn012-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN012-SYSV5-CHATGPT-GPT_5_5_THINKING-R03/output.dsl",
+      "processKey": "SYN012",
+      "dslFile": "cases/c-syn012-sysv5-chatgpt-gpt_5_5_thinking-r03.dsl",
+      "sha256": "be84d1dfc6b5fa395eb8367a060036b799b8a7ff232068389894912efe1eaf5e",
+      "tags": [
+        "pool1-nolanes",
+        "artifacts",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 1,
+        "maxLanesInPool": 1,
+        "flowNodes": 12,
+        "tasks": 8,
+        "gateways": 1,
+        "events": 3,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 11,
+        "messageFlows": 0,
+        "artifacts": 11,
+        "loops": 0,
+        "maxLabelLength": 44
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn012-sysv5-gemini-gemini_3_5_flash_thinking-r03",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN012-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R03/output.dsl",
+      "processKey": "SYN012",
+      "dslFile": "cases/c-syn012-sysv5-gemini-gemini_3_5_flash_thinking-r03.dsl",
+      "sha256": "33093e87d69d498ec192765061e08aeeceb0cbf9ec969586e54c5beaf9dd53ce",
+      "tags": [
+        "pools2",
+        "message-flows",
+        "artifacts",
+        "long-labels",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 2,
+        "lanes": 2,
+        "maxLanesInPool": 1,
+        "flowNodes": 20,
+        "tasks": 7,
+        "gateways": 2,
+        "events": 11,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 18,
+        "messageFlows": 3,
+        "artifacts": 8,
+        "loops": 0,
+        "maxLabelLength": 56
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn013-sysv31-claude-opus_4_8_medium-r01",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN013-SYSV31-CLAUDE-OPUS_4_8_MEDIUM-R01/output.dsl",
+      "processKey": "SYN013",
+      "dslFile": "cases/c-syn013-sysv31-claude-opus_4_8_medium-r01.dsl",
+      "sha256": "306d132f06c145a38f6fdbe6c60e44a610123e77416b5b166fd04b2e132ea18a",
+      "tags": [
+        "pool1-nolanes",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 1,
+        "maxLanesInPool": 1,
+        "flowNodes": 15,
+        "tasks": 9,
+        "gateways": 2,
+        "events": 4,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 15,
+        "messageFlows": 0,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 30
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn013-sysv4-chatgpt-gpt_5_5_thinking-r03",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN013-SYSV4-CHATGPT-GPT_5_5_THINKING-R03/output.dsl",
+      "processKey": "SYN013",
+      "dslFile": "cases/c-syn013-sysv4-chatgpt-gpt_5_5_thinking-r03.dsl",
+      "sha256": "c67eb57a078d562455a29f4b0e7cce76ab9a0f0e37a54ee5c51da5e84e9a9139",
+      "tags": [
+        "pool1-nolanes",
+        "boundary-events",
+        "long-labels",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 1,
+        "maxLanesInPool": 1,
+        "flowNodes": 15,
+        "tasks": 9,
+        "gateways": 1,
+        "events": 5,
+        "subprocesses": 0,
+        "boundaryEvents": 2,
+        "sequenceFlows": 13,
+        "messageFlows": 0,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 46
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn014-sysv5-claude-opus_4_8_medium-r01",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN014-SYSV5-CLAUDE-OPUS_4_8_MEDIUM-R01/output.dsl",
+      "processKey": "SYN014",
+      "dslFile": "cases/c-syn014-sysv5-claude-opus_4_8_medium-r01.dsl",
+      "sha256": "1e01194b7ea4f8efa6aadc7c05f1809c1be368638325b4f34c0012a504e5a82f",
+      "tags": [
+        "pools2",
+        "message-flows",
+        "boundary-events",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 2,
+        "lanes": 2,
+        "maxLanesInPool": 1,
+        "flowNodes": 23,
+        "tasks": 6,
+        "gateways": 0,
+        "events": 17,
+        "subprocesses": 0,
+        "boundaryEvents": 1,
+        "sequenceFlows": 17,
+        "messageFlows": 5,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 28
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn014-sysv5-gemini-gemini_3_5_flash_thinking-r01",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN014-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R01/output.dsl",
+      "processKey": "SYN014",
+      "dslFile": "cases/c-syn014-sysv5-gemini-gemini_3_5_flash_thinking-r01.dsl",
+      "sha256": "3dc505c981c489781a7c50e5ea274e88ae13ccc734a15131f4d357c476fba353",
+      "tags": [
+        "pools2",
+        "message-flows",
+        "boundary-events",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 2,
+        "lanes": 2,
+        "maxLanesInPool": 1,
+        "flowNodes": 23,
+        "tasks": 7,
+        "gateways": 1,
+        "events": 15,
+        "subprocesses": 0,
+        "boundaryEvents": 1,
+        "sequenceFlows": 20,
+        "messageFlows": 4,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 32
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN015-SYSV5-CHATGPT-GPT_5_5_THINKING-R03/output.dsl",
+      "processKey": "SYN015",
+      "dslFile": "cases/c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03.dsl",
+      "sha256": "ad462ad717d6c712b676bfc36129be6785689a7f08e824ff6dea9b11df23f216",
+      "tags": [
+        "pools2",
+        "message-flows",
+        "many-gateways",
+        "artifacts",
+        "long-labels",
+        "size-large"
+      ],
+      "features": {
+        "pools": 2,
+        "lanes": 6,
+        "maxLanesInPool": 5,
+        "flowNodes": 58,
+        "tasks": 23,
+        "gateways": 7,
+        "events": 28,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 54,
+        "messageFlows": 8,
+        "artifacts": 9,
+        "loops": 0,
+        "maxLabelLength": 61
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "origin": "corpus",
+      "source": "apps/tfm-lab/prompts/experiments/EXP-SYN015-SYSV5-GEMINI-GEMINI_3_5_FLASH_THINKING-R02/output.dsl",
+      "processKey": "SYN015",
+      "dslFile": "cases/c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02.dsl",
+      "sha256": "c3217ad672eb885ccc97f3918ba2152248db82bfc376d04a7c2d5a9c5188e70b",
+      "tags": [
+        "pools2",
+        "message-flows",
+        "boundary-events",
+        "loops",
+        "many-gateways",
+        "artifacts",
+        "long-labels",
+        "size-large"
+      ],
+      "features": {
+        "pools": 2,
+        "lanes": 6,
+        "maxLanesInPool": 5,
+        "flowNodes": 51,
+        "tasks": 19,
+        "gateways": 10,
+        "events": 22,
+        "subprocesses": 0,
+        "boundaryEvents": 1,
+        "sequenceFlows": 53,
+        "messageFlows": 6,
+        "artifacts": 4,
+        "loops": 2,
+        "maxLabelLength": 67
+      },
+      "featuresFrom": "stored diagram.bpmn"
+    },
+    {
+      "id": "f-canon-1-cheeseburger",
+      "origin": "fixture",
+      "source": "packages/bpmn-core/tests/fixtures/canon-1-cheeseburger.dsl",
+      "processKey": "fixture:canon-1-cheeseburger",
+      "dslFile": "cases/f-canon-1-cheeseburger.dsl",
+      "sha256": "122980d9bfd1bbd6e19ef9fe995c70e62b48538d85ee37ca8ee08d4f08422b6a",
+      "tags": [
+        "pool1-lanes",
+        "size-large"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 4,
+        "maxLanesInPool": 4,
+        "flowNodes": 29,
+        "tasks": 23,
+        "gateways": 3,
+        "events": 3,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 30,
+        "messageFlows": 0,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 37
+      },
+      "featuresFrom": "v0 render"
+    },
+    {
+      "id": "f-canon-2-incoming-flight",
+      "origin": "fixture",
+      "source": "packages/bpmn-core/tests/fixtures/canon-2-incoming-flight.dsl",
+      "processKey": "fixture:canon-2-incoming-flight",
+      "dslFile": "cases/f-canon-2-incoming-flight.dsl",
+      "sha256": "ffd24c692e7c57915ff8e1973a885f1fbf4f03ae75170ca32c03cfa4e1eebd73",
+      "tags": [
+        "pool1-lanes",
+        "many-gateways",
+        "artifacts",
+        "size-large"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 9,
+        "maxLanesInPool": 9,
+        "flowNodes": 25,
+        "tasks": 19,
+        "gateways": 4,
+        "events": 2,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 29,
+        "messageFlows": 0,
+        "artifacts": 4,
+        "loops": 0,
+        "maxLabelLength": 43
+      },
+      "featuresFrom": "v0 render"
+    },
+    {
+      "id": "f-canon-3-conveyor-belt",
+      "origin": "fixture",
+      "source": "packages/bpmn-core/tests/fixtures/canon-3-conveyor-belt.dsl",
+      "processKey": "fixture:canon-3-conveyor-belt",
+      "dslFile": "cases/f-canon-3-conveyor-belt.dsl",
+      "sha256": "36a543e76ab150a5f5fb792a06128bad52cf7c036030495f437deae181af1a48",
+      "tags": [
+        "pool1-lanes",
+        "loops",
+        "many-gateways",
+        "artifacts",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 8,
+        "maxLanesInPool": 8,
+        "flowNodes": 24,
+        "tasks": 18,
+        "gateways": 4,
+        "events": 2,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 25,
+        "messageFlows": 0,
+        "artifacts": 5,
+        "loops": 1,
+        "maxLabelLength": 35
+      },
+      "featuresFrom": "v0 render"
+    },
+    {
+      "id": "f-canon-4-composting",
+      "origin": "fixture",
+      "source": "packages/bpmn-core/tests/fixtures/canon-4-composting.dsl",
+      "processKey": "fixture:canon-4-composting",
+      "dslFile": "cases/f-canon-4-composting.dsl",
+      "sha256": "29755d6d4c99bfd6731690f81e687da4e446f529076aa2ad9b47a8ecaed0bf00",
+      "tags": [
+        "pool1-lanes",
+        "loops",
+        "many-gateways",
+        "artifacts",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 4,
+        "maxLanesInPool": 4,
+        "flowNodes": 23,
+        "tasks": 15,
+        "gateways": 4,
+        "events": 4,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 24,
+        "messageFlows": 0,
+        "artifacts": 7,
+        "loops": 1,
+        "maxLabelLength": 37
+      },
+      "featuresFrom": "v0 render"
+    },
+    {
+      "id": "f-canon-5-marriage",
+      "origin": "fixture",
+      "source": "packages/bpmn-core/tests/fixtures/canon-5-marriage.dsl",
+      "processKey": "fixture:canon-5-marriage",
+      "dslFile": "cases/f-canon-5-marriage.dsl",
+      "sha256": "c38d8ab1b5a734fc5b381a7ce047e16a17f90b9942dfba4272c0d092d4606ccc",
+      "tags": [
+        "pool1-lanes",
+        "artifacts",
+        "long-labels",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 6,
+        "maxLanesInPool": 6,
+        "flowNodes": 19,
+        "tasks": 15,
+        "gateways": 1,
+        "events": 3,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 18,
+        "messageFlows": 0,
+        "artifacts": 10,
+        "loops": 0,
+        "maxLabelLength": 46
+      },
+      "featuresFrom": "v0 render"
+    },
+    {
+      "id": "f-es-almacen",
+      "origin": "fixture",
+      "source": "packages/bpmn-core/tests/fixtures/es-almacen.dsl",
+      "processKey": "fixture:es-almacen",
+      "dslFile": "cases/f-es-almacen.dsl",
+      "sha256": "b13f0f3deaf29aadf49a1c36aea83d81e32e2ab064f2da8dfd6b483a6d31cd52",
+      "tags": [
+        "pool1-lanes",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 4,
+        "maxLanesInPool": 4,
+        "flowNodes": 13,
+        "tasks": 9,
+        "gateways": 0,
+        "events": 4,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 11,
+        "messageFlows": 0,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 20
+      },
+      "featuresFrom": "v0 render"
+    },
+    {
+      "id": "f-gemini-03",
+      "origin": "fixture",
+      "source": "packages/bpmn-core/tests/fixtures/gemini-03.dsl",
+      "processKey": "fixture:gemini-03",
+      "dslFile": "cases/f-gemini-03.dsl",
+      "sha256": "8a6d4a8501579a008f2280631aff2d3f7262c19f2c7e5f0fd6bf86315510fc56",
+      "tags": [
+        "pools4plus",
+        "many-gateways",
+        "artifacts",
+        "long-labels",
+        "size-large"
+      ],
+      "features": {
+        "pools": 4,
+        "lanes": 6,
+        "maxLanesInPool": 2,
+        "flowNodes": 29,
+        "tasks": 12,
+        "gateways": 9,
+        "events": 8,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 30,
+        "messageFlows": 0,
+        "artifacts": 7,
+        "loops": 0,
+        "maxLabelLength": 56
+      },
+      "featuresFrom": "v0 render"
+    },
+    {
+      "id": "f-gemini-04",
+      "origin": "fixture",
+      "source": "packages/bpmn-core/tests/fixtures/gemini-04.dsl",
+      "processKey": "fixture:gemini-04",
+      "dslFile": "cases/f-gemini-04.dsl",
+      "sha256": "f14ffa6425dd15f24ba41c6761435782991f02a201e2e2fe3accd45b25a4026d",
+      "tags": [
+        "pool1-nolanes",
+        "loops",
+        "artifacts",
+        "long-labels",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 1,
+        "maxLanesInPool": 1,
+        "flowNodes": 14,
+        "tasks": 9,
+        "gateways": 2,
+        "events": 3,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 16,
+        "messageFlows": 0,
+        "artifacts": 6,
+        "loops": 3,
+        "maxLabelLength": 48
+      },
+      "featuresFrom": "v0 render"
+    },
+    {
+      "id": "f-gemini-05",
+      "origin": "fixture",
+      "source": "packages/bpmn-core/tests/fixtures/gemini-05.dsl",
+      "processKey": "fixture:gemini-05",
+      "dslFile": "cases/f-gemini-05.dsl",
+      "sha256": "3f69b3e793e137af4e03afbe8f4a520bffe097f906d9270008582770600aaa1b",
+      "tags": [
+        "pool1-lanes",
+        "boundary-events",
+        "loops",
+        "many-gateways",
+        "artifacts",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 3,
+        "maxLanesInPool": 3,
+        "flowNodes": 18,
+        "tasks": 9,
+        "gateways": 4,
+        "events": 5,
+        "subprocesses": 0,
+        "boundaryEvents": 1,
+        "sequenceFlows": 18,
+        "messageFlows": 0,
+        "artifacts": 1,
+        "loops": 1,
+        "maxLabelLength": 36
+      },
+      "featuresFrom": "v0 render"
+    },
+    {
+      "id": "f-planta-residuos",
+      "origin": "fixture",
+      "source": "packages/bpmn-core/tests/fixtures/planta-residuos.dsl",
+      "processKey": "fixture:planta-residuos",
+      "dslFile": "cases/f-planta-residuos.dsl",
+      "sha256": "e36c16d83ccd288638caf39aeff7d8d50c188c0590418a93498f11450266a688",
+      "tags": [
+        "pools4plus",
+        "message-flows",
+        "loops",
+        "many-gateways",
+        "artifacts",
+        "long-labels",
+        "size-large"
+      ],
+      "features": {
+        "pools": 8,
+        "lanes": 16,
+        "maxLanesInPool": 8,
+        "flowNodes": 110,
+        "tasks": 64,
+        "gateways": 10,
+        "events": 36,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 108,
+        "messageFlows": 14,
+        "artifacts": 11,
+        "loops": 1,
+        "maxLabelLength": 48
+      },
+      "featuresFrom": "v0 render"
+    },
+    {
+      "id": "f-pool-map-message-event",
+      "origin": "fixture",
+      "source": "packages/bpmn-core/tests/fixtures/pool-map-message-event.dsl",
+      "processKey": "fixture:pool-map-message-event",
+      "dslFile": "cases/f-pool-map-message-event.dsl",
+      "sha256": "72699868102dca238ce756e5fce28af4e8bbda8dd8a5f4b1f52cfe12382dd639",
+      "tags": [
+        "pools2",
+        "message-flows",
+        "size-small"
+      ],
+      "features": {
+        "pools": 2,
+        "lanes": 3,
+        "maxLanesInPool": 2,
+        "flowNodes": 7,
+        "tasks": 3,
+        "gateways": 0,
+        "events": 4,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 5,
+        "messageFlows": 1,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 20
+      },
+      "featuresFrom": "v0 render"
+    },
+    {
+      "id": "f-pool-map-missing-message-flow",
+      "origin": "fixture",
+      "source": "packages/bpmn-core/tests/fixtures/pool-map-missing-message-flow.dsl",
+      "processKey": "fixture:pool-map-missing-message-flow",
+      "dslFile": "cases/f-pool-map-missing-message-flow.dsl",
+      "sha256": "6d3129ca358903a9a8630861d3be9101e4a736c7646cc5df37247fe784887d60",
+      "tags": [
+        "pools2",
+        "size-small"
+      ],
+      "features": {
+        "pools": 2,
+        "lanes": 3,
+        "maxLanesInPool": 2,
+        "flowNodes": 7,
+        "tasks": 3,
+        "gateways": 0,
+        "events": 4,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 5,
+        "messageFlows": 0,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 20
+      },
+      "featuresFrom": "v0 render"
+    },
+    {
+      "id": "f-s-a3-find-a-job",
+      "origin": "fixture",
+      "source": "packages/bpmn-core/tests/fixtures/s-a3-find-a-job.dsl",
+      "processKey": "fixture:s-a3-find-a-job",
+      "dslFile": "cases/f-s-a3-find-a-job.dsl",
+      "sha256": "676c6d5376a11adfd288990516e1a6724a0b65fa97135a1f5062e8899e5ee4f6",
+      "tags": [
+        "pool1-lanes",
+        "loops",
+        "many-gateways",
+        "artifacts",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 3,
+        "maxLanesInPool": 3,
+        "flowNodes": 23,
+        "tasks": 13,
+        "gateways": 8,
+        "events": 2,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 26,
+        "messageFlows": 0,
+        "artifacts": 1,
+        "loops": 1,
+        "maxLabelLength": 39
+      },
+      "featuresFrom": "v0 render"
+    },
+    {
+      "id": "f-s17-document-approval",
+      "origin": "fixture",
+      "source": "packages/bpmn-core/tests/fixtures/s17-document-approval.dsl",
+      "processKey": "fixture:s17-document-approval",
+      "dslFile": "cases/f-s17-document-approval.dsl",
+      "sha256": "19ced9175779bfd1a152dfdf615cc4d3c7f93273d8fc47d706e7b15641a4dc83",
+      "tags": [
+        "pool1-nolanes",
+        "loops",
+        "artifacts",
+        "size-small"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 1,
+        "maxLanesInPool": 1,
+        "flowNodes": 2,
+        "tasks": 2,
+        "gateways": 0,
+        "events": 0,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 2,
+        "messageFlows": 0,
+        "artifacts": 3,
+        "loops": 1,
+        "maxLabelLength": 17
+      },
+      "featuresFrom": "v0 render"
+    },
+    {
+      "id": "f-s17-job-application",
+      "origin": "fixture",
+      "source": "packages/bpmn-core/tests/fixtures/s17-job-application.dsl",
+      "processKey": "fixture:s17-job-application",
+      "dslFile": "cases/f-s17-job-application.dsl",
+      "sha256": "c59da3392cf8817510889a3a5f384613c6a9d155045a1c579a9b8ff67ea41db7",
+      "tags": [
+        "pool1-lanes",
+        "boundary-events",
+        "size-medium"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 3,
+        "maxLanesInPool": 3,
+        "flowNodes": 17,
+        "tasks": 6,
+        "gateways": 2,
+        "events": 9,
+        "subprocesses": 0,
+        "boundaryEvents": 1,
+        "sequenceFlows": 14,
+        "messageFlows": 0,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 16
+      },
+      "featuresFrom": "v0 render"
+    },
+    {
+      "id": "f-s17-order-to-ship",
+      "origin": "fixture",
+      "source": "packages/bpmn-core/tests/fixtures/s17-order-to-ship.dsl",
+      "processKey": "fixture:s17-order-to-ship",
+      "dslFile": "cases/f-s17-order-to-ship.dsl",
+      "sha256": "922d22c1c848b360b8f2ff75ae349a3617d807dd03ba21d7c7e3ad316a23df14",
+      "tags": [
+        "pool1-lanes",
+        "size-small"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 3,
+        "maxLanesInPool": 3,
+        "flowNodes": 9,
+        "tasks": 5,
+        "gateways": 1,
+        "events": 3,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 8,
+        "messageFlows": 0,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 17
+      },
+      "featuresFrom": "v0 render"
+    },
+    {
+      "id": "f-s17-pizza-order",
+      "origin": "fixture",
+      "source": "packages/bpmn-core/tests/fixtures/s17-pizza-order.dsl",
+      "processKey": "fixture:s17-pizza-order",
+      "dslFile": "cases/f-s17-pizza-order.dsl",
+      "sha256": "d2edcce63b36a5b23e1625014cf4e63a7295f4e89c49bc6fe9e3397beaf3281e",
+      "tags": [
+        "pool1-nolanes",
+        "size-small"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 1,
+        "maxLanesInPool": 1,
+        "flowNodes": 7,
+        "tasks": 1,
+        "gateways": 1,
+        "events": 5,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 6,
+        "messageFlows": 0,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 18
+      },
+      "featuresFrom": "v0 render"
+    },
+    {
+      "id": "f-simple",
+      "origin": "fixture",
+      "source": "smoke/inputs/simple.dsl",
+      "processKey": "fixture:simple",
+      "dslFile": "cases/f-simple.dsl",
+      "sha256": "cc232b68c923e9a614246bacdccf2fecafc96f3b5dd43fa41f5ecd0d291bc7e9",
+      "tags": [
+        "pool1-lanes",
+        "size-small"
+      ],
+      "features": {
+        "pools": 1,
+        "lanes": 2,
+        "maxLanesInPool": 2,
+        "flowNodes": 4,
+        "tasks": 2,
+        "gateways": 0,
+        "events": 2,
+        "subprocesses": 0,
+        "boundaryEvents": 0,
+        "sequenceFlows": 3,
+        "messageFlows": 0,
+        "artifacts": 0,
+        "loops": 0,
+        "maxLabelLength": 13
+      },
+      "featuresFrom": "v0 render"
+    }
+  ]
+}

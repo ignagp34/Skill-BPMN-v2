@@ -1,6 +1,6 @@
 # Plan — iteración 1 de mejora del layout
 
-Estado: **propuesta, sin implementar** (2026-09-25). Nada de este plan está programado.
+Estado (2026-09-25): **fase 0, banco, métricas y herramientas de votación y juez implementados** (`tools/layout-lab/`, evidencia en `evidence/layout-v0/REPORT.md`). Todavía no hay ningún candidato de layout, ni calibración real, ni juez ejecutado.
 
 ## Punto de partida
 

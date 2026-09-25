@@ -1,0 +1,13 @@
+{
+  "schema": "layout-compare/1",
+  "base": "v0",
+  "candidate": "v0",
+  "objectiveGatePassed": true,
+  "affectedCases": [],
+  "failures": {
+    "semantic": [],
+    "status": [],
+    "hardRegressions": [],
+    "areaBand": []
+  }
+}

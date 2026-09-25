@@ -1,4 +1,5 @@
 // render --run <runDir> --raw <file> --model <m> --effort <e> --host <h> [--evidence <text>] [--timeout-ms <n>]
+//        [--message-flows hidden|shown]
 import { existsSync } from 'node:fs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
@@ -8,6 +9,7 @@ import { findEngineRoot } from '../lib/engine.mjs';
 import { declaredGenerator } from '../lib/generators.mjs';
 import { DEFAULT_TIMEOUT_MS, renderWithHarness } from '../lib/harness.mjs';
 import { sha256 } from '../lib/hash.mjs';
+import { FULL_LAYOUT_FILE, parseMessageFlows } from '../lib/message-flows.mjs';
 import { nowIso, RunStore } from '../lib/run-store.mjs';
 import { exitCodeFor, STATUS } from '../lib/status.mjs';
 
@@ -40,10 +42,10 @@ async function writeFiles(dir, files) {
 }
 
 /** Runs the engine on one raw generator answer and returns the attempt's outcome fields. */
-async function renderRawOutput(engineRoot, dir, input, timeoutMs) {
+async function renderRawOutput(engineRoot, dir, input, { timeoutMs, messageFlows }) {
   let rendered;
   try {
-    rendered = await renderWithHarness(engineRoot, [input], { timeoutMs });
+    rendered = await renderWithHarness(engineRoot, [input], { timeoutMs, messageFlows });
   } catch (error) {
     return { outcome: { status: STATUS.INFRASTRUCTURE_ERROR, error: error.message, infra: error.kind ?? 'harness' } };
   }
@@ -52,10 +54,13 @@ async function renderRawOutput(engineRoot, dir, input, timeoutMs) {
     return { runtime, outcome: { status: STATUS.INFRASTRUCTURE_ERROR, error: result.error.message,
       infra: result.error.kind ?? 'harness', pageErrors: result.pageErrors } };
   }
-  const { output, reimported, pageErrors } = result;
+  const { output, reimported, pageErrors, presentation } = result;
   const inspected = inspectArtifacts(output);
-  const hashes = await writeFiles(dir, attemptFiles(output, inspected, reimported));
+  const hashes = await writeFiles(dir, { ...attemptFiles(output, inspected, reimported),
+    [FULL_LAYOUT_FILE]: presentation.fullLayoutXml ?? null });
+  const { fullLayoutXml, ...presentationRecord } = presentation;
   return { runtime, outcome: { status: classifyRender(output, inspected, reimported), harnessStatus: output.status,
+    presentation: presentationRecord,
     succeeded: output.succeeded, reimported, checks: inspected.checks, exportAvailability: output.exportAvailability,
     pageErrors, diagnostics: extractDiagnostics(output.resultJson), hashes } };
 }
@@ -73,11 +78,12 @@ export async function renderAttempt(store, rawPath, options) {
   await writeFile(join(dir, 'raw_output.txt'), rawOutput);
   if (inputPrompt && !existsSync(join(dir, 'input_prompt.md'))) await writeFile(join(dir, 'input_prompt.md'), inputPrompt);
 
+  const messageFlows = parseMessageFlows(options['message-flows']);
   const started = Date.now();
   const { outcome, runtime } = rawOutput.trim().length === 0
     ? { outcome: { status: STATUS.GENERATION_ERROR, error: 'Empty generator output.' } }
     : await renderRawOutput(findEngineRoot(), dir, harnessInput(store, n, rawOutput, inputPrompt, generator),
-      Number(options['timeout-ms'] ?? DEFAULT_TIMEOUT_MS));
+      { timeoutMs: Number(options['timeout-ms'] ?? DEFAULT_TIMEOUT_MS), messageFlows });
 
   await store.recordAttempt({ n, kind: n === 1 ? 'initial' : 'repair', generator, durationMs: Date.now() - started,
     inputPromptSha256: sha256(inputPrompt), rawOutputSha256: sha256(rawOutput), diagnostics: [], ...outcome }, runtime);

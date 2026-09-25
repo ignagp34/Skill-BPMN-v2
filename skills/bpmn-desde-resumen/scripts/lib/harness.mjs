@@ -6,6 +6,7 @@ import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import os from 'node:os';
 import { configureBrowsersPath } from './engine.mjs';
+import { DEFAULT_MESSAGE_FLOWS, MESSAGE_FLOWS, stripMessageFlowsInPage } from './message-flows.mjs';
 
 export const DEFAULT_TIMEOUT_MS = 120_000;
 const HARNESS_PATH = '/index.headless.html';
@@ -37,10 +38,13 @@ export async function launchChromium(root) {
   }
 }
 
-async function startViteServer(root) {
+/** The TFM harness (layout v0). Other layout versions supply their own app and page. */
+export const TFM_HARNESS = Object.freeze({ app: 'apps/tfm-lab', page: HARNESS_PATH });
+
+async function startViteServer(root, app) {
   const { createServer } = await import(pathToFileURL(loadTfmDependencies(root).vitePath).href);
-  const tfmRoot = join(root, 'apps/tfm-lab');
-  const server = await createServer({ root: tfmRoot, configFile: join(tfmRoot, 'vite.config.ts'), logLevel: 'warn',
+  const appRoot = join(root, app);
+  const server = await createServer({ root: appRoot, configFile: join(appRoot, 'vite.config.ts'), logLevel: 'warn',
     server: { host: '127.0.0.1', port: 0, open: false } });
   await server.listen();
   return { server, baseUrl: `http://127.0.0.1:${server.httpServer.address().port}` };
@@ -62,22 +66,39 @@ function withTimeout(promise, timeoutMs) {
   return Promise.race([promise, timeout]).finally(() => clearTimeout(timer));
 }
 
-async function renderOne(browser, baseUrl, input, timeoutMs) {
+/**
+ * Post-layout presentation. With message flows hidden, the BPMN loses its
+ * message flows and the SVG/PNG are re-exported from it by the harness's own
+ * renderArtifactsFromLayout; the complete layout is kept as fullLayoutXml.
+ */
+async function applyPresentation(page, output, messageFlows) {
+  if (messageFlows !== MESSAGE_FLOWS.HIDDEN || !output.layoutXml) return { output, presentation: { messageFlows, removed: 0 } };
+  const stripped = await page.evaluate(stripMessageFlowsInPage, output.layoutXml);
+  if (stripped.removed === 0) return { output, presentation: { messageFlows, removed: 0 } };
+  const { svg, pngBase64 } = await page.evaluate(xml => window.renderArtifactsFromLayout(xml), stripped.xml);
+  return {
+    output: { ...output, layoutXml: stripped.xml, svg, pngBase64 },
+    presentation: { messageFlows, removed: stripped.removed, fullLayoutXml: output.layoutXml },
+  };
+}
+
+async function renderOne(browser, url, input, timeoutMs, messageFlows) {
   const page = await browser.newPage({ viewport: VIEWPORT });
   const pageErrors = [];
   page.on('pageerror', err => pageErrors.push(err.message));
   try {
     await injectFaults(page);
     const work = (async () => {
-      await page.goto(`${baseUrl}${HARNESS_PATH}`, { waitUntil: 'load', timeout: timeoutMs });
+      await page.goto(url, { waitUntil: 'load', timeout: timeoutMs });
       await page.waitForFunction(() => window.__harnessReady === true, undefined, { timeout: timeoutMs });
-      const output = await page.evaluate(payload => window.renderExperiment(payload), input);
+      const rendered = await page.evaluate(payload => window.renderExperiment(payload), input);
+      const { output, presentation } = await applyPresentation(page, rendered, messageFlows);
       // Re-import the exported BPMN; an SVG back means the import succeeded
       // (PNG availability is checked separately).
       const reimported = output.layoutXml
         ? await page.evaluate(xml => window.renderArtifactsFromLayout(xml).then(x => !!x.svg), output.layoutXml)
         : null;
-      return { output, reimported };
+      return { output, reimported, presentation };
     })();
     return { ...(await withTimeout(work, timeoutMs)), pageErrors };
   } catch (error) {
@@ -88,22 +109,62 @@ async function renderOne(browser, baseUrl, input, timeoutMs) {
 }
 
 /**
+ * One Vite server + one Chromium for many renders (fresh page per render).
+ * Always close() it; renderWithHarness does so for the one-shot case.
+ */
+export class HarnessSession {
+  constructor(root, harness, vite, browser, runtime) {
+    Object.assign(this, { root, harness, vite, browser, runtime });
+  }
+
+  static async open(root, harness = TFM_HARNESS) {
+    const runtime = runtimeVersions(root);
+    let vite; let browser;
+    try {
+      vite = await startViteServer(root, harness.app);
+      browser = await launchChromium(root);
+      runtime.chromium = browser.version();
+      return new HarnessSession(root, harness, vite, browser, runtime);
+    } catch (err) {
+      await browser?.close().catch(() => {});
+      await vite?.server.close().catch(() => {});
+      throw err;
+    }
+  }
+
+  /** input: RenderExperimentInput of headless/main.ts. Failures come back as { error }. */
+  render(input, { timeoutMs = DEFAULT_TIMEOUT_MS, messageFlows = DEFAULT_MESSAGE_FLOWS } = {}) {
+    return renderOne(this.browser, `${this.vite.baseUrl}${this.harness.page}`, input, timeoutMs, messageFlows);
+  }
+
+  /** Runs fn(page) on a blank page with the pinned viewport; the page is always closed. */
+  async withPage(fn) {
+    const page = await this.browser.newPage({ viewport: VIEWPORT });
+    try {
+      return await fn(page);
+    } finally {
+      await page.close().catch(() => {});
+    }
+  }
+
+  async close() {
+    await this.browser.close().catch(() => {});
+    await this.vite.server.close().catch(() => {});
+  }
+}
+
+/**
  * Renders harness inputs (RenderExperimentInput of headless/main.ts), one fresh
  * page each. Server and browser are always closed. Infrastructure failures
  * before rendering are thrown; per-input failures are returned as { error }.
  */
-export async function renderWithHarness(root, inputs, { timeoutMs = DEFAULT_TIMEOUT_MS } = {}) {
-  const runtime = runtimeVersions(root);
-  let vite; let browser;
+export async function renderWithHarness(root, inputs, options = {}) {
+  const session = await HarnessSession.open(root);
   try {
-    vite = await startViteServer(root);
-    browser = await launchChromium(root);
-    runtime.chromium = browser.version();
     const results = [];
-    for (const input of inputs) results.push(await renderOne(browser, vite.baseUrl, input, timeoutMs));
-    return { runtime, results };
+    for (const input of inputs) results.push(await session.render(input, options));
+    return { runtime: session.runtime, results };
   } finally {
-    await browser?.close().catch(() => {});
-    await vite?.server.close().catch(() => {});
+    await session.close();
   }
 }

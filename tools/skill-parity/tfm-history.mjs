@@ -26,7 +26,7 @@ const sample = names.filter((_, i) => i % step === 0).slice(0, max);
 const rows = [];
 for (const name of sample) {
   const dir = join(experiments, name);
-  const proc = spawnSync(process.execPath, [cli, 'render-dsl', '--dsl', join(dir, outputFile(dir)), '--out', output, '--label', name],
+  const proc = spawnSync(process.execPath, [cli, 'render-dsl', '--message-flows', 'shown', '--dsl', join(dir, outputFile(dir)), '--out', output, '--label', name],
     { encoding: 'utf8' });
   const payload = JSON.parse(proc.stdout);
   const historical = JSON.parse(await readFile(join(dir, 'result.json'), 'utf8')).metadata?.status ?? null;

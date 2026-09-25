@@ -1,0 +1,51 @@
+Patient:
+(start Charge disputed)
+Dispute Charge
+(send Dispute Letter)
+(receive Explanation Letter)
+(finish Patient informed of correct charge)
+
+Patient:
+(start Charge disputed)
+Dispute Charge
+(send Dispute Letter)
+(receive Corrected Invoice)
+(finish Patient informed of incorrect charge)
+
+Billing Specialist:
+(receive Dispute Letter)
+[db Billing System]
+Open Patient Account
+[Invoice]
+[Treatment Record]
+[Insurance Response]
+Review Invoice, Treatment Record, and Insurance Response
+Is the charge correct?
+Yes
+(send Explanation Letter)
+Close Dispute
+(finish Dispute closed)
+
+Billing Specialist:
+(receive Dispute Letter)
+[db Billing System]
+Open Patient Account
+[Invoice]
+[Treatment Record]
+[Insurance Response]
+Review Invoice, Treatment Record, and Insurance Response
+Is the charge correct?
+No
+//Adjustments require documented justification
+Prepare Adjustment Form
+[Adjustment Form]
+Update Billing System
+[db Billing System]
+Issue Corrected Invoice
+[Corrected Invoice]
+(send Corrected Invoice)
+(finish Invoice corrected)
+
+== pools ==
+Patient Pool -> Patient
+Hospital -> Billing Specialist

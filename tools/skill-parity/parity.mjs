@@ -58,7 +58,7 @@ const summary = { startedAt: new Date().toISOString(), node: process.version, pl
   modelCalls: 0, pngTolerance: PNG_TOLERANCE, sameDayReference: reference, parity: [], faults: [] };
 
 for (const item of cases) {
-  const res = run(['render-dsl', '--dsl', join(root, 'smoke/inputs', `${item.id}.dsl`), '--out', join(output, 'cases'), '--label', item.id]);
+  const res = run(['render-dsl', '--message-flows', 'shown', '--dsl', join(root, 'smoke/inputs', `${item.id}.dsl`), '--out', join(output, 'cases'), '--label', item.id]);
   const baseDir = join(root, 'baseline-stage1/rendered', item.id);
   const baseChecks = JSON.parse(await readFile(join(baseDir, 'checks.json'), 'utf8'));
   const row = { id: item.id, invalid: item.invalid, baselineStatus: baseChecks.status, adapterStatus: res.payload?.status, exit: res.exit };
@@ -115,11 +115,11 @@ async function fault(name, args, env, expect) {
   return p;
 }
 const emptyBrowsers = await mkdtemp(join(os.tmpdir(), 'no-chromium-'));
-await fault('chromium-missing', ['render-dsl', '--dsl', valid, '--out', join(output, 'faults'), '--label', 'no-chromium'],
+await fault('chromium-missing', ['render-dsl', '--message-flows', 'shown', '--dsl', valid, '--out', join(output, 'faults'), '--label', 'no-chromium'],
   { PLAYWRIGHT_BROWSERS_PATH: emptyBrowsers }, { exit: 1, status: 'infrastructure_error', missing: ['diagram.bpmn', 'diagram.svg', 'diagram.png'] });
-await fault('timeout', ['render-dsl', '--dsl', valid, '--out', join(output, 'faults'), '--label', 'timeout', '--timeout-ms', '50'],
+await fault('timeout', ['render-dsl', '--message-flows', 'shown', '--dsl', valid, '--out', join(output, 'faults'), '--label', 'timeout', '--timeout-ms', '50'],
   {}, { exit: 1, status: 'infrastructure_error', missing: ['diagram.bpmn', 'diagram.svg', 'diagram.png'] });
-await fault('png-export-fails', ['render-dsl', '--dsl', valid, '--out', join(output, 'faults'), '--label', 'png-fault'],
+await fault('png-export-fails', ['render-dsl', '--message-flows', 'shown', '--dsl', valid, '--out', join(output, 'faults'), '--label', 'png-fault'],
   { BPMN_SKILL_FAULT: 'png' }, { exit: 4, status: 'partial_export', missing: ['diagram.png'] });
 
 // Full generation contract without a model: prepare → broken answer → repair

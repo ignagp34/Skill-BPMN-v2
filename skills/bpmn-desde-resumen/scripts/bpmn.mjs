@@ -5,13 +5,16 @@
 //
 //   prepare       --out <dir> --host <host> (--summary-file <f> | --summary <text>) [--label <slug>]
 //   render        --run <runDir> --raw <file> --model <m> --effort <e> --host <h> [--evidence <text>]
+//                 [--message-flows hidden|shown]
 //   repair-prompt --run <runDir>
 //   fail          --run <runDir> --reason <text> [--model m] [--effort e] [--host h]
-//   render-dsl    --dsl <file> --out <dir> [--label <slug>]
+//   render-dsl    --dsl <file> --out <dir> [--label <slug>] [--message-flows hidden|shown]
 //   evaluate      --run <runDir> [--python <exe>]
 //   sync-agents   [--target <projectRoot>] [--check]
 //   doctor
 //
+// Message flows are hidden by default (removed from the .bpmn too); `shown`
+// keeps the TFM output and is what parity and evaluation compare against.
 // Every command prints one JSON object on stdout.
 import { parseArgs, UsageError } from './lib/cli-args.mjs';
 import { EXIT_FAILURE, EXIT_USAGE } from './lib/status.mjs';

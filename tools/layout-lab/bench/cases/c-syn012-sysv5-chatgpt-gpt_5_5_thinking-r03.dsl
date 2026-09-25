@@ -1,0 +1,39 @@
+(receive Patient charge dispute received)
+[Dispute letter]
+Billing Specialist: user Open patient account
+[db Billing system]
+[Invoice]
+[Treatment record]
+[Insurance response]
+Billing Specialist: user Review billing documentation
+Billing Specialist: rule Determine whether charge is correct
+Is the charge correct?
+Yes
+Billing Specialist: send Send explanation letter
+[Explanation letter]
+(finish Patient informed and dispute closed)
+
+(receive Patient charge dispute received)
+[Dispute letter]
+Billing Specialist: user Open patient account
+[db Billing system]
+[Invoice]
+[Treatment record]
+[Insurance response]
+Billing Specialist: user Review billing documentation
+Billing Specialist: rule Determine whether charge is correct
+Is the charge correct?
+No
+//Adjustments require documented justification
+Billing Specialist: user Prepare adjustment form
+[Adjustment form]
+[db Billing system]
+Billing Specialist: user Update billing system
+[db Billing system]
+Billing Specialist: service Issue corrected invoice
+[Corrected invoice]
+Billing Specialist: send Send corrected invoice to patient
+(finish Patient informed of corrected charge)
+
+== pools ==
+Hospital -> Billing Specialist

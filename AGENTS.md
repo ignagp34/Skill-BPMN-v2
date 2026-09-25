@@ -205,7 +205,7 @@ Aceptación: evaluación ejecutable sin la interfaz web, reportes trazables y ca
 
 Aceptación: la skill instalada resuelve resumen → Luna/high → DSL → motor original → PNG/BPMN/SVG con paridad demostrada y evaluación disponible.
 
-### 8. Mejora del layout — plan propuesto (2026-09-25), sin implementar
+### 8. Mejora del layout — fase 0 y herramientas listas (2026-09-25); candidatos pendientes
 
 Plan completo: `plans/layout-iteracion-1.md`. Pedido por el usuario: pools con auto-layout propio, flujos de mensaje ocultos por defecto, métricas de layout y evaluación visual con capturas. Condiciones: el layout del TFM (v0) se conserva intacto y seleccionable; cada mejora es una versión nueva, se cambia una idea cada vez, sin modelo en el bucle y con el XML semántico idéntico.
 
@@ -216,11 +216,11 @@ Decisiones del usuario (2026-09-25):
 - juez visual Opus 5.5;
 - **se puede cambiar todo el layout mientras el DSL y su interpretación (XML semántico) no cambien**. Esto sustituye, para esta etapa, la restricción de "mantener orden, parámetros y algoritmos" de la sección Invariante del diseño; v0 sigue seleccionable.
 
-- [ ] Fase 0: `--message-flows hidden|shown`, oculto por defecto (BPMN, SVG y PNG), reutilizando `stripMessageFlows` de company-web.
-- [ ] Fase 1: banco `layout-bench` estratificado (~50 DSL del corpus y fixtures, con hashes).
-- [ ] Fase 2: `layout-metrics`: restricciones duras, legibilidad y compacidad en banda; diagnóstico de v0.
-- [ ] Fase 3: juez visual A/B ciego (Opus 5.5) con orden invertido, rúbrica fija, calibración humana (~20 parejas) en una página ágil de votación y métrica compuesta ajustada a los juicios.
-- [ ] Fase 4–5: candidatos priorizados por el diagnóstico (primero pools independientes, luego orden/alineación entre pools y etiquetas); aceptación con métricas y juez; evidencia en `evidence/layout-vN/`.
+- [x] Fase 0: `--message-flows hidden|shown` en `render`/`render-dsl`, oculto por defecto (BPMN, SVG y PNG), con la lógica de `stripMessageFlows` de company-web ejecutada en la página del harness y reexportación con `renderArtifactsFromLayout`. El layout completo queda en `layout-full.bpmn` y es el que usa `evaluate`. La paridad y `tfm-history` usan `shown`: 12/12 casos (`evidence/layout-v0/parity-phase0-shown.json`).
+- [x] Fase 1: banco `tools/layout-lab/bench/` con 50 DSL y sus hashes (32 del corpus y 18 fixtures). v0 da en los 32 del corpus el mismo `diagram.bpmn` que el TFM. **Hueco:** no existe ningún DSL con 3 pools ni con subprocesos.
+- [x] Fase 2: `layout-metrics` (35 métricas; texto medido en Chromium) y diagnóstico de v0 en `evidence/layout-v0/REPORT.md`. Los peores defectos se concentran en multi-pool; el defecto duro más frecuente son las etiquetas sobre la banda de título (32/50 casos).
+- [ ] Fase 3: herramientas hechas y probadas con un lote de humo (`ab-batch`, página `vote`, `montage`, `judge/judge-prompt.md`, `agreement` con kappa). Faltan la calibración humana real (~20 parejas), el juez sobre un candidato y la métrica compuesta.
+- [ ] Fase 4–5: candidatos priorizados por el diagnóstico (primero pools independientes, luego orden/alineación entre pools y etiquetas); aceptación con `compare` (reglas en `tools/layout-lab/config/acceptance.json`) y juez; evidencia en `evidence/layout-vN/`.
 
 ## Disciplina de seguimiento
 

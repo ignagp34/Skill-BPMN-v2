@@ -1,0 +1,7 @@
+Employee: Request password reset
+Support Agent: receive Reset Request
+Verify employee identity
+Reset password in directory system
+send Temporary Password
+Record action in ticket
+Resolve ticket

@@ -5,6 +5,7 @@ import { copyFile, mkdir, readdir, rm, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { requireOption, UsageError } from '../lib/cli-args.mjs';
 import { findEngineRoot } from '../lib/engine.mjs';
+import { FULL_LAYOUT_FILE } from '../lib/message-flows.mjs';
 import { RunStore } from '../lib/run-store.mjs';
 
 const STAGED_FILES = ['diagram.bpmn', 'result.json', 'raw_output.txt', 'normalized.dsl', 'input_prompt.md', 'run-info.json'];
@@ -39,6 +40,9 @@ export async function run(options) {
   for (const name of STAGED_FILES) {
     if (existsSync(store.path(name))) await copyFile(store.path(name), join(experimentDir, name));
   }
+  // Metrics are computed on the TFM output: with message flows hidden, the
+  // complete layout replaces the delivered diagram.bpmn.
+  if (existsSync(store.path(FULL_LAYOUT_FILE))) await copyFile(store.path(FULL_LAYOUT_FILE), join(experimentDir, 'diagram.bpmn'));
 
   const proc = spawnSync(findPython(engineRoot, options.python), ['-m', 'bpmn_eval.cli_experiments', '--experiments', staging,
     '--schema-dir', join(engineRoot, 'TFM-eval/schemas'), '-o', outDir, '--format', 'both'],

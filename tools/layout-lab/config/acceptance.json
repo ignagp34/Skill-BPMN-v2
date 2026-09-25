@@ -1,0 +1,16 @@
+{
+  "_comment": "Pre-registered acceptance rules for a layout candidate (plans/layout-iteracion-1.md, fase 5). Change them only before rendering a candidate, never after seeing its results.",
+  "semanticMustBeIdentical": true,
+  "hardConstraintRegressionsAllowed": 0,
+  "areaGrowthMax": 0.15,
+  "areaGrowthMaxNote": "A candidate may not exceed the base diagram area by more than this fraction in any case unless the visual judge justifies it.",
+  "judge": {
+    "minWinRateOnAffected": 0.6,
+    "confidence": 0.95,
+    "positionSwap": true
+  },
+  "calibration": {
+    "humanPairs": 20,
+    "minCohenKappa": 0.6
+  }
+}

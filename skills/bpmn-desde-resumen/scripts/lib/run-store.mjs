@@ -4,10 +4,11 @@ import { copyFile, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import { sha256 } from './hash.mjs';
 import { UsageError } from './cli-args.mjs';
+import { FULL_LAYOUT_FILE } from './message-flows.mjs';
 import { isRepairable, MAX_ATTEMPTS } from './status.mjs';
 
 export const DELIVERABLES = ['diagram.bpmn', 'diagram.svg', 'diagram.png'];
-const TRACE_FILES = ['raw_output.txt', 'normalized.dsl', 'result.json', 'semantic.bpmn'];
+const TRACE_FILES = ['raw_output.txt', 'normalized.dsl', 'result.json', 'semantic.bpmn', FULL_LAYOUT_FILE];
 const RUN_INFO = 'run-info.json';
 
 export const writeJson = (path, value) => writeFile(path, `${JSON.stringify(value, null, 2)}\n`);
