@@ -11,7 +11,13 @@ Lee primero `AGENTS.md` (única fuente de instrucciones; `CLAUDE.md` solo rediri
 ## Siguiente trabajo, en orden
 
 1. Hecho: voto `ab-v7-v15-20260926` **v15 12, v7 1, 5 empates** (p = 0,003; `evidence/layout-v15/human-votes.json`). **v15 es el layout por defecto** desde el 2026-09-26 (decisión del usuario); paridad con v0 `passed=true`. Los candidatos nuevos se construyen ya sobre v15 (v8, v12, v13 y H se hicieron o pensaron sobre v7).
-2. Siguen pendientes los puntos 2–7 del resumen anterior (v8 sin decidir, mejorar v12, votar v13 y v12 + v13, evento de inicio, propuesta H, C′ y otras ideas).
+2. **Decisiones del usuario (2026-09-26, tras v15):**
+   - **v8 fuera**: no entra en ninguna combinación.
+   - **Experimento posible (anotado, sin hacer):** lo de v9 para objetos de datos y almacenes. El nombre va encima cuando debajo choca con líneas u otros elementos y encima choca menos.
+   - **Evento de inicio (tarea pendiente, aparte):** al usuario le importa este fallo; no debe haber tareas que surjan de la nada. Causa: `synthesizeImplicitStartEvents` (`packages/bpmn-core/src/dsl/semantic.ts:1034`) solo añade un inicio a los nodos **sin flujo de entrada**. Si el primer nodo recibe un bucle, tiene entrada y ningún nodo queda sin ella, así que el pool se queda sin inicio. En `f-s17-document-approval`, «Revise Document» vuelve a «Review Document». En `find-a-job`, dos «No» vuelven a «Report job applications». Arreglo propuesto: detectar los nodos no alcanzables desde ningún inicio y poner uno delante del primer nodo del DSL de ese componente. Cambia el XML semántico: hacerlo como normalización versionada fuera del motor congelado, desactivada en v0, la paridad y el corpus.
+   - Luna/high: el usuario lo prueba con varios modelos. Tarda 1–2 min por diagrama, frente a 20–30 s con GPT 5.5. Bizagi lo prueba el usuario. Quitar la copia `anthropic-skills:bpmn` de claude.ai queda pendiente.
+   - El usuario vota ahora `ab-v7-v13-20260926` y `ab-v12-v12clarity-20260926`: después, desciegar y analizar.
+3. Siguen pendientes los puntos 2–7 del resumen anterior (v8 sin decidir, mejorar v12, votar v13 y v12 + v13, evento de inicio, propuesta H, C′ y otras ideas).
 
 ---
 
