@@ -1,0 +1,60 @@
+{
+  "schema": "layout-ab-votes-summary/1",
+  "batch": "skill-runs/layout/ab-v22-v24-20260926",
+  "seed": "v22-v24-20260926",
+  "view": "hidden",
+  "voter": "user",
+  "note": "A = v22, B = v24. Unblinded 2026-09-26. Only the 4 cases that combine v22 and v23; the other 13 changed cases are v23 and inherit its votes.",
+  "tally": {
+    "v22": 2,
+    "v24": 2,
+    "tie": 0
+  },
+  "decisive": 4,
+  "signTestTwoSidedP": 1,
+  "missing": [],
+  "pairs": [
+    {
+      "pairId": "p01",
+      "caseId": "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v24",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p02",
+      "caseId": "c-syn006-sysv31-gemini-gemini_3_5_flash_thinking-r01",
+      "winner": "v22",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p03",
+      "caseId": "f-s17-job-application",
+      "winner": "v24",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p04",
+      "caseId": "f-planta-residuos",
+      "winner": "v22",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    }
+  ]
+}

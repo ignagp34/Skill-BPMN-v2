@@ -64,8 +64,8 @@ Requiere la mejora 1. Es el «toque final» del layout: en lugar de juzgar pares
 
 ### Protocolo propuesto
 
-1. Elegir casos del banco (`tools/layout-lab/bench`, 56 DSL) estratificados como el banco: una pool, varias pools, artefactos, bucles y etiquetas largas. Empezar con unos 10–15.
-2. Renderizar con el layout por defecto vigente (hoy v15). Fijar la versión en el registro.
+1. Elegir casos del banco (`tools/layout-lab/bench`, 55 DSL desde que se excluyó `f-s17-document-approval`) estratificados como el banco: una pool, varias pools, artefactos, bucles y etiquetas largas. Empezar con unos 10–15.
+2. Renderizar con el layout por defecto vigente (el `default` de `skills/bpmn/config/layouts.json`). Fijar la versión en el registro.
 3. El usuario corrige cada caso en `bpmn-edit` hasta que le parezca limpio. Opcionalmente, con un tiempo máximo por caso.
 4. Guardar en `evidence/layout-human-edits/<caso>/`: `engine.bpmn`, `user.bpmn`, `edits.json`, las imágenes antes y después y una nota libre del usuario.
 5. Análisis:

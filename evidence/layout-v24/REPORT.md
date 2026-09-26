@@ -14,6 +14,12 @@ Render `skill-runs/layout/v24-20260926-b55`: 55/55, XML semántico idéntico, 0 
 - Frente a v23 (`compare-v23.json`) y frente a v20 (`compare-v20.json`): también pasa el filtro.
 - De los 17 casos, 13 son idénticos a v23 donde v22 no cambia nada. Frente a v22 son lo mismo que v23 frente a v20, ya votado. Solo 4 combinan los dos cambios: `c-syn006` r01 (−1 cruce), `c-syn015-chatgpt` (−3 sobre los −6 que ya quitó v22), `planta-residuos` (−1) y `job-application`.
 
+## Votación
+
+Votado por el usuario el 2026-09-26 (`human-votes.json`; A = v22, B = v24): en los 4 casos que combinan los dos cambios, **v24 2, v22 2** (gana en `c-syn015-chatgpt` y `job-application`). Con los 13 casos que son v23 y heredan su voto, el total es **v24 12, v22 3, 2 empates** (p ≈ 0,035).
+
+Las 2 derrotas (`c-syn006` r01 y `planta-residuos`) son los mismos casos en que el usuario ya prefirió no desenredar en los votos de v21 y v23. Es un patrón estable: en esos dos, la ruta nueva no compensa. Queda como pista para la siguiente iteración del enrutador.
+
 ## Lote A/B
 
 `skill-runs/layout/ab-v22-v24-20260926/`: los 4 casos que combinan los dos cambios, semilla `v22-v24-20260926`.
