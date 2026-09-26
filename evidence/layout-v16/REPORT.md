@@ -17,7 +17,7 @@ El efecto es pequeño: en el banco casi todos los nombres de datos ya quedan lib
 
 ## Lote A/B
 
-`skill-runs/layout/ab-v15-v16-20260926/`: 2 parejas (todas las que cambian), semilla `v15-v16-20260926`. Pendiente de voto:
+`skill-runs/layout/ab-v15-v16-20260926/`: 2 parejas (todas las que cambian), semilla `v15-v16-20260926`. Comando de voto:
 
 ```powershell
 node tools/layout-lab/layout.mjs vote --batch skill-runs/layout/ab-v15-v16-20260926
