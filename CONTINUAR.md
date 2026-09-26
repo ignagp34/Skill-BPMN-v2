@@ -1,10 +1,11 @@
-# Resumen para continuar — 2026-09-26, noche (etapa 8: v20 es el defecto; v22 ganó; votar v23)
+# Resumen para continuar — 2026-09-26, noche (etapa 8: v22 es el defecto; votar v23)
 
 ## Actualización (misma noche)
 
 - Votos: **v22 7, v20 0** (p = 0,016) y v21 11, v20 7, 1 empate (p = 0,48). Desciegados en `evidence/layout-v21|v22/human-votes.json` y anotados en sus `REPORT.md`.
 - **v23 = v21 afinado** (`evidence/layout-v23/REPORT.md`). La causa de las derrotas de v21 era una suposición falsa: el nombre de un gateway debajo del rombo. v23 pasa el filtro frente a v20, con cruces −25 y casi sin codos añadidos.
-- **Pendiente del usuario**: votar `ab-v20-v23-20260926` (7 parejas nuevas) y decidir si v22 pasa a ser el defecto. Si v23 también gana, construir v24 = v22 + v23 (tocan fases distintas) y compararla con el defecto.
+- **v22 es el layout por defecto** (decisión del usuario, 2026-09-26; antes v20). Tras el cambio: `render-dsl` de prueba con v22 y paridad con v0 `passed=true` (`skill-runs/parity-20260926-v22default`).
+- **Pendiente del usuario**: votar `ab-v20-v23-20260926` (7 parejas nuevas; v23 está construida sobre v20). Si gana, construir v24 = v22 + v23 (tocan fases distintas) y compararla con v22 (`skill-runs/layout/v22-20260926-b55`, nueva base de comparación).
 
 
 
