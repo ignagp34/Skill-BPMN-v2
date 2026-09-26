@@ -121,6 +121,11 @@
       "description": "v21 tuned from its vote (11-7): flows sharing neither source nor target that run parallel closer than 10 px count as merged there, and the router no longer guesses a gateway's name below it nor counts the names of a flow's own ends (later passes move them)",
       "base": "v21",
       "harness": { "app": "tools/layout-lab/harness/v23", "page": "/index.headless.html" }
+    },
+    "v24": {
+      "description": "v22 + v23, the winners of their votes against v20 (v22 7-0, v23 12-3), unchanged: v20 + compact lanes + the tuned untangling router and boundary-event names beside their exit line",
+      "base": "v22",
+      "harness": { "app": "tools/layout-lab/harness/v24", "page": "/index.headless.html" }
     }
   }
 }

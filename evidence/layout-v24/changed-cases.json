@@ -1,0 +1,28 @@
+{
+  "vs": "v22",
+  "changed": [
+    "c-syn005-sysv4-chatgpt-gpt_5_5_thinking-r01",
+    "c-syn005-sysv5-chatgpt-gpt_5_5_thinking-r03",
+    "c-syn006-sysv31-gemini-gemini_3_5_flash_thinking-r01",
+    "c-syn006-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+    "c-syn009-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+    "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+    "c-syn013-sysv31-claude-opus_4_8_medium-r01",
+    "c-syn013-sysv4-chatgpt-gpt_5_5_thinking-r03",
+    "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+    "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+    "f-canon-4-composting",
+    "f-gemini-03",
+    "f-gemini-05",
+    "f-planta-residuos",
+    "f-s17-job-application",
+    "h-ml-02-llm-fine-tuning",
+    "h-ml-05-rag-chatbot"
+  ],
+  "newPictures": [
+    "c-syn006-sysv31-gemini-gemini_3_5_flash_thinking-r01",
+    "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+    "f-planta-residuos",
+    "f-s17-job-application"
+  ]
+}

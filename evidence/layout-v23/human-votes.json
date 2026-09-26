@@ -1,0 +1,90 @@
+{
+  "schema": "layout-ab-votes-summary/1",
+  "batch": "skill-runs/layout/ab-v20-v23-20260926",
+  "seed": "v20-v23-20260926",
+  "view": "hidden",
+  "voter": "user",
+  "note": "A = v20, B = v23. Unblinded 2026-09-26. Only the 7 cases whose image differs from v21; the other 10 changed cases are identical to v21 and inherit its votes (v21/v23 7, v20 2, tie 1).",
+  "tally": {
+    "v20": 1,
+    "v23": 5,
+    "tie": 1
+  },
+  "decisive": 6,
+  "signTestTwoSidedP": 0.2188,
+  "missing": [],
+  "pairs": [
+    {
+      "pairId": "p01",
+      "caseId": "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v23",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p02",
+      "caseId": "c-syn006-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v23",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p03",
+      "caseId": "c-syn013-sysv4-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v23",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p04",
+      "caseId": "c-syn009-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v23",
+      "sawAltView": null,
+      "tags": [],
+      "note": "La flecha al entrar en el evento de New set of times se ve mejor, sin embargo la línea vertical que entra en Select Time esta demasiado pegada a la tarea. Por eso fue empate en la anterior. Selecciono esta pero prácticamente empate",
+      "revisions": 2
+    },
+    {
+      "pairId": "p05",
+      "caseId": "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "tie",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p06",
+      "caseId": "f-gemini-03",
+      "winner": "v23",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p07",
+      "caseId": "f-planta-residuos",
+      "winner": "v20",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    }
+  ]
+}

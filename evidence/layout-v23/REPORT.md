@@ -46,6 +46,12 @@ En las 7 derrotas de v21:
 
 **Frente a v21** (`compare-v21.json`): cambian 9 casos. `c-syn015-gemini` recupera una etiqueta sobre línea que v21 había quitado (vuelve al nivel de v20), así que ese filtro falla por 1 caso.
 
+## Votación
+
+Votado por el usuario el 2026-09-26 (`human-votes.json`; A = v20, B = v23): en los 7 casos de imagen nueva, **v23 5, v20 1, 1 empate**. Junto con los 10 casos idénticos a v21, que heredan su voto (7, 2 y 1), el total es **v23 12, v20 3, 2 empates** (p ≈ 0,035). En `f-gemini-04` y `h-ml-01` v23 es v20.
+
+Nota del usuario en `c-syn009` r02 (sysv31): «la flecha al entrar en el evento de New set of times se ve mejor; sin embargo, la línea vertical que entra en Select Time está demasiado pegada a la tarea. Por eso fue empate en la anterior. Selecciono esta, pero prácticamente empate». Idea anotada: una separación mínima entre una línea y la tarea a la que no pertenece.
+
 ## Lote A/B
 
 De los 17 casos que cambian, 10 son idénticos a v21 y ya tienen voto: v23 7, v20 2, 1 empate. Solo se votan los 7 cuya imagen es nueva: `skill-runs/layout/ab-v20-v23-20260926/`, semilla `v20-v23-20260926`.

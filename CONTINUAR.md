@@ -1,11 +1,13 @@
-# Resumen para continuar — 2026-09-26, noche (etapa 8: v22 es el defecto; votar v23)
+# Resumen para continuar — 2026-09-26, noche (etapa 8: v22 es el defecto; votar v24 = v22 + v23)
 
 ## Actualización (misma noche)
 
 - Votos: **v22 7, v20 0** (p = 0,016) y v21 11, v20 7, 1 empate (p = 0,48). Desciegados en `evidence/layout-v21|v22/human-votes.json` y anotados en sus `REPORT.md`.
 - **v23 = v21 afinado** (`evidence/layout-v23/REPORT.md`). La causa de las derrotas de v21 era una suposición falsa: el nombre de un gateway debajo del rombo. v23 pasa el filtro frente a v20, con cruces −25 y casi sin codos añadidos.
 - **v22 es el layout por defecto** (decisión del usuario, 2026-09-26; antes v20). Tras el cambio: `render-dsl` de prueba con v22 y paridad con v0 `passed=true` (`skill-runs/parity-20260926-v22default`).
-- **Pendiente del usuario**: votar `ab-v20-v23-20260926` (7 parejas nuevas; v23 está construida sobre v20). Si gana, construir v24 = v22 + v23 (tocan fases distintas) y compararla con v22 (`skill-runs/layout/v22-20260926-b55`, nueva base de comparación).
+- v23 ganó: **12–3** en total (5–1–1 en sus 7 casos nuevos más los 10 heredados de v21).
+- **v24 = v22 + v23** pasa el filtro frente a v22 (`evidence/layout-v24/REPORT.md`). **Pendiente del usuario**: votar `ab-v22-v24-20260926` (4 parejas; los otros 13 casos son v23) y decidir si v24 pasa a ser el defecto. Base de comparación actual: `skill-runs/layout/v22-20260926-b55`.
+- Idea nueva (nota del usuario en `c-syn009`): separación mínima entre una línea y una tarea ajena («Select Time»).
 
 
 
@@ -36,7 +38,7 @@ Empieza por aquí en una conversación nueva. Lee primero `AGENTS.md` (única fu
 ## Comandos (PowerShell, desde la raíz del clon)
 
 ```powershell
-node tools/layout-lab/layout.mjs vote --batch skill-runs/layout/ab-v20-v23-20260926
+node tools/layout-lab/layout.mjs vote --batch skill-runs/layout/ab-v22-v24-20260926
 node tools/layout-lab/layout.mjs bench-render --layout vN --out skill-runs/layout/vN-<fecha>-b55
 node tools/layout-lab/layout.mjs metrics --render skill-runs/layout/vN-<fecha>-b55
 node tools/layout-lab/layout.mjs compare --base skill-runs/layout/v20-20260926-b55 --candidate skill-runs/layout/vN-<fecha>-b55
