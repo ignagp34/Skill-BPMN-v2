@@ -27,6 +27,17 @@ Métricas nuevas en `tools/layout-lab/lib/metrics.mjs` (grupo de legibilidad; el
 
 Detalle por caso en `flow-readability.json`.
 
+Caras mixtas por tipo de nodo. El usuario observó que no solo pasa en tareas, también en eventos, y que en los gateways no parece haber problemas:
+
+| Render | Eventos | Tareas | Gateways |
+| --- | --- | --- | --- |
+| v0 | 4 (eventos de recepción de mensaje en `c-syn009` y `c-syn010`) | 0 | 0 |
+| v1 a v11 (incluido v7) | 1 («New Set of Times», `c-syn009`, cara superior) | 0 | 0 |
+| v12 | 1 | 1 («Report job applications») | 1 (la unión delante de esa tarea, parte del mismo enredo) |
+| v13 | 0 | 0 | 0 |
+
+Los eventos son el origen habitual. v13 aplica la regla por igual a tareas, eventos y gateways; en un gateway sin conflicto no cambia nada.
+
 ## Criterio de agrupación
 
 - **Se agrupan:** los flujos con el mismo origen (tronco de salida) y los que tienen el mismo destino (tronco de llegada). El tramo compartido tiene un solo sentido y acaba en un solo nodo.
