@@ -1842,5 +1842,12 @@
         "h-ml-06-vision-medica"
       ]
     }
+  ],
+  "excluded": [
+    {
+      "id": "f-s17-document-approval",
+      "at": "2026-09-26",
+      "reason": "User's vote note in ab-v16-v20-20260926: 'Elimina este ejemplo' (2 tasks, no start event, first node receives the loop). Kept on disk; skipped by every render from now on."
+    }
   ]
 }

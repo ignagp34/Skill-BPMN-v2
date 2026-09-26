@@ -1,7 +1,7 @@
 {
   "_comment": "Layout versions (stage 8, plans/layout-iteracion-1.md). The only place that decides which layout the skill uses. v0 is the frozen TFM layout; every candidate is the TFM harness with some render modules swapped (tools/layout-lab/harness/). Harness paths are relative to the engine root. Change the default only with the user's approval.",
-  "default": "v16",
-  "defaultDecision": "User, 2026-09-26: v16 (v15 + data object and store names above when below collides) made the default after winning its vote against v15 2-0 and passing the objective gate against v15. Previous defaults: v15 (2026-09-26; won 12-1 against v7), v7 (2026-09-26; won 16-6 against v6), v6 (2026-09-26), v4 (2026-09-25).",
+  "default": "v20",
+  "defaultDecision": "User, 2026-09-26: v20 (v16 + v12 fixed bpmn-auto-layout + v13 flow clarity + proposal H flow labels off shapes) made the default after winning its vote against v16 10-0 (1 tie, p = 0.002); it fails the objective gate against v16 only on v12's area (find-a-job, c-syn015-gemini, both preferred by the user) and 1 label case. Previous defaults: v16 (2026-09-26; won 2-0 against v15), v15 (2026-09-26; won 12-1 against v7), v7 (2026-09-26; won 16-6 against v6), v6 (2026-09-26), v4 (2026-09-25).",
   "versions": {
     "v0": {
       "description": "TFM layout (frozen engine f558eb0, apps/tfm-lab headless harness). Parity and corpus checks always use it.",
@@ -106,6 +106,16 @@
       "description": "v18 + v19, the winners of the votes against v16 (v17 2-0, v18 6-0, v19 4-0), unchanged: v16 + v12 (fixed bpmn-auto-layout) + v13 (flow clarity) + proposal H (flow labels off shapes)",
       "base": "v16",
       "harness": { "app": "tools/layout-lab/harness/v20", "page": "/index.headless.html" }
+    },
+    "v21": {
+      "description": "v20 + untangling (user's note on c-syn015-chatgpt): v13's flow-clarity router also re-routes flows that cross another, looking for fewer crossings (80 rounds); a route over the default name box of an event or gateway, or leaving no room for its own name, costs 400; last, a boundary event's name moves beside its exit line when that line crosses it",
+      "base": "v20",
+      "harness": { "app": "tools/layout-lab/harness/v21", "page": "/index.headless.html" }
+    },
+    "v22": {
+      "description": "v20 + compact lanes: before pools and lanes are stacked, each lane drops the grid rows only other lanes use (a gap wider than one 140 px row loses the excess from its middle); flows are re-routed by the later phases",
+      "base": "v20",
+      "harness": { "app": "tools/layout-lab/harness/v22", "page": "/index.headless.html" }
     }
   }
 }

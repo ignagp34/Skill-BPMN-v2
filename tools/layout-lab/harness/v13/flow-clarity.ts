@@ -34,15 +34,35 @@ const SHIFTS = [PITCH, -PITCH, 2 * PITCH, -2 * PITCH, 3 * PITCH, -3 * PITCH];
 const MERGE_MIN = 5;        // shared length that counts as a merge (same as the metric)
 const INSET = 2;            // a route may touch its own ends' borders but not their inside
 const CLEARANCE = 8;        // free space kept around every other shape (a line along a border looks attached)
-const MAX_ROUNDS = 40;
 const MAX_SAMPLES = 40;     // corridor positions tried between two ports, per axis
 const COST = { shape: 1e6, merge: 60, crossing: 150, bend: 40, mixedFace: 1e5 };
+
+/**
+ * What the pass works on. v13's values are neutral; v21 (untangling) also treats a
+ * flow that crosses another as troubled, so the same router looks for a route with
+ * fewer crossings.
+ */
+export interface FlowClarityTuning {
+  untangle: boolean;
+  maxRounds: number;
+  /**
+   * Cost of a route through the default label box (below the shape) of a named event
+   * or gateway, and of a named flow whose own label would land on a shape or a line
+   * where v0's placeLabels puts it; 0 = ignored.
+   */
+  labelZone: number;
+}
+export const V13_TUNING: FlowClarityTuning = { untangle: false, maxRounds: 40, labelZone: 0 };
 
 export async function distributeParallelChannels(layoutXml: string): Promise<string> {
   return clarifyFlows(await distributeV0(layoutXml));
 }
 
 export async function clarifyFlows(xml: string): Promise<string> {
+  return clarifyFlowsWith(xml, V13_TUNING);
+}
+
+export async function clarifyFlowsWith(xml: string, tuning: FlowClarityTuning): Promise<string> {
   const moddle = new BpmnModdle();
   const { rootElement } = await moddle.fromXML(xml);
   const defs = rootElement as any;
@@ -62,9 +82,10 @@ export async function clarifyFlows(xml: string): Promise<string> {
       points: el.waypoint.map((p: any) => ({ x: p.x, y: p.y })) }));
   if (flows.length === 0) return xml;
 
-  const world = { shapes, pools, flows };
+  const world: World = { shapes, pools, flows, untangle: tuning.untangle, labelZone: tuning.labelZone,
+    labelZones: tuning.labelZone ? labelZones(planeElements) : [] };
   let changed = false;
-  for (let round = 0; round < MAX_ROUNDS; round += 1) {
+  for (let round = 0; round < tuning.maxRounds; round += 1) {
     const fix = bestFix(world);
     if (!fix) break;
     fix.flow.points = fix.points;
@@ -75,7 +96,10 @@ export async function clarifyFlows(xml: string): Promise<string> {
   return (await moddle.toXML(defs, { format: false })).xml;
 }
 
-interface World { shapes: Map<string, { bounds: Bounds; type: string }>; pools: Bounds[]; flows: Flow[]; }
+interface World {
+  shapes: Map<string, { bounds: Bounds; type: string }>; pools: Bounds[]; flows: Flow[];
+  untangle: boolean; labelZone: number; labelZones: Bounds[];
+}
 
 /** The single change (reroute or segment shift) that most reduces the diagram's cost, if any. */
 function bestFix(world: World): { flow: Flow; points: Pt[] } | null {
@@ -106,6 +130,7 @@ function flowCost(world: World, flow: Flow, points: Pt[], bound: number): number
   const old = flow.points; flow.points = points;
   try {
     cost += COST.shape * shapeHits(flow, world.shapes);
+    if (world.labelZone) cost += world.labelZone * (zoneHits(points, world.labelZones) + ownLabelHits(world, flow, points));
     if (cost > bound) return cost;
     for (const dirs of faceUse(world.flows, world.shapes).values()) if (dirs.size === 2) cost += COST.mixedFace;
     if (cost > bound) return cost;
@@ -121,7 +146,7 @@ function flowCost(world: World, flow: Flow, points: Pt[], bound: number): number
   }
 }
 
-/** Flows on a mixed face or in an ambiguous merge. */
+/** Flows on a mixed face or in an ambiguous merge (and, when untangling, flows that cross another). */
 function troubled(world: World): Flow[] {
   const out = new Set<Flow>();
   const faces = faceUse(world.flows, world.shapes);
@@ -133,6 +158,7 @@ function troubled(world: World): Flow[] {
   for (let i = 0; i < world.flows.length; i += 1) for (let j = i + 1; j < world.flows.length; j += 1) {
     const a = world.flows[i]; const b = world.flows[j];
     if (!bundle(a, b) && sharedLength(a.points, b.points) > MERGE_MIN) { out.add(a); out.add(b); }
+    if (world.untangle && crossings(a.points, b.points) > 0) { out.add(a); out.add(b); }
   }
   return [...out];
 }
@@ -157,6 +183,68 @@ function shapeHits(f: Flow, shapes: World["shapes"]): number {
     const r = id === f.source || id === f.target ? inset(s.bounds, INSET) : inset(s.bounds, -CLEARANCE);
     for (let i = 0; i < f.points.length - 1; i += 1) if (segmentHitsRect(f.points[i], f.points[i + 1], r)) { n += 1; break; }
   }
+  return n;
+}
+
+/**
+ * Where bpmn-js puts the name of an event or gateway before any label pass: centred
+ * under the shape, wrapped at 90 px (11 px Arial, ~6 px a character, 14 px a line).
+ * Routing runs before the labels are placed, so this is the best guess of where they go.
+ */
+function labelZones(planeElements: any[]): Bounds[] {
+  const zones: Bounds[] = [];
+  for (const el of planeElements) {
+    const type = el.bpmnElement?.$type ?? "";
+    const name = (el.bpmnElement?.name ?? "").trim();
+    if (el.$type !== "bpmndi:BPMNShape" || !el.bounds || !name || !/Event$|Gateway$/.test(type)) continue;
+    const width = Math.min(90, name.length * 6 + 4);
+    const lines = Math.ceil((name.length * 6) / 90);
+    const b = el.bounds;
+    zones.push({ x: b.x + b.width / 2 - width / 2, y: b.y + b.height + 2, width, height: lines * 14 });
+  }
+  return zones;
+}
+
+/**
+ * What the flow's own name would cover, as v0's placeLabels places it: 6 px a
+ * character, 18 px high, above or below the last horizontal stretch at 75 % of it
+ * (else beside the last vertical one), whichever covers less.
+ */
+function ownLabelHits(world: World, flow: Flow, points: Pt[]): number {
+  const name = String(flow.el.bpmnElement.name ?? "").trim();
+  if (!name) return 0;
+  const w = Math.max(24, name.length * 6 + 4); const h = 18; const off = 8;
+  let boxes: Bounds[] = [];
+  for (let i = points.length - 2; i >= 0 && boxes.length === 0; i -= 1) {
+    const [a, b] = [points[i], points[i + 1]];
+    if (Math.abs(a.y - b.y) <= 1 && Math.abs(a.x - b.x) > 8) {
+      const x = (a.x + b.x) / 2 + (b.x - a.x) * 0.25;
+      boxes = [{ x: x - w / 2, y: a.y - h - off, width: w, height: h }, { x: x - w / 2, y: a.y + off, width: w, height: h }];
+    }
+  }
+  for (let i = points.length - 2; i >= 0 && boxes.length === 0; i -= 1) {
+    const [a, b] = [points[i], points[i + 1]];
+    if (Math.abs(a.x - b.x) <= 1 && Math.abs(a.y - b.y) > 8) {
+      const y = (a.y + b.y) / 2 + (b.y - a.y) * 0.25;
+      boxes = [{ x: a.x + off, y: y - h / 2, width: w, height: h }, { x: a.x - w - off, y: y - h / 2, width: w, height: h }];
+    }
+  }
+  if (boxes.length === 0) return 0;
+  const hits = (box: Bounds) => {
+    let n = 0;
+    for (const s of world.shapes.values()) if (rectsOverlap(box, s.bounds)) n += 1;
+    for (const o of world.flows) if (o !== flow) for (let i = 0; i < o.points.length - 1; i += 1) if (segmentHitsRect(o.points[i], o.points[i + 1], box)) { n += 1; break; }
+    for (const z of world.labelZones) if (rectsOverlap(box, z)) n += 1;
+    return n;
+  };
+  return Math.min(...boxes.map(hits));
+}
+
+const rectsOverlap = (a: Bounds, b: Bounds) => a.x < b.x + b.width && b.x < a.x + a.width && a.y < b.y + b.height && b.y < a.y + a.height;
+
+function zoneHits(points: Pt[], zones: Bounds[]): number {
+  let n = 0;
+  for (const z of zones) for (let i = 0; i < points.length - 1; i += 1) if (segmentHitsRect(points[i], points[i + 1], z)) { n += 1; break; }
   return n;
 }
 

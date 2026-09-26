@@ -7,5 +7,6 @@ Cambios, marcados «layout v12» en el código:
 - `Grid.addAfter` coloca el nodo en la celda siguiente si está libre y, si no, abre una columna en todas las filas, en lugar de insertarlo en la fila y empujar el resto;
 - `createGridLayout` arranca desde el primer nodo en orden de documento cuando el proceso no tiene nodo sin entrada, y da una fila nueva a cada nodo que quede sin alcanzar;
 - las funciones de `min-dash` que usaba (`assign`, `map`, `pick`, `isFunction`) están escritas en el propio archivo.
+- sin la línea final `//# sourceMappingURL=index.js.map` (el mapa no se copió y Vite imprimía un error en cada render; 2026-09-26).
 
 `THIRD-PARTY-NOTICES.md` pertenece a la instantánea congelada del repositorio original (`smoke/verify-source.mjs`) y no se modifica; este aviso lo complementa.

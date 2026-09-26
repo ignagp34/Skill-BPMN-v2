@@ -827,4 +827,3 @@ function layoutProcess(xml) {
 }
 
 export { layoutProcess };
-//# sourceMappingURL=index.js.map

@@ -32,4 +32,15 @@ Render `skill-runs/layout/v20-20260926-b56`: 56/56, XML semántico idéntico, 0 
 node tools/layout-lab/layout.mjs vote --batch skill-runs/layout/ab-v16-v20-20260926
 ```
 
+## Votación
+
+Votado por el usuario el 2026-09-26 (`human-votes.json`; A = v16, B = v20, vista oculta): **v20 10, v16 0, 1 empate** (p = 0,002). Todas las parejas que cambian.
+
+- `f-s-a3-find-a-job`: «sigue mucho mejor» (flujo, alineación, pools).
+- `c-syn015-gemini`: gana v20 (flujo, líneas, pools); este caso era el empate de v18.
+- `f-s17-document-approval` (empate): «Elimina este ejemplo».
+- `c-syn015-chatgpt` (gana v20): «la siguiente mejora es hacer que en esta clase de diagramas las líneas sean menos confusas y no den la sensación de estar enmarañadas o de nudo».
+
+Gana el voto con claridad y los dos casos que fallan el filtro por área son justo los que el usuario prefiere en la versión nueva. Pasar v20 a defecto lo decide el usuario.
+
 Pendiente: compactar la altura de los carriles de v12 (`find-a-job`); revisar si `f-s17-document-approval` sigue en el banco (nota del usuario; no tiene inicio, ver la tarea del evento de inicio).

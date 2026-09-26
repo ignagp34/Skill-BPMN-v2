@@ -32,8 +32,10 @@ export async function loadBench(benchDir = DEFAULT_BENCH) {
   if (!existsSync(manifestPath)) throw new Error(`No bench at ${benchDir} (run bench-select first).`);
   const manifest = JSON.parse(await readFile(manifestPath, 'utf8'));
   if (manifest.schema !== BENCH_SCHEMA) throw new Error(`Unexpected bench schema ${manifest.schema}`);
+  // Excluded cases stay on disk (older evidence names them) but are no longer rendered.
+  const excluded = new Set((manifest.excluded ?? []).map(e => e.id));
   const cases = [];
-  for (const c of manifest.cases) {
+  for (const c of manifest.cases.filter(c => !excluded.has(c.id))) {
     const bytes = await readFile(join(benchDir, c.dslFile));
     if (sha256(bytes) !== c.sha256) throw new Error(`Bench case ${c.id} changed: hash mismatch (${c.dslFile}).`);
     cases.push({ ...c, dsl: bytes.toString('utf8') });

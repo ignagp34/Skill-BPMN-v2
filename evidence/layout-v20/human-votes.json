@@ -1,0 +1,140 @@
+{
+  "schema": "layout-ab-votes-summary/1",
+  "batch": "skill-runs/layout/ab-v16-v20-20260926",
+  "seed": "v16-v20-20260926",
+  "view": "hidden",
+  "voter": "user",
+  "note": "A = v16, B = v20. Unblinded 2026-09-26.",
+  "tally": {
+    "v16": 0,
+    "v20": 10,
+    "tie": 1
+  },
+  "decisive": 10,
+  "signTestTwoSidedP": 0.001953,
+  "missing": [],
+  "pairs": [
+    {
+      "pairId": "p01",
+      "caseId": "f-s17-document-approval",
+      "winner": "tie",
+      "sawAltView": null,
+      "tags": [],
+      "note": "Elimina este ejemplo",
+      "revisions": 0
+    },
+    {
+      "pairId": "p02",
+      "caseId": "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v20",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [
+        "flow",
+        "lines",
+        "pools"
+      ],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p03",
+      "caseId": "f-canon-4-composting",
+      "winner": "v20",
+      "sawAltView": null,
+      "tags": [
+        "labels"
+      ],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p04",
+      "caseId": "f-s-a3-find-a-job",
+      "winner": "v20",
+      "sawAltView": null,
+      "tags": [
+        "flow",
+        "alignment",
+        "pools"
+      ],
+      "note": "sigue mucho mejor",
+      "revisions": 0
+    },
+    {
+      "pairId": "p05",
+      "caseId": "f-planta-residuos",
+      "winner": "v20",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p06",
+      "caseId": "c-syn006-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v20",
+      "sawAltView": null,
+      "tags": [
+        "labels"
+      ],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p07",
+      "caseId": "c-syn005-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v20",
+      "sawAltView": null,
+      "tags": [
+        "compactness"
+      ],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p08",
+      "caseId": "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v20",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "LA siguiente mejora es como hacer para que en esta clase de diagramas no las líneas sean menos confusas y no den la sesación de estar enmarañadas o de nudo",
+      "revisions": 0
+    },
+    {
+      "pairId": "p09",
+      "caseId": "f-gemini-03",
+      "winner": "v20",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p10",
+      "caseId": "c-syn006-sysv31-gemini-gemini_3_5_flash_thinking-r01",
+      "winner": "v20",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p11",
+      "caseId": "c-syn009-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v20",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    }
+  ]
+}

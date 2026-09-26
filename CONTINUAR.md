@@ -1,3 +1,44 @@
+# Resumen para continuar — 2026-09-26, noche (etapa 8: v20 es el defecto; votar v21 y v22)
+
+Empieza por aquí en una conversación nueva. Lee primero `AGENTS.md` (única fuente de instrucciones; `CLAUDE.md` solo redirige). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`, clon en `C:/Repositorios/Skill BPMN v2/Skill-BPMN-v2`. El original `BPMN-DSL-Monorepo` sigue protegido: nunca escribir en él. Commits locales autorizados. **Push solo cuando el usuario lo pida expresamente.** Antes de cualquier operación remota, comprobar que `origin` es `ignagp34/Skill-BPMN-v2`. Trabaja desde la raíz del clon (terminal PowerShell).
+
+## Estado
+
+- **Layout por defecto: v20** (decisión del usuario, 2026-09-26). Voto `ab-v16-v20-20260926`: v20 10, v16 0, 1 empate (p = 0,002; `evidence/layout-v20/human-votes.json`). Tras el cambio: `render-dsl` de prueba con v20 y paridad con v0 `passed=true` (`skill-runs/parity-20260926-v20default-b`).
+- **Banco de 55 casos**: `f-s17-document-approval` excluido sin borrarlo («Elimina este ejemplo»; `excluded` en `tools/layout-lab/bench/manifest.json`). **Base de comparación: `skill-runs/layout/v20-20260926-b55`.** Los renders de 56 casos ya no se pueden comparar con los nuevos, porque `compare` exige el mismo manifiesto.
+- **Candidatos sobre v20, pendientes de voto** (independientes; ambos pasan el filtro):
+  - **v21 = desenredar líneas** (nota del usuario en `c-syn015-chatgpt`): 19 casos, cruces de secuencia −26, sin regresiones duras, algún codo más. `evidence/layout-v21/REPORT.md`.
+  - **v22 = carriles compactos** (filas vacías de cada carril fuera): 7 casos, área −2 % a −24 %. `evidence/layout-v22/REPORT.md`.
+- `harness/v13/flow-clarity.ts` es configurable (`clarifyFlowsWith`, `V13_TUNING` neutro). v20 re-renderizado idéntico tras cada cambio (`.bpmn` 55/55).
+- La copia de bpmn-auto-layout de v12 ya no tiene el comentario `sourceMappingURL` (Vite imprimía un error en cada render; v20 idéntico).
+- Comprobaciones: pruebas del lab 8/8, `verify-source` 3319/0, 0 flujos sueltos en v20, v21 y v22.
+
+## Siguiente trabajo, en orden
+
+1. **El usuario vota** v21 (19 parejas) y v22 (7). Después: desciegar como `evidence/layout-v20/human-votes.json`, anotarlo en cada `REPORT.md` y proponer la combinación v21 + v22 si ganan los dos (tocan fases distintas). Cambiar el defecto lo decide el usuario; tras hacerlo, `render-dsl` de prueba y paridad en una carpeta nueva.
+2. Compactar más `find-a-job` (idea sin hacer): juntar en una fila los nodos de un carril que no se solapan en horizontal. Es más agresivo que v22: cambia qué flujos van en recto.
+3. Siguen pendientes de decisión del usuario, sin cambios: métrica `disconnectedFlows` y comprobación en la skill (script provisional usado hoy: comprobar que los extremos de cada flujo de secuencia están sobre su origen y su destino, tolerancia 3 px); uniones en T; preguntas seguidas y gateways sin pregunta; evento de inicio; C′, «Parts arrive», carriles estrechos; mejoras futuras de `plans/mejoras-futuras.md`; lo que está en manos del usuario (Luna/high real, Work web, Bizagi, copia `anthropic-skills:bpmn`).
+
+## Avisos prácticos
+
+- **No lanzar la paridad a la vez que otros renders.** Hoy, con tres renders en paralelo, el fallo inyectado `timeout` de `parity.mjs` se quedó colgado después de cerrar Chromium y Vite; sola pasa entera. Varios `bench-render` a la vez sí funcionan, aunque alguno puede agotar el tiempo (repetir en una carpeta nueva).
+- No editar módulos compartidos con un render en marcha; tras editarlos, re-renderizar v20 y comparar los `.bpmn` (los SVG difieren siempre en los ID de los marcadores).
+
+## Comandos (PowerShell, desde la raíz del clon)
+
+```powershell
+node tools/layout-lab/layout.mjs vote --batch skill-runs/layout/ab-v20-v21-20260926
+node tools/layout-lab/layout.mjs vote --batch skill-runs/layout/ab-v20-v22-20260926
+node tools/layout-lab/layout.mjs bench-render --layout vN --out skill-runs/layout/vN-<fecha>-b55
+node tools/layout-lab/layout.mjs metrics --render skill-runs/layout/vN-<fecha>-b55
+node tools/layout-lab/layout.mjs compare --base skill-runs/layout/v20-20260926-b55 --candidate skill-runs/layout/vN-<fecha>-b55
+node --test tools/layout-lab/test/layout-lab.test.mjs
+node smoke/verify-source.mjs
+node tools/skill-parity/parity.mjs skill-runs/parity-<fecha>
+```
+
+---
+
 # Resumen para continuar — 2026-09-26, cierre (etapa 8: v16 es el defecto; votar v20)
 
 Empieza por aquí en una conversación nueva. Lee primero `AGENTS.md` (única fuente de instrucciones; `CLAUDE.md` solo redirige). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`, clon en `C:/Repositorios/Skill BPMN v2/Skill-BPMN-v2`. El original `BPMN-DSL-Monorepo` sigue protegido: nunca escribir en él. Commits locales autorizados. **Push solo cuando el usuario lo pida expresamente** (lo pidió el 2026-09-26 y se subió todo hasta este resumen). Antes de cualquier operación remota, comprobar que `origin` es `ignagp34/Skill-BPMN-v2`. Trabaja desde la raíz del clon; la terminal del usuario es PowerShell y los comandos del laboratorio fallan si se lanzan desde la carpeta padre.
