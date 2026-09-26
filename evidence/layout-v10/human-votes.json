@@ -1,0 +1,136 @@
+{
+  "schema": "layout-ab-votes-summary/1",
+  "batch": "skill-runs/layout/ab-v7-v10-20260926",
+  "seed": "v7-v10-20260926",
+  "view": "hidden",
+  "voter": "user",
+  "note": "A = v7, B = v10. Unblinded 2026-09-26.",
+  "tally": {
+    "v7": 1,
+    "v10": 9,
+    "tie": 1
+  },
+  "decisive": 10,
+  "signTestTwoSidedP": 0.0215,
+  "pairs": [
+    {
+      "pairId": "p01",
+      "caseId": "h-ml-01-clasificador-imagenes",
+      "winner": "v10",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [
+        "labels"
+      ],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p02",
+      "caseId": "f-canon-1-cheeseburger",
+      "winner": "v7",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p03",
+      "caseId": "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v10",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p04",
+      "caseId": "c-syn011-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v10",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p05",
+      "caseId": "f-canon-3-conveyor-belt",
+      "winner": "tie",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p06",
+      "caseId": "h-ml-02-llm-fine-tuning",
+      "winner": "v10",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p07",
+      "caseId": "f-planta-residuos",
+      "winner": "v10",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p08",
+      "caseId": "h-ml-05-rag-chatbot",
+      "winner": "v10",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p09",
+      "caseId": "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v10",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p10",
+      "caseId": "c-syn011-sysv5-chatgpt-gpt_5_5_thinking-r02",
+      "winner": "v10",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p11",
+      "caseId": "f-canon-2-incoming-flight",
+      "winner": "v10",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "schema": "layout-ab-votes-summary/1",
+  "batch": "skill-runs/layout/ab-v7-v8-20260926",
+  "seed": "v7-v8-20260926",
+  "view": "hidden",
+  "voter": "user",
+  "note": "A = v7, B = v8. Unblinded 2026-09-26.",
+  "tally": {
+    "v7": 1,
+    "v8": 2,
+    "tie": 2
+  },
+  "decisive": 3,
+  "signTestTwoSidedP": 1,
+  "pairs": [
+    {
+      "pairId": "p01",
+      "caseId": "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v8",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [
+        "alignment"
+      ],
+      "note": "Evitar solapes, entre líneas y tareas, En review supplier hay una llínea que cruza el nombre.",
+      "revisions": 0
+    },
+    {
+      "pairId": "p02",
+      "caseId": "f-canon-5-marriage",
+      "winner": "v8",
+      "sawAltView": null,
+      "tags": [
+        "labels"
+      ],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p03",
+      "caseId": "c-syn011-sysv5-chatgpt-gpt_5_5_thinking-r02",
+      "winner": "tie",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p04",
+      "caseId": "f-planta-residuos",
+      "winner": "tie",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p05",
+      "caseId": "c-syn012-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v7",
+      "sawAltView": null,
+      "tags": [
+        "labels"
+      ],
+      "note": "",
+      "revisions": 0
+    }
+  ]
+}

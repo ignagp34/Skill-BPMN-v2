@@ -1,0 +1,103 @@
+{
+  "schema": "layout-ab-votes-summary/1",
+  "batch": "skill-runs/layout/ab-v7-v12-20260926",
+  "seed": "v7-v12-20260926",
+  "view": "hidden",
+  "voter": "user",
+  "note": "A = v7, B = v12. Unblinded 2026-09-26.",
+  "tally": {
+    "v7": 2,
+    "v12": 4,
+    "tie": 1
+  },
+  "decisive": 6,
+  "signTestTwoSidedP": 0.6875,
+  "pairs": [
+    {
+      "pairId": "p01",
+      "caseId": "c-syn005-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v12",
+      "sawAltView": null,
+      "tags": [
+        "compactness"
+      ],
+      "note": "Se rompe regla estricta. La tarea Send request to finance manager tiene solape. En este caso no se entiende, arriba hay espacio suficiente acercando ambos codos a la gateway",
+      "revisions": 0
+    },
+    {
+      "pairId": "p02",
+      "caseId": "f-planta-residuos",
+      "winner": "v12",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [
+        "compactness"
+      ],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p03",
+      "caseId": "f-s17-document-approval",
+      "winner": "tie",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p04",
+      "caseId": "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v12",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [
+        "compactness",
+        "pools"
+      ],
+      "note": "Muy superior el pool de abajo",
+      "revisions": 0
+    },
+    {
+      "pairId": "p05",
+      "caseId": "f-gemini-03",
+      "winner": "v7",
+      "sawAltView": null,
+      "tags": [
+        "alignment",
+        "flow"
+      ],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p06",
+      "caseId": "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v7",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p07",
+      "caseId": "f-s-a3-find-a-job",
+      "winner": "v12",
+      "sawAltView": null,
+      "tags": [
+        "labels",
+        "alignment",
+        "pools"
+      ],
+      "note": "",
+      "revisions": 0
+    }
+  ]
+}

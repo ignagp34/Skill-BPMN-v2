@@ -1,0 +1,136 @@
+{
+  "schema": "layout-ab-votes-summary/1",
+  "batch": "skill-runs/layout/ab-v7-v11-20260926",
+  "seed": "v7-v11-20260926",
+  "view": "hidden",
+  "voter": "user",
+  "note": "A = v7, B = v11. Unblinded 2026-09-26.",
+  "tally": {
+    "v7": 1,
+    "v11": 8,
+    "tie": 1
+  },
+  "decisive": 9,
+  "signTestTwoSidedP": 0.0391,
+  "pairs": [
+    {
+      "pairId": "p01",
+      "caseId": "c-syn011-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v11",
+      "sawAltView": null,
+      "tags": [
+        "labels",
+        "alignment"
+      ],
+      "note": "",
+      "revisions": 1
+    },
+    {
+      "pairId": "p02",
+      "caseId": "f-gemini-03",
+      "winner": "v11",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p03",
+      "caseId": "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v7",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "Se ha agrandado innecesariamente el primer lane en este caso",
+      "revisions": 0
+    },
+    {
+      "pairId": "p04",
+      "caseId": "h-ml-03-deteccion-fraude",
+      "winner": "v11",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [
+        "labels",
+        "pools"
+      ],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p05",
+      "caseId": "c-syn011-sysv5-chatgpt-gpt_5_5_thinking-r02",
+      "winner": "v11",
+      "sawAltView": null,
+      "tags": [
+        "labels"
+      ],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p06",
+      "caseId": "f-s17-document-approval",
+      "winner": "tie",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p07",
+      "caseId": "f-planta-residuos",
+      "winner": "v11",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [
+        "alignment",
+        "labels"
+      ],
+      "note": "",
+      "revisions": 1
+    },
+    {
+      "pairId": "p08",
+      "caseId": "c-syn012-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v11",
+      "sawAltView": null,
+      "tags": [
+        "labels",
+        "alignment"
+      ],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p09",
+      "caseId": "h-ml-01-clasificador-imagenes",
+      "winner": "v11",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p10",
+      "caseId": "c-syn012-sysv5-gemini-gemini_3_5_flash_thinking-r03",
+      "winner": "v11",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    }
+  ]
+}

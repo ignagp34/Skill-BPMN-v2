@@ -1,4 +1,65 @@
-# Resumen para continuar — 2026-09-26 (etapa 8: v7 por defecto; candidatos v8–v12 pendientes de voto)
+# Resumen para continuar — 2026-09-26, noche (etapa 8: votos de v8–v12 hechos; combinar)
+
+Lee primero `AGENTS.md` (única fuente de instrucciones; `CLAUDE.md` solo redirige). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`, clon en `C:/Repositorios/Skill BPMN v2/Skill-BPMN-v2`. El original `BPMN-DSL-Monorepo` sigue protegido. **Nunca push.** Commits locales autorizados. Trabaja desde la raíz del clon (la terminal del usuario es PowerShell).
+
+## Dónde estamos
+
+- **Skill:** se llama `bpmn` desde hoy (carpeta `skills/bpmn/`; junction `~/.claude/skills/bpmn` → esa carpeta; copia de seguridad antigua borrada). La copia `anthropic-skills:bpmn` viene sincronizada de claude.ai: si se quiere quitar, lo hace el usuario en claude.ai. Paridad completa `passed=true` tras el renombrado.
+- **Layout por defecto: v7** (`skills/bpmn/config/layouts.json`). v0 = TFM exacto (paridad y corpus).
+- **Candidatos v8–v13**, todos independientes sobre v7: resumen con imágenes en `evidence/layout-candidates-20260926/SUMMARY.md`, informe por candidato en `evidence/layout-vN/REPORT.md`.
+
+## Votos del usuario (2026-09-26; `evidence/layout-vN/human-votes.json`, A = v7)
+
+| Candidato | Idea | Voto | p (signos) | Notas del usuario |
+| --- | --- | --- | --- | --- |
+| v8 | C: artefactos con alcance limitado | v8 2, v7 1, 2 empates | 1,0 | `c-syn015-chatgpt`: evitar solapes entre líneas y tareas; en «Review supplier…» una línea cruza el nombre. |
+| v9 | G: etiquetas de eventos encima si abajo chocan | **v9 6, v7 0**, 2 empates | 0,03 | — |
+| v10 | D: ancho de tarea según su palabra | **v10 9, v7 1**, 1 empate | 0,02 | — |
+| v11 | B: hacer sitio a los artefactos | **v11 8, v7 1**, 1 empate | 0,04 | Pierde en `c-syn015-gemini`: «se ha agrandado innecesariamente el primer lane». |
+| v12 | A: gateways junto a su tarea | v12 4, v7 2, 1 empate | 0,69 | `c-syn005-chatgpt`: rompe una regla estricta; «Send request to finance manager» tiene un solape; arriba hay sitio acercando ambos codos al gateway. `c-syn015-gemini`: «muy superior el pool de abajo». |
+
+Sin votar todavía: `ab-v7-v13-20260926` (4 parejas) y `ab-v12-v12clarity-20260926` (5, v12 frente a v12 + v13).
+
+## Siguiente trabajo, en orden
+
+1. **Combinar los ganadores claros (v9, v10, v11)** en una versión nueva (v14) sobre v7. Tocan fases distintas: v10 en `layout-missing.js` (ancho de tarea), v11 en `artifacts.js` (bandas para artefactos), v9 como pasada final de etiquetas de eventos, que debe ir **después** de v11 (v11 mueve cosas). Renderizar, `compare` frente a v7 y frente a cada uno, lote A/B. Revisar la nota de v11: no agrandar el primer carril cuando no hace falta (`c-syn015-gemini`).
+2. **v8** no decide (2–1–2): decidir con el usuario si entra en la combinación. La nota sobre líneas que cruzan nombres de tareas encaja con H y con v13.
+3. **v12 (A)** gana 4–2, sin significación: mejorar antes de combinar. Nota del usuario: en `c-syn005-chatgpt` hay un solape y los codos podrían acercarse al gateway. Pendiente: compactar la altura de los carriles (quedan altos en `find-a-job`).
+4. **v13** (claridad de flujos) y **v12 + v13**: que el usuario vote sus lotes (comando abajo).
+5. **Decisión del usuario pendiente: evento de inicio** en pools cuyo primer nodo recibe un bucle (`find-a-job`, `f-s17-document-approval`, pool Supplier de `c-syn015-gemini`). El motor ya sintetiza inicios para nodos sin entrada (`synthesizeImplicitStartEvents`, `packages/bpmn-core/src/dsl/semantic.ts`), pero aquí no hay ninguno. Cambia el XML semántico: propuesta, una corrección semántica versionada fuera del motor congelado, desactivada en v0, la paridad y el corpus.
+6. **Propuesta H (anotada, sin hacer):** etiquetas de flujo que chocan con la tarea de destino («Critical risk», «No critical risk»…). Desplazarlas a la izquierda según la longitud real del texto; `labels.ts` estima el ancho con `CHAR_W = 6`. En v7, 4 casos, todos en `c-syn015-chatgpt`.
+7. Otras ideas pendientes: C′ (alinear columnas entre pools con huecos), uniones en T (ninguna métrica las mide), «Parts arrive» (`gemini-04`) abajo a la izquierda.
+
+## Criterio de agrupación de líneas (acordado al hacer v13)
+
+Se agrupan los flujos con el mismo origen (tronco de salida) o el mismo destino (tronco de llegada). Nunca se agrupan flujos sin origen ni destino común, ni flujos opuestos en la misma cara de un nodo (tareas y, sobre todo, eventos de mensaje; en gateways no aparece salvo en v12). Mejor un cruce que una fusión.
+
+## Herramientas nuevas de hoy
+
+- Métricas: `mixedFaces`, `ambiguousOverlaps` y 5 de artefactos (`assocLengthMean`, `assocBendsPerEdge`, `bentNearAssociations`, `longAssociations`, `artifactTextOutsidePool`), todas en el grupo de legibilidad (el filtro duro no cambia).
+- `bench-render --harness <carpeta>` para variantes de ablación sin registrar (`tools/layout-lab/harness/ablation/`); `ab-batch --cases a,b,…`.
+- Página de votación: tecla **S** (siguiente), **↑** (anterior), `#pNN` en la URL; al revisar con el lote completo avanza.
+- `shared/candidate-config.ts`: un candidato puede sustituir un paquete (v12 usa una copia MIT de bpmn-auto-layout; aviso en `tools/layout-lab/harness/v12/NOTICE.md`). **`THIRD-PARTY-NOTICES.md` pertenece a la instantánea congelada: no editarlo** (`verify-source` falla).
+- Ojo al editar módulos compartidos del harness (`v5/label-aware-artifacts.ts`, `shared/`, `v7/frames.ts`) con renders en marcha: Vite los recarga a mitad. Tras cambiarlos, re-renderizar v7 y comprobar que sale idéntico (hoy: 56/56).
+
+## Comandos (PowerShell, desde la raíz del clon)
+
+```powershell
+node tools/layout-lab/layout.mjs bench-render --layout vN --out skill-runs/layout/vN-<fecha>-b56
+node tools/layout-lab/layout.mjs metrics --render skill-runs/layout/vN-<fecha>-b56
+node tools/layout-lab/layout.mjs compare --base skill-runs/layout/v7-20260926-b56 --candidate skill-runs/layout/vN-<fecha>-b56
+node tools/layout-lab/layout.mjs ab-batch --a <base> --b <candidato> --out skill-runs/layout/ab-<lote> --count 20 --seed <semilla>
+foreach ($b in 'ab-v7-v13-20260926','ab-v12-v12clarity-20260926') { node tools/layout-lab/layout.mjs vote --batch "skill-runs/layout/$b" }
+node --test tools/layout-lab/test/layout-lab.test.mjs
+node smoke/verify-source.mjs
+node tools/skill-parity/parity.mjs skill-runs/parity-<fecha>   # carpeta nueva cada vez
+```
+
+Estado de comprobaciones al cerrar: pruebas del lab 8/8, `verify-source` 3319/0, v7 re-renderizado idéntico 56/56, paridad `passed=true` (tras el renombrado). Último commit de la sesión: el de este resumen.
+
+---
+
+# Resumen anterior — 2026-09-26, tarde (etapa 8: candidatos v8–v13 antes del voto)
 
 Lee primero `AGENTS.md` (única fuente de instrucciones; `CLAUDE.md` solo redirige). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`, clon en `C:/Repositorios/Skill BPMN v2/Skill-BPMN-v2`. El original `BPMN-DSL-Monorepo` sigue protegido. **Nunca push.** Commits locales autorizados.
 
