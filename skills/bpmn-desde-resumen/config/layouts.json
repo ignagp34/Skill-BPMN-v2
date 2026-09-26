@@ -1,7 +1,7 @@
 {
   "_comment": "Layout versions (stage 8, plans/layout-iteracion-1.md). The only place that decides which layout the skill uses. v0 is the frozen TFM layout; every candidate is the TFM harness with some render modules swapped (tools/layout-lab/harness/). Harness paths are relative to the engine root. Change the default only with the user's approval.",
-  "default": "v6",
-  "defaultDecision": "User, 2026-09-26: keep v6. v6 won the A/B vote against v5 (10-3, 1 tie); v5 had won against v4 (11-2, 6 ties). Against v4, v6 has 1 case with a hard regression. Previous default: v4 (2026-09-25).",
+  "default": "v7",
+  "defaultDecision": "User, 2026-09-26: v7 accepted as a correct change. It passes the objective gate against v6 and won the A/B vote 16-6 (the user believes the 6 v6 picks were key mistakes; votes kept as cast). Previous defaults: v6 (2026-09-26), v4 (2026-09-25).",
   "versions": {
     "v0": {
       "description": "TFM layout (frozen engine f558eb0, apps/tfm-lab headless harness). Parity and corpus checks always use it.",

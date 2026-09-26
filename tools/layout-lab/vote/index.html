@@ -204,8 +204,12 @@
     if (choice === 'tie') $('rightFrame').classList.add('tied');
     progress();
     setTimeout(() => {
+      // Next unvoted pair; once all are voted (revising), simply the next pair, and the
+      // "complete" dialog only after the last one, so a revision never traps the page.
       const next = firstUnvoted(index + 1);
-      if (next === -1) finished(); else show(next);
+      if (next !== -1) show(next);
+      else if (votedCount() === pairs().length && index + 1 < pairs().length) show(index + 1);
+      else finished();
     }, 180);
   }
 
@@ -232,7 +236,7 @@
         <tr><td><kbd>↓</kbd> o <kbd>E</kbd></td><td>Empate (ninguno es claramente mejor)</td></tr>
         <tr><td><kbd>1</kbd>–<kbd>6</kbd></td><td>Opcional, antes de votar: qué criterio decidió</td></tr>
         <tr><td><kbd>N</kbd></td><td>Escribir una nota (<kbd>Enter</kbd> vuelve a los atajos)</td></tr>
-        <tr><td><kbd>↑</kbd> / <kbd>Retroceso</kbd></td><td>Pareja anterior (para cambiar un voto)</td></tr>
+        <tr><td><kbd>↑</kbd> / <kbd>Retroceso</kbd> · <kbd>S</kbd></td><td>Pareja anterior / siguiente sin votar (para cambiar un voto). <code>#p04</code> en la URL abre esa pareja</td></tr>
         <tr><td><kbd>V</kbd> · <kbd>Z</kbd></td><td>Lado a lado / apilados · Zoom 1:1 (también clic en una imagen)</td></tr>
         <tr><td><kbd>M</kbd></td><td>Ver / ocultar los flujos de mensaje en las dos imágenes (se mantiene en las parejas siguientes)</td></tr>
       </table>
@@ -254,7 +258,7 @@
     const k = e.key.toLowerCase();
     const actions = {
       arrowleft: () => vote('left'), arrowright: () => vote('right'), arrowdown: () => vote('tie'), e: () => vote('tie'),
-      arrowup: () => show(index - 1), backspace: () => show(index - 1),
+      arrowup: () => show(index - 1), backspace: () => show(index - 1), s: () => show(index + 1),
       n: () => $('note').focus(), v: () => { layout = $('stage').classList.contains('stack') ? 'side' : 'stack'; fit(); },
       z: () => { zoom = !zoom; fit(); }, m: toggleMessages, '?': help, h: help,
     };
@@ -271,7 +275,9 @@
     state = s;
     if (!pairs().length) { dialog('<h2>Lote vacío</h2><p>No hay parejas que votar.</p>'); return; }
     const start = firstUnvoted(0);
-    show(start === -1 ? 0 : start);
+    const linked = pairs().findIndex(p => `#${p.pairId}` === location.hash);
+    show(linked !== -1 ? linked : start === -1 ? 0 : start);
+    if (linked !== -1) return;
     if (start === -1) finished(); else if (votedCount() === 0) help();
   });
 })();

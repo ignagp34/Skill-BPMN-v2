@@ -1,4 +1,4 @@
-# Resumen para continuar — 2026-09-26 (etapa 8: v6 por defecto; candidato v7 pendiente de voto)
+# Resumen para continuar — 2026-09-26 (etapa 8: v7 por defecto)
 
 Lee primero `AGENTS.md` (única fuente de instrucciones; `CLAUDE.md` solo redirige). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`, clon en `C:/Repositorios/Skill BPMN v2/Skill-BPMN-v2`. El original `BPMN-DSL-Monorepo` sigue protegido. **Nunca push.** Commits locales autorizados.
 
@@ -16,8 +16,8 @@ Etapa 8 = mejorar el layout sin cambiar el DSL ni el XML semántico. Cada idea e
 | v3 | Alineación horizontal entre pools | Perdió en las dos vistas. El usuario propuso C′ (alinear columnas con huecos), sin hacer. |
 | v4 | Bandas de título despejadas | Filtro y voto (16–0); fue el defecto del 25/09 al 26/09. |
 | v5 | Artefactos conscientes de las etiquetas | Voto 11–2 (6 empates); no pasa el filtro por 2 casos; el usuario pidió otra iteración antes de validarlo. |
-| v6 | v5 afinado con las notas del usuario | Voto 10–3 (1 empate) sobre v5; frente a v4, 1 caso con regresión dura. **Layout por defecto de la skill desde el 2026-09-26** (decisión del usuario). |
-| v7 | Ancho común de pools y carriles que llenan el pool (E + F) | Pasa el filtro; lote `ab-v6-v7-20260926` (22) **pendiente de voto**. `evidence/layout-v7/REPORT.md`. |
+| v6 | v5 afinado con las notas del usuario | Voto 10–3 (1 empate) sobre v5; frente a v4, 1 caso con regresión dura. Fue el defecto el 26/09 hasta v7. |
+| v7 | Ancho común de pools y carriles que llenan el pool (E + F) | Pasa el filtro; voto 16–6 sobre v6. **Layout por defecto de la skill desde el 2026-09-26** (decisión del usuario). `evidence/layout-v7/REPORT.md`. |
 
 Commits: `2291771` (v1–v4, v4 por defecto), `771e704` (v5) y el de v6 (2026-09-26).
 
@@ -38,7 +38,7 @@ Commits: `2291771` (v1–v4, v4 por defecto), `771e704` (v5) y el de v6 (2026-09
 
 ## Pendiente
 
-1. Hecho (2026-09-26): v6 es el layout por defecto por decisión del usuario. Volver a otra versión = editar `default` en `layouts.json`; la paridad sigue fijada en v0.
+1. Hecho (2026-09-26): v6 fue el defecto y después v7, ambos por decisión del usuario. Volver a otra versión = editar `default` en `layouts.json`; la paridad sigue fijada en v0.
 2. Hecho (2026-09-26, commit `6e0b868`): 5 métricas de artefactos en `metrics.mjs` (`assocLengthMean`, `assocBendsPerEdge`, `bentNearAssociations`, `longAssociations`, `artifactTextOutsidePool`), en el grupo de legibilidad: el filtro duro no cambia. Medidas en v0/v4/v5/v6 en `evidence/layout-v6/artifact-metrics.json` (v6: codos cerca 13 → 1 frente a v5, asociaciones largas 37 → 41). Los `compare-*.json` anteriores no se regeneraron.
 3. Revisión visual de v6 con capturas y propuestas A–G: `evidence/layout-review-20260926/REVIEW.md`. Falta que el usuario elija la siguiente.
 4. Si se itera, una idea cada vez y con ablación conservada en el repositorio, no en `$TMP`.

@@ -1,0 +1,303 @@
+{
+  "schema": "layout-ab-votes-summary/1",
+  "batch": "skill-runs/layout/ab-v6-v7-20260926",
+  "seed": "v6-v7-20260926",
+  "view": "hidden",
+  "voter": "user",
+  "note": "A = v6, B = v7. Batch restricted (ab-batch --cases) to the 18 cases whose pool widths change plus 4 single-pool cases where only the lane strips change. No tags or notes were given. Unblinded 2026-09-26. After unblinding the user said the 6 pairs won by v6 (the image with the strip) were probably key mistakes and tried to revise them, but the page kept them on pair 1 (8 same-side revisions of p01, recorded in votes.json; fixed afterwards in vote/index.html). The user then accepted the result as cast and v7 as a correct change. Votes before the attempt: votes-before-correction.json in the batch folder; the tally is the same.",
+  "tally": {
+    "v7": 16,
+    "v6": 6,
+    "tie": 0
+  },
+  "decisive": 22,
+  "v7WinRateDecisive": 0.727,
+  "wilson95": [
+    0.518,
+    0.868
+  ],
+  "signTestTwoSidedP": 0.0525,
+  "bySubset": {
+    "stripsOnly": {
+      "v7": 3,
+      "v6": 1,
+      "tie": 0
+    },
+    "widthAndStrips": {
+      "v7": 13,
+      "v6": 5,
+      "tie": 0
+    }
+  },
+  "pairs": [
+    {
+      "pairId": "p01",
+      "caseId": "f-es-almacen",
+      "winner": "v7",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "widthChanged": false,
+      "poolWidthCVDelta": 0,
+      "revisions": 8
+    },
+    {
+      "pairId": "p02",
+      "caseId": "f-canon-1-cheeseburger",
+      "winner": "v7",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "widthChanged": false,
+      "poolWidthCVDelta": 0
+    },
+    {
+      "pairId": "p03",
+      "caseId": "f-pool-map-message-event",
+      "winner": "v7",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "widthChanged": true,
+      "poolWidthCVDelta": -0.147
+    },
+    {
+      "pairId": "p04",
+      "caseId": "h-ml-03-deteccion-fraude",
+      "winner": "v6",
+      "sawAltView": {
+        "view": "shown",
+        "seen": true
+      },
+      "tags": [],
+      "note": "",
+      "widthChanged": true,
+      "poolWidthCVDelta": -0.383
+    },
+    {
+      "pairId": "p05",
+      "caseId": "c-syn010-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v6",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "widthChanged": true,
+      "poolWidthCVDelta": -0.058
+    },
+    {
+      "pairId": "p06",
+      "caseId": "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v6",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "widthChanged": true,
+      "poolWidthCVDelta": -0.124
+    },
+    {
+      "pairId": "p07",
+      "caseId": "h-ml-01-clasificador-imagenes",
+      "winner": "v7",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "widthChanged": true,
+      "poolWidthCVDelta": -0.46
+    },
+    {
+      "pairId": "p08",
+      "caseId": "h-ml-06-vision-medica",
+      "winner": "v7",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "widthChanged": true,
+      "poolWidthCVDelta": -0.464
+    },
+    {
+      "pairId": "p09",
+      "caseId": "f-planta-residuos",
+      "winner": "v7",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "widthChanged": true,
+      "poolWidthCVDelta": -0.803
+    },
+    {
+      "pairId": "p10",
+      "caseId": "f-gemini-03",
+      "winner": "v7",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "widthChanged": true,
+      "poolWidthCVDelta": -0.431
+    },
+    {
+      "pairId": "p11",
+      "caseId": "h-ml-04-deriva-datos",
+      "winner": "v7",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "widthChanged": true,
+      "poolWidthCVDelta": -0.436
+    },
+    {
+      "pairId": "p12",
+      "caseId": "c-syn012-sysv5-gemini-gemini_3_5_flash_thinking-r03",
+      "winner": "v7",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "widthChanged": true,
+      "poolWidthCVDelta": -0.198
+    },
+    {
+      "pairId": "p13",
+      "caseId": "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r01",
+      "winner": "v7",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "widthChanged": true,
+      "poolWidthCVDelta": -0.058
+    },
+    {
+      "pairId": "p14",
+      "caseId": "f-simple",
+      "winner": "v7",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "widthChanged": false,
+      "poolWidthCVDelta": 0
+    },
+    {
+      "pairId": "p15",
+      "caseId": "c-syn014-sysv5-gemini-gemini_3_5_flash_thinking-r01",
+      "winner": "v7",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "widthChanged": true,
+      "poolWidthCVDelta": -0.11
+    },
+    {
+      "pairId": "p16",
+      "caseId": "c-syn014-sysv5-claude-opus_4_8_medium-r01",
+      "winner": "v7",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "widthChanged": true,
+      "poolWidthCVDelta": -0.533
+    },
+    {
+      "pairId": "p17",
+      "caseId": "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v6",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "widthChanged": true,
+      "poolWidthCVDelta": -0.485
+    },
+    {
+      "pairId": "p18",
+      "caseId": "f-s17-job-application",
+      "winner": "v6",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "widthChanged": false,
+      "poolWidthCVDelta": 0
+    },
+    {
+      "pairId": "p19",
+      "caseId": "h-ml-02-llm-fine-tuning",
+      "winner": "v7",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "widthChanged": true,
+      "poolWidthCVDelta": -0.393
+    },
+    {
+      "pairId": "p20",
+      "caseId": "f-pool-map-missing-message-flow",
+      "winner": "v7",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "widthChanged": true,
+      "poolWidthCVDelta": -0.148
+    },
+    {
+      "pairId": "p21",
+      "caseId": "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v6",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "widthChanged": true,
+      "poolWidthCVDelta": -0.713
+    },
+    {
+      "pairId": "p22",
+      "caseId": "h-ml-05-rag-chatbot",
+      "winner": "v7",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "widthChanged": true,
+      "poolWidthCVDelta": -0.538
+    }
+  ]
+}
