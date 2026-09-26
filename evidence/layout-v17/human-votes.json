@@ -1,0 +1,60 @@
+{
+  "schema": "layout-ab-votes-summary/1",
+  "batch": "skill-runs/layout/ab-v16-v17-20260926",
+  "seed": "v16-v17-20260926",
+  "view": "hidden",
+  "voter": "user",
+  "note": "A = v16, B = v17. Unblinded 2026-09-26.",
+  "tally": {
+    "v16": 0,
+    "v17": 2,
+    "tie": 2
+  },
+  "decisive": 2,
+  "signTestTwoSidedP": 0.5,
+  "missing": [],
+  "pairs": [
+    {
+      "pairId": "p01",
+      "caseId": "f-planta-residuos",
+      "winner": "tie",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "AL ser el diagrama grande no veo el caso",
+      "revisions": 0
+    },
+    {
+      "pairId": "p02",
+      "caseId": "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v17",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p03",
+      "caseId": "f-s-a3-find-a-job",
+      "winner": "tie",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p04",
+      "caseId": "c-syn009-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v17",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    }
+  ]
+}

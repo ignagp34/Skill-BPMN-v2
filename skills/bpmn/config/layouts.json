@@ -101,6 +101,11 @@
       "description": "v16 + proposal H: a flow label whose drawn text (11 px Arial, measured) covers a shape slides along its stretch of line, or to the other side, to the spot that covers fewest shapes, then labels, then lines",
       "base": "v16",
       "harness": { "app": "tools/layout-lab/harness/v19", "page": "/index.headless.html" }
+    },
+    "v20": {
+      "description": "v18 + v19, the winners of the votes against v16 (v17 2-0, v18 6-0, v19 4-0), unchanged: v16 + v12 (fixed bpmn-auto-layout) + v13 (flow clarity) + proposal H (flow labels off shapes)",
+      "base": "v16",
+      "harness": { "app": "tools/layout-lab/harness/v20", "page": "/index.headless.html" }
     }
   }
 }
