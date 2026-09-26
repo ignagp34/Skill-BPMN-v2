@@ -1,4 +1,4 @@
-# Resumen para continuar — 2026-09-26, noche (etapa 8: v22 es el defecto; votar v24 = v22 + v23)
+# Resumen para continuar — 2026-09-26, noche (etapa 8: v24 es el defecto)
 
 ## Actualización (misma noche)
 
@@ -6,7 +6,8 @@
 - **v23 = v21 afinado** (`evidence/layout-v23/REPORT.md`). La causa de las derrotas de v21 era una suposición falsa: el nombre de un gateway debajo del rombo. v23 pasa el filtro frente a v20, con cruces −25 y casi sin codos añadidos.
 - **v22 es el layout por defecto** (decisión del usuario, 2026-09-26; antes v20). Tras el cambio: `render-dsl` de prueba con v22 y paridad con v0 `passed=true` (`skill-runs/parity-20260926-v22default`).
 - v23 ganó: **12–3** en total (5–1–1 en sus 7 casos nuevos más los 10 heredados de v21).
-- **v24 = v22 + v23** pasa el filtro frente a v22. Voto: 2–2 en sus 4 casos nuevos; en total **v24 12, v22 3, 2 empates** (p ≈ 0,035). Las 2 derrotas (`c-syn006` r01, `planta-residuos`) repiten las de v21 y v23 (`evidence/layout-v24/REPORT.md`). **Pendiente del usuario**: decidir si v24 pasa a ser el defecto. Base de comparación actual: `skill-runs/layout/v22-20260926-b55`.
+- **v24 = v22 + v23** pasa el filtro frente a v22. Voto: 2–2 en sus 4 casos nuevos; en total **v24 12, v22 3, 2 empates** (p ≈ 0,035). Las 2 derrotas (`c-syn006` r01, `planta-residuos`) repiten las de v21 y v23 (`evidence/layout-v24/REPORT.md`). **Desde el 2026-09-26 (decisión del usuario), v24 es el layout por defecto** (antes v22); `render-dsl` de prueba y paridad con v0 `passed=true` (`skill-runs/parity-20260926-v24default`). **Nueva base de comparación: `skill-runs/layout/v24-20260926-b55`.**
+- Siguientes ideas de layout: separación mínima entre una línea y una tarea ajena (nota en `c-syn009`); revisar por qué desenredar empeora `c-syn006` r01 y `planta-residuos`; juntar filas no solapadas en un carril (`find-a-job`).
 - Prompt para empezar las skills adicionales en otra conversación: `plans/prompt-skills-adicionales.md`.
 - Idea nueva (nota del usuario en `c-syn009`): separación mínima entre una línea y una tarea ajena («Select Time»).
 
