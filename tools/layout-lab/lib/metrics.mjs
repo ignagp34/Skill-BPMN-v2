@@ -15,6 +15,7 @@ const LONG_EDGE_FACTOR = 3;     // "long" = > 3 × median sequence-flow length �
 const LONG_EDGE_MIN = 200;      // … and longer than this
 const TARGET_ASPECT = 16 / 9;   // user decision 2026-09-25
 const LANE_MARGIN = 20;         // free space kept above and below lane content before counting slack
+const NEAR_ASSOCIATION = 250;   // user note 2026-09-25: a near artifact gets a straight association
 
 // ---------- context ----------
 
@@ -193,6 +194,43 @@ function longEdges(ctx) {
   return { value: long.length, details: long.map(([id, l]) => [id, Math.round(l)]) };
 }
 
+// ---------- artifacts (data objects, data stores, annotations) ----------
+
+const ASSOCIATION_TYPES = new Set(['association', 'dataInputAssociation', 'dataOutputAssociation']);
+const associations = ctx => ctx.edges.filter(e => ASSOCIATION_TYPES.has(e.type));
+const isArtifact = node => node?.kind === 'data' || node?.kind === 'annotation';
+
+/** Associations longer than a "long" sequence flow of the same diagram (same rule as longSeqEdges). */
+function longAssociations(ctx) {
+  const limit = Math.max(LONG_EDGE_MIN, LONG_EDGE_FACTOR * (median(forwardSeq(ctx).map(e => polylineLength(e.waypoints))) ?? 0));
+  const long = associations(ctx).map(e => [e.id, polylineLength(e.waypoints)]).filter(([, l]) => l > limit);
+  return { value: long.length, details: long.map(([id, l]) => [id, Math.round(l)]) };
+}
+
+function bentNearAssociations(ctx) {
+  const hits = associations(ctx).filter(e => bends(e) > 0 && polylineLength(e.waypoints) < NEAR_ASSOCIATION);
+  return { value: hits.length, details: hits.map(e => e.id) };
+}
+
+/** Pool of an artifact: its process's participant, else (collaboration annotations) the pool holding its centre. */
+function poolOf(ctx, node) {
+  const own = ctx.model.participantOfProcess.get(node.processId);
+  if (own?.bounds) return own;
+  const c = center(node.bounds);
+  return ctx.participants.find(p => contains(p.bounds, { x: c.x, y: c.y, width: 0, height: 0 }, 0)) ?? null;
+}
+
+function artifactTextOutsidePool(ctx) {
+  const out = [];
+  for (const t of ctx.text.boxes) {
+    const node = ctx.byId.get(t.id);
+    if (!isArtifact(node)) continue;
+    const pool = poolOf(ctx, node);
+    if (pool && !contains(pool.bounds, t, TOL)) out.push([t.id, pool.id]);
+  }
+  return { value: out.length, details: out };
+}
+
 function labelDistance(ctx) {
   const ds = [];
   for (const l of ctx.labels) {
@@ -265,6 +303,14 @@ export const METRICS = [
   { key: 'msgFlowDxMean', group: 'legibility', better: 'lower',
     compute: ctx => ({ value: mean(msgFlows(ctx).map(e => Math.abs(e.waypoints.at(-1).x - e.waypoints[0].x))) }) },
   { key: 'labelDistanceMean', group: 'legibility', better: 'lower', compute: labelDistance },
+  // Artifacts (added 2026-09-26 after the v5–v6 votes; legibility, so the hard gate is unchanged).
+  { key: 'assocLengthMean', group: 'legibility', better: 'lower',
+    compute: ctx => ({ value: mean(associations(ctx).map(e => polylineLength(e.waypoints))) }) },
+  { key: 'assocBendsPerEdge', group: 'legibility', better: 'lower',
+    compute: ctx => ({ value: mean(associations(ctx).map(bends)) }) },
+  { key: 'bentNearAssociations', group: 'legibility', better: 'lower', compute: bentNearAssociations },
+  { key: 'longAssociations', group: 'legibility', better: 'lower', compute: longAssociations },
+  { key: 'artifactTextOutsidePool', group: 'legibility', better: 'lower', compute: artifactTextOutsidePool },
   { key: 'poolWidthCV', group: 'legibility', better: 'lower',
     compute: ctx => poolAlignment(ctx, bs => coefficientOfVariation(bs.map(b => b.width))) },
   { key: 'poolEdgeSpread', group: 'legibility', better: 'lower',

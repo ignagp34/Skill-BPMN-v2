@@ -1,0 +1,395 @@
+{
+  "schema": "layout-artifact-metrics/1",
+  "createdAt": "2026-09-26",
+  "note": "Artifact metrics added to tools/layout-lab/lib/metrics.mjs on 2026-09-26 (legibility group; the hard gate is unchanged). Renders: skill-runs/layout/<v>-20260925-b56. Earlier compare-*.json files in evidence/ predate these metrics and were not regenerated.",
+  "definitions": {
+    "assocLengthMean": "mean polyline length of associations (px)",
+    "assocBendsPerEdge": "mean bends per association",
+    "bentNearAssociations": "associations with a bend and shorter than 250 px (user note: near artifacts get straight lines)",
+    "longAssociations": "associations longer than max(200 px, 3 x median forward sequence-flow length)",
+    "artifactTextOutsidePool": "text of data objects, stores and annotations not inside their pool"
+  },
+  "versions": {
+    "v0": {
+      "assocLengthMean": {
+        "mean": 112.57,
+        "median": 87.1,
+        "total": 2476.47,
+        "casesAffected": 22
+      },
+      "assocBendsPerEdge": {
+        "mean": 0,
+        "median": 0,
+        "total": 0.07,
+        "casesAffected": 1
+      },
+      "bentNearAssociations": {
+        "mean": 0,
+        "median": 0,
+        "total": 0,
+        "casesAffected": 0
+      },
+      "longAssociations": {
+        "mean": 0.36,
+        "median": 0,
+        "total": 20,
+        "casesAffected": 7
+      },
+      "artifactTextOutsidePool": {
+        "mean": 0.13,
+        "median": 0,
+        "total": 7,
+        "casesAffected": 6
+      }
+    },
+    "v4": {
+      "assocLengthMean": {
+        "mean": 135.71,
+        "median": 105.3,
+        "total": 2985.65,
+        "casesAffected": 22
+      },
+      "assocBendsPerEdge": {
+        "mean": 0,
+        "median": 0,
+        "total": 0,
+        "casesAffected": 0
+      },
+      "bentNearAssociations": {
+        "mean": 0,
+        "median": 0,
+        "total": 0,
+        "casesAffected": 0
+      },
+      "longAssociations": {
+        "mean": 0.64,
+        "median": 0,
+        "total": 36,
+        "casesAffected": 9
+      },
+      "artifactTextOutsidePool": {
+        "mean": 0.11,
+        "median": 0,
+        "total": 6,
+        "casesAffected": 5
+      }
+    },
+    "v5": {
+      "assocLengthMean": {
+        "mean": 137.75,
+        "median": 111.34,
+        "total": 3030.4,
+        "casesAffected": 22
+      },
+      "assocBendsPerEdge": {
+        "mean": 0.09,
+        "median": 0,
+        "total": 1.98,
+        "casesAffected": 10
+      },
+      "bentNearAssociations": {
+        "mean": 0.23,
+        "median": 0,
+        "total": 13,
+        "casesAffected": 9
+      },
+      "longAssociations": {
+        "mean": 0.66,
+        "median": 0,
+        "total": 37,
+        "casesAffected": 8
+      },
+      "artifactTextOutsidePool": {
+        "mean": 0.07,
+        "median": 0,
+        "total": 4,
+        "casesAffected": 3
+      }
+    },
+    "v6": {
+      "assocLengthMean": {
+        "mean": 143,
+        "median": 115.75,
+        "total": 3145.94,
+        "casesAffected": 22
+      },
+      "assocBendsPerEdge": {
+        "mean": 0.05,
+        "median": 0,
+        "total": 1.04,
+        "casesAffected": 6
+      },
+      "bentNearAssociations": {
+        "mean": 0.02,
+        "median": 0,
+        "total": 1,
+        "casesAffected": 1
+      },
+      "longAssociations": {
+        "mean": 0.73,
+        "median": 0,
+        "total": 41,
+        "casesAffected": 8
+      },
+      "artifactTextOutsidePool": {
+        "mean": 0.07,
+        "median": 0,
+        "total": 4,
+        "casesAffected": 3
+      }
+    }
+  },
+  "comparisons": {
+    "v4-v5": {
+      "assocLengthMean": {
+        "casesBetter": 9,
+        "casesWorse": 10,
+        "meanDelta": 2.03
+      },
+      "assocBendsPerEdge": {
+        "casesBetter": 0,
+        "casesWorse": 10,
+        "meanDelta": 0.09
+      },
+      "bentNearAssociations": {
+        "casesBetter": 0,
+        "casesWorse": 9,
+        "meanDelta": 0.23
+      },
+      "longAssociations": {
+        "casesBetter": 5,
+        "casesWorse": 3,
+        "meanDelta": 0.02
+      },
+      "artifactTextOutsidePool": {
+        "casesBetter": 2,
+        "casesWorse": 0,
+        "meanDelta": -0.04
+      }
+    },
+    "v5-v6": {
+      "assocLengthMean": {
+        "casesBetter": 4,
+        "casesWorse": 9,
+        "meanDelta": 5.25
+      },
+      "assocBendsPerEdge": {
+        "casesBetter": 9,
+        "casesWorse": 1,
+        "meanDelta": -0.04
+      },
+      "bentNearAssociations": {
+        "casesBetter": 8,
+        "casesWorse": 0,
+        "meanDelta": -0.21
+      },
+      "longAssociations": {
+        "casesBetter": 1,
+        "casesWorse": 3,
+        "meanDelta": 0.07
+      },
+      "artifactTextOutsidePool": {
+        "casesBetter": 0,
+        "casesWorse": 0,
+        "meanDelta": 0
+      }
+    },
+    "v4-v6": {
+      "assocLengthMean": {
+        "casesBetter": 7,
+        "casesWorse": 12,
+        "meanDelta": 7.29
+      },
+      "assocBendsPerEdge": {
+        "casesBetter": 0,
+        "casesWorse": 6,
+        "meanDelta": 0.05
+      },
+      "bentNearAssociations": {
+        "casesBetter": 0,
+        "casesWorse": 1,
+        "meanDelta": 0.02
+      },
+      "longAssociations": {
+        "casesBetter": 3,
+        "casesWorse": 4,
+        "meanDelta": 0.09
+      },
+      "artifactTextOutsidePool": {
+        "casesBetter": 2,
+        "casesWorse": 0,
+        "meanDelta": -0.04
+      }
+    }
+  },
+  "votedPairs": [
+    {
+      "pairId": "p01",
+      "caseId": "f-canon-5-marriage",
+      "winner": "v6",
+      "deltasV6MinusV5": {
+        "assocLengthMean": 3.44,
+        "assocBendsPerEdge": 0,
+        "bentNearAssociations": 0,
+        "longAssociations": 0,
+        "artifactTextOutsidePool": 0
+      }
+    },
+    {
+      "pairId": "p02",
+      "caseId": "c-syn011-sysv5-chatgpt-gpt_5_5_thinking-r02",
+      "winner": "v6",
+      "deltasV6MinusV5": {
+        "assocLengthMean": -28.25,
+        "assocBendsPerEdge": -0.12,
+        "bentNearAssociations": -3,
+        "longAssociations": -2,
+        "artifactTextOutsidePool": 0
+      }
+    },
+    {
+      "pairId": "p03",
+      "caseId": "h-ml-06-vision-medica",
+      "winner": "v6",
+      "deltasV6MinusV5": {
+        "assocLengthMean": 1.53,
+        "assocBendsPerEdge": -0.25,
+        "bentNearAssociations": -1,
+        "longAssociations": 0,
+        "artifactTextOutsidePool": 0
+      }
+    },
+    {
+      "pairId": "p04",
+      "caseId": "f-planta-residuos",
+      "winner": "v5",
+      "deltasV6MinusV5": {
+        "assocLengthMean": -2.41,
+        "assocBendsPerEdge": -0.05,
+        "bentNearAssociations": 0,
+        "longAssociations": 0,
+        "artifactTextOutsidePool": 0
+      }
+    },
+    {
+      "pairId": "p05",
+      "caseId": "f-gemini-03",
+      "winner": "v6",
+      "deltasV6MinusV5": {
+        "assocLengthMean": 44.66,
+        "assocBendsPerEdge": -0.14,
+        "bentNearAssociations": -1,
+        "longAssociations": 0,
+        "artifactTextOutsidePool": 0
+      }
+    },
+    {
+      "pairId": "p06",
+      "caseId": "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v6",
+      "deltasV6MinusV5": {
+        "assocLengthMean": -9.71,
+        "assocBendsPerEdge": -0.14,
+        "bentNearAssociations": -1,
+        "longAssociations": 0,
+        "artifactTextOutsidePool": 0
+      }
+    },
+    {
+      "pairId": "p07",
+      "caseId": "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v5",
+      "deltasV6MinusV5": {
+        "assocLengthMean": 25.77,
+        "assocBendsPerEdge": -0.07,
+        "bentNearAssociations": -2,
+        "longAssociations": 0,
+        "artifactTextOutsidePool": 0
+      }
+    },
+    {
+      "pairId": "p08",
+      "caseId": "h-ml-03-deteccion-fraude",
+      "winner": "v6",
+      "deltasV6MinusV5": {
+        "assocLengthMean": 21.41,
+        "assocBendsPerEdge": 0,
+        "bentNearAssociations": 0,
+        "longAssociations": 0,
+        "artifactTextOutsidePool": 0
+      }
+    },
+    {
+      "pairId": "p09",
+      "caseId": "c-syn011-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v6",
+      "deltasV6MinusV5": {
+        "assocLengthMean": -25.7,
+        "assocBendsPerEdge": -0.09,
+        "bentNearAssociations": -1,
+        "longAssociations": 0,
+        "artifactTextOutsidePool": 0
+      }
+    },
+    {
+      "pairId": "p10",
+      "caseId": "f-gemini-04",
+      "winner": "v6",
+      "deltasV6MinusV5": {
+        "assocLengthMean": 14.88,
+        "assocBendsPerEdge": 0,
+        "bentNearAssociations": 0,
+        "longAssociations": 0,
+        "artifactTextOutsidePool": 0
+      }
+    },
+    {
+      "pairId": "p11",
+      "caseId": "c-syn012-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v5",
+      "deltasV6MinusV5": {
+        "assocLengthMean": 35.03,
+        "assocBendsPerEdge": -0.05,
+        "bentNearAssociations": -2,
+        "longAssociations": 4,
+        "artifactTextOutsidePool": 0
+      }
+    },
+    {
+      "pairId": "p12",
+      "caseId": "f-canon-2-incoming-flight",
+      "winner": "tie",
+      "deltasV6MinusV5": {
+        "assocLengthMean": 0,
+        "assocBendsPerEdge": 0,
+        "bentNearAssociations": 0,
+        "longAssociations": 0,
+        "artifactTextOutsidePool": 0
+      }
+    },
+    {
+      "pairId": "p13",
+      "caseId": "c-syn012-sysv5-gemini-gemini_3_5_flash_thinking-r03",
+      "winner": "v6",
+      "deltasV6MinusV5": {
+        "assocLengthMean": 22.75,
+        "assocBendsPerEdge": 0.07,
+        "bentNearAssociations": 0,
+        "longAssociations": 1,
+        "artifactTextOutsidePool": 0
+      }
+    },
+    {
+      "pairId": "p14",
+      "caseId": "f-canon-3-conveyor-belt",
+      "winner": "v6",
+      "deltasV6MinusV5": {
+        "assocLengthMean": 12.14,
+        "assocBendsPerEdge": -0.1,
+        "bentNearAssociations": -1,
+        "longAssociations": 1,
+        "artifactTextOutsidePool": 0
+      }
+    }
+  ]
+}

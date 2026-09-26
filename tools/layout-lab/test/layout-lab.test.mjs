@@ -84,6 +84,29 @@ test('metrics flag a label on a lane title band and an edge through a shape', ()
   assert.ok(values.edgeThroughShape >= 1);
 });
 
+test('artifact metrics: bent near association, long association, name outside its pool', () => {
+  const xml = LOOP
+    .replace('<bpmn:definitions xmlns:bpmn="m" xmlns:bpmndi="d" xmlns:dc="c" xmlns:di="i">',
+      '<bpmn:definitions xmlns:bpmn="m" xmlns:bpmndi="d" xmlns:dc="c" xmlns:di="i"><bpmn:collaboration><bpmn:participant id="Pool" processRef="P"/></bpmn:collaboration>')
+    .replace('<bpmn:task id="T" name="Do"/>', '<bpmn:task id="T" name="Do"><bpmn:dataOutputAssociation id="near"><bpmn:targetRef>D1</bpmn:targetRef></bpmn:dataOutputAssociation>'
+      + '<bpmn:dataOutputAssociation id="far"><bpmn:targetRef>D2</bpmn:targetRef></bpmn:dataOutputAssociation></bpmn:task>'
+      + '<bpmn:dataObjectReference id="D1" name="Near"/><bpmn:dataObjectReference id="D2" name="Far"/>')
+    .replace('<bpmndi:BPMNShape bpmnElement="S">', '<bpmndi:BPMNShape bpmnElement="Pool"><dc:Bounds x="-40" y="-60" width="1500" height="230"/></bpmndi:BPMNShape>'
+      + '<bpmndi:BPMNShape bpmnElement="D1"><dc:Bounds x="160" y="90" width="36" height="50"/></bpmndi:BPMNShape>'
+      + '<bpmndi:BPMNShape bpmnElement="D2"><dc:Bounds x="1400" y="-40" width="36" height="50"/></bpmndi:BPMNShape><bpmndi:BPMNShape bpmnElement="S">')
+    .replace('</bpmndi:BPMNPlane>', '<bpmndi:BPMNEdge bpmnElement="near"><di:waypoint x="150" y="58"/><di:waypoint x="150" y="75"/><di:waypoint x="178" y="75"/><di:waypoint x="178" y="90"/></bpmndi:BPMNEdge>'
+      + '<bpmndi:BPMNEdge bpmnElement="far"><di:waypoint x="200" y="-15"/><di:waypoint x="1400" y="-15"/></bpmndi:BPMNEdge></bpmndi:BPMNPlane>');
+  const text = { viewBox: { x: -50, y: -70, width: 1520, height: 240 }, boxes: [
+    { id: 'D1', label: true, text: 'Near', x: 160, y: 142, width: 30, height: 12 },
+    { id: 'D2', label: true, text: 'Far', x: 1440, y: 12, width: 70, height: 12 }] };
+  const { values, details } = computeMetrics(parseBpmn(xml), text);
+  assert.equal(values.bentNearAssociations, 1);
+  assert.deepEqual(details.bentNearAssociations, ['near']);
+  assert.equal(values.longAssociations, 1);
+  assert.equal(values.artifactTextOutsidePool, 1);
+  assert.equal(values.assocBendsPerEdge, 1);
+});
+
 test('Cohen kappa and blind A/B helpers', () => {
   assert.equal(cohenKappa([['A', 'A'], ['B', 'B'], ['tie', 'tie']]), 1);
   assert.ok(Math.abs(cohenKappa([['B', 'B'], ['tie', 'tie'], ['B', 'tie'], ['A', 'A'], ['tie', 'tie']]) - 0.6875) < 1e-9);
