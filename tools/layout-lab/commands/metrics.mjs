@@ -3,7 +3,7 @@
 // diagnosis: which defects are most frequent) and <dir>/metrics.csv.
 import { readFile, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
-import { requireOption } from '../../../skills/bpmn-desde-resumen/scripts/lib/cli-args.mjs';
+import { requireOption } from '../../../skills/bpmn/scripts/lib/cli-args.mjs';
 import { parseBpmn } from '../lib/bpmn-model.mjs';
 import { mean, median } from '../lib/geometry.mjs';
 import { computeMetrics, METRICS } from '../lib/metrics.mjs';

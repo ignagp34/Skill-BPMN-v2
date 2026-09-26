@@ -3,7 +3,7 @@
 // then prints the batch progress. Votes are already on disk after each key press.
 import { spawn } from 'node:child_process';
 import { resolve } from 'node:path';
-import { requireOption } from '../../../skills/bpmn-desde-resumen/scripts/lib/cli-args.mjs';
+import { requireOption } from '../../../skills/bpmn/scripts/lib/cli-args.mjs';
 import { loadBatch, loadVotes } from '../lib/ab.mjs';
 import { startVoteServer } from '../lib/vote-server.mjs';
 

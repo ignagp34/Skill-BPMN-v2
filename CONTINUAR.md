@@ -4,7 +4,7 @@ Lee primero `AGENTS.md` (única fuente de instrucciones; `CLAUDE.md` solo rediri
 
 ## Contexto en una línea
 
-Etapa 8 = mejorar el layout sin cambiar el DSL ni el XML semántico. Cada idea es una versión nueva (`skills/bpmn-desde-resumen/config/layouts.json`, único registro; harness en `tools/layout-lab/harness/vN/`). Se compara en el banco de 56 DSL con `compare` (reglas en `tools/layout-lab/config/acceptance.json`) y con votación A/B del usuario (página local, tecla M para ver u ocultar mensajes). Juez Opus aplazado por decisión del usuario.
+Etapa 8 = mejorar el layout sin cambiar el DSL ni el XML semántico. Cada idea es una versión nueva (`skills/bpmn/config/layouts.json`, único registro; harness en `tools/layout-lab/harness/vN/`). Se compara en el banco de 56 DSL con `compare` (reglas en `tools/layout-lab/config/acceptance.json`) y con votación A/B del usuario (página local, tecla M para ver u ocultar mensajes). Juez Opus aplazado por decisión del usuario.
 
 ## Estado de las versiones
 
@@ -141,7 +141,7 @@ Lee primero `AGENTS.md` (única fuente de instrucciones; `CLAUDE.md` solo rediri
 
 ## Qué hay hecho
 
-- **Skill** `skills/bpmn-desde-resumen/`, instalada en Claude Code. `~/.claude/skills/bpmn-desde-resumen` es un enlace (junction) a esa carpeta y la antigua `/bpmn` está en `~/.claude/skills-backup/bpmn-20260925`.
+- **Skill** `skills/bpmn/`, instalada en Claude Code. `~/.claude/skills/bpmn` es un enlace (junction) a esa carpeta (nombre corto `bpmn` desde el 2026-09-26; la antigua `/bpmn` se borró).
 - **CLI** `scripts/bpmn.mjs`: `prepare`, `render`, `repair-prompt`, `fail`, `render-dsl`, `evaluate`, `sync-agents`, `doctor`. Organización SOLID: `scripts/commands/` y `scripts/lib/`.
 - **Fidelidad al TFM:** usa el harness del TFM sin cambios y reproduce 351/351 experimentos del corpus (`evidence/skill-stage2-5/`). La batería `tools/skill-parity/parity.mjs` pasa entera.
 - **Generador por host**, definido solo en `config/generators.json`:
@@ -177,7 +177,7 @@ Pendientes aparte: generación real con Luna/high en ChatGPT/Codex, prueba en Wo
 
 # Estado anterior — 2026-09-25 (etapas 2, 4 y 5)
 
-Skill en `skills/bpmn-desde-resumen/` (CLI `scripts/bpmn.mjs`), paridad y fallos en `tools/skill-parity/`, evidencia en `evidence/skill-stage2-5/REPORT.md`. Instrucciones únicas en `AGENTS.md` (`CLAUDE.md` solo redirige). Generador por host solo en `skills/bpmn-desde-resumen/config/generators.json` (ChatGPT: Luna/high; Claude: Opus 5.5/low vía `.claude/agents/bpmn-dsl-generator.md`, regenerado con `sync-agents`; otros: el modelo de la conversación; sin API keys). Skill = motor del TFM: 351/351 experimentos del corpus reproducidos. Siguiente: primera generación real (reiniciar Claude Code para cargar el subagente), prueba en Work web y paquete autocontenido. Ojo: el PNG del baseline del 22/09 ya no se reproduce byte a byte en esta máquina (deriva de raster documentada); usar `tools/skill-parity/pngdiff.mjs` para compararlo.
+Skill en `skills/bpmn/` (CLI `scripts/bpmn.mjs`), paridad y fallos en `tools/skill-parity/`, evidencia en `evidence/skill-stage2-5/REPORT.md`. Instrucciones únicas en `AGENTS.md` (`CLAUDE.md` solo redirige). Generador por host solo en `skills/bpmn/config/generators.json` (ChatGPT: Luna/high; Claude: Opus 5.5/low vía `.claude/agents/bpmn-dsl-generator.md`, regenerado con `sync-agents`; otros: el modelo de la conversación; sin API keys). Skill = motor del TFM: 351/351 experimentos del corpus reproducidos. Siguiente: primera generación real (reiniciar Claude Code para cargar el subagente), prueba en Work web y paquete autocontenido. Ojo: el PNG del baseline del 22/09 ya no se reproduce byte a byte en esta máquina (deriva de raster documentada); usar `tools/skill-parity/pngdiff.mjs` para compararlo.
 
 ---
 

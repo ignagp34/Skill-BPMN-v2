@@ -5,7 +5,7 @@
 import { existsSync } from 'node:fs';
 import { readFile, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
-import { requireOption, UsageError } from '../../../skills/bpmn-desde-resumen/scripts/lib/cli-args.mjs';
+import { requireOption, UsageError } from '../../../skills/bpmn/scripts/lib/cli-args.mjs';
 import { REPO_ROOT } from '../lib/bench.mjs';
 import { loadBatch, loadVotes } from '../lib/ab.mjs';
 

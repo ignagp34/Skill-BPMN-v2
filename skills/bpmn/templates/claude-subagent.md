@@ -1,6 +1,6 @@
 ---
 name: {{name}}
-description: Writes BPMN Sketch Miner DSL for the bpmn-desde-resumen skill. Use only with the handoff message that skill prepares (a prompt file to read and a reply file to write).
+description: Writes BPMN Sketch Miner DSL for the bpmn skill. Use only with the handoff message that skill prepares (a prompt file to read and a reply file to write).
 model: {{model}}
 effort: {{effort}}
 tools: Read, Write

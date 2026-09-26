@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { test } from 'node:test';
-import { TFM_HARNESS } from '../../../skills/bpmn-desde-resumen/scripts/lib/harness.mjs';
+import { TFM_HARNESS } from '../../../skills/bpmn/scripts/lib/harness.mjs';
 import { rng, shuffle, winnerOf } from '../lib/ab.mjs';
 import { REPO_ROOT } from '../lib/bench.mjs';
 import { LAYOUTS, layoutVersion } from '../lib/layouts.mjs';

@@ -6,7 +6,7 @@ import { existsSync } from 'node:fs';
 import { copyFile, mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import { basename, join, relative, resolve } from 'node:path';
-import { sha256 } from '../../../skills/bpmn-desde-resumen/scripts/lib/hash.mjs';
+import { sha256 } from '../../../skills/bpmn/scripts/lib/hash.mjs';
 import { parseBpmn, structuralFeatures } from '../lib/bpmn-model.mjs';
 import { BENCH_SCHEMA, DEFAULT_BENCH, REPO_ROOT, tagsOf } from '../lib/bench.mjs';
 import { layoutVersion } from '../lib/layouts.mjs';

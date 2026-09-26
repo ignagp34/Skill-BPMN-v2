@@ -6,8 +6,8 @@
 import { existsSync } from 'node:fs';
 import { copyFile, mkdir, readFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
-import { requireOption, UsageError } from '../../../skills/bpmn-desde-resumen/scripts/lib/cli-args.mjs';
-import { sha256 } from '../../../skills/bpmn-desde-resumen/scripts/lib/hash.mjs';
+import { requireOption, UsageError } from '../../../skills/bpmn/scripts/lib/cli-args.mjs';
+import { sha256 } from '../../../skills/bpmn/scripts/lib/hash.mjs';
 import { BATCH_FILE, rng, RUBRIC, shuffle, writeJsonAtomic } from '../lib/ab.mjs';
 import { RENDER_INFO } from './bench-render.mjs';
 

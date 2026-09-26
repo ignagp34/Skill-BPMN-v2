@@ -4,7 +4,7 @@
 // band; plus per-metric deltas read as a Pareto front (no single score).
 import { readFile, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
-import { requireOption } from '../../../skills/bpmn-desde-resumen/scripts/lib/cli-args.mjs';
+import { requireOption } from '../../../skills/bpmn/scripts/lib/cli-args.mjs';
 import { REPO_ROOT } from '../lib/bench.mjs';
 import { mean } from '../lib/geometry.mjs';
 import { METRICS } from '../lib/metrics.mjs';

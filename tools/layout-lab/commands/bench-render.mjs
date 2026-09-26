@@ -3,7 +3,7 @@
 import { existsSync } from 'node:fs';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
-import { requireOption } from '../../../skills/bpmn-desde-resumen/scripts/lib/cli-args.mjs';
+import { requireOption } from '../../../skills/bpmn/scripts/lib/cli-args.mjs';
 import { DEFAULT_BENCH, loadBench } from '../lib/bench.mjs';
 import { layoutVersion } from '../lib/layouts.mjs';
 import { openSession, renderCase } from '../lib/render-cases.mjs';

@@ -5,7 +5,7 @@ import { existsSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { sha256 } from '../../../skills/bpmn-desde-resumen/scripts/lib/hash.mjs';
+import { sha256 } from '../../../skills/bpmn/scripts/lib/hash.mjs';
 
 export const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
 export const DEFAULT_BENCH = join(REPO_ROOT, 'tools/layout-lab/bench');

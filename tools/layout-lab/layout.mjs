@@ -13,7 +13,7 @@
 //   agreement     --batch <batchDir> --judge <verdicts.json>        human vs judge (Cohen's kappa)
 //
 // Every command prints one JSON object on stdout (except vote while serving).
-import { parseArgs, UsageError } from '../../skills/bpmn-desde-resumen/scripts/lib/cli-args.mjs';
+import { parseArgs, UsageError } from '../../skills/bpmn/scripts/lib/cli-args.mjs';
 
 const COMMANDS = {
   'bench-select': () => import('./commands/bench-select.mjs'),

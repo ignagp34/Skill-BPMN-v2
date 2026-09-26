@@ -1,4 +1,4 @@
-// Stage 4/5 check: the skill adapter (skills/bpmn-desde-resumen/scripts/bpmn.mjs)
+// Stage 4/5 check: the skill adapter (skills/bpmn/scripts/bpmn.mjs)
 // against the frozen stage-1 baseline, plus injected failure cases. No model calls.
 //
 //   node tools/skill-parity/parity.mjs <new-output-dir> [<same-day smoke/run.mjs output>]
@@ -16,7 +16,7 @@ import os from 'node:os';
 import { comparePngs, PNG_TOLERANCE } from './pngdiff.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
-const cli = join(root, 'skills/bpmn-desde-resumen/scripts/bpmn.mjs');
+const cli = join(root, 'skills/bpmn/scripts/bpmn.mjs');
 const output = resolve(process.argv[2] ?? join(root, 'skill-runs/parity'));
 const reference = process.argv[3] ? resolve(process.argv[3]) : null;
 await mkdir(output, { recursive: false }); // never overwrite earlier evidence

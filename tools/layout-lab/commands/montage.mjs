@@ -5,9 +5,9 @@
 // plus judge-tasks.json. Task names reveal neither case nor variant.
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
-import { requireOption } from '../../../skills/bpmn-desde-resumen/scripts/lib/cli-args.mjs';
-import { findEngineRoot } from '../../../skills/bpmn-desde-resumen/scripts/lib/engine.mjs';
-import { launchChromium } from '../../../skills/bpmn-desde-resumen/scripts/lib/harness.mjs';
+import { requireOption } from '../../../skills/bpmn/scripts/lib/cli-args.mjs';
+import { findEngineRoot } from '../../../skills/bpmn/scripts/lib/engine.mjs';
+import { launchChromium } from '../../../skills/bpmn/scripts/lib/harness.mjs';
 import { loadBatch, RUBRIC } from '../lib/ab.mjs';
 
 const MAX_WIDTH = 2400;   // montage width cap (px)

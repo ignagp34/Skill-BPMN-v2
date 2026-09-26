@@ -3,7 +3,7 @@
 import { existsSync } from 'node:fs';
 import { readFile, rename, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { sha256 } from '../../../skills/bpmn-desde-resumen/scripts/lib/hash.mjs';
+import { sha256 } from '../../../skills/bpmn/scripts/lib/hash.mjs';
 
 export const BATCH_FILE = 'batch.json';
 export const VOTES_FILE = 'votes.json';

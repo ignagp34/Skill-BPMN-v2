@@ -8,11 +8,11 @@
 //   semantic.bpmn, normalized.dsl, text-boxes.json, case.json
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { classifyRender, inspectArtifacts } from '../../../skills/bpmn-desde-resumen/scripts/lib/artifacts.mjs';
-import { findEngineRoot } from '../../../skills/bpmn-desde-resumen/scripts/lib/engine.mjs';
-import { HarnessSession } from '../../../skills/bpmn-desde-resumen/scripts/lib/harness.mjs';
-import { sha256 } from '../../../skills/bpmn-desde-resumen/scripts/lib/hash.mjs';
-import { MESSAGE_FLOWS } from '../../../skills/bpmn-desde-resumen/scripts/lib/message-flows.mjs';
+import { classifyRender, inspectArtifacts } from '../../../skills/bpmn/scripts/lib/artifacts.mjs';
+import { findEngineRoot } from '../../../skills/bpmn/scripts/lib/engine.mjs';
+import { HarnessSession } from '../../../skills/bpmn/scripts/lib/harness.mjs';
+import { sha256 } from '../../../skills/bpmn/scripts/lib/hash.mjs';
+import { MESSAGE_FLOWS } from '../../../skills/bpmn/scripts/lib/message-flows.mjs';
 import { measureSvgText } from './svg-text.mjs';
 
 export const openSession = layout => HarnessSession.open(findEngineRoot(), layout.harness);

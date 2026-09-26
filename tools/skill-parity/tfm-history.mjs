@@ -8,7 +8,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
-const cli = join(root, 'skills/bpmn-desde-resumen/scripts/bpmn.mjs');
+const cli = join(root, 'skills/bpmn/scripts/bpmn.mjs');
 const experiments = join(root, 'apps/tfm-lab/prompts/experiments');
 const [outArg, filter = '-SYSV5-', maxArg = '15'] = process.argv.slice(2);
 const output = resolve(outArg);
