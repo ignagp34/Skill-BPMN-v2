@@ -38,10 +38,17 @@ Commits: `2291771` (v1–v4, v4 por defecto), `771e704` (v5) y el de v6 (2026-09
 ## Pendiente
 
 1. Hecho (2026-09-26): v6 es el layout por defecto por decisión del usuario. Volver a otra versión = editar `default` en `layouts.json`; la paridad sigue fijada en v0.
-2. Métricas que se midieron con scripts sueltos y no están en el registro: longitud y codos de asociaciones, textos de artefactos fuera del pool. Los votos muestran que importan (el usuario prefiere asociaciones rectas aunque crucen una etiqueta más). Valorar incorporarlas a `tools/layout-lab/lib/metrics.mjs`; si se hace, avisar de que cambian las comparaciones anteriores.
-3. Si se itera (v7), una idea cada vez y con ablación conservada en el repositorio, no en `$TMP`.
+2. Hecho (2026-09-26, commit `6e0b868`): 5 métricas de artefactos en `metrics.mjs` (`assocLengthMean`, `assocBendsPerEdge`, `bentNearAssociations`, `longAssociations`, `artifactTextOutsidePool`), en el grupo de legibilidad: el filtro duro no cambia. Medidas en v0/v4/v5/v6 en `evidence/layout-v6/artifact-metrics.json` (v6: codos cerca 13 → 1 frente a v5, asociaciones largas 37 → 41). Los `compare-*.json` anteriores no se regeneraron.
+3. Revisión visual de v6 con capturas y propuestas A–G: `evidence/layout-review-20260926/REVIEW.md`. Falta que el usuario elija la siguiente.
+4. Si se itera, una idea cada vez y con ablación conservada en el repositorio, no en `$TMP`.
 
-## Ideas pendientes (del usuario)
+## Mejora potencial v7 (apuntada por el usuario, sin hacer)
+
+Artefactos, a partir del voto v5–v6: mantener los codos caros en asociaciones cercanas; mantener el aire pero con un límite de distancia a su tarea (en casos densos alejaba el artefacto: `c-syn012-chatgpt`, `c-syn015-chatgpt`); quitar la cohesión o rediseñarla (en `planta-residuos` deja el almacén a medio camino, en otro carril). Métricas de aceptación: `longAssociations`, `bentNearAssociations`, `assocLengthMean`. Es la propuesta C de la revisión.
+
+## Ideas pendientes (del usuario y de la revisión del 26/09)
+
+- Propuestas A–G de `evidence/layout-review-20260926/REVIEW.md`: capas por flujo en cada pool (gateways empujados al final), crecer el carril para hacer sitio a los artefactos, v7, ancho de tarea según su palabra más larga, ancho común de pools, carriles que llenan el pool, etiquetas de eventos arriba.
 
 - Etiquetas de eventos encima cuando abajo chocan; «Parts arrive» (`gemini-04`) abajo a la izquierda, junto a «Parts».
 - C′: alinear columnas entre pools insertando huecos dentro de cada pool.
