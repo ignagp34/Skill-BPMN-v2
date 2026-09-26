@@ -26,6 +26,6 @@ El modelo solo escribe DSL; el motor del TFM genera el XML, la geometría y las 
 
 - El usuario ya trae DSL: `CLI render-dsl --dsl <archivo> --out <destino>` (sin generación).
 - Flujos de mensaje entre pools: ocultos por defecto (también fuera del `.bpmn`). Si el usuario los quiere ver, añade `--message-flows shown` a `render`/`render-dsl`.
-- Layout: por defecto el de `config/layouts.json` (hoy v4, mejorado sobre el del TFM). Si el usuario pide exactamente el diagrama del TFM, añade `--layout v0`.
+- Layout: por defecto el de `config/layouts.json` (hoy v6, mejorado sobre el del TFM). Si el usuario pide exactamente el diagrama del TFM, añade `--layout v0`.
 - Evaluación opcional (métricas TFM-eval, salida en `<runDir>/evaluation/`): `CLI evaluate --run <runDir>`; ver `references/evaluation.md`.
 - Cambiar el modelo de un host: editar `config/generators.json` y ejecutar `CLI sync-agents`.

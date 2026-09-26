@@ -1,4 +1,4 @@
-# Resumen para continuar — 2026-09-26 (etapa 8: v6 votado, decisión del defecto pendiente)
+# Resumen para continuar — 2026-09-26 (etapa 8: v6 por defecto; revisión visual y v7)
 
 Lee primero `AGENTS.md` (única fuente de instrucciones; `CLAUDE.md` solo redirige). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`, clon en `C:/Repositorios/Skill BPMN v2/Skill-BPMN-v2`. El original `BPMN-DSL-Monorepo` sigue protegido. **Nunca push.** Commits locales autorizados.
 
@@ -14,9 +14,9 @@ Etapa 8 = mejorar el layout sin cambiar el DSL ni el XML semántico. Cada idea e
 | v1 | Auto-layout por pool | Aceptado por voto (17–0). |
 | v2 | Orden vertical de pools | Base; empate con v1 en su único caso. |
 | v3 | Alineación horizontal entre pools | Perdió en las dos vistas. El usuario propuso C′ (alinear columnas con huecos), sin hacer. |
-| v4 | Bandas de título despejadas | Filtro y voto (16–0); **layout por defecto de la skill**. |
+| v4 | Bandas de título despejadas | Filtro y voto (16–0); fue el defecto del 25/09 al 26/09. |
 | v5 | Artefactos conscientes de las etiquetas | Voto 11–2 (6 empates); no pasa el filtro por 2 casos; el usuario pidió otra iteración antes de validarlo. |
-| v6 | v5 afinado con las notas del usuario | Voto 10–3 (1 empate) sobre v5; frente a v4, 1 caso con regresión dura. **Pendiente de la decisión del usuario.** |
+| v6 | v5 afinado con las notas del usuario | Voto 10–3 (1 empate) sobre v5; frente a v4, 1 caso con regresión dura. **Layout por defecto de la skill desde el 2026-09-26** (decisión del usuario). |
 
 Commits: `2291771` (v1–v4, v4 por defecto), `771e704` (v5) y el de v6 (2026-09-26).
 
@@ -30,14 +30,14 @@ Commits: `2291771` (v1–v4, v4 por defecto), `771e704` (v5) y el de v6 (2026-09
 
 ## Experimento v6 — qué hay
 
-- **Código:** `tools/layout-lab/harness/v6/` (`artifacts.ts` con `V6_TUNING`). El módulo de v5 (`harness/v5/label-aware-artifacts.ts`) se hizo configurable (`placeArtifactsWith`, `V5_TUNING`, campos nuevos `bendNear/nearLength/air/airMargin/cohesion/cohesionRadius`, todos neutros en v5). Verificado: v5 da `diagram.bpmn` idéntico en 56/56 tras el refactor. v6 registrado en `layouts.json` (el defecto sigue en v4).
+- **Código:** `tools/layout-lab/harness/v6/` (`artifacts.ts` con `V6_TUNING`). El módulo de v5 (`harness/v5/label-aware-artifacts.ts`) se hizo configurable (`placeArtifactsWith`, `V5_TUNING`, campos nuevos `bendNear/nearLength/air/airMargin/cohesion/cohesionRadius`, todos neutros en v5). Verificado: v5 da `diagram.bpmn` idéntico en 56/56 tras el refactor. v6 registrado en `layouts.json` (defecto: v6).
 - **Evidencia:** `evidence/layout-v6/REPORT.md` (notas usadas, parámetros, tabla de ablación, métricas frente a v5 y v4), `compare-v5.json`, `compare-v4.json`, `metrics.json`, `render-v6.json`.
 - **Render:** `skill-runs/layout/v6-20260925-b56` (56/56). Ablaciones en `skill-runs/layout/abl-*`; sus harness temporales se borraron (`harness/_ablation`), así que no se pueden regenerar sin rehacerlos.
 - **Votación:** `skill-runs/layout/ab-v5-v6-20260925/` (A = v5, B = v6), analizada arriba.
 
 ## Pendiente
 
-1. Decisión del usuario: layout por defecto (v4, v5 o v6). Cambiarlo = editar `default` en `layouts.json`, que la ejecución registra; la paridad sigue fijada en v0.
+1. Hecho (2026-09-26): v6 es el layout por defecto por decisión del usuario. Volver a otra versión = editar `default` en `layouts.json`; la paridad sigue fijada en v0.
 2. Métricas que se midieron con scripts sueltos y no están en el registro: longitud y codos de asociaciones, textos de artefactos fuera del pool. Los votos muestran que importan (el usuario prefiere asociaciones rectas aunque crucen una etiqueta más). Valorar incorporarlas a `tools/layout-lab/lib/metrics.mjs`; si se hace, avisar de que cambian las comparaciones anteriores.
 3. Si se itera (v7), una idea cada vez y con ablación conservada en el repositorio, no en `$TMP`.
 
