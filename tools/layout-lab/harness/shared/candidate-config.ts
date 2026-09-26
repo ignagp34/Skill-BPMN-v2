@@ -30,6 +30,9 @@ export function candidateConfig(configUrl: string, substitutions: Record<string,
       if (!importer) return null;
       if (norm(importer) === norm(CORE_RENDER_INDEX)) return replacements.get(source) ?? null;
       if (isBare(source) && norm(importer).startsWith(norm(HARNESS_ROOT))) {
+        // A candidate may also replace a package its harness modules import (v12: bpmn-auto-layout).
+        const replacement = replacements.get(source);
+        if (replacement && norm(importer) !== norm(replacement)) return replacement;
         return this.resolve(source, CORE_RENDER_INDEX, { ...options, skipSelf: true });
       }
       return null;

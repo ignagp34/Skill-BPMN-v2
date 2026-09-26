@@ -1,17 +1,23 @@
 // bench-render --layout <v> --out <dir> [--bench <benchDir>] [--only <id,id>] [--timeout-ms n]
+// bench-render --harness <dir> --out <dir> ...   (unregistered ablation variant)
 // Renders the bench with one layout version into a new folder (never reused).
+// --harness renders a candidate harness folder that is not in the skill's registry
+// (ablations: tools/layout-lab/harness/ablation/<name>); its name is "ablation-<folder>".
 import { existsSync } from 'node:fs';
 import { mkdir, writeFile } from 'node:fs/promises';
-import { join, resolve } from 'node:path';
+import { basename, join, relative, resolve, sep } from 'node:path';
 import { requireOption } from '../../../skills/bpmn/scripts/lib/cli-args.mjs';
-import { DEFAULT_BENCH, loadBench } from '../lib/bench.mjs';
+import { DEFAULT_BENCH, loadBench, REPO_ROOT } from '../lib/bench.mjs';
 import { layoutVersion } from '../lib/layouts.mjs';
 import { openSession, renderCase } from '../lib/render-cases.mjs';
 
 export const RENDER_INFO = 'render.json';
 
+const ablationLayout = dir => ({ name: `ablation-${basename(dir)}`, description: 'unregistered ablation variant',
+  harness: { app: relative(REPO_ROOT, dir).split(sep).join('/'), page: '/index.headless.html' } });
+
 export async function run(options) {
-  const layout = layoutVersion(requireOption(options, 'layout'));
+  const layout = options.harness ? ablationLayout(resolve(options.harness)) : layoutVersion(requireOption(options, 'layout'));
   const out = resolve(requireOption(options, 'out'));
   if (existsSync(out)) throw new Error(`${out} exists; bench renders always go to a new folder.`);
   const benchDir = resolve(options.bench ?? DEFAULT_BENCH);

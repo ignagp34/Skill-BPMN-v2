@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>layout-lab ablation v8-r250-f3 — headless render harness</title>
+    <!-- Same page as apps/tfm-lab/index.headless.html; only the entry differs. -->
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: #ffffff;
+      }
+      #headless-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1600px;
+        height: 1200px;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="headless-canvas"></div>
+    <script type="module" src="/main.ts"></script>
+  </body>
+</html>

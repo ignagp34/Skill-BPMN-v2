@@ -48,15 +48,17 @@ const ANNOTATION_PAD_Y = 12;
 //   cohesion: cost per px of distance (capped at cohesionRadius) to an already placed
 //   artifact with the same name and type in the same pool; clearance: free space around the footprint;
 //   ringFactor: how much farther than v0 the strict search looks;
-//   air: soft cost per shape (linked ones included) closer than airMargin to the footprint.
+//   air: soft cost per shape (linked ones included) closer than airMargin to the footprint;
+//   farLength: extra cost per px of an association beyond reach px (keeps air from pushing
+//   an artifact away from its node).
 type Weights = { shapeCrossing: number; labelOverlap: number; labelCrossing: number; lineCrossing: number;
   bend: number; bendNear: number; nearLength: number; crowding: number; cohesion: number; cohesionRadius: number;
-  air: number; airMargin: number };
+  air: number; airMargin: number; farLength: number; reach: number };
 export interface Tuning { weights: Weights; clearance: number; ringFactor: number; }
 export const V5_TUNING: Tuning = Object.freeze({
   weights: Object.freeze({ shapeCrossing: 1000, labelOverlap: 300, labelCrossing: 300, lineCrossing: 150,
     bend: 60, bendNear: 60, nearLength: 0, crowding: 20, cohesion: 0, cohesionRadius: 0,
-    air: 0, airMargin: 0 }),
+    air: 0, airMargin: 0, farLength: 0, reach: 0 }),
   clearance: 2,
   ringFactor: 2,
 });
@@ -116,6 +118,7 @@ interface ArtifactCandidate {
   routes: Map<string, Pt[]>;
   insideParticipant: boolean;
   cost?: number; // v5: weighted cost under strict rules
+  issues: number; // v11 report: shapes crossed + labels covered + labels crossed
   score: {
     crossings: number;
     lineCrossings: number; // v5
@@ -131,7 +134,14 @@ export function placeArtifacts(layoutXml: string): Promise<string> {
   return placeArtifactsWith(layoutXml, V5_TUNING);
 }
 
-export async function placeArtifactsWith(layoutXml: string, tuning: Tuning): Promise<string> {
+/**
+ * How each artifact was placed (v11 uses it to make room): `clean` = a strict
+ * candidate inside its pool that crosses no shape and covers or crosses no label.
+ */
+export interface ArtifactChoice { artifactId: string; attachedIds: string[]; height: number; clean: boolean;
+  rule: "strict" | "legacy" | "strict-outside" | "legacy-outside"; }
+
+export async function placeArtifactsWith(layoutXml: string, tuning: Tuning, report?: ArtifactChoice[]): Promise<string> {
   const moddle = new BpmnModdle();
   const { rootElement } = await moddle.fromXML(layoutXml);
   const defs = rootElement as { rootElements?: any[]; diagrams?: any[] };
@@ -235,6 +245,11 @@ export async function placeArtifactsWith(layoutXml: string, tuning: Tuning): Pro
 
     const chosen = searches[0].best ?? searches[1].best ?? searches[0].relaxedBest ?? searches[1].relaxedBest;
     if (!chosen) continue;
+    if (report) {
+      const rule = searches[0].best ? "strict" : searches[1].best ? "legacy" : searches[0].relaxedBest ? "strict-outside" : "legacy-outside";
+      report.push({ artifactId: group.artifact.id, attachedIds: connectedShapes.map((s) => s.id), height: strict.dims.height,
+        rule, clean: rule === "strict" && chosen.issues === 0 });
+    }
 
     placedArtifacts.set(group.artifact.id, strict.footprintOf(chosen.bounds)); // v5
     if (key) placedKeys.set(group.artifact.id, key);
@@ -496,7 +511,8 @@ function evaluateCandidate(
     lineCrossings += route.lineCrossings; // v5
     labelCrossings += route.labelCrossings; // v5
     bends += route.bends;
-    if (rules.weights) bendPenalty += bendCost(rules.weights, route.bends, route.length); // v5
+    if (rules.weights) bendPenalty += bendCost(rules.weights, route.bends, route.length) // v5
+      + rules.weights.farLength * Math.max(0, route.length - rules.weights.reach); // v8
     totalLength += route.length;
   }
 
@@ -508,6 +524,7 @@ function evaluateCandidate(
     bounds,
     routes,
     insideParticipant,
+    issues: crossings + labelOverlaps + labelCrossings,
     score: {
       crossings,
       lineCrossings,

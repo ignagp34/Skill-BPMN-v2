@@ -41,6 +41,31 @@
       "description": "v6 + common pool width (every pool and its lanes reach the widest pool's right edge) and lanes filling their pool (no empty strip above the first lane or below the last); frames only grow, nothing else moves",
       "base": "v6",
       "harness": { "app": "tools/layout-lab/harness/v7", "page": "/index.headless.html" }
+    },
+    "v8": {
+      "description": "v7 + proposal C: v6 artifact rules without cohesion and with a reach limit (each px of an association beyond 250 px costs 1 more), so air no longer pushes artifacts away from their node",
+      "base": "v7",
+      "harness": { "app": "tools/layout-lab/harness/v8", "page": "/index.headless.html" }
+    },
+    "v9": {
+      "description": "v7 + proposal G: an event name goes above the event when the default box below collides with shapes, flows, associations or labels and above collides less (and stays in its lane)",
+      "base": "v7",
+      "harness": { "app": "tools/layout-lab/harness/v9", "page": "/index.headless.html" }
+    },
+    "v10": {
+      "description": "v7 + proposal D: tasks as wide as their longest word needs (12 px Arial, 7 px padding), widened right after the per-pool auto-layout; the rest of the process shifts right",
+      "base": "v7",
+      "harness": { "app": "tools/layout-lab/harness/v10", "page": "/index.headless.html" }
+    },
+    "v11": {
+      "description": "v7 + proposal B: while an artifact has no clean spot, open a band under the row of its first linked node (everything below moves down) and place again; at most 6 rounds",
+      "base": "v7",
+      "harness": { "app": "tools/layout-lab/harness/v11", "page": "/index.headless.html" }
+    },
+    "v12": {
+      "description": "v7 + proposal A: bpmn-auto-layout 0.5.0 with Grid.addAfter fixed (vendored in the harness): a node takes the next free cell instead of being spliced into its row, which pushed row tails such as gateways to the far right; an occupied cell opens a column in every row",
+      "base": "v7",
+      "harness": { "app": "tools/layout-lab/harness/v12", "page": "/index.headless.html" }
     }
   }
 }
