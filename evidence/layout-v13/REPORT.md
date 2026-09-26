@@ -70,4 +70,12 @@ Añadirlo cambia el XML semántico, no el layout, así que queda fuera de la reg
 - `skill-runs/layout/ab-v7-v13-20260926/`: 4 parejas (v7 frente a v13), semilla `v7-v13-20260926`.
 - `skill-runs/layout/ab-v12-v12clarity-20260926/`: 5 parejas (v12 frente a v12 + v13), semilla `v12-v12clarity-20260926`.
 
-Ambos pendientes de voto.
+El primero ya está votado; el segundo sigue pendiente.
+
+## Votación (2026-09-26)
+
+`human-votes.json`: **v13 3, v7 0, 1 empate** (prueba de signos p = 0,25; demasiado pocas parejas para ser significativo). Notas del usuario:
+- `c-syn009-gemini`: «Mucho mejor» (etiquetas, líneas, alineación).
+- `f-planta-residuos`: gana v13, pero «hay que seguir trabajando, ambos diagramas tienen cruces donde se pierde el flujo».
+- `find-a-job`: empate; «ambos están demasiado enredados, no se entienden».
+- `c-syn015-chatgpt`: gana v13 (flujo y líneas).
