@@ -40,6 +40,18 @@ Voto del usuario (2026-09-26; `human-votes.json`): **v15 12, v7 1, 5 empates**; 
 
 **Decisión del usuario: v15 pasa a ser el layout por defecto de la skill** (`skills/bpmn/config/layouts.json`; antes v7). Comprobado después del cambio: un `render-dsl` sin `--layout` de `c-syn015-gemini` da `success` y un `.bpmn` idéntico al de `hidden.bpmn` del banco v15; la paridad con v0 sigue `passed=true` (`skill-runs/parity-20260926-v15default`).
 
+## Corrección tras el voto: flujos sueltos (2026-09-26)
+
+En una generación real con Luna/high (`C:/Repositorios/BPMN-output/comparacion-gpt6-luna/high/`), «Desplegar gradualmente», el gateway «¿El despliegue degrada el servicio?» y «Revertir a la versión anterior» quedaron sin conexión: las formas en y = 1132–1212 y sus líneas 90 px más abajo (5 flujos sueltos). v7 y v10 dibujan bien ese DSL; el fallo viene de v11 y lo heredan v14 y v15.
+
+Causa: la banda de v11 desplaza todo lo que queda por debajo de un corte horizontal. El corte se calcula con la fila del artefacto más un margen y puede atravesar una forma de la fila siguiente (aquí, porque una etiqueta de esa fila colgaba dentro del alcance). La forma no se mueve, porque su borde superior está por encima del corte, pero sus flujos, que salen de su centro o de su borde inferior, sí bajan.
+
+Arreglo: opción `safeCut` en `harness/v11/lane-room.ts` (activada en v15 y, por tanto, en v16; desactivada en v11 y v14). El corte nunca atraviesa una forma ni una etiqueta de ningún pool: baja hasta 1 px por debajo de lo que cruzaría.
+
+- El DSL del caso queda en `regression/luna-deploy-disconnected.dsl`. Con v15 corregido: 64 flujos, 0 sueltos (antes 5).
+- Banco: v14, v15 y v16 re-renderizados con el arreglo, **idénticos byte a byte 56/56**. El arreglo solo actúa donde antes se rompía algo, así que los votos siguen siendo válidos.
+- Ninguna métrica del banco detectaba flujos sueltos; propuesta pendiente: añadir una (`disconnectedFlows`) y una comprobación en la skill antes de entregar.
+
 ## Comprobaciones
 
 - v7, v11 y v14 re-renderizados tras los cambios en los módulos compartidos: idénticos byte a byte, 56/56.

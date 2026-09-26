@@ -70,7 +70,7 @@ Añadirlo cambia el XML semántico, no el layout, así que queda fuera de la reg
 - `skill-runs/layout/ab-v7-v13-20260926/`: 4 parejas (v7 frente a v13), semilla `v7-v13-20260926`.
 - `skill-runs/layout/ab-v12-v12clarity-20260926/`: 5 parejas (v12 frente a v12 + v13), semilla `v12-v12clarity-20260926`.
 
-El primero ya está votado; el segundo sigue pendiente.
+Los dos están votados.
 
 ## Votación (2026-09-26)
 
@@ -79,3 +79,5 @@ El primero ya está votado; el segundo sigue pendiente.
 - `f-planta-residuos`: gana v13, pero «hay que seguir trabajando, ambos diagramas tienen cruces donde se pierde el flujo».
 - `find-a-job`: empate; «ambos están demasiado enredados, no se entienden».
 - `c-syn015-chatgpt`: gana v13 (flujo y líneas).
+
+Lote v12 frente a v12 + v13 (`human-votes-v12-plus-v13.json`): **v12 + v13 5, v12 0** (p = 0,06). Notas: `c-syn009-gemini` (flujo, líneas, alineación); `c-syn015-chatgpt`: «se nota enredo, pero se entiende el flujo»; `find-a-job`: «mucho mejor»; `planta-residuos` (flujo).

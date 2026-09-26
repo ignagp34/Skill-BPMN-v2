@@ -7,11 +7,16 @@ import { raiseEventLabels } from "../v9/event-labels.ts";
  * opened under an artifact's row is kept only if, placing again, some artifact
  * goes somewhere else (spots under the band compared after its shift); a band
  * that changes no placement is undone. Three earlier criteria were tried and
- * dropped (evidence/layout-v15/REPORT.md): «fewer artifacts without a clean
- * spot» and «fewer shapes and labels crossed or covered» undid useful bands
- * (c-syn011: long associations through tasks again); «some artifact inside the
- * band» kept c-syn015-gemini's, whose artifacts were already in that strip. Everything else is v14 (v10 task width, v9 event names last).
+ * dropped (evidence/layout-v15/REPORT.md): Â«fewer artifacts without a clean
+ * spotÂ» and Â«fewer shapes and labels crossed or coveredÂ» undid useful bands
+ * (c-syn011: long associations through tasks again); Â«some artifact inside the
+ * bandÂ» kept c-syn015-gemini's, whose artifacts were already in that strip.
+ * Everything else is v14 (v10 task width, v9 event names last).
+ *
+ * Fix after the vote (2026-09-26, a real Luna run): the band's cut never goes
+ * through a shape or a label (`safeCut`), so flows no longer come loose from
+ * their shapes.
  */
 export async function placeArtifacts(layoutXml: string): Promise<string> {
-  return raiseEventLabels(await placeArtifactsWithRoom(layoutXml, { keepOnlyHelpfulBands: true }));
+  return raiseEventLabels(await placeArtifactsWithRoom(layoutXml, { keepOnlyHelpfulBands: true, safeCut: true }));
 }

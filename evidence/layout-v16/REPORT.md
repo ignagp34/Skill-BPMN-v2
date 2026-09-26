@@ -23,6 +23,10 @@ El efecto es pequeño: en el banco casi todos los nombres de datos ya quedan lib
 node tools/layout-lab/layout.mjs vote --batch skill-runs/layout/ab-v15-v16-20260926
 ```
 
+## Votación (2026-09-26)
+
+`human-votes.json`: **v16 2, v15 0** (las 2 parejas; p = 0,5 por tamaño, no por dudas). v16 hereda la corrección de flujos sueltos de v15 (`evidence/layout-v15/REPORT.md`), sin cambios en el banco.
+
 ## Comprobaciones
 
 - v15 re-renderizado tras generalizar la pasada de v9: idéntico 56/56.

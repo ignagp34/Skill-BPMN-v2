@@ -30,8 +30,16 @@ const CONTAINERS = new Set(["bpmn:Participant", "bpmn:Lane"]);
 export interface RoomOptions {
   /** v15: a band stays only if it changes where some artifact goes; otherwise it is undone. */
   keepOnlyHelpfulBands: boolean;
+  /**
+   * Fix (2026-09-26, found in a real Luna run): the cut never goes through a shape
+   * or a label. Otherwise a shape whose top is above the cut stays while its flows,
+   * drawn from its centre below the cut, move down with the band: the flows come
+   * loose from their shapes. The cut is pushed down to the bottom of whatever it
+   * crosses, anywhere in the diagram (the band moves every pool).
+   */
+  safeCut: boolean;
 }
-export const V11_ROOM: RoomOptions = { keepOnlyHelpfulBands: false };
+export const V11_ROOM: RoomOptions = { keepOnlyHelpfulBands: false, safeCut: false };
 
 export function placeArtifacts(layoutXml: string): Promise<string> {
   return placeArtifactsWithRoom(layoutXml, V11_ROOM);
@@ -46,7 +54,7 @@ export async function placeArtifactsWithRoom(layoutXml: string, options: RoomOpt
     const crowded = report.find((r) => !r.clean && !helped.has(r.artifactId));
     if (!crowded) return finish(placed);
     helped.add(crowded.artifactId);
-    const opened = await openBand(current, crowded);
+    const opened = await openBand(current, crowded, options.safeCut);
     if (!opened) return finish(placed);
     const roomierReport: ArtifactChoice[] = [];
     const roomierPlaced = await placeArtifactsWith(opened.xml, V6_TUNING, roomierReport);
@@ -73,7 +81,7 @@ function samePlacement(before: ArtifactChoice[], after: ArtifactChoice[], band: 
 const finish = async (xml: string) => tidyFrames(await clearTitleBands(xml));
 
 /** Opens a band of the artifact's height (plus its name) under the row of its first linked node; returns it with its lane's width. */
-async function openBand(xml: string, choice: ArtifactChoice): Promise<{ xml: string; band: Bounds } | null> {
+async function openBand(xml: string, choice: ArtifactChoice, safeCut: boolean): Promise<{ xml: string; band: Bounds } | null> {
   const moddle = new BpmnModdle();
   const { rootElement } = await moddle.fromXML(xml);
   const defs = rootElement as any;
@@ -97,6 +105,7 @@ async function openBand(xml: string, choice: ArtifactChoice): Promise<{ xml: str
     }
   }
   cut = Math.min(cut + ROW_MARGIN, lb.y + lb.height);
+  if (safeCut) cut = clearCut(cut, planeElements);
   const dy = Math.ceil(choice.height + LABEL_ROOM);
 
   for (const el of planeElements) {
@@ -110,6 +119,26 @@ async function openBand(xml: string, choice: ArtifactChoice): Promise<{ xml: str
     if (label && label.y >= cut) label.y += dy;
   }
   return { xml: (await moddle.toXML(defs, { format: false })).xml, band: { x: lb.x, y: cut, width: lb.width, height: dy } };
+}
+
+/**
+ * Lowest cut at or below `cut` that crosses no shape (other than pools and lanes)
+ * and no label. A cut on a shape's bottom edge also moves the flows that leave from
+ * that edge, so it goes 1 px under it.
+ */
+function clearCut(cut: number, planeElements: any[]): number {
+  const solid: Bounds[] = planeElements.flatMap((el) => [
+    el.$type === "bpmndi:BPMNShape" && el.bounds && !CONTAINERS.has(el.bpmnElement?.$type) ? el.bounds : null,
+    el.label?.bounds ?? null,
+  ]).filter(Boolean);
+  let moved = true;
+  while (moved) {
+    moved = false;
+    for (const b of solid) {
+      if (b.y < cut - EPS && b.y + b.height >= cut - EPS) { cut = b.y + b.height + 1; moved = true; }
+    }
+  }
+  return cut;
 }
 
 function containsPoint(outer: Bounds, inner: Bounds): boolean {

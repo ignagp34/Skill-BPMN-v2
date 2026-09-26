@@ -1,0 +1,38 @@
+{
+  "schema": "layout-ab-votes-summary/1",
+  "batch": "skill-runs/layout/ab-v15-v16-20260926",
+  "seed": "v15-v16-20260926",
+  "view": "hidden",
+  "voter": "user",
+  "note": "A = v15, B = v16. Unblinded 2026-09-26.",
+  "tally": {
+    "v15": 0,
+    "v16": 2,
+    "tie": 0
+  },
+  "decisive": 2,
+  "signTestTwoSidedP": 0.5,
+  "pairs": [
+    {
+      "pairId": "p01",
+      "caseId": "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v16",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p02",
+      "caseId": "c-syn011-sysv5-chatgpt-gpt_5_5_thinking-r02",
+      "winner": "v16",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    }
+  ]
+}

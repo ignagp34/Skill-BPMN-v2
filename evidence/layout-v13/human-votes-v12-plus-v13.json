@@ -1,0 +1,79 @@
+{
+  "schema": "layout-ab-votes-summary/1",
+  "batch": "skill-runs/layout/ab-v12-v12clarity-20260926",
+  "seed": "v12-v12clarity-20260926",
+  "view": "hidden",
+  "voter": "user",
+  "note": "A = v12, B = v12 + v13 (harness/ablation/v12-clarity). Unblinded 2026-09-26.",
+  "tally": {
+    "v12": 0,
+    "v12+v13": 5,
+    "tie": 0
+  },
+  "decisive": 5,
+  "signTestTwoSidedP": 0.0625,
+  "pairs": [
+    {
+      "pairId": "p01",
+      "caseId": "c-syn009-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v12+v13",
+      "sawAltView": null,
+      "tags": [
+        "flow",
+        "lines",
+        "alignment"
+      ],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p02",
+      "caseId": "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v12+v13",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p03",
+      "caseId": "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v12+v13",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [
+        "flow"
+      ],
+      "note": "Se nota enredo, pero se entiende el flujo",
+      "revisions": 1
+    },
+    {
+      "pairId": "p04",
+      "caseId": "f-s-a3-find-a-job",
+      "winner": "v12+v13",
+      "sawAltView": null,
+      "tags": [],
+      "note": "mucho mejor",
+      "revisions": 0
+    },
+    {
+      "pairId": "p05",
+      "caseId": "f-planta-residuos",
+      "winner": "v12+v13",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [
+        "flow"
+      ],
+      "note": "",
+      "revisions": 0
+    }
+  ]
+}
