@@ -1,4 +1,12 @@
-# Resumen para continuar — 2026-09-26, noche (etapa 8: v20 es el defecto; votar v21 y v22)
+# Resumen para continuar — 2026-09-26, noche (etapa 8: v20 es el defecto; v22 ganó; votar v23)
+
+## Actualización (misma noche)
+
+- Votos: **v22 7, v20 0** (p = 0,016) y v21 11, v20 7, 1 empate (p = 0,48). Desciegados en `evidence/layout-v21|v22/human-votes.json` y anotados en sus `REPORT.md`.
+- **v23 = v21 afinado** (`evidence/layout-v23/REPORT.md`). La causa de las derrotas de v21 era una suposición falsa: el nombre de un gateway debajo del rombo. v23 pasa el filtro frente a v20, con cruces −25 y casi sin codos añadidos.
+- **Pendiente del usuario**: votar `ab-v20-v23-20260926` (7 parejas nuevas) y decidir si v22 pasa a ser el defecto. Si v23 también gana, construir v24 = v22 + v23 (tocan fases distintas) y compararla con el defecto.
+
+
 
 Empieza por aquí en una conversación nueva. Lee primero `AGENTS.md` (única fuente de instrucciones; `CLAUDE.md` solo redirige). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`, clon en `C:/Repositorios/Skill BPMN v2/Skill-BPMN-v2`. El original `BPMN-DSL-Monorepo` sigue protegido: nunca escribir en él. Commits locales autorizados. **Push solo cuando el usuario lo pida expresamente.** Antes de cualquier operación remota, comprobar que `origin` es `ignagp34/Skill-BPMN-v2`. Trabaja desde la raíz del clon (terminal PowerShell).
 
@@ -27,8 +35,7 @@ Empieza por aquí en una conversación nueva. Lee primero `AGENTS.md` (única fu
 ## Comandos (PowerShell, desde la raíz del clon)
 
 ```powershell
-node tools/layout-lab/layout.mjs vote --batch skill-runs/layout/ab-v20-v21-20260926
-node tools/layout-lab/layout.mjs vote --batch skill-runs/layout/ab-v20-v22-20260926
+node tools/layout-lab/layout.mjs vote --batch skill-runs/layout/ab-v20-v23-20260926
 node tools/layout-lab/layout.mjs bench-render --layout vN --out skill-runs/layout/vN-<fecha>-b55
 node tools/layout-lab/layout.mjs metrics --render skill-runs/layout/vN-<fecha>-b55
 node tools/layout-lab/layout.mjs compare --base skill-runs/layout/v20-20260926-b55 --candidate skill-runs/layout/vN-<fecha>-b55

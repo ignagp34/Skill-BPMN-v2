@@ -19,6 +19,9 @@ import { clarifyFlowsWith, type FlowClarityTuning, V13_TUNING } from "../v13/flo
  */
 export const V21_TUNING: FlowClarityTuning = { ...V13_TUNING, untangle: true, maxRounds: 80, labelZone: 400 };
 
-export async function distributeParallelChannels(layoutXml: string): Promise<string> {
-  return clarifyFlowsWith(await distributeV0(layoutXml), V21_TUNING);
+export const distributeParallelChannels = untangling(V21_TUNING);
+
+/** v0's channel distribution followed by the flow-clarity pass with `tuning` (v23 and its ablations reuse it). */
+export function untangling(tuning: FlowClarityTuning) {
+  return async (layoutXml: string): Promise<string> => clarifyFlowsWith(await distributeV0(layoutXml), tuning);
 }

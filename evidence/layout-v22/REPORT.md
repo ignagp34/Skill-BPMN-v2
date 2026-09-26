@@ -37,6 +37,10 @@ Los flujos se acortan en 6 casos. En `c-syn015-chatgpt` hay 6 cruces menos y los
 
 Imagen antes y después: `incoming-flight-v20-vs-v22.png` (izquierda v20, derecha v22).
 
+## Votación
+
+Votado por el usuario el 2026-09-26 (`human-votes.json`; A = v20, B = v22, vista oculta): **v22 7, v20 0** (p = 0,016), sin empates ni notas. Gana en todos los casos que cambian, incluido `find-a-job`.
+
 ## Lote A/B
 
 `skill-runs/layout/ab-v20-v22-20260926/`: las 7 parejas que cambian, semilla `v20-v22-20260926`.

@@ -1,0 +1,210 @@
+{
+  "schema": "layout-ab-votes-summary/1",
+  "batch": "skill-runs/layout/ab-v20-v21-20260926",
+  "seed": "v20-v21-20260926",
+  "view": "hidden",
+  "voter": "user",
+  "note": "A = v20, B = v21. Unblinded 2026-09-26.",
+  "tally": {
+    "v20": 7,
+    "v21": 11,
+    "tie": 1
+  },
+  "decisive": 18,
+  "signTestTwoSidedP": 0.4807,
+  "missing": [],
+  "pairs": [
+    {
+      "pairId": "p01",
+      "caseId": "h-ml-01-clasificador-imagenes",
+      "winner": "v20",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p02",
+      "caseId": "c-syn013-sysv4-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v21",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p03",
+      "caseId": "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v21",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p04",
+      "caseId": "f-s17-job-application",
+      "winner": "v21",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p05",
+      "caseId": "c-syn006-sysv31-gemini-gemini_3_5_flash_thinking-r01",
+      "winner": "v20",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p06",
+      "caseId": "c-syn005-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v21",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p07",
+      "caseId": "h-ml-02-llm-fine-tuning",
+      "winner": "v20",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p08",
+      "caseId": "c-syn005-sysv4-chatgpt-gpt_5_5_thinking-r01",
+      "winner": "tie",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p09",
+      "caseId": "f-gemini-04",
+      "winner": "v20",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p10",
+      "caseId": "h-ml-05-rag-chatbot",
+      "winner": "v21",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p11",
+      "caseId": "c-syn013-sysv31-claude-opus_4_8_medium-r01",
+      "winner": "v21",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p12",
+      "caseId": "c-syn009-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v20",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p13",
+      "caseId": "f-planta-residuos",
+      "winner": "v20",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p14",
+      "caseId": "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v21",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p15",
+      "caseId": "f-gemini-05",
+      "winner": "v21",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p16",
+      "caseId": "f-gemini-03",
+      "winner": "v20",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p17",
+      "caseId": "c-syn006-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v21",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p18",
+      "caseId": "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v21",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p19",
+      "caseId": "f-canon-4-composting",
+      "winner": "v21",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    }
+  ]
+}

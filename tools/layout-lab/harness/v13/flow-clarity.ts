@@ -51,8 +51,20 @@ export interface FlowClarityTuning {
    * where v0's placeLabels puts it; 0 = ignored.
    */
   labelZone: number;
+  /** Cost of a bend (v13: 40). */
+  bend: number;
+  /**
+   * Two flows sharing neither source nor target that run parallel closer than this
+   * (px, above 0) read as one line: that stretch costs as a merge. 0 = only exact overlaps.
+   */
+  nearGap: number;
+  /** Whether a gateway's name box counts (v0's placeLabels puts it at a vertex free of lines, so below is only a guess). */
+  zoneGateways: boolean;
+  /** Whether the name boxes of the flow's own source and target count (v9 and v21's boundary pass move those names). */
+  zoneOwnEnds: boolean;
 }
-export const V13_TUNING: FlowClarityTuning = { untangle: false, maxRounds: 40, labelZone: 0 };
+export const V13_TUNING: FlowClarityTuning = { untangle: false, maxRounds: 40, labelZone: 0, bend: COST.bend, nearGap: 0,
+  zoneGateways: true, zoneOwnEnds: true };
 
 export async function distributeParallelChannels(layoutXml: string): Promise<string> {
   return clarifyFlows(await distributeV0(layoutXml));
@@ -82,8 +94,9 @@ export async function clarifyFlowsWith(xml: string, tuning: FlowClarityTuning): 
       points: el.waypoint.map((p: any) => ({ x: p.x, y: p.y })) }));
   if (flows.length === 0) return xml;
 
-  const world: World = { shapes, pools, flows, untangle: tuning.untangle, labelZone: tuning.labelZone,
-    labelZones: tuning.labelZone ? labelZones(planeElements) : [] };
+  const world: World = { shapes, pools, flows, untangle: tuning.untangle, labelZone: tuning.labelZone, bend: tuning.bend, nearGap: tuning.nearGap,
+    labelZones: tuning.labelZone ? labelZones(planeElements).filter((z) => tuning.zoneGateways || !z.gateway) : [],
+    zoneOwnEnds: tuning.zoneOwnEnds };
   let changed = false;
   for (let round = 0; round < tuning.maxRounds; round += 1) {
     const fix = bestFix(world);
@@ -98,8 +111,14 @@ export async function clarifyFlowsWith(xml: string, tuning: FlowClarityTuning): 
 
 interface World {
   shapes: Map<string, { bounds: Bounds; type: string }>; pools: Bounds[]; flows: Flow[];
-  untangle: boolean; labelZone: number; labelZones: Bounds[];
+  untangle: boolean; labelZone: number; labelZones: LabelZone[]; bend: number; nearGap: number; zoneOwnEnds: boolean;
 }
+
+interface LabelZone { id: string; gateway: boolean; box: Bounds; }
+
+/** Name boxes a route of `flow` should keep clear of. */
+const zonesFor = (world: World, flow: Flow): Bounds[] => world.labelZones
+  .filter((z) => world.zoneOwnEnds || (z.id !== flow.source && z.id !== flow.target)).map((z) => z.box);
 
 /** The single change (reroute or segment shift) that most reduces the diagram's cost, if any. */
 function bestFix(world: World): { flow: Flow; points: Pt[] } | null {
@@ -124,19 +143,19 @@ function bestFix(world: World): { flow: Flow; points: Pt[] } | null {
  * value no longer matters and the partial sum is returned.
  */
 function flowCost(world: World, flow: Flow, points: Pt[], bound: number): number {
-  let cost = COST.bend * bends(points) + length(points);
+  let cost = world.bend * bends(points) + length(points);
   if (!insideAPool(points, world.pools)) cost += COST.shape;
   if (cost > bound) return cost;
   const old = flow.points; flow.points = points;
   try {
     cost += COST.shape * shapeHits(flow, world.shapes);
-    if (world.labelZone) cost += world.labelZone * (zoneHits(points, world.labelZones) + ownLabelHits(world, flow, points));
+    if (world.labelZone) cost += world.labelZone * (zoneHits(points, zonesFor(world, flow)) + ownLabelHits(world, flow, points));
     if (cost > bound) return cost;
     for (const dirs of faceUse(world.flows, world.shapes).values()) if (dirs.size === 2) cost += COST.mixedFace;
     if (cost > bound) return cost;
     for (const o of world.flows) {
       if (o === flow) continue;
-      if (!bundle(flow, o)) cost += COST.merge * Math.max(0, sharedLength(points, o.points) - MERGE_MIN);
+      if (!bundle(flow, o)) cost += COST.merge * Math.max(0, sharedLength(points, o.points, world.nearGap) - MERGE_MIN);
       cost += COST.crossing * crossings(points, o.points);
       if (cost > bound) return cost;
     }
@@ -191,8 +210,8 @@ function shapeHits(f: Flow, shapes: World["shapes"]): number {
  * under the shape, wrapped at 90 px (11 px Arial, ~6 px a character, 14 px a line).
  * Routing runs before the labels are placed, so this is the best guess of where they go.
  */
-function labelZones(planeElements: any[]): Bounds[] {
-  const zones: Bounds[] = [];
+function labelZones(planeElements: any[]): LabelZone[] {
+  const zones: LabelZone[] = [];
   for (const el of planeElements) {
     const type = el.bpmnElement?.$type ?? "";
     const name = (el.bpmnElement?.name ?? "").trim();
@@ -200,7 +219,8 @@ function labelZones(planeElements: any[]): Bounds[] {
     const width = Math.min(90, name.length * 6 + 4);
     const lines = Math.ceil((name.length * 6) / 90);
     const b = el.bounds;
-    zones.push({ x: b.x + b.width / 2 - width / 2, y: b.y + b.height + 2, width, height: lines * 14 });
+    zones.push({ id: el.bpmnElement.id, gateway: /Gateway$/.test(type),
+      box: { x: b.x + b.width / 2 - width / 2, y: b.y + b.height + 2, width, height: lines * 14 } });
   }
   return zones;
 }
@@ -234,7 +254,7 @@ function ownLabelHits(world: World, flow: Flow, points: Pt[]): number {
     let n = 0;
     for (const s of world.shapes.values()) if (rectsOverlap(box, s.bounds)) n += 1;
     for (const o of world.flows) if (o !== flow) for (let i = 0; i < o.points.length - 1; i += 1) if (segmentHitsRect(o.points[i], o.points[i + 1], box)) { n += 1; break; }
-    for (const z of world.labelZones) if (rectsOverlap(box, z)) n += 1;
+    for (const z of zonesFor(world, flow)) if (rectsOverlap(box, z)) n += 1;
     return n;
   };
   return Math.min(...boxes.map(hits));
@@ -366,14 +386,15 @@ const length = (r: Pt[]) => r.slice(1).reduce((s, p, i) => s + Math.abs(p.x - r[
 const inset = (b: Bounds, d: number): Bounds => ({ x: b.x + d, y: b.y + d, width: b.width - 2 * d, height: b.height - 2 * d });
 const insideAPool = (r: Pt[], pools: Bounds[]) => pools.length === 0 || pools.some((b) => r.every((p) => p.x >= b.x + 30 && p.x <= b.x + b.width && p.y >= b.y && p.y <= b.y + b.height));
 
-/** Length two orthogonal polylines share along the same line. */
-function sharedLength(a: Pt[], b: Pt[]): number {
+/** Length two orthogonal polylines share along the same line (or, with `near` > 0, closer than `near` px apart). */
+function sharedLength(a: Pt[], b: Pt[], near = 0): number {
+  const tol = Math.max(0.5, near);
   let total = 0;
   for (let i = 0; i < a.length - 1; i += 1) for (let j = 0; j < b.length - 1; j += 1) {
     const [p, q] = [a[i], a[i + 1]]; const [u, v] = [b[j], b[j + 1]];
-    if (Math.abs(p.y - q.y) < 0.5 && Math.abs(u.y - v.y) < 0.5 && Math.abs(p.y - u.y) < 0.5) {
+    if (Math.abs(p.y - q.y) < 0.5 && Math.abs(u.y - v.y) < 0.5 && Math.abs(p.y - u.y) < tol) {
       total += Math.max(0, Math.min(Math.max(p.x, q.x), Math.max(u.x, v.x)) - Math.max(Math.min(p.x, q.x), Math.min(u.x, v.x)));
-    } else if (Math.abs(p.x - q.x) < 0.5 && Math.abs(u.x - v.x) < 0.5 && Math.abs(p.x - u.x) < 0.5) {
+    } else if (Math.abs(p.x - q.x) < 0.5 && Math.abs(u.x - v.x) < 0.5 && Math.abs(p.x - u.x) < tol) {
       total += Math.max(0, Math.min(Math.max(p.y, q.y), Math.max(u.y, v.y)) - Math.max(Math.min(p.y, q.y), Math.min(u.y, v.y)));
     }
   }

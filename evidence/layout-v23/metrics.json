@@ -1,0 +1,1353 @@
+{
+  "schema": "layout-metrics/1",
+  "layout": "v23",
+  "cases": 55,
+  "skipped": [],
+  "diagnosis": [
+    {
+      "metric": "longSeqEdges",
+      "group": "legibility",
+      "casesAffected": 45,
+      "total": 176
+    },
+    {
+      "metric": "edgeOverlaps",
+      "group": "legibility",
+      "casesAffected": 29,
+      "total": 205
+    },
+    {
+      "metric": "crossings",
+      "group": "legibility",
+      "casesAffected": 25,
+      "total": 219
+    },
+    {
+      "metric": "labelEdgeOverlaps",
+      "group": "hard",
+      "casesAffected": 20,
+      "total": 151
+    },
+    {
+      "metric": "edgeThroughShape",
+      "group": "hard",
+      "casesAffected": 18,
+      "total": 99
+    },
+    {
+      "metric": "labelShapeOverlaps",
+      "group": "hard",
+      "casesAffected": 4,
+      "total": 4
+    },
+    {
+      "metric": "labelLabelOverlaps",
+      "group": "hard",
+      "casesAffected": 2,
+      "total": 2
+    },
+    {
+      "metric": "clippedText",
+      "group": "hard",
+      "casesAffected": 2,
+      "total": 2
+    },
+    {
+      "metric": "shapeOverlaps",
+      "group": "hard",
+      "casesAffected": 1,
+      "total": 1
+    },
+    {
+      "metric": "labelsOnTitleBand",
+      "group": "hard",
+      "casesAffected": 0,
+      "total": 0
+    },
+    {
+      "metric": "shapesOnTitleBand",
+      "group": "hard",
+      "casesAffected": 0,
+      "total": 0
+    },
+    {
+      "metric": "shapesOutsideContainer",
+      "group": "hard",
+      "casesAffected": 0,
+      "total": 0
+    }
+  ],
+  "summary": {
+    "shapeOverlaps": {
+      "group": "hard",
+      "better": "lower",
+      "n": 55,
+      "mean": 0.01818181818181818,
+      "median": 0,
+      "total": 1,
+      "casesAffected": 1,
+      "worst": [
+        [
+          "c-syn013-sysv4-chatgpt-gpt_5_5_thinking-r03",
+          1
+        ],
+        [
+          "c-syn001-sysv31-claude-opus_4_7-r03",
+          0
+        ],
+        [
+          "c-syn001-sysv5-chatgpt-gpt_5_5_thinking-r01",
+          0
+        ],
+        [
+          "c-syn002-sysv31-claude-opus_4_8_medium-r03",
+          0
+        ],
+        [
+          "c-syn002-sysv4-gemini-gemini_3_5_flash_thinking-r01",
+          0
+        ]
+      ]
+    },
+    "edgeThroughShape": {
+      "group": "hard",
+      "better": "lower",
+      "n": 55,
+      "mean": 1.8,
+      "median": 0,
+      "total": 99,
+      "casesAffected": 18,
+      "worst": [
+        [
+          "f-planta-residuos",
+          24
+        ],
+        [
+          "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          14
+        ],
+        [
+          "c-syn010-sysv5-chatgpt-gpt_5_5_thinking-r01",
+          8
+        ],
+        [
+          "c-syn010-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          8
+        ],
+        [
+          "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r01",
+          7
+        ]
+      ]
+    },
+    "labelShapeOverlaps": {
+      "group": "hard",
+      "better": "lower",
+      "n": 55,
+      "mean": 0.07272727272727272,
+      "median": 0,
+      "total": 4,
+      "casesAffected": 4,
+      "worst": [
+        [
+          "c-syn003-sysv4-chatgpt-gpt_5_5_thinking-r02",
+          1
+        ],
+        [
+          "c-syn003-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          1
+        ],
+        [
+          "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          1
+        ],
+        [
+          "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          1
+        ],
+        [
+          "c-syn001-sysv31-claude-opus_4_7-r03",
+          0
+        ]
+      ]
+    },
+    "labelLabelOverlaps": {
+      "group": "hard",
+      "better": "lower",
+      "n": 55,
+      "mean": 0.03636363636363636,
+      "median": 0,
+      "total": 2,
+      "casesAffected": 2,
+      "worst": [
+        [
+          "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          1
+        ],
+        [
+          "c-syn014-sysv5-gemini-gemini_3_5_flash_thinking-r01",
+          1
+        ],
+        [
+          "c-syn001-sysv31-claude-opus_4_7-r03",
+          0
+        ],
+        [
+          "c-syn001-sysv5-chatgpt-gpt_5_5_thinking-r01",
+          0
+        ],
+        [
+          "c-syn002-sysv31-claude-opus_4_8_medium-r03",
+          0
+        ]
+      ]
+    },
+    "labelEdgeOverlaps": {
+      "group": "hard",
+      "better": "lower",
+      "n": 55,
+      "mean": 2.7454545454545456,
+      "median": 0,
+      "total": 151,
+      "casesAffected": 20,
+      "worst": [
+        [
+          "f-planta-residuos",
+          33
+        ],
+        [
+          "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          22
+        ],
+        [
+          "c-syn010-sysv5-chatgpt-gpt_5_5_thinking-r01",
+          14
+        ],
+        [
+          "c-syn010-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          12
+        ],
+        [
+          "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          11
+        ]
+      ]
+    },
+    "labelsOnTitleBand": {
+      "group": "hard",
+      "better": "lower",
+      "n": 55,
+      "mean": 0,
+      "median": 0,
+      "total": 0,
+      "casesAffected": 0,
+      "worst": [
+        [
+          "c-syn001-sysv31-claude-opus_4_7-r03",
+          0
+        ],
+        [
+          "c-syn001-sysv5-chatgpt-gpt_5_5_thinking-r01",
+          0
+        ],
+        [
+          "c-syn002-sysv31-claude-opus_4_8_medium-r03",
+          0
+        ],
+        [
+          "c-syn002-sysv4-gemini-gemini_3_5_flash_thinking-r01",
+          0
+        ],
+        [
+          "c-syn003-sysv4-chatgpt-gpt_5_5_thinking-r02",
+          0
+        ]
+      ]
+    },
+    "shapesOnTitleBand": {
+      "group": "hard",
+      "better": "lower",
+      "n": 55,
+      "mean": 0,
+      "median": 0,
+      "total": 0,
+      "casesAffected": 0,
+      "worst": [
+        [
+          "c-syn001-sysv31-claude-opus_4_7-r03",
+          0
+        ],
+        [
+          "c-syn001-sysv5-chatgpt-gpt_5_5_thinking-r01",
+          0
+        ],
+        [
+          "c-syn002-sysv31-claude-opus_4_8_medium-r03",
+          0
+        ],
+        [
+          "c-syn002-sysv4-gemini-gemini_3_5_flash_thinking-r01",
+          0
+        ],
+        [
+          "c-syn003-sysv4-chatgpt-gpt_5_5_thinking-r02",
+          0
+        ]
+      ]
+    },
+    "shapesOutsideContainer": {
+      "group": "hard",
+      "better": "lower",
+      "n": 55,
+      "mean": 0,
+      "median": 0,
+      "total": 0,
+      "casesAffected": 0,
+      "worst": [
+        [
+          "c-syn001-sysv31-claude-opus_4_7-r03",
+          0
+        ],
+        [
+          "c-syn001-sysv5-chatgpt-gpt_5_5_thinking-r01",
+          0
+        ],
+        [
+          "c-syn002-sysv31-claude-opus_4_8_medium-r03",
+          0
+        ],
+        [
+          "c-syn002-sysv4-gemini-gemini_3_5_flash_thinking-r01",
+          0
+        ],
+        [
+          "c-syn003-sysv4-chatgpt-gpt_5_5_thinking-r02",
+          0
+        ]
+      ]
+    },
+    "clippedText": {
+      "group": "hard",
+      "better": "lower",
+      "n": 55,
+      "mean": 0.03636363636363636,
+      "median": 0,
+      "total": 2,
+      "casesAffected": 2,
+      "worst": [
+        [
+          "c-syn012-sysv5-gemini-gemini_3_5_flash_thinking-r03",
+          1
+        ],
+        [
+          "f-canon-5-marriage",
+          1
+        ],
+        [
+          "c-syn001-sysv31-claude-opus_4_7-r03",
+          0
+        ],
+        [
+          "c-syn001-sysv5-chatgpt-gpt_5_5_thinking-r01",
+          0
+        ],
+        [
+          "c-syn002-sysv31-claude-opus_4_8_medium-r03",
+          0
+        ]
+      ]
+    },
+    "crossings": {
+      "group": "legibility",
+      "better": "lower",
+      "n": 55,
+      "mean": 3.981818181818182,
+      "median": 0,
+      "total": 219,
+      "casesAffected": 25,
+      "worst": [
+        [
+          "f-planta-residuos",
+          82
+        ],
+        [
+          "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          59
+        ],
+        [
+          "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          28
+        ],
+        [
+          "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          5
+        ],
+        [
+          "c-syn014-sysv5-claude-opus_4_8_medium-r01",
+          5
+        ]
+      ]
+    },
+    "crossingsSeqSeq": {
+      "group": "legibility",
+      "better": "lower",
+      "n": 55,
+      "mean": 0.5818181818181818,
+      "median": 0,
+      "total": 32,
+      "casesAffected": 11,
+      "worst": [
+        [
+          "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          10
+        ],
+        [
+          "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          5
+        ],
+        [
+          "f-planta-residuos",
+          4
+        ],
+        [
+          "c-syn009-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+          3
+        ],
+        [
+          "f-gemini-04",
+          3
+        ]
+      ]
+    },
+    "crossingsSeqMsg": {
+      "group": "legibility",
+      "better": "lower",
+      "n": 55,
+      "mean": 1.9090909090909092,
+      "median": 0,
+      "total": 105,
+      "casesAffected": 11,
+      "worst": [
+        [
+          "f-planta-residuos",
+          40
+        ],
+        [
+          "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          33
+        ],
+        [
+          "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          17
+        ],
+        [
+          "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          3
+        ],
+        [
+          "c-syn010-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          3
+        ]
+      ]
+    },
+    "crossingsMsgMsg": {
+      "group": "legibility",
+      "better": "lower",
+      "n": 55,
+      "mean": 0.4909090909090909,
+      "median": 0,
+      "total": 27,
+      "casesAffected": 7,
+      "worst": [
+        [
+          "f-planta-residuos",
+          9
+        ],
+        [
+          "c-syn014-sysv5-claude-opus_4_8_medium-r01",
+          5
+        ],
+        [
+          "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          5
+        ],
+        [
+          "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          4
+        ],
+        [
+          "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          2
+        ]
+      ]
+    },
+    "edgeOverlaps": {
+      "group": "legibility",
+      "better": "lower",
+      "n": 55,
+      "mean": 3.727272727272727,
+      "median": 1,
+      "total": 205,
+      "casesAffected": 29,
+      "worst": [
+        [
+          "f-planta-residuos",
+          105
+        ],
+        [
+          "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          19
+        ],
+        [
+          "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          18
+        ],
+        [
+          "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r01",
+          6
+        ],
+        [
+          "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          6
+        ]
+      ]
+    },
+    "bendsPerEdge": {
+      "group": "legibility",
+      "better": "lower",
+      "n": 55,
+      "mean": 0.38957454545454545,
+      "median": 0.4,
+      "total": 21.4266,
+      "casesAffected": 51,
+      "worst": [
+        [
+          "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          0.7419
+        ],
+        [
+          "f-canon-2-incoming-flight",
+          0.7241
+        ],
+        [
+          "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          0.6949
+        ],
+        [
+          "f-planta-residuos",
+          0.6803
+        ],
+        [
+          "f-gemini-05",
+          0.6667
+        ]
+      ]
+    },
+    "straightSeqRatio": {
+      "group": "legibility",
+      "better": "higher",
+      "n": 55,
+      "mean": 0.7517236363636359,
+      "median": 0.7692,
+      "total": 41.34479999999998,
+      "casesAffected": 55,
+      "worst": [
+        [
+          "f-canon-2-incoming-flight",
+          0.3448
+        ],
+        [
+          "f-canon-5-marriage",
+          0.4444
+        ],
+        [
+          "f-s-a3-find-a-job",
+          0.48
+        ],
+        [
+          "f-gemini-05",
+          0.5294
+        ],
+        [
+          "c-syn007-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          0.5455
+        ]
+      ]
+    },
+    "forwardSeqRatio": {
+      "group": "legibility",
+      "better": "higher",
+      "n": 55,
+      "mean": 0.9766218181818183,
+      "median": 1,
+      "total": 53.714200000000005,
+      "casesAffected": 55,
+      "worst": [
+        [
+          "c-syn006-sysv31-gemini-gemini_3_5_flash_thinking-r01",
+          0.8947
+        ],
+        [
+          "c-syn006-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+          0.9
+        ],
+        [
+          "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r01",
+          0.9091
+        ],
+        [
+          "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          0.9091
+        ],
+        [
+          "c-syn013-sysv4-chatgpt-gpt_5_5_thinking-r03",
+          0.9231
+        ]
+      ]
+    },
+    "backEdges": {
+      "group": "legibility",
+      "better": "info",
+      "n": 55,
+      "mean": 0.23636363636363636,
+      "median": 0,
+      "total": 13,
+      "casesAffected": 10,
+      "worst": [
+        [
+          "f-gemini-04",
+          3
+        ],
+        [
+          "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          2
+        ],
+        [
+          "f-canon-3-conveyor-belt",
+          1
+        ],
+        [
+          "f-canon-4-composting",
+          1
+        ],
+        [
+          "f-gemini-05",
+          1
+        ]
+      ]
+    },
+    "seqEdgeLengthMean": {
+      "group": "legibility",
+      "better": "lower",
+      "n": 55,
+      "mean": 158.03630909090907,
+      "median": 135.1818,
+      "total": 8691.997,
+      "casesAffected": 55,
+      "worst": [
+        [
+          "f-s-a3-find-a-job",
+          552.2
+        ],
+        [
+          "f-planta-residuos",
+          522.4393
+        ],
+        [
+          "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          422.5926
+        ],
+        [
+          "f-canon-2-incoming-flight",
+          340.2759
+        ],
+        [
+          "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          265.0588
+        ]
+      ]
+    },
+    "seqEdgeLengthCV": {
+      "group": "legibility",
+      "better": "lower",
+      "n": 55,
+      "mean": 0.7617490909090912,
+      "median": 0.7475,
+      "total": 41.896200000000015,
+      "casesAffected": 55,
+      "worst": [
+        [
+          "f-canon-1-cheeseburger",
+          1.949
+        ],
+        [
+          "f-planta-residuos",
+          1.4697
+        ],
+        [
+          "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          1.3775
+        ],
+        [
+          "c-syn013-sysv31-claude-opus_4_8_medium-r01",
+          1.2725
+        ],
+        [
+          "c-syn006-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+          1.0731
+        ]
+      ]
+    },
+    "longSeqEdges": {
+      "group": "legibility",
+      "better": "lower",
+      "n": 55,
+      "mean": 3.2,
+      "median": 2,
+      "total": 176,
+      "casesAffected": 45,
+      "worst": [
+        [
+          "f-planta-residuos",
+          39
+        ],
+        [
+          "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          19
+        ],
+        [
+          "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          16
+        ],
+        [
+          "c-syn005-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          7
+        ],
+        [
+          "f-canon-1-cheeseburger",
+          7
+        ]
+      ]
+    },
+    "msgFlowLengthMean": {
+      "group": "legibility",
+      "better": "lower",
+      "n": 18,
+      "mean": 1248.8637555555554,
+      "median": 905.25,
+      "total": 22479.547599999998,
+      "casesAffected": 18,
+      "worst": [
+        [
+          "f-planta-residuos",
+          3267.7143
+        ],
+        [
+          "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          3239.5
+        ],
+        [
+          "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          3161.6667
+        ],
+        [
+          "c-syn014-sysv5-claude-opus_4_8_medium-r01",
+          1252.8
+        ],
+        [
+          "h-ml-05-rag-chatbot",
+          1209
+        ]
+      ]
+    },
+    "msgFlowDxMean": {
+      "group": "legibility",
+      "better": "lower",
+      "n": 18,
+      "mean": 605.5224833333333,
+      "median": 376.25,
+      "total": 10899.4047,
+      "casesAffected": 18,
+      "worst": [
+        [
+          "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          2107.5
+        ],
+        [
+          "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          2103.3333
+        ],
+        [
+          "f-planta-residuos",
+          1158.5714
+        ],
+        [
+          "h-ml-06-vision-medica",
+          712.5
+        ],
+        [
+          "c-syn014-sysv5-claude-opus_4_8_medium-r01",
+          660
+        ]
+      ]
+    },
+    "labelDistanceMean": {
+      "group": "legibility",
+      "better": "lower",
+      "n": 50,
+      "mean": 3.9316420000000005,
+      "median": 3.3649,
+      "total": 196.58210000000003,
+      "casesAffected": 39,
+      "worst": [
+        [
+          "c-syn004-sysv31-claude-opus_4_8_medium-r03",
+          13.8
+        ],
+        [
+          "f-s17-order-to-ship",
+          13.4333
+        ],
+        [
+          "c-syn006-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+          11.25
+        ],
+        [
+          "f-s-a3-find-a-job",
+          9.56
+        ],
+        [
+          "c-syn005-sysv4-chatgpt-gpt_5_5_thinking-r01",
+          9.3714
+        ]
+      ]
+    },
+    "mixedFaces": {
+      "group": "legibility",
+      "better": "lower",
+      "n": 55,
+      "mean": 0,
+      "median": 0,
+      "total": 0,
+      "casesAffected": 0,
+      "worst": [
+        [
+          "c-syn001-sysv31-claude-opus_4_7-r03",
+          0
+        ],
+        [
+          "c-syn001-sysv5-chatgpt-gpt_5_5_thinking-r01",
+          0
+        ],
+        [
+          "c-syn002-sysv31-claude-opus_4_8_medium-r03",
+          0
+        ],
+        [
+          "c-syn002-sysv4-gemini-gemini_3_5_flash_thinking-r01",
+          0
+        ],
+        [
+          "c-syn003-sysv4-chatgpt-gpt_5_5_thinking-r02",
+          0
+        ]
+      ]
+    },
+    "ambiguousOverlaps": {
+      "group": "legibility",
+      "better": "lower",
+      "n": 55,
+      "mean": 0,
+      "median": 0,
+      "total": 0,
+      "casesAffected": 0,
+      "worst": [
+        [
+          "c-syn001-sysv31-claude-opus_4_7-r03",
+          0
+        ],
+        [
+          "c-syn001-sysv5-chatgpt-gpt_5_5_thinking-r01",
+          0
+        ],
+        [
+          "c-syn002-sysv31-claude-opus_4_8_medium-r03",
+          0
+        ],
+        [
+          "c-syn002-sysv4-gemini-gemini_3_5_flash_thinking-r01",
+          0
+        ],
+        [
+          "c-syn003-sysv4-chatgpt-gpt_5_5_thinking-r02",
+          0
+        ]
+      ]
+    },
+    "assocLengthMean": {
+      "group": "legibility",
+      "better": "lower",
+      "n": 21,
+      "mean": 136.00880952380953,
+      "median": 102.689,
+      "total": 2856.185,
+      "casesAffected": 21,
+      "worst": [
+        [
+          "f-planta-residuos",
+          563.7855
+        ],
+        [
+          "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          425.3958
+        ],
+        [
+          "f-canon-3-conveyor-belt",
+          150.4717
+        ],
+        [
+          "h-ml-03-deteccion-fraude",
+          127.6347
+        ],
+        [
+          "h-ml-05-rag-chatbot",
+          123.8973
+        ]
+      ]
+    },
+    "assocBendsPerEdge": {
+      "group": "legibility",
+      "better": "lower",
+      "n": 21,
+      "mean": 0.0344047619047619,
+      "median": 0,
+      "total": 0.7224999999999999,
+      "casesAffected": 4,
+      "worst": [
+        [
+          "f-planta-residuos",
+          0.2273
+        ],
+        [
+          "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          0.2
+        ],
+        [
+          "h-ml-03-deteccion-fraude",
+          0.2
+        ],
+        [
+          "c-syn012-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          0.0952
+        ],
+        [
+          "c-syn011-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+          0
+        ]
+      ]
+    },
+    "bentNearAssociations": {
+      "group": "legibility",
+      "better": "lower",
+      "n": 55,
+      "mean": 0,
+      "median": 0,
+      "total": 0,
+      "casesAffected": 0,
+      "worst": [
+        [
+          "c-syn001-sysv31-claude-opus_4_7-r03",
+          0
+        ],
+        [
+          "c-syn001-sysv5-chatgpt-gpt_5_5_thinking-r01",
+          0
+        ],
+        [
+          "c-syn002-sysv31-claude-opus_4_8_medium-r03",
+          0
+        ],
+        [
+          "c-syn002-sysv4-gemini-gemini_3_5_flash_thinking-r01",
+          0
+        ],
+        [
+          "c-syn003-sysv4-chatgpt-gpt_5_5_thinking-r02",
+          0
+        ]
+      ]
+    },
+    "longAssociations": {
+      "group": "legibility",
+      "better": "lower",
+      "n": 55,
+      "mean": 0.4727272727272727,
+      "median": 0,
+      "total": 26,
+      "casesAffected": 7,
+      "worst": [
+        [
+          "f-planta-residuos",
+          9
+        ],
+        [
+          "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          4
+        ],
+        [
+          "f-canon-3-conveyor-belt",
+          4
+        ],
+        [
+          "c-syn011-sysv5-chatgpt-gpt_5_5_thinking-r02",
+          3
+        ],
+        [
+          "c-syn012-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          3
+        ]
+      ]
+    },
+    "artifactTextOutsidePool": {
+      "group": "legibility",
+      "better": "lower",
+      "n": 55,
+      "mean": 0,
+      "median": 0,
+      "total": 0,
+      "casesAffected": 0,
+      "worst": [
+        [
+          "c-syn001-sysv31-claude-opus_4_7-r03",
+          0
+        ],
+        [
+          "c-syn001-sysv5-chatgpt-gpt_5_5_thinking-r01",
+          0
+        ],
+        [
+          "c-syn002-sysv31-claude-opus_4_8_medium-r03",
+          0
+        ],
+        [
+          "c-syn002-sysv4-gemini-gemini_3_5_flash_thinking-r01",
+          0
+        ],
+        [
+          "c-syn003-sysv4-chatgpt-gpt_5_5_thinking-r02",
+          0
+        ]
+      ]
+    },
+    "poolWidthCV": {
+      "group": "legibility",
+      "better": "lower",
+      "n": 20,
+      "mean": 0,
+      "median": 0,
+      "total": 0,
+      "casesAffected": 0,
+      "worst": [
+        [
+          "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r01",
+          0
+        ],
+        [
+          "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          0
+        ],
+        [
+          "c-syn010-sysv5-chatgpt-gpt_5_5_thinking-r01",
+          0
+        ],
+        [
+          "c-syn010-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          0
+        ],
+        [
+          "c-syn010-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          0
+        ]
+      ]
+    },
+    "poolEdgeSpread": {
+      "group": "legibility",
+      "better": "lower",
+      "n": 20,
+      "mean": 0,
+      "median": 0,
+      "total": 0,
+      "casesAffected": 0,
+      "worst": [
+        [
+          "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r01",
+          0
+        ],
+        [
+          "c-syn009-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          0
+        ],
+        [
+          "c-syn010-sysv5-chatgpt-gpt_5_5_thinking-r01",
+          0
+        ],
+        [
+          "c-syn010-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          0
+        ],
+        [
+          "c-syn010-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          0
+        ]
+      ]
+    },
+    "width": {
+      "group": "compactness",
+      "better": "band",
+      "n": 55,
+      "mean": 1735.5636363636363,
+      "median": 1519,
+      "total": 95456,
+      "casesAffected": 55,
+      "worst": [
+        [
+          "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          4379
+        ],
+        [
+          "f-canon-3-conveyor-belt",
+          3452
+        ],
+        [
+          "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          3361
+        ],
+        [
+          "f-canon-1-cheeseburger",
+          3329
+        ],
+        [
+          "f-planta-residuos",
+          3169
+        ]
+      ]
+    },
+    "height": {
+      "group": "compactness",
+      "better": "band",
+      "n": 55,
+      "mean": 985.8,
+      "median": 782,
+      "total": 54219,
+      "casesAffected": 55,
+      "worst": [
+        [
+          "f-planta-residuos",
+          7184
+        ],
+        [
+          "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          3186
+        ],
+        [
+          "f-canon-2-incoming-flight",
+          2294
+        ],
+        [
+          "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          2047
+        ],
+        [
+          "f-gemini-03",
+          1800
+        ]
+      ]
+    },
+    "area": {
+      "group": "compactness",
+      "better": "band",
+      "n": 55,
+      "mean": 2153293.7636363637,
+      "median": 1219000,
+      "total": 118431157,
+      "casesAffected": 55,
+      "worst": [
+        [
+          "f-planta-residuos",
+          22766096
+        ],
+        [
+          "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          10708146
+        ],
+        [
+          "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+          8963813
+        ],
+        [
+          "f-canon-2-incoming-flight",
+          6971466
+        ],
+        [
+          "f-s-a3-find-a-job",
+          4707612
+        ]
+      ]
+    },
+    "areaPerNode": {
+      "group": "compactness",
+      "better": "band",
+      "n": 55,
+      "mean": 82111.59339818185,
+      "median": 67581.2632,
+      "total": 4516137.636900002,
+      "casesAffected": 55,
+      "worst": [
+        [
+          "f-canon-2-incoming-flight",
+          278858.64
+        ],
+        [
+          "f-planta-residuos",
+          206964.5091
+        ],
+        [
+          "f-s-a3-find-a-job",
+          204678.7826
+        ],
+        [
+          "f-canon-3-conveyor-belt",
+          186695.6667
+        ],
+        [
+          "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          184623.2069
+        ]
+      ]
+    },
+    "aspectRatio": {
+      "group": "compactness",
+      "better": "band",
+      "n": 55,
+      "mean": 2.3890581818181817,
+      "median": 2.1048,
+      "total": 131.3982,
+      "casesAffected": 55,
+      "worst": [
+        [
+          "c-syn001-sysv5-chatgpt-gpt_5_5_thinking-r01",
+          5.9175
+        ],
+        [
+          "c-syn003-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          5.9175
+        ],
+        [
+          "c-syn002-sysv4-gemini-gemini_3_5_flash_thinking-r01",
+          5.1893
+        ],
+        [
+          "c-syn003-sysv4-chatgpt-gpt_5_5_thinking-r02",
+          5.1893
+        ],
+        [
+          "c-syn013-sysv31-claude-opus_4_8_medium-r01",
+          4.4046
+        ]
+      ]
+    },
+    "aspectDeviation16x9": {
+      "group": "compactness",
+      "better": "band",
+      "n": 55,
+      "mean": 0.4424036363636364,
+      "median": 0.3773,
+      "total": 24.3322,
+      "casesAffected": 55,
+      "worst": [
+        [
+          "f-planta-residuos",
+          1.3938
+        ],
+        [
+          "c-syn001-sysv5-chatgpt-gpt_5_5_thinking-r01",
+          1.2025
+        ],
+        [
+          "c-syn003-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          1.2025
+        ],
+        [
+          "c-syn002-sysv4-gemini-gemini_3_5_flash_thinking-r01",
+          1.0712
+        ],
+        [
+          "c-syn003-sysv4-chatgpt-gpt_5_5_thinking-r02",
+          1.0712
+        ]
+      ]
+    },
+    "fillRatio": {
+      "group": "compactness",
+      "better": "band",
+      "n": 55,
+      "mean": 0.08244727272727272,
+      "median": 0.0698,
+      "total": 4.534599999999999,
+      "casesAffected": 55,
+      "worst": [
+        [
+          "c-syn001-sysv5-chatgpt-gpt_5_5_thinking-r01",
+          0.2015
+        ],
+        [
+          "c-syn003-sysv5-chatgpt-gpt_5_5_thinking-r03",
+          0.2015
+        ],
+        [
+          "c-syn002-sysv4-gemini-gemini_3_5_flash_thinking-r01",
+          0.1934
+        ],
+        [
+          "c-syn003-sysv4-chatgpt-gpt_5_5_thinking-r02",
+          0.1934
+        ],
+        [
+          "c-syn013-sysv31-claude-opus_4_8_medium-r01",
+          0.1559
+        ]
+      ]
+    },
+    "laneSlackRatio": {
+      "group": "compactness",
+      "better": "lower",
+      "n": 55,
+      "mean": 0.18707272727272728,
+      "median": 0.1723,
+      "total": 10.289,
+      "casesAffected": 55,
+      "worst": [
+        [
+          "c-syn001-sysv5-chatgpt-gpt_5_5_thinking-r01",
+          0.3719
+        ],
+        [
+          "c-syn002-sysv4-gemini-gemini_3_5_flash_thinking-r01",
+          0.3719
+        ],
+        [
+          "f-pool-map-message-event",
+          0.3431
+        ],
+        [
+          "f-pool-map-missing-message-flow",
+          0.3431
+        ],
+        [
+          "h-ml-01-clasificador-imagenes",
+          0.3198
+        ]
+      ]
+    }
+  }
+}

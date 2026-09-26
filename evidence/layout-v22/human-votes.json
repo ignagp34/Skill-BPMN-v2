@@ -1,0 +1,87 @@
+{
+  "schema": "layout-ab-votes-summary/1",
+  "batch": "skill-runs/layout/ab-v20-v22-20260926",
+  "seed": "v20-v22-20260926",
+  "view": "hidden",
+  "voter": "user",
+  "note": "A = v20, B = v22. Unblinded 2026-09-26.",
+  "tally": {
+    "v20": 0,
+    "v22": 7,
+    "tie": 0
+  },
+  "decisive": 7,
+  "signTestTwoSidedP": 0.01563,
+  "missing": [],
+  "pairs": [
+    {
+      "pairId": "p01",
+      "caseId": "f-planta-residuos",
+      "winner": "v22",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p02",
+      "caseId": "f-canon-1-cheeseburger",
+      "winner": "v22",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p03",
+      "caseId": "f-canon-2-incoming-flight",
+      "winner": "v22",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 1
+    },
+    {
+      "pairId": "p04",
+      "caseId": "f-s17-job-application",
+      "winner": "v22",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p05",
+      "caseId": "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v22",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p06",
+      "caseId": "c-syn006-sysv31-gemini-gemini_3_5_flash_thinking-r01",
+      "winner": "v22",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    },
+    {
+      "pairId": "p07",
+      "caseId": "f-s-a3-find-a-job",
+      "winner": "v22",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "revisions": 0
+    }
+  ]
+}

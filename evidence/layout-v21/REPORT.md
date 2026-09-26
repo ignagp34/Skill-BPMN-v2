@@ -39,4 +39,10 @@ Imagen: `c-syn015-chatgpt-v20-vs-v21.png` (arriba v20, abajo v21; pool principal
 node tools/layout-lab/layout.mjs vote --batch skill-runs/layout/ab-v20-v21-20260926
 ```
 
+## Votación
+
+Votado por el usuario el 2026-09-26 (`human-votes.json`; A = v20, B = v21, vista oculta): **v21 11, v20 7, 1 empate** (p = 0,48), sin notas ni etiquetas. Gana en el caso que motivó la idea (`c-syn015-chatgpt`, −8 cruces), pero no con claridad en el conjunto.
+
+Lectura de las derrotas (`compare-v20.json`): en 5 de las 7, las rutas nuevas comparten más tramos de línea (`edgeOverlaps` +1 a +3), y en 2 (`h-ml-01`, `c-syn009` r02 sysv31) añaden codos sin quitar ningún cruce. Donde gana, los tramos compartidos no suben salvo en un caso. El caso más claro es `f-gemini-04`. En v20, las ramas del gateway salían limpias por abajo. En v21 salen por la cara de «OK», entran a las tareas por arriba con más codos, y «Zero» corre a 2 px de la vuelta de «Reorder fastest parts», así que parecen una sola línea. El enrutador solo penalizaba los solapes exactos, y un cruce (150) valía más que dos codos (80). Esto lleva a v23.
+
 Siguiente posible: v21 + v22 (tocan fases distintas: v22 el apilado de carriles, v21 el enrutado y las etiquetas de borde), si los dos ganan su voto.
