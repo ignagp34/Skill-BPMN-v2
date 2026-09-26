@@ -33,7 +33,15 @@ export async function placeArtifacts(layoutXml: string): Promise<string> {
   return raiseEventLabels(await placeArtifactsV7(layoutXml));
 }
 
-export async function raiseEventLabels(xml: string): Promise<string> {
+export function raiseEventLabels(xml: string): Promise<string> {
+  return raiseLabels(xml, EVENT);
+}
+
+/**
+ * The same pass for any element type whose name bpmn-js draws below it without a
+ * DI label (v16 uses it for data objects and stores). `raised` picks the elements.
+ */
+export async function raiseLabels(xml: string, raised: RegExp): Promise<string> {
   const moddle = new BpmnModdle();
   const { rootElement } = await moddle.fromXML(xml);
   const defs = rootElement as any;
@@ -57,7 +65,7 @@ export async function raiseEventLabels(xml: string): Promise<string> {
   let changed = false;
   for (const el of flowShapes) {
     const ref = el.bpmnElement;
-    if (!EVENT.test(ref.$type) || !ref.name || el.label?.bounds) continue;
+    if (!raised.test(ref.$type) || !ref.name || el.label?.bounds) continue;
     const shape = el.bounds as Bounds;
     const below = labelBox.get(ref.id)!;
     const above = { ...below, y: shape.y - GAP_ABOVE - below.height };

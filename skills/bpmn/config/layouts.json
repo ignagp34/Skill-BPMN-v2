@@ -81,6 +81,11 @@
       "description": "v14 with one change to v11's rule (user's note on c-syn015-gemini): a band opened for an artifact stays only if it changes where some artifact goes; a band that changes no placement is undone",
       "base": "v14",
       "harness": { "app": "tools/layout-lab/harness/v15", "page": "/index.headless.html" }
+    },
+    "v16": {
+      "description": "v15 + v9's rule for data objects and stores: the name goes above the shape when the default box below collides with shapes, flows, associations or labels and above collides less (and stays in its lane); after v15's event pass",
+      "base": "v15",
+      "harness": { "app": "tools/layout-lab/harness/v16", "page": "/index.headless.html" }
     }
   }
 }
