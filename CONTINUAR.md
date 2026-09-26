@@ -1,4 +1,72 @@
-# Resumen para continuar — 2026-09-25 (etapa 8: candidatos v2 y v3)
+# Resumen para continuar — 2026-09-26 (etapa 8: v6 votado, decisión del defecto pendiente)
+
+Lee primero `AGENTS.md` (única fuente de instrucciones; `CLAUDE.md` solo redirige). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`, clon en `C:/Repositorios/Skill BPMN v2/Skill-BPMN-v2`. El original `BPMN-DSL-Monorepo` sigue protegido. **Nunca push.** Commits locales autorizados.
+
+## Contexto en una línea
+
+Etapa 8 = mejorar el layout sin cambiar el DSL ni el XML semántico. Cada idea es una versión nueva (`skills/bpmn-desde-resumen/config/layouts.json`, único registro; harness en `tools/layout-lab/harness/vN/`). Se compara en el banco de 56 DSL con `compare` (reglas en `tools/layout-lab/config/acceptance.json`) y con votación A/B del usuario (página local, tecla M para ver u ocultar mensajes). Juez Opus aplazado por decisión del usuario.
+
+## Estado de las versiones
+
+| Versión | Idea | Estado |
+| --- | --- | --- |
+| v0 | Layout del TFM | Congelado; la paridad y el corpus lo usan siempre (`--layout v0`). |
+| v1 | Auto-layout por pool | Aceptado por voto (17–0). |
+| v2 | Orden vertical de pools | Base; empate con v1 en su único caso. |
+| v3 | Alineación horizontal entre pools | Perdió en las dos vistas. El usuario propuso C′ (alinear columnas con huecos), sin hacer. |
+| v4 | Bandas de título despejadas | Filtro y voto (16–0); **layout por defecto de la skill**. |
+| v5 | Artefactos conscientes de las etiquetas | Voto 11–2 (6 empates); no pasa el filtro por 2 casos; el usuario pidió otra iteración antes de validarlo. |
+| v6 | v5 afinado con las notas del usuario | Voto 10–3 (1 empate) sobre v5; frente a v4, 1 caso con regresión dura. **Pendiente de la decisión del usuario.** |
+
+Commits: `2291771` (v1–v4, v4 por defecto), `771e704` (v5) y el de v6 (2026-09-26).
+
+## Votos v5–v6 analizados (2026-09-26)
+
+`evidence/layout-v6/human-votes.json` y sección «Votación» de `evidence/layout-v6/REPORT.md`.
+
+- v6 10, v5 3, 1 empate; decisivos 0,77 (Wilson 0,50–0,92), signos p = 0,09. Sin notas ni etiquetas del usuario.
+- En 7 casos v6 es byte a byte igual a una ablación de un solo ajuste: codos 3–0, aire 3–0–1. Las 3 derrotas son casos densos: el aire aleja el artefacto de su tarea (`c-syn012-chatgpt`, con texto de anotación cortado en el borde del carril; `c-syn015-chatgpt`) y el único caso de cohesión (`planta-residuos`, almacén a medio camino en otro carril).
+- Siguiente iteración posible (v7): codos caros cerca + aire con límite de distancia a su tarea; cohesión fuera o con otro diseño.
+
+## Experimento v6 — qué hay
+
+- **Código:** `tools/layout-lab/harness/v6/` (`artifacts.ts` con `V6_TUNING`). El módulo de v5 (`harness/v5/label-aware-artifacts.ts`) se hizo configurable (`placeArtifactsWith`, `V5_TUNING`, campos nuevos `bendNear/nearLength/air/airMargin/cohesion/cohesionRadius`, todos neutros en v5). Verificado: v5 da `diagram.bpmn` idéntico en 56/56 tras el refactor. v6 registrado en `layouts.json` (el defecto sigue en v4).
+- **Evidencia:** `evidence/layout-v6/REPORT.md` (notas usadas, parámetros, tabla de ablación, métricas frente a v5 y v4), `compare-v5.json`, `compare-v4.json`, `metrics.json`, `render-v6.json`.
+- **Render:** `skill-runs/layout/v6-20260925-b56` (56/56). Ablaciones en `skill-runs/layout/abl-*`; sus harness temporales se borraron (`harness/_ablation`), así que no se pueden regenerar sin rehacerlos.
+- **Votación:** `skill-runs/layout/ab-v5-v6-20260925/` (A = v5, B = v6), analizada arriba.
+
+## Pendiente
+
+1. Decisión del usuario: layout por defecto (v4, v5 o v6). Cambiarlo = editar `default` en `layouts.json`, que la ejecución registra; la paridad sigue fijada en v0.
+2. Métricas que se midieron con scripts sueltos y no están en el registro: longitud y codos de asociaciones, textos de artefactos fuera del pool. Los votos muestran que importan (el usuario prefiere asociaciones rectas aunque crucen una etiqueta más). Valorar incorporarlas a `tools/layout-lab/lib/metrics.mjs`; si se hace, avisar de que cambian las comparaciones anteriores.
+3. Si se itera (v7), una idea cada vez y con ablación conservada en el repositorio, no en `$TMP`.
+
+## Ideas pendientes (del usuario)
+
+- Etiquetas de eventos encima cuando abajo chocan; «Parts arrive» (`gemini-04`) abajo a la izquierda, junto a «Parts».
+- C′: alinear columnas entre pools insertando huecos dentro de cada pool.
+- Agrupar almacenes de datos parecidos: fusionarlos cambiaría el XML semántico (fuera de alcance); colocarlos juntos está en v6.
+- Carriles estrechos: el respaldo de v0 deja objetos sobre la línea entre carriles (`h-ml-03`).
+
+## Comandos
+
+```sh
+L="node tools/layout-lab/layout.mjs"
+$L bench-render --layout vN --out skill-runs/layout/vN-<fecha>-b56
+$L metrics --render skill-runs/layout/vN-<fecha>-b56
+$L compare --base <render base> --candidate <render candidato>
+$L ab-batch --a <base> --b <candidato> --out skill-runs/layout/ab-<lote> --count 20 --seed <semilla>
+$L vote --batch skill-runs/layout/ab-<lote>
+node --test tools/layout-lab/test/*.test.mjs
+node smoke/verify-source.mjs
+node tools/skill-parity/parity.mjs      # paridad con v0
+```
+
+Notas prácticas: en Windows, `ERR_NO_BUFFER_SPACE` al abrir la página del harness es transitorio (repetir el render). Varios archivos usan CRLF: editar con normalización de fin de línea.
+
+---
+
+# Resumen anterior — 2026-09-25 (etapa 8: candidatos v2 a v6)
 
 - Decisiones del usuario: v1 aceptado como base por su voto; juez aplazado; flujos de mensaje ocultos fuera de las reglas duras (`acceptance.json`); una idea por candidato.
 - v2 (B, orden de pools): solo cambia planta-residuos, mejora sin regresiones. v3 (C, alineación entre pools): mensajes mucho más cortos, pero 1 regresión dura (placeArtifacts) y área +26/45/51 % en 3 casos. Evidencia `evidence/layout-v2/` y `evidence/layout-v3/`.
@@ -8,7 +76,8 @@
 - v4 = v2 + E1 (bandas de título despejadas): pasa el filtro; etiquetas/formas en banda → 0 casos, área +1,7 % mediana. Voto: v4 16, empates 4, v2 0 → aceptado; es la base actual. `evidence/layout-v4/`.
 - v4 es el layout por defecto de la skill (aprobado por el usuario; `config/layouts.json`); `--layout v0` = TFM; la paridad usa v0 y pasa.
 - v5 (artefactos conscientes de las etiquetas) hecho: mejora etiquetas cruzadas y texto desbordado, 2 regresiones duras; voto: v5 11, v4 2, 6 empates (`evidence/layout-v5/`); pendiente que el usuario decida si pasa a ser el defecto. Commit de v1–v4 y v4 por defecto: 2291771 (sin push).
-- Siguiente: decisión sobre v5 como defecto; ideas del usuario tras v5 (asociaciones rectas si el artefacto está cerca, etiquetas de eventos arriba, ajuste fino horizontal, agrupar almacenes parecidos); C′ (propuesta del usuario: alinear columnas entre pools con huecos) o la etiqueta de los carriles estrechos (el respaldo de v5 deja objetos sobre la línea entre carriles).
+- v6 = v5 afinado con las notas sobre artefactos (codos caros cerca, aire suave, cohesión): lote `ab-v5-v6-20260925` (14) pendiente de voto (`evidence/layout-v6/`).
+- Siguiente: voto v5–v6 y decisión sobre el defecto (v4, v5 o v6); ideas del usuario tras v5 (asociaciones rectas si el artefacto está cerca, etiquetas de eventos arriba, ajuste fino horizontal, agrupar almacenes parecidos); C′ (propuesta del usuario: alinear columnas entre pools con huecos) o la etiqueta de los carriles estrechos (el respaldo de v5 deja objetos sobre la línea entre carriles).
 
 ---
 

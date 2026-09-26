@@ -31,6 +31,11 @@
       "description": "v4 + label-aware artifact placement: data object/store names and other elements' external labels count as footprint/obstacles, annotations sized to their text, associations may not leave through their artifact's name; v0 rules as fallback",
       "base": "v4",
       "harness": { "app": "tools/layout-lab/harness/v5", "page": "/index.headless.html" }
+    },
+    "v6": {
+      "description": "v5 with artifact rules tuned from the user's notes: straight associations for near artifacts (bend on a route < 250 px costs 250), soft air (shape within 12 px costs 100), same-name artifacts in a pool pulled together when within 350 px",
+      "base": "v5",
+      "harness": { "app": "tools/layout-lab/harness/v6", "page": "/index.headless.html" }
     }
   }
 }

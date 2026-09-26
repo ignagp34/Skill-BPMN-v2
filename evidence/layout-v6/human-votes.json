@@ -1,0 +1,259 @@
+{
+  "schema": "layout-ab-votes-summary/1",
+  "batch": "skill-runs/layout/ab-v5-v6-20260925",
+  "seed": "v5-v6-20260925",
+  "view": "hidden",
+  "voter": "user",
+  "note": "A = v5, B = v6. No tags or notes were given in this batch. Unblinded 2026-09-26. ablation.changedBy lists the single-knob ablation renders (abl-bend, abl-airsoft with air weight 150, abl-cohesion2) whose diagram.bpmn differs from v5 for the case; v6EqualsSingleKnobRender marks cases where v6 is byte-identical to that single-knob render, so the vote isolates that knob.",
+  "tally": {
+    "v6": 10,
+    "v5": 3,
+    "tie": 1
+  },
+  "decisive": 13,
+  "v6WinRateDecisive": 0.769,
+  "wilson95": [
+    0.497,
+    0.918
+  ],
+  "signTestTwoSidedP": 0.0923,
+  "byKnob": {
+    "isolatedBend": {
+      "v6": 3,
+      "v5": 0,
+      "tie": 0
+    },
+    "isolatedAir": {
+      "v6": 3,
+      "v5": 0,
+      "tie": 1
+    },
+    "notIsolated": {
+      "v6": 4,
+      "v5": 3,
+      "tie": 0
+    }
+  },
+  "pairs": [
+    {
+      "pairId": "p01",
+      "caseId": "f-canon-5-marriage",
+      "winner": "v6",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "ablation": {
+        "changedBy": [
+          "air"
+        ],
+        "v6EqualsSingleKnobRender": true
+      }
+    },
+    {
+      "pairId": "p02",
+      "caseId": "c-syn011-sysv5-chatgpt-gpt_5_5_thinking-r02",
+      "winner": "v6",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "ablation": {
+        "changedBy": [
+          "bend",
+          "air"
+        ],
+        "v6EqualsSingleKnobRender": false
+      }
+    },
+    {
+      "pairId": "p03",
+      "caseId": "h-ml-06-vision-medica",
+      "winner": "v6",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "ablation": {
+        "changedBy": [
+          "bend"
+        ],
+        "v6EqualsSingleKnobRender": true
+      }
+    },
+    {
+      "pairId": "p04",
+      "caseId": "f-planta-residuos",
+      "winner": "v5",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "ablation": {
+        "changedBy": [
+          "air",
+          "cohesion"
+        ],
+        "v6EqualsSingleKnobRender": false
+      }
+    },
+    {
+      "pairId": "p05",
+      "caseId": "f-gemini-03",
+      "winner": "v6",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "ablation": {
+        "changedBy": [
+          "bend",
+          "air"
+        ],
+        "v6EqualsSingleKnobRender": false
+      }
+    },
+    {
+      "pairId": "p06",
+      "caseId": "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v6",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "ablation": {
+        "changedBy": [
+          "bend"
+        ],
+        "v6EqualsSingleKnobRender": true
+      }
+    },
+    {
+      "pairId": "p07",
+      "caseId": "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v5",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "ablation": {
+        "changedBy": [
+          "bend",
+          "air"
+        ],
+        "v6EqualsSingleKnobRender": false
+      }
+    },
+    {
+      "pairId": "p08",
+      "caseId": "h-ml-03-deteccion-fraude",
+      "winner": "v6",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "ablation": {
+        "changedBy": [
+          "air"
+        ],
+        "v6EqualsSingleKnobRender": true
+      }
+    },
+    {
+      "pairId": "p09",
+      "caseId": "c-syn011-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v6",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "ablation": {
+        "changedBy": [
+          "bend",
+          "air"
+        ],
+        "v6EqualsSingleKnobRender": false
+      }
+    },
+    {
+      "pairId": "p10",
+      "caseId": "f-gemini-04",
+      "winner": "v6",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "ablation": {
+        "changedBy": [
+          "air"
+        ],
+        "v6EqualsSingleKnobRender": true
+      }
+    },
+    {
+      "pairId": "p11",
+      "caseId": "c-syn012-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v5",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "ablation": {
+        "changedBy": [
+          "bend",
+          "air"
+        ],
+        "v6EqualsSingleKnobRender": false
+      }
+    },
+    {
+      "pairId": "p12",
+      "caseId": "f-canon-2-incoming-flight",
+      "winner": "tie",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "ablation": {
+        "changedBy": [
+          "air"
+        ],
+        "v6EqualsSingleKnobRender": true
+      }
+    },
+    {
+      "pairId": "p13",
+      "caseId": "c-syn012-sysv5-gemini-gemini_3_5_flash_thinking-r03",
+      "winner": "v6",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [],
+      "note": "",
+      "ablation": {
+        "changedBy": [
+          "air"
+        ],
+        "v6EqualsSingleKnobRender": false
+      }
+    },
+    {
+      "pairId": "p14",
+      "caseId": "f-canon-3-conveyor-belt",
+      "winner": "v6",
+      "sawAltView": null,
+      "tags": [],
+      "note": "",
+      "ablation": {
+        "changedBy": [
+          "bend"
+        ],
+        "v6EqualsSingleKnobRender": true
+      }
+    }
+  ]
+}

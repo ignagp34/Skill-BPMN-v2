@@ -43,10 +43,24 @@ const ANNOTATION_PAD_Y = 12;
 // v5: strict rules rank candidates by one weighted cost, in px of association length:
 // crossing a shape is almost forbidden, covering a label or crossing a line/label is
 // traded against a longer association, so artifacts stay close to their node.
-const WEIGHTS = { shapeCrossing: 1000, labelOverlap: 300, labelCrossing: 300, lineCrossing: 150, bend: 60, crowding: 20 };
-type Weights = typeof WEIGHTS;
-const STRICT_RING_FACTOR = 2;    // strict rules search twice as far before falling back to v0
-const CLEARANCE = 2;             // free space around an artifact's footprint (strict rules)
+// The strict rules are parameterised (Tuning) so later candidates reuse this module:
+//   bend / bendNear: cost of a bend on a route longer / shorter than nearLength;
+//   cohesion: cost per px of distance (capped at cohesionRadius) to an already placed
+//   artifact with the same name and type in the same pool; clearance: free space around the footprint;
+//   ringFactor: how much farther than v0 the strict search looks;
+//   air: soft cost per shape (linked ones included) closer than airMargin to the footprint.
+type Weights = { shapeCrossing: number; labelOverlap: number; labelCrossing: number; lineCrossing: number;
+  bend: number; bendNear: number; nearLength: number; crowding: number; cohesion: number; cohesionRadius: number;
+  air: number; airMargin: number };
+export interface Tuning { weights: Weights; clearance: number; ringFactor: number; }
+export const V5_TUNING: Tuning = Object.freeze({
+  weights: Object.freeze({ shapeCrossing: 1000, labelOverlap: 300, labelCrossing: 300, lineCrossing: 150,
+    bend: 60, bendNear: 60, nearLength: 0, crowding: 20, cohesion: 0, cohesionRadius: 0,
+    air: 0, airMargin: 0 }),
+  clearance: 2,
+  ringFactor: 2,
+});
+const bendCost = (w: Weights, bends: number, length: number) => bends * (length < w.nearLength ? w.bendNear : w.bend);
 const EXTERNAL_LABEL = /^bpmn:(StartEvent|EndEvent|IntermediateCatchEvent|IntermediateThrowEvent|BoundaryEvent|\w*Gateway|DataObjectReference|DataStoreReference)$/;
 
 interface Bounds {
@@ -113,7 +127,11 @@ interface ArtifactCandidate {
 
 type PlaneEl = ShapeNode | EdgeNode;
 
-export async function placeArtifacts(layoutXml: string): Promise<string> {
+export function placeArtifacts(layoutXml: string): Promise<string> {
+  return placeArtifactsWith(layoutXml, V5_TUNING);
+}
+
+export async function placeArtifactsWith(layoutXml: string, tuning: Tuning): Promise<string> {
   const moddle = new BpmnModdle();
   const { rootElement } = await moddle.fromXML(layoutXml);
   const defs = rootElement as { rootElements?: any[]; diagrams?: any[] };
@@ -159,6 +177,7 @@ export async function placeArtifacts(layoutXml: string): Promise<string> {
 
   const pendingPlaneElements: PlaneEl[] = [];
   const placedArtifacts = new Map<string, Bounds>();
+  const placedKeys = new Map<string, string>(); // v5: artifact id -> same-name key
 
   for (const group of artifactGroups) {
     const connectedShapes = group.attachedNodeIds
@@ -170,15 +189,17 @@ export async function placeArtifacts(layoutXml: string): Promise<string> {
     const placedObstacles = Array.from(placedArtifacts.entries()).map(([id, bounds]) => ({ id, bounds }));
     // v5: labels are obstacles and the artifact is judged by its footprint; v0 rules as fallback.
     // Strict rules also require CLEARANCE px of free space (v0 tolerates a 4 px overlap).
-    const strict = { obstacles: [...blockingShapes, ...placedObstacles], softObstacles: labelObstacles, weights: WEIGHTS,
-      footprintOf: (b: Bounds) => footprint(group.artifact, b), ownLabel: true, clearance: CLEARANCE,
+    const key = sameNameKey(group);
+    const sameName = key ? [...placedKeys].filter(([, k]) => k === key).map(([id]) => placedArtifacts.get(id)!) : [];
+    const strict = { obstacles: [...blockingShapes, ...placedObstacles], softObstacles: labelObstacles, weights: tuning.weights,
+      footprintOf: (b: Bounds) => footprint(group.artifact, b), ownLabel: true, clearance: tuning.clearance, sameName,
       dims: artifactDimsFor(group.artifact), // v5: annotations fit their text
       // v5: flows and associations already drawn: the footprint avoids them, a route crossing them counts.
       lines: [...controlEdgeSegments, ...placedAssociationSegments], countLineCrossings: true,
-      ringFactor: STRICT_RING_FACTOR };
+      ringFactor: tuning.ringFactor };
     const legacy = { obstacles: [...blockingShapes, ...placedObstacles], footprintOf: (b: Bounds) => b, ownLabel: false,
       dims: artifactDims(group.artifact.$type), lines: controlEdgeSegments, countLineCrossings: false, ringFactor: 1,
-      softObstacles: [] as Array<{ id: string; bounds: Bounds }>, weights: undefined };
+      softObstacles: [] as Array<{ id: string; bounds: Bounds }>, weights: undefined, sameName: [] as Bounds[] };
 
 
     // v5: preference = inside the pool with strict rules > inside with v0 rules > outside (strict, then v0).
@@ -216,6 +237,7 @@ export async function placeArtifacts(layoutXml: string): Promise<string> {
     if (!chosen) continue;
 
     placedArtifacts.set(group.artifact.id, strict.footprintOf(chosen.bounds)); // v5
+    if (key) placedKeys.set(group.artifact.id, key);
     upsertArtifactShape(moddle, shapeById, pendingPlaneElements, group.artifact, chosen.bounds);
     upsertAssociationEdges(moddle, edgeById, pendingPlaneElements, group.associations, chosen.routes);
     for (const [id, points] of chosen.routes) placedAssociationSegments.push(...edgeSegments(id, points)); // v5
@@ -422,7 +444,7 @@ function evaluateCandidate(
   obstacleShapes: Array<{ id: string; bounds: Bounds }>,
   lines: EdgeSegment[], // v5: rules.lines (v0: control edges only)
   rules: { footprintOf: (b: Bounds) => Bounds; ownLabel: boolean; clearance?: number; countLineCrossings: boolean;
-    softObstacles: Array<{ id: string; bounds: Bounds }>; weights?: Weights }, // v5
+    softObstacles: Array<{ id: string; bounds: Bounds }>; weights?: Weights; sameName?: Bounds[] }, // v5
 ): ArtifactCandidate | undefined {
   const area = rules.footprintOf(bounds); // v5: shape + its name
   const insideParticipant = participantBounds ? withinParticipantInterior(area, participantBounds) : true; // v5: footprint
@@ -450,6 +472,7 @@ function evaluateCandidate(
   let lineCrossings = 0; // v5
   let labelCrossings = 0; // v5
   let bends = 0;
+  let bendPenalty = 0; // v5
   let totalLength = 0;
 
   for (const association of group.associations) {
@@ -473,10 +496,13 @@ function evaluateCandidate(
     lineCrossings += route.lineCrossings; // v5
     labelCrossings += route.labelCrossings; // v5
     bends += route.bends;
+    if (rules.weights) bendPenalty += bendCost(rules.weights, route.bends, route.length); // v5
     totalLength += route.length;
   }
 
   const crowding = obstacleShapes.filter((shape) => boxesOverlap(expandBounds(area, CROWDED_MARGIN), shape.bounds, 0)).length; // v5: footprint
+  const tight = rules.weights?.air ? [...obstacleShapes, ...connectedShapes]
+    .filter((shape) => boxesOverlap(expandBounds(area, rules.weights!.airMargin), shape.bounds, 0)).length : 0; // v5
 
   return {
     bounds,
@@ -490,8 +516,9 @@ function evaluateCandidate(
       crowding,
     },
     cost: rules.weights && (rules.weights.shapeCrossing * crossings + rules.weights.lineCrossing * lineCrossings
-      + rules.weights.labelCrossing * labelCrossings + rules.weights.bend * bends + totalLength + rules.weights.labelOverlap * labelOverlaps
-      + rules.weights.crowding * crowding), // v5
+      + rules.weights.labelCrossing * labelCrossings + bendPenalty + totalLength + rules.weights.labelOverlap * labelOverlaps
+      + rules.weights.crowding * crowding + rules.weights.air * tight + rules.weights.cohesion
+      * Math.min(rules.weights.cohesionRadius, nearestCentreDistance(area, rules.sameName ?? []))), // v5
   };
 }
 
@@ -602,7 +629,7 @@ function bestLeaderRoute(
 function compareRoutes(a: ArtifactRoute, b: ArtifactRoute, weights?: Weights): number {
   if (weights) { // v5
     const cost = (r: ArtifactRoute) => weights.shapeCrossing * r.crossings + weights.lineCrossing * r.lineCrossings
-      + weights.labelCrossing * r.labelCrossings + weights.bend * r.bends + r.length;
+      + weights.labelCrossing * r.labelCrossings + bendCost(weights, r.bends, r.length) + r.length;
     return cost(a) - cost(b) || a.points.length - b.points.length;
   }
   return a.crossings - b.crossings || a.bends - b.bends || a.length - b.length || a.points.length - b.points.length;
@@ -815,6 +842,17 @@ function labelBoxUnder(bounds: Bounds, name: unknown): Bounds | undefined {
   const width = Math.min(LABEL_MAX_W, text.length * CHAR_W);
   const lines = Math.max(1, Math.ceil((text.length * CHAR_W) / LABEL_MAX_W));
   return { x: centerX(bounds) - width / 2, y: bounds.y + bounds.height, width, height: lines * LABEL_LINE_H };
+}
+
+/** Same name, type and pool: artifacts that belong together (e.g. repeated data stores). */
+function sameNameKey(group: ArtifactGroup): string | undefined {
+  const name = String(group.artifact.name ?? group.artifact.text ?? "").trim().toLowerCase();
+  return name ? `${group.artifact.$type}|${group.participantId ?? ""}|${name}` : undefined;
+}
+
+function nearestCentreDistance(bounds: Bounds, others: Bounds[]): number {
+  if (others.length === 0) return 0;
+  return Math.min(...others.map((o) => Math.hypot(centerX(o) - centerX(bounds), centerY(o) - centerY(bounds))));
 }
 
 function dataLabelBounds(artifact: any, bounds: Bounds): Bounds | undefined {
