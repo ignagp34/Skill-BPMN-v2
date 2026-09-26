@@ -1,0 +1,12 @@
+{
+  "vs": "v16",
+  "changed": [
+    "c-syn005-sysv5-chatgpt-gpt_5_5_thinking-r03",
+    "c-syn009-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+    "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+    "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+    "f-gemini-03",
+    "f-planta-residuos",
+    "f-s-a3-find-a-job"
+  ]
+}

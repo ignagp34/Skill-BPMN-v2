@@ -1,5 +1,6 @@
 import BpmnModdle from "bpmn-moddle";
 
+import { type Bounds, overlaps, type Pt, segmentHitsBox, segmentsOf, textWidth, wrapText } from "../shared/label-geometry.ts";
 import { placeArtifacts as placeArtifactsV7 } from "../v7/frames.ts";
 
 /**
@@ -25,9 +26,6 @@ const EVENT = /^bpmn:(StartEvent|EndEvent|IntermediateCatchEvent|IntermediateThr
 const DEFAULT_BELOW = /^bpmn:(StartEvent|EndEvent|IntermediateCatchEvent|IntermediateThrowEvent|BoundaryEvent|\w*Gateway|DataObjectReference|DataStoreReference)$/;
 const COUNTED_EDGES = new Set(["bpmn:SequenceFlow", "bpmn:Association", "bpmn:DataInputAssociation", "bpmn:DataOutputAssociation"]);
 const CONTAINERS = new Set(["bpmn:Participant", "bpmn:Lane"]);
-
-interface Bounds { x: number; y: number; width: number; height: number; }
-interface Pt { x: number; y: number; }
 
 export async function placeArtifacts(layoutXml: string): Promise<string> {
   return raiseEventLabels(await placeArtifactsV7(layoutXml));
@@ -92,26 +90,8 @@ function textBelow(shape: Bounds, name: string): Bounds {
 const labelBounds = (shape: Bounds, text: Bounds): Bounds =>
   ({ x: shape.x + shape.width / 2 - LABEL_W / 2, y: text.y, width: LABEL_W, height: text.height });
 
-let context: CanvasRenderingContext2D | null | undefined;
-function measure(text: string): number {
-  if (context === undefined) {
-    context = typeof document === "undefined" ? null : document.createElement("canvas").getContext("2d");
-    if (context) context.font = FONT;
-  }
-  return context ? context.measureText(text).width : text.length * CHAR_W;
-}
-
-/** Greedy word wrap at LABEL_W, as bpmn-js does; a word longer than the box is its own line. */
-function wrap(text: string): string[] {
-  const lines: string[] = [];
-  let line = "";
-  for (const word of text.split(/\s+/).filter(Boolean)) {
-    const candidate = line ? `${line} ${word}` : word;
-    if (line && measure(candidate) > LABEL_W) { lines.push(line); line = word; } else line = candidate;
-  }
-  if (line) lines.push(line);
-  return lines.length ? lines : [""];
-}
+const measure = (text: string) => textWidth(text, FONT, CHAR_W);
+const wrap = (text: string) => wrapText(text, LABEL_W, FONT, CHAR_W);
 
 function collisions(box: Bounds, ownId: string, shapes: any[], segments: Array<[Pt, Pt]>, labels: Map<string, Bounds>): number {
   const own = shapes.find((s) => s.bpmnElement.id === ownId);
@@ -132,20 +112,8 @@ function smallestContaining(containers: Bounds[], shape: Bounds): Bounds | undef
 }
 
 const inside = (a: Bounds, b: Bounds) => a.x >= b.x && a.y >= b.y && a.x + a.width <= b.x + b.width && a.y + a.height <= b.y + b.height;
-const overlap = (a: Bounds, b: Bounds) => a.x < b.x + b.width - PAD && b.x < a.x + a.width - PAD
-  && a.y < b.y + b.height - PAD && b.y < a.y + a.height - PAD;
-const pairs = (points: Pt[]): Array<[Pt, Pt]> => points.slice(1).map((p, i) => [points[i], p]);
+const overlap = (a: Bounds, b: Bounds) => overlaps(a, b, PAD);
+const pairs = segmentsOf;
 const roundBox = (b: Bounds): Bounds => ({ x: Math.round(b.x), y: Math.round(b.y), width: Math.round(b.width), height: Math.round(b.height) });
 
-/** Segment vs rectangle interior (Liang–Barsky clip). */
-function segmentHits(a: Pt, b: Pt, r: Bounds): boolean {
-  const x0 = r.x + PAD; const y0 = r.y + PAD; const x1 = r.x + r.width - PAD; const y1 = r.y + r.height - PAD;
-  if (x1 <= x0 || y1 <= y0) return false;
-  let t0 = 0; let t1 = 1; const dx = b.x - a.x; const dy = b.y - a.y;
-  for (const [p, q] of [[-dx, a.x - x0], [dx, x1 - a.x], [-dy, a.y - y0], [dy, y1 - a.y]]) {
-    if (p === 0) { if (q < 0) return false; continue; }
-    const t = q / p;
-    if (p < 0) { if (t > t1) return false; if (t > t0) t0 = t; } else { if (t < t0) return false; if (t < t1) t1 = t; }
-  }
-  return t0 < t1;
-}
+const segmentHits = (a: Pt, b: Pt, r: Bounds) => segmentHitsBox(a, b, r, PAD);

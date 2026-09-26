@@ -1,7 +1,7 @@
 {
   "_comment": "Layout versions (stage 8, plans/layout-iteracion-1.md). The only place that decides which layout the skill uses. v0 is the frozen TFM layout; every candidate is the TFM harness with some render modules swapped (tools/layout-lab/harness/). Harness paths are relative to the engine root. Change the default only with the user's approval.",
-  "default": "v15",
-  "defaultDecision": "User, 2026-09-26: v15 made the default after winning the blind A/B vote against v7 12-1 with 5 ties (sign test p = 0.003; evidence/layout-v15/human-votes.json). Against v7 it has no hard regression; the objective gate fails only on the area band in v11's 4 cases, accepted by the vote. Previous defaults: v7 (2026-09-26; won 16-6 against v6), v6 (2026-09-26), v4 (2026-09-25).",
+  "default": "v16",
+  "defaultDecision": "User, 2026-09-26: v16 (v15 + data object and store names above when below collides) made the default after winning its vote against v15 2-0 and passing the objective gate against v15. Previous defaults: v15 (2026-09-26; won 12-1 against v7), v7 (2026-09-26; won 16-6 against v6), v6 (2026-09-26), v4 (2026-09-25).",
   "versions": {
     "v0": {
       "description": "TFM layout (frozen engine f558eb0, apps/tfm-lab headless harness). Parity and corpus checks always use it.",
@@ -86,6 +86,21 @@
       "description": "v15 + v9's rule for data objects and stores: the name goes above the shape when the default box below collides with shapes, flows, associations or labels and above collides less (and stays in its lane); after v15's event pass",
       "base": "v15",
       "harness": { "app": "tools/layout-lab/harness/v16", "page": "/index.headless.html" }
+    },
+    "v17": {
+      "description": "v16 + v13's flow clarity after the channel distribution: a node face keeps one direction and flows sharing neither source nor target no longer share a stretch of line",
+      "base": "v16",
+      "harness": { "app": "tools/layout-lab/harness/v17", "page": "/index.headless.html" }
+    },
+    "v18": {
+      "description": "v16 + v12 (bpmn-auto-layout 0.5.0 with Grid.addAfter fixed, vendored in harness/v12) + v13 (flow clarity)",
+      "base": "v16",
+      "harness": { "app": "tools/layout-lab/harness/v18", "page": "/index.headless.html" }
+    },
+    "v19": {
+      "description": "v16 + proposal H: a flow label whose drawn text (11 px Arial, measured) covers a shape slides along its stretch of line, or to the other side, to the spot that covers fewest shapes, then labels, then lines",
+      "base": "v16",
+      "harness": { "app": "tools/layout-lab/harness/v19", "page": "/index.headless.html" }
     }
   }
 }
