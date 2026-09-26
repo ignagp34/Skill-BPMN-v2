@@ -22,30 +22,58 @@ const MAX_ROUNDS = 6;
 const LABEL_ROOM = 40;    // artifact name under the shape plus clearance
 const ROW_MARGIN = 10;    // free space kept under the row before the band
 const ROW_REACH = 40;     // how far under the node its row's labels may hang
+const EPS = 0.5;
 
 interface Bounds { x: number; y: number; width: number; height: number; }
 const CONTAINERS = new Set(["bpmn:Participant", "bpmn:Lane"]);
 
-export async function placeArtifacts(layoutXml: string): Promise<string> {
+export interface RoomOptions {
+  /** v15: a band stays only if it changes where some artifact goes; otherwise it is undone. */
+  keepOnlyHelpfulBands: boolean;
+}
+export const V11_ROOM: RoomOptions = { keepOnlyHelpfulBands: false };
+
+export function placeArtifacts(layoutXml: string): Promise<string> {
+  return placeArtifactsWithRoom(layoutXml, V11_ROOM);
+}
+
+export async function placeArtifactsWithRoom(layoutXml: string, options: RoomOptions): Promise<string> {
   let current = layoutXml;
+  let report: ArtifactChoice[] = [];
+  let placed = await placeArtifactsWith(current, V6_TUNING, report);
   const helped = new Set<string>();
   for (let round = 0; round < MAX_ROUNDS; round += 1) {
-    const report: ArtifactChoice[] = [];
-    const placed = await placeArtifactsWith(current, V6_TUNING, report);
     const crowded = report.find((r) => !r.clean && !helped.has(r.artifactId));
     if (!crowded) return finish(placed);
     helped.add(crowded.artifactId);
-    const roomier = await openBand(current, crowded);
-    if (!roomier) return finish(placed);
-    current = roomier;
+    const opened = await openBand(current, crowded);
+    if (!opened) return finish(placed);
+    const roomierReport: ArtifactChoice[] = [];
+    const roomierPlaced = await placeArtifactsWith(opened.xml, V6_TUNING, roomierReport);
+    if (options.keepOnlyHelpfulBands && samePlacement(report, roomierReport, opened.band)) continue;
+    current = opened.xml; report = roomierReport; placed = roomierPlaced;
   }
-  return finish(await placeArtifactsWith(current, V6_TUNING));
+  return finish(options.keepOnlyHelpfulBands ? placed : await placeArtifactsWith(current, V6_TUNING));
+}
+
+/**
+ * Every artifact at the spot it had before the band, or at that spot moved down
+ * with the band (an artifact follows its node, which may sit on either side of the cut).
+ */
+function samePlacement(before: ArtifactChoice[], after: ArtifactChoice[], band: Bounds): boolean {
+  const spotAfter = new Map(after.map((r) => [r.artifactId, r.bounds]));
+  return before.length === after.length && before.every(({ artifactId, bounds: b }) => {
+    const a = spotAfter.get(artifactId);
+    const sameBox = (y: number) => !!a && Math.abs(a.x - b.x) < EPS && Math.abs(a.y - y) < EPS
+      && Math.abs(a.width - b.width) < EPS && Math.abs(a.height - b.height) < EPS;
+    return sameBox(b.y) || sameBox(b.y + band.height);
+  });
 }
 
 const finish = async (xml: string) => tidyFrames(await clearTitleBands(xml));
 
-/** Opens a band of the artifact's height (plus its name) under the row of its first linked node. */
-async function openBand(xml: string, choice: ArtifactChoice): Promise<string | null> {
+/** Opens a band of the artifact's height (plus its name) under the row of its first linked node; returns it with its lane's width. */
+async function openBand(xml: string, choice: ArtifactChoice): Promise<{ xml: string; band: Bounds } | null> {
   const moddle = new BpmnModdle();
   const { rootElement } = await moddle.fromXML(xml);
   const defs = rootElement as any;
@@ -81,7 +109,7 @@ async function openBand(xml: string, choice: ArtifactChoice): Promise<string | n
     const label = el.label?.bounds as Bounds | undefined;
     if (label && label.y >= cut) label.y += dy;
   }
-  return (await moddle.toXML(defs, { format: false })).xml;
+  return { xml: (await moddle.toXML(defs, { format: false })).xml, band: { x: lb.x, y: cut, width: lb.width, height: dy } };
 }
 
 function containsPoint(outer: Bounds, inner: Bounds): boolean {

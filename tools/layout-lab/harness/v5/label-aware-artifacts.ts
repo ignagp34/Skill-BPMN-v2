@@ -139,7 +139,8 @@ export function placeArtifacts(layoutXml: string): Promise<string> {
  * candidate inside its pool that crosses no shape and covers or crosses no label.
  */
 export interface ArtifactChoice { artifactId: string; attachedIds: string[]; height: number; clean: boolean;
-  rule: "strict" | "legacy" | "strict-outside" | "legacy-outside"; }
+  rule: "strict" | "legacy" | "strict-outside" | "legacy-outside";
+  bounds: Bounds; } // v15: the chosen spot
 
 export async function placeArtifactsWith(layoutXml: string, tuning: Tuning, report?: ArtifactChoice[]): Promise<string> {
   const moddle = new BpmnModdle();
@@ -248,7 +249,7 @@ export async function placeArtifactsWith(layoutXml: string, tuning: Tuning, repo
     if (report) {
       const rule = searches[0].best ? "strict" : searches[1].best ? "legacy" : searches[0].relaxedBest ? "strict-outside" : "legacy-outside";
       report.push({ artifactId: group.artifact.id, attachedIds: connectedShapes.map((s) => s.id), height: strict.dims.height,
-        rule, clean: rule === "strict" && chosen.issues === 0 });
+        rule, clean: rule === "strict" && chosen.issues === 0, bounds: chosen.bounds });
     }
 
     placedArtifacts.set(group.artifact.id, strict.footprintOf(chosen.bounds)); // v5

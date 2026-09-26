@@ -1,3 +1,20 @@
+# Resumen para continuar — 2026-09-26, noche (etapa 8: v14 y v15 hechos; votar v15)
+
+Lee primero `AGENTS.md` (única fuente de instrucciones; `CLAUDE.md` solo redirige). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`, clon en `C:/Repositorios/Skill BPMN v2/Skill-BPMN-v2`. El original `BPMN-DSL-Monorepo` sigue protegido. **Nunca push.** Commits locales autorizados. Trabaja desde la raíz del clon (la terminal del usuario es PowerShell).
+
+## Hecho en esta sesión
+
+- **v14** = v7 + v10 + v11 + v9, sin reajustes (`harness/v14/combined.ts`; v9 al final). Frente a v7: 18 casos cambian, ninguna regresión dura; falla solo la banda de área en los 4 casos de v11 (+22,6 % a +27,7 %). `evidence/layout-v14/REPORT.md`.
+- **v15** = v14 + la nota del usuario sobre v11 (`c-syn015-gemini`): una banda para artefactos solo se queda si cambia dónde va algún artefacto. Frente a v14 solo cambia ese caso (−90 px de alto, ninguna métrica peor). Tres criterios más se probaron y se descartaron (informe). `evidence/layout-v15/REPORT.md`.
+- `lane-room.ts` (v11) tiene la opción `keepOnlyHelpfulBands`, neutra en v11/v14; `ArtifactChoice` (v5) informa de la caja elegida. v7, v11 y v14 re-renderizados idénticos 56/56; lab 8/8; `verify-source` 3319/0.
+
+## Siguiente trabajo, en orden
+
+1. **El usuario vota `ab-v7-v15-20260926`** (18 parejas): `node tools/layout-lab/layout.mjs vote --batch skill-runs/layout/ab-v7-v15-20260926`. Después, desciegar y analizar como `evidence/layout-v11/human-votes.json` y, si gana, proponer v15 como defecto (lo decide el usuario; hoy v7).
+2. Siguen pendientes los puntos 2–7 del resumen anterior (v8 sin decidir, mejorar v12, votar v13 y v12 + v13, evento de inicio, propuesta H, C′ y otras ideas).
+
+---
+
 # Resumen para continuar — 2026-09-26, noche (etapa 8: votos de v8–v12 hechos; combinar)
 
 Lee primero `AGENTS.md` (única fuente de instrucciones; `CLAUDE.md` solo redirige). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`, clon en `C:/Repositorios/Skill BPMN v2/Skill-BPMN-v2`. El original `BPMN-DSL-Monorepo` sigue protegido. **Nunca push.** Commits locales autorizados. Trabaja desde la raíz del clon (la terminal del usuario es PowerShell).

@@ -71,6 +71,16 @@
       "description": "v7 + flow clarity after the channel distribution: a node face keeps one direction (a flow of the other direction is re-routed through a free face) and flows that share neither source nor target no longer share a stretch of line (segment shifted sideways or flow re-routed; crossings allowed, merges not)",
       "base": "v7",
       "harness": { "app": "tools/layout-lab/harness/v13", "page": "/index.headless.html" }
+    },
+    "v14": {
+      "description": "v7 + v10 + v11 + v9, the clear winners of the v8-v12 votes, unchanged: tasks as wide as their longest word, bands opened for artifacts without a clean spot, then event names raised above when below collides (last, on the final geometry)",
+      "base": "v7",
+      "harness": { "app": "tools/layout-lab/harness/v14", "page": "/index.headless.html" }
+    },
+    "v15": {
+      "description": "v14 with one change to v11's rule (user's note on c-syn015-gemini): a band opened for an artifact stays only if it changes where some artifact goes; a band that changes no placement is undone",
+      "base": "v14",
+      "harness": { "app": "tools/layout-lab/harness/v15", "page": "/index.headless.html" }
     }
   }
 }
