@@ -63,6 +63,8 @@ Artefactos, a partir del voto v5–v6: mantener los codos caros en asociaciones 
 
 ## Ideas pendientes (del usuario y de la revisión del 26/09)
 
+- H. **Etiquetas de flujo que chocan con la tarea de destino** (nota del usuario, 2026-09-26, al revisar `c-syn015-chatgpt`): «Critical risk», «No critical risk», «Above budget»… están bien situadas, pero hay que desplazarlas un poco a la izquierda según la longitud del texto. En v7 son 4 etiquetas sobre forma, todas en ese caso (`labelShapeOverlaps` en la vista entregada). Causa probable: `labels.ts` estima el ancho del texto (`CHAR_W = 6`) en lugar de medirlo. Arreglo propuesto: medir el texto y, si la caja toca la forma de destino, retroceder la etiqueta a lo largo de su segmento. Sin hacer.
+
 - Propuestas A–G de `evidence/layout-review-20260926/REVIEW.md`: capas por flujo en cada pool (gateways empujados al final), crecer el carril para hacer sitio a los artefactos, idea C de artefactos, ancho de tarea según su palabra más larga, ancho común de pools, carriles que llenan el pool, etiquetas de eventos arriba.
 
 - Etiquetas de eventos encima cuando abajo chocan; «Parts arrive» (`gemini-04`) abajo a la izquierda, junto a «Parts».

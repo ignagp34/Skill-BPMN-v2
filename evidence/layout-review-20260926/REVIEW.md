@@ -68,6 +68,10 @@ Los carriles no llenan el pool: quedan 20 px arriba y abajo que parecen carriles
 | F | **Carriles que llenan el pool** (sin franjas vacías) | 5 | Bajo-medio (todos los diagramas) | Bajo | Inspección; altura |
 | G | **Etiquetas de eventos arriba cuando abajo chocan** (idea del usuario) | 6 | Medio | Bajo-medio | `labelEdgeOverlaps`, `labelShapeOverlaps` |
 
+## Propuesta añadida después de la revisión
+
+H. **Etiquetas de flujo que chocan con la tarea de destino** (nota del usuario, 2026-09-26, al revisar `c-syn015-chatgpt`): «Critical risk», «No critical risk», «Above budget»… están bien situadas, pero hay que desplazarlas un poco a la izquierda según la longitud del texto. En v7 son 4 etiquetas sobre forma, todas en ese caso (`labelShapeOverlaps` en la vista entregada). Causa probable: `labels.ts` estima el ancho del texto (`CHAR_W = 6`) en lugar de medirlo. Arreglo propuesto: medir el texto y, si la caja toca la forma de destino, retroceder la etiqueta a lo largo de su segmento. Sin hacer.
+
 Actualización (2026-09-26): el usuario pidió unir F a E (el primer y el último carril sin separación con la línea del pool). Hecho como candidato v7 (`evidence/layout-v7/REPORT.md`).
 
 Orden sugerido: E y F (baratos, cambian todos los diagramas multi-pool), luego C o B (siguen la línea de artefactos ya votada), y A como proyecto aparte por riesgo y alcance. Una idea por candidato, con su ablación guardada en el repositorio.
