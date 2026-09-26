@@ -6,7 +6,7 @@ Este `AGENTS.md` es la única fuente de instrucciones para todas las herramienta
 
 ## Repositorio de trabajo vigente — actualización del usuario
 
-El 2026-09-22 el usuario autorizó crear el commit local de esta preparación en `Skill-BPMN-v2`. Esta autorización sustituye las restricciones anteriores sobre commits en el nuevo repositorio; se mantiene la prohibición de push y la protección completa del repositorio original. Las menciones posteriores a ausencia de commits describen el estado histórico previo a esta autorización.
+El 2026-09-22 el usuario autorizó crear el commit local de esta preparación en `Skill-BPMN-v2`. Esta autorización sustituye las restricciones anteriores sobre commits en el nuevo repositorio; se mantiene la prohibición de push y la protección completa del repositorio original. Las menciones posteriores a ausencia de commits describen el estado histórico previo a esta autorización. Actualización del 2026-09-26: a petición expresa del usuario se hizo push a `origin/main` de `ignagp34/Skill-BPMN-v2` con todo lo hecho hasta entonces. La regla sigue siendo no hacer push sin que el usuario lo pida, comprobando antes que `origin` es ese repositorio.
 
 Desde el 2026-09-22 el repositorio de desarrollo es **https://github.com/ignagp34/Skill-BPMN-v2.git**, clonado en `C:/Repositorios/Skill BPMN v2/Skill-BPMN-v2`. El remoto `origin` de ese clon apunta exclusivamente al nuevo repositorio. Estaba vacío al clonarlo; se prepara con una exportación de los archivos versionados del commit de referencia del original, sin su historial ni su configuración Git.
 
