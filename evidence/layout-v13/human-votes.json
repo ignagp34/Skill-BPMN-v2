@@ -1,0 +1,68 @@
+{
+  "schema": "layout-ab-votes-summary/1",
+  "batch": "skill-runs/layout/ab-v7-v13-20260926",
+  "seed": "v7-v13-20260926",
+  "view": "hidden",
+  "voter": "user",
+  "note": "A = v7, B = v13. Unblinded 2026-09-26.",
+  "tally": {
+    "v7": 0,
+    "v13": 3,
+    "tie": 1
+  },
+  "decisive": 3,
+  "signTestTwoSidedP": 0.25,
+  "pairs": [
+    {
+      "pairId": "p01",
+      "caseId": "c-syn009-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+      "winner": "v13",
+      "sawAltView": null,
+      "tags": [
+        "labels",
+        "lines",
+        "alignment"
+      ],
+      "note": "Mucho mejor",
+      "revisions": 0
+    },
+    {
+      "pairId": "p02",
+      "caseId": "f-planta-residuos",
+      "winner": "v13",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [
+        "lines"
+      ],
+      "note": "Hay que seguir trabajando, ambos diagramas tienen cruces dónde se pierde el flujo aunque este es mejor",
+      "revisions": 0
+    },
+    {
+      "pairId": "p03",
+      "caseId": "f-s-a3-find-a-job",
+      "winner": "tie",
+      "sawAltView": null,
+      "tags": [],
+      "note": "Ambos están demasiado enredados, no se entienden.",
+      "revisions": 0
+    },
+    {
+      "pairId": "p04",
+      "caseId": "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+      "winner": "v13",
+      "sawAltView": {
+        "view": "shown",
+        "seen": false
+      },
+      "tags": [
+        "flow",
+        "lines"
+      ],
+      "note": "",
+      "revisions": 0
+    }
+  ]
+}
