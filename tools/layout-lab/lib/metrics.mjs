@@ -194,6 +194,48 @@ function longEdges(ctx) {
   return { value: long.length, details: long.map(([id, l]) => [id, Math.round(l)]) };
 }
 
+// ---------- flow readability (user notes 2026-09-26 on v12's find-a-job) ----------
+
+/** Face of a node an edge end touches: the side of its bounds nearest to the end point. */
+function faceOf(bounds, p) {
+  const d = { left: Math.abs(p.x - bounds.x), right: Math.abs(p.x - (bounds.x + bounds.width)),
+    top: Math.abs(p.y - bounds.y), bottom: Math.abs(p.y - (bounds.y + bounds.height)) };
+  return Object.entries(d).sort((a, b) => a[1] - b[1])[0][0];
+}
+
+/** Node faces where sequence flows both enter and leave: the direction of the arrows is lost. */
+function mixedFaces(ctx) {
+  const faces = new Map(); // `${node}|${face}` -> Set('in'|'out')
+  const mark = (id, p, dir) => {
+    const b = ctx.byId.get(id)?.bounds;
+    if (!b) return;
+    const key = `${id}|${faceOf(b, p)}`;
+    (faces.get(key) ?? faces.set(key, new Set()).get(key)).add(dir);
+  };
+  for (const e of seqFlows(ctx)) { mark(e.source, e.waypoints[0], 'out'); mark(e.target, e.waypoints.at(-1), 'in'); }
+  const mixed = [...faces].filter(([, dirs]) => dirs.size === 2).map(([key]) => key);
+  return { value: mixed.length, details: mixed };
+}
+
+/**
+ * Sequence flows sharing a stretch of line (> 5 px) although they share neither
+ * their source (a fan-out) nor their target (a merge): the reader cannot tell
+ * where each one goes.
+ */
+function ambiguousOverlaps(ctx) {
+  const flows = seqFlows(ctx); const pairs = [];
+  for (let i = 0; i < flows.length; i += 1) {
+    for (let j = i + 1; j < flows.length; j += 1) {
+      const a = flows[i]; const b = flows[j];
+      if (a.source === b.source || a.target === b.target) continue;
+      let shared = 0;
+      for (const sa of a.segs) for (const sb of b.segs) shared += collinearOverlap(sa, sb);
+      if (shared > 5) pairs.push([a.id, b.id, Math.round(shared)]);
+    }
+  }
+  return { value: pairs.length, details: pairs };
+}
+
 // ---------- artifacts (data objects, data stores, annotations) ----------
 
 const ASSOCIATION_TYPES = new Set(['association', 'dataInputAssociation', 'dataOutputAssociation']);
@@ -303,6 +345,9 @@ export const METRICS = [
   { key: 'msgFlowDxMean', group: 'legibility', better: 'lower',
     compute: ctx => ({ value: mean(msgFlows(ctx).map(e => Math.abs(e.waypoints.at(-1).x - e.waypoints[0].x))) }) },
   { key: 'labelDistanceMean', group: 'legibility', better: 'lower', compute: labelDistance },
+  // Flow readability (added 2026-09-26 from the user's notes on v12; legibility, hard gate unchanged).
+  { key: 'mixedFaces', group: 'legibility', better: 'lower', compute: mixedFaces },
+  { key: 'ambiguousOverlaps', group: 'legibility', better: 'lower', compute: ambiguousOverlaps },
   // Artifacts (added 2026-09-26 after the v5–v6 votes; legibility, so the hard gate is unchanged).
   { key: 'assocLengthMean', group: 'legibility', better: 'lower',
     compute: ctx => ({ value: mean(associations(ctx).map(e => polylineLength(e.waypoints))) }) },

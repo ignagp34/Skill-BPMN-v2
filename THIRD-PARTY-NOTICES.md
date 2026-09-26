@@ -79,7 +79,7 @@ must be preserved.
 | `docx` | 9.7.1 | © 2016 Dolan Miu |
 | `diagram-js`, `diagram-js-direct-editing` | 14.11.3 | © 2014-present Camunda Services GmbH |
 | `bpmn-moddle`, `moddle`, `moddle-xml` | 8.1.0 / 6.2.3 | © 2014-present Camunda Services GmbH |
-| `bpmn-auto-layout` | 0.5.0 | © bpmn.io / Camunda Services GmbH (a modified copy of its `dist/index.js` is vendored in `tools/layout-lab/harness/v12/auto-layout.js`, layout-lab only) |
+| `bpmn-auto-layout` | 0.5.0 | © bpmn.io / Camunda Services GmbH |
 | `min-dash`, `min-dom`, `tiny-svg`, `didi`, `ids`, `object-refs`, `saxen`, `@bpmn-io/diagram-js-ui` | — | © bpmn.io / Camunda Services GmbH |
 | `jszip` | 3.10.1 | © 2009-2016 Stuart Knightley, David Duponchel, Franz Buchinger, António Afonso — **dual-licensed (MIT OR GPL-3.0-or-later); MIT elected here** |
 | `nanoid` | 3.3.12 | © 2017 Andrey Sitnik |

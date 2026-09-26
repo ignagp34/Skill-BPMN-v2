@@ -9,6 +9,7 @@ Trabajo autónomo durante la ausencia del usuario, con su autorización. Cada pr
 | v10 | D, ancho de tarea según la palabra | 11 | **Sí** | ninguna palabra partida | `evidence/layout-v10/REPORT.md` |
 | v11 | B, hacer sitio a los artefactos | 10 | No (área +23 a +52 % en 4) | etiquetas sobre formas 16 → 8, texto cortado 5 → 2, cruces 351 → 327, asociaciones largas 41 → 27 | `evidence/layout-v11/REPORT.md` |
 | v12 | A, gateways junto a su tarea | 7 | No (`find-a-job` +200 % de área) | cruces 351 → 262 (secuencia 135 → 55) | `evidence/layout-v12/REPORT.md` |
+| v13 | Claridad de flujos (notas del usuario sobre v12) | 4 | No (`find-a-job` con la base de v7) | caras mixtas y solapes ambiguos a 0; también con v12 + v13 | `evidence/layout-v13/REPORT.md` |
 
 Los filtros que fallan son de área o de una etiqueta. En v11 y v12 crecer es parte de la idea; que compense lo decide el voto.
 
@@ -43,9 +44,19 @@ Los filtros que fallan son de área o de una etiqueta. En v11 y v12 crecer es pa
 
 Cinco lotes, 41 parejas en total (A = v7, B = candidato; orden ciego). Uno tras otro, cada página se abre al terminar la anterior:
 
+Desde la raíz del repositorio (`Skill-BPMN-v2`), en PowerShell:
+
+```powershell
+foreach ($v in 'v8','v9','v10','v11','v12') { node tools/layout-lab/layout.mjs vote --batch "skill-runs/layout/ab-v7-$v-20260926" }
+```
+
+En bash:
+
 ```bash
 for v in v8 v9 v10 v11 v12; do node tools/layout-lab/layout.mjs vote --batch skill-runs/layout/ab-v7-$v-20260926; done
 ```
+
+Lotes añadidos después: `ab-v7-v13-20260926` (4 parejas) y `ab-v12-v12clarity-20260926` (5 parejas, v12 frente a v12 + v13).
 
 Después: desciegar y analizar, decidir cuáles se combinan en el nuevo defecto (son compatibles entre sí: tocan fases distintas) y renderizar la combinación antes de adoptarla.
 

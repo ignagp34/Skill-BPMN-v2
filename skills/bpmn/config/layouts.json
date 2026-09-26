@@ -66,6 +66,11 @@
       "description": "v7 + proposal A: bpmn-auto-layout 0.5.0 with Grid.addAfter fixed (vendored in the harness): a node takes the next free cell instead of being spliced into its row, which pushed row tails such as gateways to the far right; an occupied cell opens a column in every row",
       "base": "v7",
       "harness": { "app": "tools/layout-lab/harness/v12", "page": "/index.headless.html" }
+    },
+    "v13": {
+      "description": "v7 + flow clarity after the channel distribution: a node face keeps one direction (a flow of the other direction is re-routed through a free face) and flows that share neither source nor target no longer share a stretch of line (segment shifted sideways or flow re-routed; crossings allowed, merges not)",
+      "base": "v7",
+      "harness": { "app": "tools/layout-lab/harness/v13", "page": "/index.headless.html" }
     }
   }
 }

@@ -11,7 +11,7 @@ Dos causas en bpmn-auto-layout 0.5.0, leídas en su código y comprobadas ejecut
 
 ## Cambio
 
-`tools/layout-lab/harness/v12/auto-layout.js` es una copia de `bpmn-auto-layout/dist/index.js` (MIT, anotada en `THIRD-PARTY-NOTICES.md`) con dos cambios marcados «layout v12»:
+`tools/layout-lab/harness/v12/auto-layout.js` es una copia de `bpmn-auto-layout/dist/index.js` (MIT; atribución en `tools/layout-lab/harness/v12/NOTICE.md`, porque `THIRD-PARTY-NOTICES.md` pertenece a la instantánea congelada) con dos cambios marcados «layout v12»:
 
 - un nodo ocupa la celda siguiente si está libre; si no, se abre una columna en todas las filas, para que sigan alineadas;
 - si no hay nodo de arranque, la búsqueda empieza por el primer nodo del proceso en orden de documento, y todo nodo que quede sin alcanzar arranca una fila nueva igual.

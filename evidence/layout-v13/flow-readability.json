@@ -1,0 +1,180 @@
+{
+  "schema": "layout-flow-readability/1",
+  "note": "mixedFaces and ambiguousOverlaps (tools/layout-lab/lib/metrics.mjs) on the 56-case bench, 2026-09-26",
+  "renders": {
+    "v7-20260926-b56": {
+      "mixedFaces": 1,
+      "ambiguousOverlaps": 9,
+      "cases": {
+        "c-syn009-sysv31-gemini-gemini_3_5_flash_thinking-r02": {
+          "mixedFaces": [
+            "Event_Applicant_receive_New_Set_of_Times|top"
+          ],
+          "ambiguousOverlaps": [
+            [
+              "Flow_7",
+              "Flow_13",
+              156
+            ],
+            [
+              "Flow_13",
+              "Flow_14",
+              46
+            ]
+          ]
+        },
+        "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03": {
+          "mixedFaces": [],
+          "ambiguousOverlaps": [
+            [
+              "Flow_24",
+              "Flow_27",
+              430
+            ],
+            [
+              "Flow_27",
+              "Flow_29",
+              276
+            ]
+          ]
+        },
+        "f-planta-residuos": {
+          "mixedFaces": [],
+          "ambiguousOverlaps": [
+            [
+              "Flow_24",
+              "Flow_89",
+              366
+            ],
+            [
+              "Flow_37",
+              "Flow_59",
+              280
+            ],
+            [
+              "Flow_56",
+              "Flow_59",
+              140
+            ],
+            [
+              "Flow_68",
+              "Flow_76",
+              2724
+            ]
+          ]
+        },
+        "f-s-a3-find-a-job": {
+          "mixedFaces": [],
+          "ambiguousOverlaps": [
+            [
+              "Flow_6",
+              "Flow_8",
+              30
+            ]
+          ]
+        }
+      }
+    },
+    "v12-20260926-b56": {
+      "mixedFaces": 3,
+      "ambiguousOverlaps": 11,
+      "cases": {
+        "c-syn009-sysv31-gemini-gemini_3_5_flash_thinking-r02": {
+          "mixedFaces": [
+            "Event_Applicant_receive_New_Set_of_Times|top"
+          ],
+          "ambiguousOverlaps": [
+            [
+              "Flow_7",
+              "Flow_13",
+              156
+            ],
+            [
+              "Flow_13",
+              "Flow_14",
+              46
+            ]
+          ]
+        },
+        "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03": {
+          "mixedFaces": [],
+          "ambiguousOverlaps": [
+            [
+              "Flow_24",
+              "Flow_27",
+              430
+            ],
+            [
+              "Flow_27",
+              "Flow_29",
+              282
+            ]
+          ]
+        },
+        "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02": {
+          "mixedFaces": [],
+          "ambiguousOverlaps": [
+            [
+              "Flow_28",
+              "Flow_50",
+              65
+            ]
+          ]
+        },
+        "f-planta-residuos": {
+          "mixedFaces": [],
+          "ambiguousOverlaps": [
+            [
+              "Flow_37",
+              "Flow_59",
+              280
+            ],
+            [
+              "Flow_56",
+              "Flow_59",
+              140
+            ],
+            [
+              "Flow_68",
+              "Flow_76",
+              2724
+            ]
+          ]
+        },
+        "f-s-a3-find-a-job": {
+          "mixedFaces": [
+            "Task_Applicant_Report_job_applications|right",
+            "Merge_Applicant_Report_job_applications|left"
+          ],
+          "ambiguousOverlaps": [
+            [
+              "Flow_1",
+              "Flow_22",
+              100
+            ],
+            [
+              "Flow_5",
+              "Flow_22",
+              15
+            ],
+            [
+              "Flow_9",
+              "Flow_22",
+              125
+            ]
+          ]
+        }
+      }
+    },
+    "v13-20260926-b56": {
+      "mixedFaces": 0,
+      "ambiguousOverlaps": 0,
+      "cases": {}
+    },
+    "abl-v12-clarity": {
+      "mixedFaces": 0,
+      "ambiguousOverlaps": 0,
+      "cases": {}
+    }
+  }
+}

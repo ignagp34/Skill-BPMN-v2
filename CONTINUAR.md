@@ -23,6 +23,7 @@ Etapa 8 = mejorar el layout sin cambiar el DSL ni el XML semántico. Cada idea e
 | v10 | D: ancho de tarea según su palabra más larga | 11 casos; pasa el filtro. Pendiente de voto. |
 | v11 | B: hacer sitio a los artefactos en el carril | 10 casos; mejor en artefactos; falla por área (+23 a +52 % en 4). Pendiente de voto. |
 | v12 | A: bpmn-auto-layout corregido (addAfter y procesos sin inicio) | 7 casos; cruces 351 → 262; falla por área (`find-a-job` +200 %). Pendiente de voto. |
+| v13 | Claridad de flujos (notas del usuario sobre v12): una dirección por cara, sin fusiones ambiguas | 4 casos; caras mixtas y solapes ambiguos a 0 (también v12 + v13). Pendiente de voto y de la decisión sobre el evento de inicio. |
 
 Commits: `2291771` (v1–v4, v4 por defecto), `771e704` (v5) y el de v6 (2026-09-26).
 

@@ -1,6 +1,6 @@
 // Vendored copy of bpmn-auto-layout 0.5.0 (dist/index.js), MIT licence,
-// © bpmn.io / Camunda Services GmbH (see THIRD-PARTY-NOTICES.md), with one change for
-// layout v12: Grid.addAfter (search "layout v12"). Used only by the layout-lab
+// © bpmn.io / Camunda Services GmbH (see THIRD-PARTY-NOTICES.md and NOTICE.md here), with changes for
+// layout v12: Grid.addAfter and processes with no start (search "layout v12"). Used only by the layout-lab
 // candidate harness v12; the engine and every other layout keep the npm package.
 import BPMNModdle from 'bpmn-moddle';
 // min-dash helpers used by the original, inlined so the harness needs no extra dependency.
