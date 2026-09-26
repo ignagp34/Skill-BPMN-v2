@@ -1,4 +1,4 @@
-# Resumen para continuar — 2026-09-26 (etapa 8: v7 por defecto)
+# Resumen para continuar — 2026-09-26 (etapa 8: v7 por defecto; candidatos v8–v12 pendientes de voto)
 
 Lee primero `AGENTS.md` (única fuente de instrucciones; `CLAUDE.md` solo redirige). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`, clon en `C:/Repositorios/Skill BPMN v2/Skill-BPMN-v2`. El original `BPMN-DSL-Monorepo` sigue protegido. **Nunca push.** Commits locales autorizados.
 
@@ -18,8 +18,21 @@ Etapa 8 = mejorar el layout sin cambiar el DSL ni el XML semántico. Cada idea e
 | v5 | Artefactos conscientes de las etiquetas | Voto 11–2 (6 empates); no pasa el filtro por 2 casos; el usuario pidió otra iteración antes de validarlo. |
 | v6 | v5 afinado con las notas del usuario | Voto 10–3 (1 empate) sobre v5; frente a v4, 1 caso con regresión dura. Fue el defecto el 26/09 hasta v7. |
 | v7 | Ancho común de pools y carriles que llenan el pool (E + F) | Pasa el filtro; voto 16–6 sobre v6. **Layout por defecto de la skill desde el 2026-09-26** (decisión del usuario). `evidence/layout-v7/REPORT.md`. |
+| v8 | C: artefactos con alcance limitado, sin cohesión | 5 casos; falla el filtro por 1 etiqueta. Pendiente de voto. |
+| v9 | G: etiquetas de eventos encima cuando abajo chocan | 7 casos; pasa el filtro. Pendiente de voto. |
+| v10 | D: ancho de tarea según su palabra más larga | 11 casos; pasa el filtro. Pendiente de voto. |
+| v11 | B: hacer sitio a los artefactos en el carril | 10 casos; mejor en artefactos; falla por área (+23 a +52 % en 4). Pendiente de voto. |
+| v12 | A: bpmn-auto-layout corregido (addAfter y procesos sin inicio) | 7 casos; cruces 351 → 262; falla por área (`find-a-job` +200 %). Pendiente de voto. |
 
 Commits: `2291771` (v1–v4, v4 por defecto), `771e704` (v5) y el de v6 (2026-09-26).
+
+## Candidatos v8–v12 (2026-09-26, trabajo autónomo autorizado)
+
+Resumen con imágenes antes/después: `evidence/layout-candidates-20260926/SUMMARY.md`; un informe por candidato en `evidence/layout-vN/REPORT.md`. Cada uno es independiente sobre v7 para votarlos por separado; son compatibles entre sí (tocan fases distintas).
+
+Siguiente paso: el usuario vota los 5 lotes `skill-runs/layout/ab-v7-vN-20260926` (41 parejas; comando en el resumen). Después, desciegar y analizar cada lote como `evidence/layout-v7/human-votes.json`, decidir qué se combina, construir la combinación como versión nueva, renderizarla y compararla con v7 antes de proponerla como defecto. Si v12 gana, compactar la altura de los carriles (quedan altos).
+
+Comprobaciones hechas: v6 y v7 re-renderizados idénticos byte a byte tras tocar el módulo de artefactos y la configuración compartida; pruebas del lab 8/8; `verify-source` 3319/0. Commits `7253888` (código) y el de la evidencia.
 
 ## Votos v5–v6 analizados (2026-09-26)
 
@@ -40,7 +53,7 @@ Commits: `2291771` (v1–v4, v4 por defecto), `771e704` (v5) y el de v6 (2026-09
 
 1. Hecho (2026-09-26): v6 fue el defecto y después v7, ambos por decisión del usuario. Volver a otra versión = editar `default` en `layouts.json`; la paridad sigue fijada en v0.
 2. Hecho (2026-09-26, commit `6e0b868`): 5 métricas de artefactos en `metrics.mjs` (`assocLengthMean`, `assocBendsPerEdge`, `bentNearAssociations`, `longAssociations`, `artifactTextOutsidePool`), en el grupo de legibilidad: el filtro duro no cambia. Medidas en v0/v4/v5/v6 en `evidence/layout-v6/artifact-metrics.json` (v6: codos cerca 13 → 1 frente a v5, asociaciones largas 37 → 41). Los `compare-*.json` anteriores no se regeneraron.
-3. Revisión visual de v6 con capturas y propuestas A–G: `evidence/layout-review-20260926/REVIEW.md`. Falta que el usuario elija la siguiente.
+3. Revisión visual de v6 con capturas y propuestas A–G: `evidence/layout-review-20260926/REVIEW.md`. E+F → v7 (defecto); A, B, C, D y G → v12, v11, v8, v10 y v9, pendientes de voto.
 4. Si se itera, una idea cada vez y con ablación conservada en el repositorio, no en `$TMP`.
 
 ## Mejora potencial de artefactos: idea C (apuntada por el usuario; se llamó «v7» antes de que ese número pasara al candidato de marcos)

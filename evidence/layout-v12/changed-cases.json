@@ -1,0 +1,20 @@
+{
+  "bpmnChanged": [
+    "c-syn005-sysv5-chatgpt-gpt_5_5_thinking-r03",
+    "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+    "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+    "f-gemini-03",
+    "f-planta-residuos",
+    "f-s-a3-find-a-job",
+    "f-s17-document-approval"
+  ],
+  "imageChanged": [
+    "c-syn005-sysv5-chatgpt-gpt_5_5_thinking-r03",
+    "c-syn015-sysv5-chatgpt-gpt_5_5_thinking-r03",
+    "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+    "f-gemini-03",
+    "f-planta-residuos",
+    "f-s-a3-find-a-job",
+    "f-s17-document-approval"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "bpmnChanged": [
+    "c-syn009-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+    "c-syn011-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+    "c-syn011-sysv5-chatgpt-gpt_5_5_thinking-r02",
+    "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+    "f-planta-residuos",
+    "h-ml-01-clasificador-imagenes",
+    "h-ml-06-vision-medica"
+  ],
+  "imageChanged": [
+    "c-syn009-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+    "c-syn011-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+    "c-syn011-sysv5-chatgpt-gpt_5_5_thinking-r02",
+    "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+    "f-planta-residuos",
+    "h-ml-01-clasificador-imagenes",
+    "h-ml-06-vision-medica"
+  ]
+}

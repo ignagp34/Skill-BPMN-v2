@@ -1,0 +1,26 @@
+{
+  "bpmnChanged": [
+    "c-syn011-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+    "c-syn011-sysv5-chatgpt-gpt_5_5_thinking-r02",
+    "c-syn012-sysv5-chatgpt-gpt_5_5_thinking-r03",
+    "c-syn012-sysv5-gemini-gemini_3_5_flash_thinking-r03",
+    "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+    "f-gemini-03",
+    "f-planta-residuos",
+    "f-s17-document-approval",
+    "h-ml-01-clasificador-imagenes",
+    "h-ml-03-deteccion-fraude"
+  ],
+  "imageChanged": [
+    "c-syn011-sysv31-gemini-gemini_3_5_flash_thinking-r02",
+    "c-syn011-sysv5-chatgpt-gpt_5_5_thinking-r02",
+    "c-syn012-sysv5-chatgpt-gpt_5_5_thinking-r03",
+    "c-syn012-sysv5-gemini-gemini_3_5_flash_thinking-r03",
+    "c-syn015-sysv5-gemini-gemini_3_5_flash_thinking-r02",
+    "f-gemini-03",
+    "f-planta-residuos",
+    "f-s17-document-approval",
+    "h-ml-01-clasificador-imagenes",
+    "h-ml-03-deteccion-fraude"
+  ]
+}
