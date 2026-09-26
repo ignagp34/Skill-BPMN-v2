@@ -1,7 +1,8 @@
 // ab-batch --a <renderDir> --b <renderDir> --out <batchDir> [--count 20] [--seed s]
-//          [--view hidden|shown] [--include-identical]
+//          [--view hidden|shown] [--include-identical] [--cases id,id,...]
 // Builds a blind A/B batch: same case, both layouts, random side per pair.
 // By default only cases whose images differ are used (identical pairs teach nothing).
+// --cases restricts the draw to those cases (e.g. the ones a candidate is meant to change).
 import { existsSync } from 'node:fs';
 import { copyFile, mkdir, readFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
@@ -32,9 +33,12 @@ export async function run(options) {
   const [a, b] = [await readJson(join(aDir, RENDER_INFO)), await readJson(join(bDir, RENDER_INFO))];
   if (a.benchManifestSha256 !== b.benchManifestSha256) throw new Error('The two renders used different benches.');
 
+  const only = options.cases ? new Set(String(options.cases).split(',').map(id => id.trim()).filter(Boolean)) : null;
+  const unknown = only ? [...only].filter(id => !a.cases.some(c => c.id === id)) : [];
+  if (unknown.length) throw new UsageError(`Unknown cases: ${unknown.join(', ')}`);
   const bStatus = new Map(b.cases.map(c => [c.id, c.status]));
   const eligible = [];
-  for (const c of a.cases.filter(c => OK.has(c.status) && OK.has(bStatus.get(c.id)))) {
+  for (const c of a.cases.filter(c => OK.has(c.status) && OK.has(bStatus.get(c.id)) && (!only || only.has(c.id)))) {
     const [ia, ib] = [await readFile(imageOf(aDir, c.id, view)), await readFile(imageOf(bDir, c.id, view))];
     if (options['include-identical'] || sha256(ia) !== sha256(ib)) eligible.push(c.id);
   }
@@ -67,7 +71,7 @@ export async function run(options) {
   }
   const batch = { schema: 'layout-ab-batch/1', createdAt: new Date().toISOString(), seed, view,
     variants: { A: { layout: a.layout.name, render: aDir }, B: { layout: b.layout.name, render: bDir } },
-    eligibleCases: eligible.length, rubric: RUBRIC, pairs };
+    eligibleCases: eligible.length, ...(only ? { restrictedTo: [...only] } : {}), rubric: RUBRIC, pairs };
   await writeJsonAtomic(join(out, BATCH_FILE), batch);
   return { exit: 0, payload: { batch: out, pairs: pairs.length, eligible: eligible.length, view,
     next: `node tools/layout-lab/layout.mjs vote --batch "${out}"` } };

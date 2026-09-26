@@ -36,6 +36,11 @@
       "description": "v5 with artifact rules tuned from the user's notes: straight associations for near artifacts (bend on a route < 250 px costs 250), soft air (shape within 12 px costs 100), same-name artifacts in a pool pulled together when within 350 px",
       "base": "v5",
       "harness": { "app": "tools/layout-lab/harness/v6", "page": "/index.headless.html" }
+    },
+    "v7": {
+      "description": "v6 + common pool width (every pool and its lanes reach the widest pool's right edge) and lanes filling their pool (no empty strip above the first lane or below the last); frames only grow, nothing else moves",
+      "base": "v6",
+      "harness": { "app": "tools/layout-lab/harness/v7", "page": "/index.headless.html" }
     }
   }
 }

@@ -62,11 +62,13 @@ Los carriles no llenan el pool: quedan 20 px arriba y abajo que parecen carriles
 | --- | --- | --- | --- | --- | --- |
 | A | **Capas por flujo en cada pool**: romper ciclos y asignar columnas por el camino más largo (Sugiyama), colocando cada gateway justo después de su predecesor | 1 | Alto | Alto | `longSeqEdges`, `crossings`, `forwardSeqRatio` |
 | B | **Hacer sitio a los artefactos**: si no hay hueco válido en el carril, crecer el carril (y desplazar los siguientes) en lugar de usar el respaldo de v0 | 2 | Alto en casos con artefactos | Medio | `artifactTextOutsidePool`, `labelShapeOverlaps`, `clippedText` |
-| C | **v7 de artefactos** (del voto v5–v6): codos caros cerca + aire limitado por la distancia a su tarea; cohesión fuera o rediseñada | 2 | Medio | Bajo | `longAssociations`, `bentNearAssociations`, `assocLengthMean` |
+| C | **Artefactos, siguiente iteración** (del voto v5–v6): codos caros cerca + aire limitado por la distancia a su tarea; cohesión fuera o rediseñada | 2 | Medio | Bajo | `longAssociations`, `bentNearAssociations`, `assocLengthMean` |
 | D | **Ancho de tarea según su palabra más larga**, fijado antes del auto-layout | 3 | Medio (13 tareas) | Medio | `clippedText` y una métrica nueva de palabras partidas |
 | E | **Ancho común de pools**: extender cada pool y sus carriles hasta el borde derecho mayor | 4 | Medio en multi-pool | Bajo | `poolWidthCV` → 0, área (se acepta el crecimiento) |
 | F | **Carriles que llenan el pool** (sin franjas vacías) | 5 | Bajo-medio (todos los diagramas) | Bajo | Inspección; altura |
 | G | **Etiquetas de eventos arriba cuando abajo chocan** (idea del usuario) | 6 | Medio | Bajo-medio | `labelEdgeOverlaps`, `labelShapeOverlaps` |
+
+Actualización (2026-09-26): el usuario pidió unir F a E (el primer y el último carril sin separación con la línea del pool). Hecho como candidato v7 (`evidence/layout-v7/REPORT.md`).
 
 Orden sugerido: E y F (baratos, cambian todos los diagramas multi-pool), luego C o B (siguen la línea de artefactos ya votada), y A como proyecto aparte por riesgo y alcance. Una idea por candidato, con su ablación guardada en el repositorio.
 

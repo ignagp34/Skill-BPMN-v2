@@ -1,4 +1,4 @@
-# Resumen para continuar — 2026-09-26 (etapa 8: v6 por defecto; revisión visual y v7)
+# Resumen para continuar — 2026-09-26 (etapa 8: v6 por defecto; candidato v7 pendiente de voto)
 
 Lee primero `AGENTS.md` (única fuente de instrucciones; `CLAUDE.md` solo redirige). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`, clon en `C:/Repositorios/Skill BPMN v2/Skill-BPMN-v2`. El original `BPMN-DSL-Monorepo` sigue protegido. **Nunca push.** Commits locales autorizados.
 
@@ -17,6 +17,7 @@ Etapa 8 = mejorar el layout sin cambiar el DSL ni el XML semántico. Cada idea e
 | v4 | Bandas de título despejadas | Filtro y voto (16–0); fue el defecto del 25/09 al 26/09. |
 | v5 | Artefactos conscientes de las etiquetas | Voto 11–2 (6 empates); no pasa el filtro por 2 casos; el usuario pidió otra iteración antes de validarlo. |
 | v6 | v5 afinado con las notas del usuario | Voto 10–3 (1 empate) sobre v5; frente a v4, 1 caso con regresión dura. **Layout por defecto de la skill desde el 2026-09-26** (decisión del usuario). |
+| v7 | Ancho común de pools y carriles que llenan el pool (E + F) | Pasa el filtro; lote `ab-v6-v7-20260926` (22) **pendiente de voto**. `evidence/layout-v7/REPORT.md`. |
 
 Commits: `2291771` (v1–v4, v4 por defecto), `771e704` (v5) y el de v6 (2026-09-26).
 
@@ -26,7 +27,7 @@ Commits: `2291771` (v1–v4, v4 por defecto), `771e704` (v5) y el de v6 (2026-09
 
 - v6 10, v5 3, 1 empate; decisivos 0,77 (Wilson 0,50–0,92), signos p = 0,09. Sin notas ni etiquetas del usuario.
 - En 7 casos v6 es byte a byte igual a una ablación de un solo ajuste: codos 3–0, aire 3–0–1. Las 3 derrotas son casos densos: el aire aleja el artefacto de su tarea (`c-syn012-chatgpt`, con texto de anotación cortado en el borde del carril; `c-syn015-chatgpt`) y el único caso de cohesión (`planta-residuos`, almacén a medio camino en otro carril).
-- Siguiente iteración posible (v7): codos caros cerca + aire con límite de distancia a su tarea; cohesión fuera o con otro diseño.
+- Siguiente iteración posible (idea C, antes llamada «v7»): codos caros cerca + aire con límite de distancia a su tarea; cohesión fuera o con otro diseño.
 
 ## Experimento v6 — qué hay
 
@@ -42,13 +43,13 @@ Commits: `2291771` (v1–v4, v4 por defecto), `771e704` (v5) y el de v6 (2026-09
 3. Revisión visual de v6 con capturas y propuestas A–G: `evidence/layout-review-20260926/REVIEW.md`. Falta que el usuario elija la siguiente.
 4. Si se itera, una idea cada vez y con ablación conservada en el repositorio, no en `$TMP`.
 
-## Mejora potencial v7 (apuntada por el usuario, sin hacer)
+## Mejora potencial de artefactos: idea C (apuntada por el usuario; se llamó «v7» antes de que ese número pasara al candidato de marcos)
 
 Artefactos, a partir del voto v5–v6: mantener los codos caros en asociaciones cercanas; mantener el aire pero con un límite de distancia a su tarea (en casos densos alejaba el artefacto: `c-syn012-chatgpt`, `c-syn015-chatgpt`); quitar la cohesión o rediseñarla (en `planta-residuos` deja el almacén a medio camino, en otro carril). Métricas de aceptación: `longAssociations`, `bentNearAssociations`, `assocLengthMean`. Es la propuesta C de la revisión.
 
 ## Ideas pendientes (del usuario y de la revisión del 26/09)
 
-- Propuestas A–G de `evidence/layout-review-20260926/REVIEW.md`: capas por flujo en cada pool (gateways empujados al final), crecer el carril para hacer sitio a los artefactos, v7, ancho de tarea según su palabra más larga, ancho común de pools, carriles que llenan el pool, etiquetas de eventos arriba.
+- Propuestas A–G de `evidence/layout-review-20260926/REVIEW.md`: capas por flujo en cada pool (gateways empujados al final), crecer el carril para hacer sitio a los artefactos, idea C de artefactos, ancho de tarea según su palabra más larga, ancho común de pools, carriles que llenan el pool, etiquetas de eventos arriba.
 
 - Etiquetas de eventos encima cuando abajo chocan; «Parts arrive» (`gemini-04`) abajo a la izquierda, junto a «Parts».
 - C′: alinear columnas entre pools insertando huecos dentro de cada pool.
