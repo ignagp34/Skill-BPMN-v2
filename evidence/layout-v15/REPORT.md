@@ -28,13 +28,17 @@ Render `skill-runs/layout/v15-20260926-b56`: 56/56, XML semántico idéntico.
 
 ## Lote A/B
 
-`skill-runs/layout/ab-v7-v15-20260926/`: 18 parejas, todas las que cambian frente a v7; semilla `v7-v15-20260926`; vista con los mensajes ocultos. Pendiente de voto:
+`skill-runs/layout/ab-v7-v15-20260926/`: 18 parejas, todas las que cambian frente a v7; semilla `v7-v15-20260926`; vista con los mensajes ocultos. Comando de voto:
 
 ```powershell
 node tools/layout-lab/layout.mjs vote --batch skill-runs/layout/ab-v7-v15-20260926
 ```
 
-Si v15 gana, se propone como layout por defecto (decisión del usuario; hoy sigue v7).
+## Votación y decisión
+
+Voto del usuario (2026-09-26; `human-votes.json`): **v15 12, v7 1, 5 empates**; 13 decisivos, prueba de signos bilateral p = 0,003. La única pareja para v7 es `h-ml-06-vision-medica`. Empates: `c-syn015-chatgpt`, `h-ml-01`, `f-s17-document-approval`, `h-ml-02` y `f-canon-1-cheeseburger`. Sin notas; en `c-syn011-chatgpt`, etiquetas y alineación.
+
+**Decisión del usuario: v15 pasa a ser el layout por defecto de la skill** (`skills/bpmn/config/layouts.json`; antes v7). Comprobado después del cambio: un `render-dsl` sin `--layout` de `c-syn015-gemini` da `success` y un `.bpmn` idéntico al de `hidden.bpmn` del banco v15; la paridad con v0 sigue `passed=true` (`skill-runs/parity-20260926-v15default`).
 
 ## Comprobaciones
 
