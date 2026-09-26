@@ -1,0 +1,229 @@
+{
+  "schema": "bpmn-edit-diff/1",
+  "summary": {
+    "changedElements": 6,
+    "byKind": {
+      "event": 2,
+      "task": 1,
+      "edge": 3
+    },
+    "shapesMoved": 1,
+    "shapesResized": 0,
+    "labelsMoved": 2,
+    "edgesRerouted": 3,
+    "bendsAdded": 5,
+    "bendsRemoved": 0
+  },
+  "missing": {
+    "inUser": [],
+    "inEngine": []
+  },
+  "changes": [
+    {
+      "id": "Event_Traveler_send_Reservation_Request",
+      "kind": "event",
+      "type": "endEvent",
+      "name": "Reservation Request",
+      "dx": 0,
+      "dy": 0,
+      "dWidth": 0,
+      "dHeight": 0,
+      "label": {
+        "before": null,
+        "after": {
+          "x": 320.5,
+          "y": 516,
+          "width": 59,
+          "height": 27
+        }
+      },
+      "before": {
+        "x": 357,
+        "y": 500,
+        "width": 36,
+        "height": 36
+      },
+      "after": {
+        "x": 357,
+        "y": 500,
+        "width": 36,
+        "height": 36
+      }
+    },
+    {
+      "id": "Event_Traveler_send_Payment",
+      "kind": "event",
+      "type": "endEvent",
+      "name": "Payment",
+      "dx": 0,
+      "dy": 0,
+      "dWidth": 0,
+      "dHeight": 0,
+      "label": {
+        "before": null,
+        "after": {
+          "x": 353,
+          "y": 116,
+          "width": 45,
+          "height": 14
+        }
+      },
+      "before": {
+        "x": 357,
+        "y": 80,
+        "width": 36,
+        "height": 36
+      },
+      "after": {
+        "x": 357,
+        "y": 80,
+        "width": 36,
+        "height": 36
+      }
+    },
+    {
+      "id": "Task_Agency_Issue_ticket",
+      "kind": "task",
+      "type": "task",
+      "name": "Issue ticket",
+      "dx": 0,
+      "dy": 56,
+      "dWidth": 0,
+      "dHeight": 0,
+      "label": null,
+      "before": {
+        "x": 1075,
+        "y": 734,
+        "width": 100,
+        "height": 80
+      },
+      "after": {
+        "x": 1075,
+        "y": 790,
+        "width": 100,
+        "height": 80
+      }
+    },
+    {
+      "id": "Flow_1",
+      "kind": "edge",
+      "type": "sequenceFlow",
+      "source": "Task_Traveler_Book_train_ticket",
+      "target": "Event_Traveler_send_Reservation_Request",
+      "waypointsChanged": true,
+      "bendsBefore": 0,
+      "bendsAfter": 1,
+      "bendsAdded": 1,
+      "bendsRemoved": 0,
+      "label": null,
+      "before": [
+        {
+          "x": 275,
+          "y": 518
+        },
+        {
+          "x": 357,
+          "y": 518
+        }
+      ],
+      "after": [
+        {
+          "x": 275,
+          "y": 532
+        },
+        {
+          "x": 375,
+          "y": 560
+        },
+        {
+          "x": 375,
+          "y": 536
+        }
+      ]
+    },
+    {
+      "id": "Flow_6",
+      "kind": "edge",
+      "type": "sequenceFlow",
+      "source": "Event_Agency_receive_Payment",
+      "target": "Task_Agency_Issue_ticket",
+      "waypointsChanged": true,
+      "bendsBefore": 0,
+      "bendsAfter": 2,
+      "bendsAdded": 2,
+      "bendsRemoved": 0,
+      "label": null,
+      "before": [
+        {
+          "x": 993,
+          "y": 774
+        },
+        {
+          "x": 1075,
+          "y": 774
+        }
+      ],
+      "after": [
+        {
+          "x": 993,
+          "y": 774
+        },
+        {
+          "x": 1034,
+          "y": 774
+        },
+        {
+          "x": 1034,
+          "y": 830
+        },
+        {
+          "x": 1075,
+          "y": 830
+        }
+      ]
+    },
+    {
+      "id": "Flow_7",
+      "kind": "edge",
+      "type": "sequenceFlow",
+      "source": "Task_Agency_Issue_ticket",
+      "target": "Event_Agency_send_Ticket",
+      "waypointsChanged": true,
+      "bendsBefore": 0,
+      "bendsAfter": 2,
+      "bendsAdded": 2,
+      "bendsRemoved": 0,
+      "label": null,
+      "before": [
+        {
+          "x": 1175,
+          "y": 774
+        },
+        {
+          "x": 1257,
+          "y": 774
+        }
+      ],
+      "after": [
+        {
+          "x": 1175,
+          "y": 830
+        },
+        {
+          "x": 1216,
+          "y": 830
+        },
+        {
+          "x": 1216,
+          "y": 774
+        },
+        {
+          "x": 1257,
+          "y": 774
+        }
+      ]
+    }
+  ],
+  "sessionId": "edit-20260926-150751-c-syn014-sysv5-claude-opus-4-8-medium-r0",
+  "revision": 1
+}

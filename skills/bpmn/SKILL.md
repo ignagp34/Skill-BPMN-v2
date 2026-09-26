@@ -29,3 +29,4 @@ El modelo solo escribe DSL; el motor del TFM genera el XML, la geometría y las 
 - Layout: por defecto el de `config/layouts.json` (hoy v24, mejorado sobre el del TFM). Si el usuario pide exactamente el diagrama del TFM, añade `--layout v0`.
 - Evaluación opcional (métricas TFM-eval, salida en `<runDir>/evaluation/`): `CLI evaluate --run <runDir>`; ver `references/evaluation.md`.
 - Cambiar el modelo de un host: editar `config/generators.json` y ejecutar `CLI sync-agents`.
+- Retocar a mano el diagrama entregado (mover formas, codos, etiquetas): skill `bpmn-edit` (`skills/bpmn-edit/`) con `--run <runDir>`.

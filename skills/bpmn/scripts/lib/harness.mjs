@@ -82,30 +82,47 @@ async function applyPresentation(page, output, messageFlows) {
   };
 }
 
-async function renderOne(browser, url, input, timeoutMs, messageFlows) {
+/** Runs work(page) on a fresh, ready harness page within the timeout; failures come back as { error }. */
+async function onHarnessPage(browser, url, timeoutMs, work) {
   const page = await browser.newPage({ viewport: VIEWPORT });
   const pageErrors = [];
   page.on('pageerror', err => pageErrors.push(err.message));
   try {
     await injectFaults(page);
-    const work = (async () => {
+    const run = (async () => {
       await page.goto(url, { waitUntil: 'load', timeout: timeoutMs });
       await page.waitForFunction(() => window.__harnessReady === true, undefined, { timeout: timeoutMs });
-      const rendered = await page.evaluate(payload => window.renderExperiment(payload), input);
-      const { output, presentation } = await applyPresentation(page, rendered, messageFlows);
-      // Re-import the exported BPMN; an SVG back means the import succeeded
-      // (PNG availability is checked separately).
-      const reimported = output.layoutXml
-        ? await page.evaluate(xml => window.renderArtifactsFromLayout(xml).then(x => !!x.svg), output.layoutXml)
-        : null;
-      return { output, reimported, presentation };
+      return work(page);
     })();
-    return { ...(await withTimeout(work, timeoutMs)), pageErrors };
+    return { ...(await withTimeout(run, timeoutMs)), pageErrors };
   } catch (error) {
     return { error, pageErrors };
   } finally {
     await page.close().catch(() => {});
   }
+}
+
+// Re-import the exported BPMN; an SVG back means the import succeeded
+// (PNG availability is checked separately).
+const reimport = (page, xml) => (xml
+  ? page.evaluate(x => window.renderArtifactsFromLayout(x).then(r => !!r.svg), xml)
+  : null);
+
+function renderOne(browser, url, input, timeoutMs, messageFlows) {
+  return onHarnessPage(browser, url, timeoutMs, async page => {
+    const rendered = await page.evaluate(payload => window.renderExperiment(payload), input);
+    const { output, presentation } = await applyPresentation(page, rendered, messageFlows);
+    return { output, reimported: await reimport(page, output.layoutXml), presentation };
+  });
+}
+
+/** An already laid-out BPMN (e.g. edited by hand) through the same exporters and presentation as a render. */
+function exportOne(browser, url, layoutXml, timeoutMs, messageFlows) {
+  return onHarnessPage(browser, url, timeoutMs, async page => {
+    const artifacts = await page.evaluate(xml => window.renderArtifactsFromLayout(xml), layoutXml);
+    const { output, presentation } = await applyPresentation(page, { layoutXml, ...artifacts }, messageFlows);
+    return { output, reimported: await reimport(page, output.layoutXml), presentation };
+  });
 }
 
 /**
@@ -135,6 +152,11 @@ export class HarnessSession {
   /** input: RenderExperimentInput of headless/main.ts. Failures come back as { error }. */
   render(input, { timeoutMs = DEFAULT_TIMEOUT_MS, messageFlows = DEFAULT_MESSAGE_FLOWS } = {}) {
     return renderOne(this.browser, `${this.vite.baseUrl}${this.harness.page}`, input, timeoutMs, messageFlows);
+  }
+
+  /** layoutXml: BPMN with DI. Returns { output: { layoutXml, svg, pngBase64 }, reimported, presentation } or { error }. */
+  exportLayout(layoutXml, { timeoutMs = DEFAULT_TIMEOUT_MS, messageFlows = DEFAULT_MESSAGE_FLOWS } = {}) {
+    return exportOne(this.browser, `${this.vite.baseUrl}${this.harness.page}`, layoutXml, timeoutMs, messageFlows);
   }
 
   /** Runs fn(page) on a blank page with the pinned viewport; the page is always closed. */

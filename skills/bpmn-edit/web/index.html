@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edición BPMN</title>
+  <link rel="stylesheet" href="/vendor/assets/diagram-js.css">
+  <link rel="stylesheet" href="/vendor/assets/bpmn-js.css">
+  <link rel="stylesheet" href="/vendor/assets/bpmn-font/css/bpmn.css">
+  <link rel="stylesheet" href="/editor.css">
+</head>
+<body>
+  <header>
+    <h1>Edición BPMN</h1>
+    <span id="layout" class="badge" title="Versión de layout de la revisión actual"></span>
+    <span id="status" class="status" role="status" aria-live="polite">Cargando…</span>
+    <nav>
+      <button id="undo" title="Deshacer (Ctrl+Z)">Deshacer</button>
+      <button id="redo" title="Rehacer (Ctrl+Y)">Rehacer</button>
+      <button id="flows" title="Mostrar u ocultar los flujos de mensaje en pantalla (M)" hidden>Flujos de mensaje</button>
+      <button id="save" title="Guardar ahora (Ctrl+S)">Guardar</button>
+      <button id="quit" class="primary" title="Guardar y cerrar la sesión">Terminar</button>
+    </nav>
+  </header>
+  <div id="banner" class="banner" hidden></div>
+  <main>
+    <section id="dsl-panel" aria-label="DSL">
+      <div class="panel-head">
+        <h2>DSL</h2>
+        <span class="hint">Ctrl+Enter aplica</span>
+      </div>
+      <textarea id="dsl" spellcheck="false" aria-label="DSL del proceso"></textarea>
+      <div class="panel-actions">
+        <button id="apply">Aplicar DSL</button>
+        <button id="revert" title="Recupera el DSL anterior con su geometría editada" disabled>Volver al DSL anterior</button>
+      </div>
+      <ul id="diagnostics" aria-live="polite"></ul>
+      <p class="note">Cambiar el DSL vuelve a dibujar el diagrama con el motor: las ediciones hechas a mano sobre el DSL actual no se trasladan, pero «Volver al DSL anterior» las recupera.</p>
+    </section>
+    <section id="canvas" aria-label="Diagrama"></section>
+  </main>
+  <footer>
+    <span>Solo layout: mover formas, codos y etiquetas; redimensionar pools y carriles. Los nombres y la estructura se cambian en el DSL.</span>
+    <span id="paths"></span>
+  </footer>
+  <script src="/vendor/bpmn-modeler.js"></script>
+  <script src="/editor.js"></script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Editar diagrama BPMN"
+  short_description: "Retoque a mano del layout de un diagrama de la skill bpmn en una página local → PNG, SVG y BPMN con DI"

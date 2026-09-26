@@ -1,17 +1,11 @@
 // vote --batch <batchDir> [--port 0] [--no-open]
 // Serves the local A/B voting page until the page's "Terminar" button (or Ctrl+C),
 // then prints the batch progress. Votes are already on disk after each key press.
-import { spawn } from 'node:child_process';
 import { resolve } from 'node:path';
 import { requireOption } from '../../../skills/bpmn/scripts/lib/cli-args.mjs';
+import { openBrowser } from '../../../skills/bpmn/scripts/lib/open-browser.mjs';
 import { loadBatch, loadVotes } from '../lib/ab.mjs';
 import { startVoteServer } from '../lib/vote-server.mjs';
-
-function openBrowser(url) {
-  const [cmd, args] = process.platform === 'win32' ? ['cmd', ['/c', 'start', '', url]]
-    : process.platform === 'darwin' ? ['open', [url]] : ['xdg-open', [url]];
-  spawn(cmd, args, { stdio: 'ignore', detached: true }).on('error', () => {}).unref();
-}
 
 export async function run(options) {
   const batchDir = resolve(requireOption(options, 'batch'));

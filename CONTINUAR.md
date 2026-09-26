@@ -1,3 +1,35 @@
+# Resumen para continuar — 2026-09-26, tarde (mejoras futuras: mejora 1 `bpmn-edit` hecha)
+
+Empieza por aquí en una conversación nueva. Lee primero `AGENTS.md` (sección 9 para las mejoras futuras). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`, clon en `C:/Repositorios/Skill BPMN v2/Skill-BPMN-v2`; `BPMN-DSL-Monorepo` protegido. Commits locales sí; **push solo si el usuario lo pide**, comprobando antes `origin`.
+
+## Estado
+
+- **Orden de las mejoras** (decisión del usuario): 1 → 4 → 3 → 2. Todas las skills en este repositorio, en `skills/<nombre>/`.
+- **Mejora 1, `skills/bpmn-edit/`: hecha y probada en local.** Plan y decisiones en `plans/bpmn-edit.md`; evidencia en `evidence/bpmn-edit/REPORT.md`.
+  - `node skills/bpmn-edit/scripts/bpmn-edit.mjs open --run <runDir>` abre la página, que guarda sola en `<runDir>/edits/edit-…/`.
+  - Al cambiar el DSL se rehace desde el motor, con aviso y «Volver al DSL anterior».
+  - Lienzo solo de layout. Registro en `edits.json` y `edit-diff.json`.
+  - Pruebas 6/6, `verify-source` 3319/0, laboratorio 8/8 y paridad `passed=true` (`skill-runs/parity-20260926-bpmnedit`).
+- **Cambios compartidos**: `HarnessSession.exportLayout` (en `harness.mjs`, factorizado sin cambiar `render`), `allocateRunDir` (en `run-store.mjs`) y `skills/bpmn/scripts/lib/open-browser.mjs` (lo usa `vote`).
+- El layout por defecto sigue siendo **v24**.
+
+## Siguiente trabajo, en orden
+
+1. **El usuario prueba `bpmn-edit`** con un diagrama real: mover, trazar, redimensionar, guardar y cambiar el DSL. Con sus notas, ajustar. Si lo quiere de uso habitual, instalarlo como `bpmn` (junction `~/.claude/skills/bpmn-edit`); no está instalado.
+2. Paso siguiente de la mejora 1, acordado: **opción C**. Tras cambiar el DSL, reaplicar las ediciones como desplazamientos en los elementos que conserven su ID, y los codos solo si su flujo conserva los extremos y el trazado del motor.
+3. **Mejora 4, skill de evaluación de modelos**: plan corto en `plans/<mejora>.md` y visto bueno del usuario antes de implementar. En Claude Code solo se elige el modelo del subagente entre alias (`opus`, `sonnet`, `haiku`, `fable`); Luna/high y GPT 5.5 los ejecuta el usuario en ChatGPT/Codex.
+4. Después, las mejoras 3 y 2. Lo pendiente de etapa 8 sigue en el resumen anterior.
+
+## Comandos (PowerShell, desde la raíz del clon)
+
+```powershell
+node skills/bpmn-edit/scripts/bpmn-edit.mjs open --run <runDir>
+node skills/bpmn-edit/scripts/bpmn-edit.mjs doctor
+node --test skills/bpmn-edit/test/bpmn-edit.test.mjs
+```
+
+---
+
 # Resumen para continuar — 2026-09-26, noche (etapa 8: v24 es el defecto)
 
 ## Actualización (misma noche)

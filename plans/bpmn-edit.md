@@ -137,6 +137,13 @@ node skills/bpmn-edit/scripts/bpmn-edit.mjs doctor
 2. **Dónde se guarda.** Recomendación: con `--run`, en `<runDir>/edits/edit-<fecha>-<hora>/` (carpeta nueva; la ejecución original no se toca); con `--dsl` o `--bpmn`, `--out` es obligatorio. Alternativa: `--out` siempre obligatorio.
 3. **Bloqueo semántico en el lienzo.** Recomendación: bloqueado siempre en esta versión (también renombrar, porque eso se hace en el DSL), sin opción para desbloquearlo hasta que se pida.
 
+**Decidido por el usuario (2026-09-26):** las tres recomendaciones.
+1. A ahora y C después, dentro de esta mejora.
+2. Con `--run`, en `<runDir>/edits/`; con `--dsl` o `--bpmn`, `--out` obligatorio.
+3. Lienzo bloqueado siempre.
+
+Detalle de implementación de A: el aviso no bloquea. El DSL nuevo se aplica, la página dice cuántas ediciones se han perdido y «Volver al DSL anterior» recupera el DSL y la geometría editada.
+
 ## 8. Qué quedará en manos del usuario
 
 Probar la página con un diagrama real: mover, trazar, redimensionar, guardar y cambiar el DSL. Opinar sobre la comodidad de la edición. Si procede, abrir un `.bpmn` guardado en Bizagi.

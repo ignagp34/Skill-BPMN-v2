@@ -1,0 +1,129 @@
+{
+  "schema": "bpmn-edit-session/1",
+  "sessionId": "edit-20260926-150751-c-syn014-sysv5-claude-opus-4-8-medium-r0",
+  "createdAt": "2026-09-26T15:07:51.229Z",
+  "status": "success",
+  "interfaceType": "bpmn-edit",
+  "source": {
+    "kind": "dsl",
+    "path": "C:\\Repositorios\\Skill BPMN v2\\Skill-BPMN-v2\\tools\\layout-lab\\bench\\cases\\c-syn014-sysv5-claude-opus_4_8_medium-r01.dsl",
+    "initialXmlFile": null,
+    "dslSha256": "1e01194b7ea4f8efa6aadc7c05f1809c1be368638325b4f34c0012a504e5a82f",
+    "initialXmlSha256": null
+  },
+  "messageFlows": "hidden",
+  "recompileLayout": {
+    "version": "v24",
+    "harness": {
+      "app": "tools/layout-lab/harness/v24",
+      "page": "/index.headless.html"
+    },
+    "from": "default"
+  },
+  "engine": {
+    "commit": "f558eb0e0904c02264d5dccb6ad76164fda22919",
+    "sourceVerified": true,
+    "filesChecked": 35,
+    "changed": []
+  },
+  "revisions": [
+    {
+      "n": 1,
+      "from": "initial",
+      "createdAt": "2026-09-26T15:07:52.041Z",
+      "layout": {
+        "version": "v24",
+        "harness": {
+          "app": "tools/layout-lab/harness/v24",
+          "page": "/index.headless.html"
+        },
+        "from": "default"
+      },
+      "status": "success_with_warnings",
+      "warnings": 4,
+      "dslSha256": "1e01194b7ea4f8efa6aadc7c05f1809c1be368638325b4f34c0012a504e5a82f",
+      "engineSha256": "b96fdfb36ccc3b6d2cfbd26bb731872df3de9e93ebb7948aa19e799d01da6ca9"
+    }
+  ],
+  "currentRevision": 1,
+  "saves": 3,
+  "edits": {
+    "applied": 3,
+    "undone": 0,
+    "redone": 0,
+    "rejected": 1
+  },
+  "deliverables": {
+    "bpmn": {
+      "file": "diagram.bpmn",
+      "bytes": 18804,
+      "sha256": "85bc35143348bc9a9908996f201476eaa732fab8b3905b6b879d3ad91b9c3798"
+    },
+    "svg": {
+      "file": "diagram.svg",
+      "bytes": 50648,
+      "sha256": "6ba30a9be99f4f9e22224e52bc41a17398978a524d57f85be6f55f609086a123"
+    },
+    "png": {
+      "file": "diagram.png",
+      "bytes": 106184,
+      "sha256": "cbebaa2427ab3a8edee280cc925b17bca8f6df448794f06bd9a9358feea30f7f"
+    }
+  },
+  "updatedAt": "2026-09-26T15:07:55.225Z",
+  "runtime": {
+    "node": "v24.12.0",
+    "platform": "win32",
+    "arch": "x64",
+    "os": "10.0.26200",
+    "playwright": "1.60.0",
+    "vite": "8.0.13",
+    "chromium": "148.0.7778.96"
+  },
+  "lastSave": {
+    "at": "2026-09-26T15:07:55.190Z",
+    "revision": 1,
+    "status": "success",
+    "semanticIdentical": true,
+    "checks": {
+      "bpmn": true,
+      "bpmnShapes": 27,
+      "bpmnEdges": 17,
+      "svg": true,
+      "svgWidth": 1519,
+      "svgHeight": 1022,
+      "png": true,
+      "pngWidth": 1519,
+      "pngHeight": 1022,
+      "svgMatchesBpmn": true,
+      "pngMatchesSvg": true,
+      "missingInSvg": []
+    },
+    "reimported": true,
+    "presentation": {
+      "messageFlows": "hidden",
+      "removed": 5
+    },
+    "error": null,
+    "userSha256": "2dbc5aec884eca5c7df62886174a95e29c6429af99c173d83683020cf028f9dc"
+  },
+  "closedBy": "page",
+  "diff": {
+    "file": "edit-diff.json",
+    "changedElements": 6,
+    "byKind": {
+      "event": 2,
+      "task": 1,
+      "edge": 3
+    },
+    "shapesMoved": 1,
+    "shapesResized": 0,
+    "labelsMoved": 2,
+    "edgesRerouted": 3,
+    "bendsAdded": 5,
+    "bendsRemoved": 0
+  },
+  "endedAt": "2026-09-26T15:07:55.225Z",
+  "durationMs": 3996,
+  "open": false
+}

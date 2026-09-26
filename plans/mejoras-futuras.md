@@ -1,6 +1,6 @@
 # Mejoras futuras (anotadas por el usuario, 2026-09-26)
 
-Ideas que el usuario pidió dejar por escrito con el detalle suficiente para implementarlas más adelante. **Ninguna está empezada.** Las tres primeras son skills independientes de `bpmn`: pueden vivir en otro repositorio y solo reutilizar el motor y las herramientas de este. El orden de prioridad lo decide el usuario; según él, «por ahora vamos bien con lo que tenemos» y la edición manual sería «el toque final».
+Ideas que el usuario pidió dejar por escrito con el detalle suficiente para implementarlas más adelante. Orden acordado (2026-09-26): 1 → 4 → 3 → 2, todas en este repositorio. **Estado:** 1 hecha en local (`plans/bpmn-edit.md`, `evidence/bpmn-edit/REPORT.md`); 4, 3 y 2 sin empezar. Las tres primeras son skills independientes de `bpmn`: pueden vivir en otro repositorio y solo reutilizar el motor y las herramientas de este. El orden de prioridad lo decide el usuario; según él, «por ahora vamos bien con lo que tenemos» y la edición manual sería «el toque final».
 
 Resumen:
 
@@ -52,9 +52,9 @@ Recuperar lo que hacía la aplicación anterior (BPMN Generator, `apps/company-w
 
 ### Aceptación
 
-- Desde una ejecución de `bpmn`, un comando abre la página. El usuario mueve una tarea y un codo, guarda, y los tres archivos reflejan el cambio. El XML semántico es idéntico al de partida y `edits.json` contiene las dos ediciones.
-- Editar el DSL vuelve a dibujar el diagrama y avisa si se pierden ediciones.
-- Rutas de Windows con espacios; el servidor se cierra al terminar.
+- [x] Desde una ejecución de `bpmn`, un comando abre la página. Se mueven una tarea y un codo, se guarda, y los tres archivos reflejan el cambio. El XML semántico es idéntico al de partida y `edits.json` contiene las dos ediciones. (Prueba automática `end to end from a bpmn run`: las ediciones las hace el script y no una persona; la prueba con una persona queda en manos del usuario.)
+- [x] Editar el DSL vuelve a dibujar el diagrama y avisa si se pierden ediciones. (Misma prueba: revisión 2, aviso y «Volver al DSL anterior».)
+- [x] Rutas de Windows con espacios; el servidor se cierra al terminar. (Carpetas de prueba con espacios; cierre con «Terminar», salida 0 y puerto libre; cierre por inactividad a los 182 s.)
 
 ---
 

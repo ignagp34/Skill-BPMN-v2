@@ -249,8 +249,23 @@ Decisiones del usuario (2026-09-25):
     - v23 = v21 afinado con sus derrotas, con ablación. Se probaron tres ajustes: A, codos a 80, sin ningún efecto; B, flujos paralelos a menos de 10 px cuentan como fusionados; C, el enrutador deja de suponer el nombre de un gateway debajo del rombo (v0 lo pone en un vértice libre) y de contar los nombres de los extremos del propio flujo. C era la causa principal de las derrotas. v23 = v21 + B + C: pasa el filtro frente a v20 (17 casos), cruces −25, tramos compartidos −1 y casi sin codos añadidos (+0,05 frente a +0,77). `gemini-04` y `h-ml-01` vuelven a v20. Lote `ab-v20-v23-20260926` solo con los 7 casos de imagen nueva; los otros 10 son idénticos a v21 y heredan su voto. Voto: **v23 12, v20 3, 2 empates** en total (p ≈ 0,035). `evidence/layout-v23/REPORT.md`.
     - v24 = v22 + v23 sin reajustes: pasa el filtro frente a v22, v23 y v20; frente a v22 cambian 17 casos (cruces mejor en 13, peor en 0; área igual). Solo 4 combinan los dos cambios: lote `ab-v22-v24-20260926` (4); los otros 13 son v23 y heredan su voto. Voto: 2–2 en los 4; en total **v24 12, v22 3, 2 empates** (p ≈ 0,035). Las 2 derrotas (`c-syn006` r01, `planta-residuos`) repiten las de v21 y v23. **Desde el 2026-09-26 (decisión del usuario), v24 es el layout por defecto** (antes v22); `render-dsl` de prueba con v24 y paridad con v0 `passed=true`. `evidence/layout-v24/REPORT.md`.
     - Idea anotada (nota del usuario en `c-syn009`): separación mínima entre una línea y la tarea a la que no pertenece.
-  - Mejoras futuras (2026-09-26, petición del usuario; sin empezar): skill `bpmn-edit`, experimentos con ediciones humanas, anotación con recuadros y skill de evaluación de modelos. Detalle en `plans/mejoras-futuras.md`.
+  - Mejoras futuras (2026-09-26, petición del usuario): skill `bpmn-edit`, experimentos con ediciones humanas, anotación con recuadros y skill de evaluación de modelos. Detalle en `plans/mejoras-futuras.md`; estado en la sección 9.
   - Anotado (2026-09-26, nota del usuario): propuesta H, etiquetas de flujo que chocan con la tarea de destino; hay que desplazarlas a la izquierda según la longitud del texto. En v7, 4 casos, todos en `c-syn015-chatgpt`. Detalle en `evidence/layout-review-20260926/REVIEW.md`. Sin hacer. `evidence/layout-v7/REPORT.md`.
+
+### 9. Mejoras futuras — `plans/mejoras-futuras.md`
+
+Decisiones del usuario (2026-09-26):
+- Orden: **1 → 4 → 3 → 2**, una mejora cada vez, con un plan corto en `plans/<mejora>.md` antes de implementar.
+- Todas las skills en este mismo repositorio, cada una en `skills/<nombre>/`, con la organización SOLID de `skills/bpmn` y reutilizando sus módulos.
+
+- [x] **Mejora 1, skill `bpmn-edit`** (2026-09-26; hecha y probada en local; falta la prueba del usuario). Plan: `plans/bpmn-edit.md`.
+  - Decisiones: al cambiar el DSL se rehace desde el motor, con aviso y «Volver al DSL anterior» (A), y la opción C (reaplicar ediciones como desplazamientos) es el paso siguiente; con `--run` se guarda en `<runDir>/edits/`; el lienzo solo cambia el layout.
+  - `open --run|--dsl|--bpmn` sirve una página en 127.0.0.1. El servidor compila y exporta con la `HarnessSession` de `bpmn` y el nuevo `exportLayout`, con los mismos exportadores, la misma presentación de flujos de mensaje y las mismas comprobaciones. Rechaza con 409 cualquier guardado cuyo XML semántico cambie. Deja `edits.json`, `engine.bpmn`, `user.bpmn` y `edit-diff.json`.
+  - Refactors compartidos: `allocateRunDir` (`run-store.mjs`) y `open-browser.mjs` (lo usa `vote`).
+  - Pruebas: 6/6, `verify-source` 3319/0, laboratorio 8/8 y paridad `passed=true` (`skill-runs/parity-20260926-bpmnedit`). Evidencia en `evidence/bpmn-edit/REPORT.md`.
+- [ ] Mejora 4, skill de evaluación de modelos: siguiente.
+- [ ] Mejora 3, anotar defectos con recuadros.
+- [ ] Mejora 2, experimentos con ediciones humanas.
 
 ## Disciplina de seguimiento
 

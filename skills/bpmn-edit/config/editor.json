@@ -1,0 +1,32 @@
+{
+  "_comment": "bpmn-edit settings (plans/bpmn-edit.md). The only place for these decisions. The canvas edits layout only (user decision 2026-09-26): top-level commands outside allowedCommands are undone, and the deniedRules are refused before they start. Layout versions come from skills/bpmn/config/layouts.json, never from here.",
+  "allowedCommands": [
+    "elements.move",
+    "shape.move",
+    "connection.updateWaypoints",
+    "connection.move",
+    "shape.resize",
+    "lane.resize"
+  ],
+  "deniedRules": [
+    "shape.create",
+    "elements.create",
+    "shape.append",
+    "connection.create",
+    "connection.start",
+    "connection.reconnect",
+    "elements.delete",
+    "shape.replace",
+    "shape.attach",
+    "element.copy",
+    "elements.align",
+    "elements.distribute"
+  ],
+  "autosaveMs": 1500,
+  "heartbeatMs": 15000,
+  "idleTimeoutMs": 180000,
+  "maxBodyBytes": 16777216,
+  "renderTimeoutMs": 120000,
+  "sessionDirPrefix": "edit",
+  "runEditsFolder": "edits"
+}

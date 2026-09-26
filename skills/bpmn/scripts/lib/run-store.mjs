@@ -21,6 +21,22 @@ function slugify(text) {
   return slug || 'proceso';
 }
 
+/** Creates a new folder <prefix>-<date>-<time>-<slug>[-n]/ under outDir; never reuses an existing one. */
+export async function allocateRunDir(outDir, prefix, label) {
+  await mkdir(outDir, { recursive: true });
+  const stamp = nowIso().replace(/[-:]/g, '').replace(/\..+$/, '').replace('T', '-');
+  for (let n = 0; n < 100; n += 1) {
+    const runId = `${prefix}-${stamp}-${slugify(label)}${n ? `-${n}` : ''}`;
+    try {
+      await mkdir(join(outDir, runId));
+      return { runId, dir: join(outDir, runId) };
+    } catch (err) {
+      if (err.code !== 'EEXIST') throw err;
+    }
+  }
+  throw new Error('Could not allocate a unique run directory.');
+}
+
 export class RunStore {
   constructor(dir, info) {
     this.dir = resolve(dir);
@@ -29,21 +45,11 @@ export class RunStore {
 
   /** New unique folder bpmn-<date>-<time>-<slug>/ under outDir; never reuses one. */
   static async create(outDir, label, info) {
-    await mkdir(outDir, { recursive: true });
-    const stamp = nowIso().replace(/[-:]/g, '').replace(/\..+$/, '').replace('T', '-');
-    for (let n = 0; n < 100; n += 1) {
-      const runId = `bpmn-${stamp}-${slugify(label)}${n ? `-${n}` : ''}`;
-      try {
-        await mkdir(join(outDir, runId));
-        const store = new RunStore(join(outDir, runId), { schema: 'bpmn-skill-run/1', runId, createdAt: nowIso(),
-          ...info, attempts: [], deliverables: {} });
-        await store.save();
-        return store;
-      } catch (err) {
-        if (err.code !== 'EEXIST') throw err;
-      }
-    }
-    throw new Error('Could not allocate a unique run directory.');
+    const { runId, dir } = await allocateRunDir(outDir, 'bpmn', label);
+    const store = new RunStore(dir, { schema: 'bpmn-skill-run/1', runId, createdAt: nowIso(),
+      ...info, attempts: [], deliverables: {} });
+    await store.save();
+    return store;
   }
 
   static async open(dir) {
