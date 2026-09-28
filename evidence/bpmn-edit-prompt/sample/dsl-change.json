@@ -1,0 +1,27 @@
+{
+  "schema": "bpmn-dsl-change/1",
+  "parentRun": "C:\\Users\\ignag\\AppData\\Local\\Temp\\claude\\C--Repositorios-Skill-BPMN-v2\\11c8f135-20ba-444e-947b-1c36a68519ad\\scratchpad\\edit test\\bpmn-20260928-141840-ml-03-deteccion-fraude",
+  "request": "Antes de autorizar el pago, el analista de riesgos debe comprobar la lista de comercios bloqueados.",
+  "dsl": {
+    "linesAdded": 1,
+    "linesRemoved": 0,
+    "changes": [
+      {
+        "op": "+",
+        "line": 16,
+        "text": "Analista de riesgos: Comprobar lista de comercios bloqueados"
+      }
+    ]
+  },
+  "semantic": {
+    "identical": false,
+    "added": [
+      "task: Comprobar lista de comercios bloqueados (Banco / Analista de riesgos)",
+      "sequenceFlow: ¿El riesgo es alto? → Comprobar lista de comercios bloqueados [No]",
+      "sequenceFlow: Comprobar lista de comercios bloqueados → Autorizar pago"
+    ],
+    "removed": [
+      "sequenceFlow: ¿El riesgo es alto? → Autorizar pago [No]"
+    ]
+  }
+}

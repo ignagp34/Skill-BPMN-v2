@@ -1,0 +1,1 @@
+Antes de autorizar el pago, el analista de riesgos debe comprobar la lista de comercios bloqueados.

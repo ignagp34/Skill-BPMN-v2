@@ -25,6 +25,8 @@
 | `run-info.json` | Trazabilidad: `interfaceType: "skill"`, motor y verificación de su código, hashes de prompt y resumen, generador pedido (de `config/generators.json`) y declarado por intento, runtime (Node, Playwright, Chromium), comprobaciones y estado. |
 | `attempts/0N/` | Cada intento completo, incluido el primero sin reparar. |
 | `evaluation/` | Solo si se ejecuta `evaluate`. |
+| `edit-request.md`, `base.dsl`, `base-semantic.bpmn` | Solo en ediciones (`edit-prompt`): petición literal, DSL y XML semántico de la ejecución de origen. |
+| `dsl-change.json` | Solo en ediciones y si el último intento dejó DSL y XML semántico: qué cambió frente al origen (`bpmn-dsl-change/1`: `dsl.changes`, `semantic.added`/`removed`). |
 
 La raíz refleja siempre el **último** intento: los entregables de intentos anteriores se retiran antes de copiar los nuevos.
 

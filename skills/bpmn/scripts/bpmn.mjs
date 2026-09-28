@@ -7,6 +7,7 @@
 //   render        --run <runDir> --raw <file> --model <m> --effort <e> --host <h> [--evidence <text>]
 //                 [--message-flows hidden|shown] [--layout <version>]
 //   repair-prompt --run <runDir>
+//   edit-prompt   --from <runDir> (--request-file <f> | --request <text>) [--host <host>] [--out <dir>] [--label <slug>]
 //   fail          --run <runDir> --reason <text> [--model m] [--effort e] [--host h]
 //   render-dsl    --dsl <file> --out <dir> [--label <slug>] [--message-flows hidden|shown] [--layout <version>]
 //   evaluate      --run <runDir> [--python <exe>]
@@ -25,6 +26,7 @@ const COMMANDS = {
   prepare: () => import('./commands/prepare.mjs'),
   render: () => import('./commands/render.mjs'),
   'repair-prompt': () => import('./commands/repair-prompt.mjs'),
+  'edit-prompt': () => import('./commands/edit-prompt.mjs'),
   fail: () => import('./commands/fail.mjs'),
   'render-dsl': () => import('./commands/render-dsl.mjs'),
   evaluate: () => import('./commands/evaluate.mjs'),

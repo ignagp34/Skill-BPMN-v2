@@ -22,6 +22,17 @@ El modelo solo escribe DSL; el motor del TFM genera el XML, la geometría y las 
    - errores: explica el fallo con los diagnósticos; no presentes archivos que no existan.
    Indica qué modelo generó el DSL. Adjunta `input_prompt.md` solo si el usuario lo pide.
 
+## Cambios sobre un diagrama ya generado
+
+Si el usuario pide cambiar el proceso de un diagrama que ya compila («añade…», «quita…», «cambia…»), no generes desde cero:
+
+1. `CLI edit-prompt --from <runDir del diagrama> --request-file <archivo con la petición literal> [--host <host>]`. Crea una ejecución nueva que apunta a la anterior, que no se toca. Devuelve un `handoff` nuevo y `renderWith` (layout y flujos de mensaje de la anterior).
+2. Genera con un subagente nuevo, igual que en el paso 3. El prompt ya lleva el DSL actual y la petición.
+3. `CLI render` con los mismos argumentos de siempre más `--layout` y `--message-flows` de `renderWith`. Si falla, repara igual que en el paso 5.
+4. Al entregar, resume `change` del JSON (`added`/`removed`, en `dsl-change.json`). Si aparece algo que el usuario no pidió, avísale.
+
+El diagrama se vuelve a maquetar entero: la posición de lo que no cambia no está garantizada.
+
 ## Otras entradas
 
 - El usuario ya trae DSL: `CLI render-dsl --dsl <archivo> --out <destino>` (sin generación).

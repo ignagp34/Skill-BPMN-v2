@@ -5,6 +5,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import { requireOption } from '../lib/cli-args.mjs';
 import { attemptFiles, classifyRender, extractDiagnostics, inspectArtifacts } from '../lib/artifacts.mjs';
+import { writeChangeReport } from '../lib/change-report.mjs';
 import { findEngineRoot } from '../lib/engine.mjs';
 import { declaredGenerator } from '../lib/generators.mjs';
 import { DEFAULT_TIMEOUT_MS, renderWithHarness } from '../lib/harness.mjs';
@@ -87,10 +88,12 @@ export async function renderAttempt(store, rawPath, options) {
     : await renderRawOutput(findEngineRoot(), dir, harnessInput(store, n, rawOutput, inputPrompt, generator),
       { timeoutMs: Number(options['timeout-ms'] ?? DEFAULT_TIMEOUT_MS), messageFlows, layout });
 
-  await store.recordAttempt({ n, kind: n === 1 ? 'initial' : 'repair', generator, durationMs: Date.now() - started,
-    inputPromptSha256: sha256(inputPrompt), rawOutputSha256: sha256(rawOutput), diagnostics: [],
-    layout: { version: layout.name, harness: layout.harness }, ...outcome }, runtime);
-  return { exit: exitCodeFor(store.info.status), payload: store.summary() };
+  await store.recordAttempt({ n, kind: n > 1 ? 'repair' : store.info.edit ? 'edit' : 'initial', generator,
+    durationMs: Date.now() - started, inputPromptSha256: sha256(inputPrompt), rawOutputSha256: sha256(rawOutput),
+    diagnostics: [], layout: { version: layout.name, harness: layout.harness }, ...outcome }, runtime);
+  const payload = store.summary();
+  if (store.info.edit) payload.change = await writeChangeReport(store);
+  return { exit: exitCodeFor(store.info.status), payload };
 }
 
 export async function run(options) {
