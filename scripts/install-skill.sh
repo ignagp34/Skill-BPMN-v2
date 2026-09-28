@@ -4,6 +4,7 @@
 #
 #   bash scripts/install-skill.sh            # usa este checkout como motor
 #   bash install-skill.sh --clone            # clona/actualiza el repositorio en $BPMN_SKILL_HOME
+#   --no-link                                # no enlaza ~/.claude/skills (lo usa skills/bpmn-claude-ai)
 #
 # Idempotente: se puede ejecutar en cada arranque (script de configuración del entorno cloud).
 # Variables: BPMN_SKILL_HOME (destino del clon, por defecto ~/.bpmn-skill/Skill-BPMN-v2),
@@ -15,8 +16,17 @@ REF="${BPMN_SKILL_REF:-main}"
 CLAUDE_DIR="$HOME/.claude"
 log() { printf '[bpmn-skill] %s\n' "$*" >&2; }
 
+CLONE=0; LINK=1
+for arg in "$@"; do
+  case "$arg" in
+    --clone) CLONE=1 ;;
+    --no-link) LINK=0 ;;
+    *) log "Opción desconocida: $arg"; exit 64 ;;
+  esac
+done
+
 here="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." 2>/dev/null && pwd || true)"
-if [[ "${1:-}" != "--clone" && -f "$here/pnpm-workspace.yaml" && -f "$here/skills/bpmn/SKILL.md" ]]; then
+if [[ $CLONE == 0 && -f "$here/pnpm-workspace.yaml" && -f "$here/skills/bpmn/SKILL.md" ]]; then
   ROOT="$here"
 else
   ROOT="${BPMN_SKILL_HOME:-$HOME/.bpmn-skill/Skill-BPMN-v2}"
@@ -46,16 +56,18 @@ node "$ROOT/apps/tfm-lab/node_modules/playwright/cli.js" install chromium >/dev/
   || log "No se pudo descargar el Chromium de Playwright; se usará el del entorno si lo hay (doctor lo comprueba)"
 
 # Skills a nivel de usuario: enlaces a este checkout, para que el motor se localice solo.
-mkdir -p "$CLAUDE_DIR/skills"
-for skill in bpmn bpmn-edit; do
-  target="$CLAUDE_DIR/skills/$skill"
-  if [[ -e "$target" && ! -L "$target" ]]; then
-    backup="$target.backup-$(date +%Y%m%d%H%M%S)"
-    log "Ya existe $target (no es un enlace); se mueve a $backup"
-    mv "$target" "$backup"
-  fi
-  ln -sfn "$ROOT/skills/$skill" "$target"
-done
+if [[ $LINK == 1 ]]; then
+  mkdir -p "$CLAUDE_DIR/skills"
+  for skill in bpmn bpmn-edit; do
+    target="$CLAUDE_DIR/skills/$skill"
+    if [[ -e "$target" && ! -L "$target" ]]; then
+      backup="$target.backup-$(date +%Y%m%d%H%M%S)"
+      log "Ya existe $target (no es un enlace); se mueve a $backup"
+      mv "$target" "$backup"
+    fi
+    ln -sfn "$ROOT/skills/$skill" "$target"
+  done
+fi
 
 # Subagente generador (modelo y esfuerzo de config/generators.json) a nivel de usuario.
 node "$ROOT/skills/bpmn/scripts/bpmn.mjs" sync-agents --target "$HOME" >/dev/null
