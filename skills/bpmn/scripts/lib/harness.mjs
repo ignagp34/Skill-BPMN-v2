@@ -1,6 +1,7 @@
 // Drives the TFM headless harness (apps/tfm-lab/index.headless.html) exactly as
 // apps/tfm-lab/scripts/render-experiments.mts does: Vite dev server on
 // 127.0.0.1, Playwright Chromium, 1600×1200 viewport, window.renderExperiment().
+import { existsSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -27,15 +28,26 @@ export function runtimeVersions(root) {
     playwright: require('playwright/package.json').version, vite: require('vite/package.json').version };
 }
 
+/**
+ * The Chromium pinned by Playwright first; if it is not installed (e.g. a cloud container that
+ * cannot download it), BPMN_SKILL_CHROMIUM or the `chromium` link of PLAYWRIGHT_BROWSERS_PATH.
+ * The version actually used is recorded in run-info.json (runtime.chromium).
+ */
 export async function launchChromium(root) {
-  configureBrowsersPath(root);
+  const browsersPath = configureBrowsersPath(root);
   const { playwright } = loadTfmDependencies(root);
-  try {
-    return await playwright.chromium.launch({ headless: true, timeout: 60_000 });
-  } catch (err) {
-    throw new InfrastructureError('chromium', `Chromium could not be launched (${String(err.message).split('\n')[0]}). `
-      + 'Install it with: node apps/tfm-lab/node_modules/playwright/cli.js install chromium');
+  const fallbacks = [process.env.BPMN_SKILL_CHROMIUM, browsersPath && join(browsersPath, 'chromium')]
+    .filter(path => path && existsSync(path));
+  let error;
+  for (const executablePath of [undefined, ...new Set(fallbacks)]) {
+    try {
+      return await playwright.chromium.launch({ headless: true, timeout: 60_000, executablePath });
+    } catch (err) {
+      error ??= err;
+    }
   }
+  throw new InfrastructureError('chromium', `Chromium could not be launched (${String(error.message).split('\n')[0]}). `
+    + 'Install it with: node apps/tfm-lab/node_modules/playwright/cli.js install chromium');
 }
 
 /** The TFM harness (layout v0). Other layout versions supply their own app and page. */

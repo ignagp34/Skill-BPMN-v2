@@ -47,7 +47,8 @@ Un formato solo se entrega si pasa su comprobación: BPMN con `BPMNDiagram` y DI
 ## Entorno
 
 - Motor: este repositorio (`pnpm install --frozen-lockfile`); la skill lo localiza subiendo desde su carpeta o con `BPMN_SKILL_ENGINE_ROOT`. `run-info.json` registra si el código del motor coincide con los hashes congelados (`engine.sourceVerified`).
-- Chromium de Playwright: `PLAYWRIGHT_BROWSERS_PATH`, o `.playwright/` en la raíz del repositorio o su carpeta padre; si falta: `node apps/tfm-lab/node_modules/playwright/cli.js install chromium`.
+- Chromium de Playwright: `PLAYWRIGHT_BROWSERS_PATH`, o `.playwright/` en la raíz del repositorio o su carpeta padre; si falta: `node apps/tfm-lab/node_modules/playwright/cli.js install chromium`. Si no está instalado ni se puede descargar (p. ej. en Claude Code en la nube), se usa `BPMN_SKILL_CHROMIUM` o el enlace `chromium` de `PLAYWRIGHT_BROWSERS_PATH`; la versión usada queda en `run-info.json`.
+- Instalación para todos los proyectos (`~/.claude/skills` y `~/.claude/agents`), también en la nube: `scripts/install-skill.sh` (ver su cabecera).
 - Servidor Vite efímero en `127.0.0.1` con puerto libre; navegador sin interfaz; timeout por render (`--timeout-ms`, 120 s por defecto); ambos se cierran siempre.
 - Evaluación: Python con `bpmn_eval` (`--python`, `BPMN_EVAL_PYTHON`, `TFM-eval/.venv` o `../.venv-bpmn`).
 
