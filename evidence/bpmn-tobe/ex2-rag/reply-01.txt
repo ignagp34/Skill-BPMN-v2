@@ -1,0 +1,15 @@
+```json
+{
+  "annotations": [
+    { "task": "Select approved policy documents", "kind": "bloqueo", "text": "Semanas de espera: no hay inventario de políticas vigentes" },
+    { "task": "Split documents into chunks", "kind": "bloqueo", "text": "Troceado manual con scripts sueltos" },
+    { "task": "Tune retrieval parameters and prompt wording", "kind": "bloqueo", "text": "Prueba y error sin registro de experimentos" },
+    { "task": "Review a sample of assistant answers", "kind": "bloqueo", "text": "Revisión manual sobre muestras pequeñas" },
+    { "task": "Select approved policy documents", "kind": "mejora", "text": "Catálogo de políticas vigentes con responsable" },
+    { "task": "Split documents into chunks", "kind": "mejora", "text": "Pipeline de troceado automatizado y versionado" },
+    { "task": "Tune retrieval parameters and prompt wording", "kind": "mejora", "text": "Registrar experimentos de ajuste con métricas" },
+    { "task": "Run retrieval-augmented answers against the evaluation set", "kind": "mejora", "text": "Evaluación automática con LLM juez antes de revisión de Legal" }
+  ],
+  "notes": []
+}
+```

@@ -10,6 +10,7 @@ Resumen:
 | 2 | Experimentos de layout con ediciones humanas como referencia | Experimento (etapa 8) | 1 |
 | 3 | Alternativa a 2: anotar defectos con recuadros sobre la imagen | Experimento (etapa 8) | Página de votación del laboratorio |
 | 4 | Skill de evaluación de modelos generadores | Skill nueva | CLI `bpmn` y `TFM-eval` |
+| 5 | Anotar tareas de líneas paralelas con `//[tarea] texto` | Cambio del motor (parser) | Autorización expresa para tocar el motor congelado |
 
 ---
 
@@ -125,3 +126,34 @@ Decidir con datos qué modelo debe generar el DSL en cada host. Se lanzan varios
 - No comparar con los resultados históricos si cambian el prompt o las condiciones; identificar las diferencias.
 - No crear tareas en la barra lateral para simular subagentes; si un host no permite elegir el modelo, decirlo y no sustituirlo en silencio.
 - Resultados en carpetas nuevas; nunca en `TFM-eval/results/`.
+
+---
+
+## 5. Anotar tareas de líneas paralelas (`//[tarea] texto`)
+
+Anotada por el usuario el 2026-09-28 como punto pendiente. **No se implementa por ahora: el usuario no quiere modificar todavía el motor del TFM.**
+
+### Problema
+
+Un `//` delante de una línea paralela (`A|B`) se une al gateway paralelo, no a una tarea (`packages/bpmn-core/src/dsl/semantic.ts`, `attachAnnotations`). Se hizo así a propósito, para que la nota no saltara a la tarea que va después de la unión. En una línea paralela no hay una sola «tarea siguiente»: el paso siguiente es la bifurcación entera. Tampoco sirve la anotación en la misma línea (`A // x|B`): el lexer separa por `|` antes de buscar `//`, y el texto acaba formando parte del nombre de la tarea.
+
+Consecuencia actual: una tarea que solo aparece dentro de líneas paralelas no se puede anotar. La skill `bpmn-tobe` la lista en `unmarkableTasks` y no se la ofrece al modelo (caso real: `evidence/bpmn-tobe/ex2-rag/`).
+
+### Propuesta elegida (opción 2 de las 4 comparadas)
+
+- Sintaxis: `//[Nombre exacto de la tarea] texto`, en la línea anterior a una línea paralela.
+- Si el nombre coincide con una tarea de esa línea paralela, la anotación va a esa tarea.
+- Si no coincide: aviso y la nota va al gateway, como ahora.
+- Sin corchetes, el comportamiento no cambia.
+
+Opciones descartadas:
+- «Siempre la primera rama»: la segunda no se podría anotar nunca.
+- `//` dentro de cada rama: rompe «una línea, un elemento».
+- Por posición (`//2:`): cambia de tarea en silencio si se reordenan las ramas.
+
+### Al implementarla
+
+- Pedir antes la autorización expresa del usuario: toca el parser del motor congelado.
+- Paridad y corpus completos (`parity.mjs`, `tfm-history.mjs`, `verify-source`). Ningún DSL existente usa `//[`, así que todo debe salir idéntico. Registrar el cambio de hashes del código del motor.
+- `bpmn-tobe`: escribir `//[tarea] <prefijo><texto>` para las tareas paralelas y quitarlas de `unmarkableTasks`. El modelo no tiene que aprender nada.
+- Documentarlo en el prompt v5 solo si el usuario quiere que el generador de diagramas también lo use: eso sería una nueva versión del prompt.

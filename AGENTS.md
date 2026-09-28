@@ -263,6 +263,18 @@ Decisiones del usuario (2026-09-26):
   - `open --run|--dsl|--bpmn` sirve una página en 127.0.0.1. El servidor compila y exporta con la `HarnessSession` de `bpmn` y el nuevo `exportLayout`, con los mismos exportadores, la misma presentación de flujos de mensaje y las mismas comprobaciones. Rechaza con 409 cualquier guardado cuyo XML semántico cambie. Deja `edits.json`, `engine.bpmn`, `user.bpmn` y `edit-diff.json`.
   - Refactors compartidos: `allocateRunDir` (`run-store.mjs`) y `open-browser.mjs` (lo usa `vote`).
   - Pruebas: 6/6, `verify-source` 3319/0, laboratorio 8/8 y paridad `passed=true` (`skill-runs/parity-20260926-bpmnedit`). Evidencia en `evidence/bpmn-edit/REPORT.md`.
+- [x] **`edit-prompt` en la skill `bpmn`** (2026-09-28, petición del usuario; fuera del orden 1 → 4 → 3 → 2).
+  - Qué hace: los cambios del proceso sobre un diagrama que ya compila crean una ejecución nueva que apunta a la de origen. Un subagente nuevo reescribe el DSL completo cambiando solo lo pedido. `dsl-change.json` informa de qué cambió en el DSL y en el XML semántico.
+  - Decisiones: sin estabilidad visual (se vuelve a maquetar entero); `repair-prompt` sin cambios.
+  - Pruebas: una generación real con Opus 5.5/low (1 línea añadida, nada más cambiado) y paridad `passed=true`. `evidence/bpmn-edit-prompt/REPORT.md`.
+- [x] **Skill `bpmn-tobe`** (2026-09-28, petición del usuario: partes 1 y 2 de la propuesta TO-BE/VSM). Plan: `plans/bpmn-tobe.md`.
+  - Qué hace: el modelo solo elige qué tarea lleva cada marca (un JSON) y el CLI inserta las líneas `//`. Las marcas son anotaciones de color, con la tarea coloreada también: bloqueo en rojo suave y mejora en verde suave; el riesgo en amarillo queda para después (`config/tobe.json`). Entrega AS-IS y TO-BE.
+  - Colores: `color:` y `bioc:` en la DI, y la extensión `bizagi:BizagiProperty`, que es la única que lee Bizagi 4.2. Revisado en Bizagi: los colores se ven.
+  - Estrategia por defecto `derive-as-is`: el TO-BE se dibuja con v24 y el AS-IS es ese dibujo sin las marcas. La opción A (`no-bands`, layout nuevo `v24-tobe` sin las bandas de v11) es estable, pero en carriles densos solapa las anotaciones y hasta cambia el AS-IS.
+  - Pruebas: dos ejemplos con generación real, ambos estables; unitarias 5/5, laboratorio 8/8, `bpmn-edit` 6/6 y `verify-source` 3319/0.
+  - Limitaciones: no se pueden marcar las tareas que solo aparecen en líneas paralelas (`A|B`), y algún texto de anotación cruza el borde de un carril. `evidence/bpmn-tobe/REPORT.md`.
+  - Pendiente: parte 3 (TO-BE con cambios de flujo).
+- [ ] Mejora 5, anotar tareas de líneas paralelas con `//[tarea] texto` (2026-09-28, usuario: opción elegida, pero **no tocar el motor del TFM por ahora**). Detalle en `plans/mejoras-futuras.md` § 5.
 - [ ] Mejora 4, skill de evaluación de modelos: siguiente.
 - [ ] Mejora 3, anotar defectos con recuadros.
 - [ ] Mejora 2, experimentos con ediciones humanas.

@@ -126,6 +126,11 @@
       "description": "v22 + v23, the winners of their votes against v20 (v22 7-0, v23 12-3), unchanged: v20 + compact lanes + the tuned untangling router and boundary-event names beside their exit line",
       "base": "v22",
       "harness": { "app": "tools/layout-lab/harness/v24", "page": "/index.headless.html" }
+    },
+    "v24-tobe": {
+      "description": "v24 without v11's room bands (plans/bpmn-tobe.md, option A): artifacts take v6's best spot and no shape or flow moves, so an AS-IS and its annotated TO-BE share their process geometry. Used by skill bpmn-tobe; not a default candidate.",
+      "base": "v24",
+      "harness": { "app": "tools/layout-lab/harness/v24-tobe", "page": "/index.headless.html" }
     }
   }
 }

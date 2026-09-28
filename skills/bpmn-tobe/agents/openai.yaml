@@ -1,0 +1,3 @@
+interface:
+  display_name: "BPMN TO-BE"
+  short_description: "TO-BE de un diagrama AS-IS de la skill bpmn: bloqueos en rojo y mejoras en verde sobre las tareas, con el proceso en la misma posición → PNG, SVG y BPMN con DI"

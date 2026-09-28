@@ -1,0 +1,26 @@
+{
+  "_comment": "Settings of bpmn-tobe (plans/bpmn-tobe.md). The only place that decides the annotation kinds, their colours and the TO-BE layout. Adding a kind (e.g. riesgo, amarillo) = adding an entry to kinds. Colours are soft on purpose (user, 2026-09-28): a pale fill and a muted, dark enough stroke that also colours the text.",
+  "strategy": "derive-as-is",
+  "strategies": {
+    "no-bands": { "layout": "v24-tobe", "description": "Option A: AS-IS and TO-BE rendered apart with a layout that never opens room bands, so annotations cannot move the process." },
+    "derive-as-is": { "layout": "default", "description": "Option A': the TO-BE is rendered with the skill's default layout (room bands included) and the AS-IS is that same drawing without the marks, so both share their geometry by construction." }
+  },
+  "colorTask": true,
+  "kinds": {
+    "bloqueo": {
+      "label": "Bloqueo",
+      "meaning": "a blocking point, bottleneck, wait or waste in the current process",
+      "prefix": "Bloqueo: ",
+      "stroke": "#A94442",
+      "fill": "#F2DEDE"
+    },
+    "mejora": {
+      "label": "Mejora",
+      "meaning": "an improvement action proposed for the future process",
+      "prefix": "Mejora: ",
+      "stroke": "#3C763D",
+      "fill": "#DFF0D8"
+    }
+  },
+  "taskPriority": ["bloqueo", "mejora"]
+}

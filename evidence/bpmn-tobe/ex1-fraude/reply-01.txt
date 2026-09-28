@@ -1,0 +1,13 @@
+```json
+{
+  "annotations": [
+    { "task": "Consultar historial del cliente", "kind": "bloqueo", "text": "Consulta manual en sistema antiguo, muy lenta" },
+    { "task": "Bloquear temporalmente la tarjeta", "kind": "bloqueo", "text": "Requiere llamar por teléfono a otro departamento" },
+    { "task": "Reentrenar modelo con fraudes confirmados", "kind": "bloqueo", "text": "Solo nocturno: fraudes nuevos tardan un día en entrar" },
+    { "task": "Consultar historial del cliente", "kind": "mejora", "text": "Consulta automática del historial por API" },
+    { "task": "Bloquear temporalmente la tarjeta", "kind": "mejora", "text": "Bloqueo automático desde la aplicación del analista" },
+    { "task": "Reentrenar modelo con fraudes confirmados", "kind": "mejora", "text": "Reentrenamiento incremental varias veces al día" }
+  ],
+  "notes": []
+}
+```

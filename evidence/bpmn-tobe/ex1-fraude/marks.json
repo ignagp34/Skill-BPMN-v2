@@ -1,0 +1,53 @@
+{
+  "marks": [
+    {
+      "task": "Consultar historial del cliente",
+      "lane": "Analista de riesgos",
+      "kind": "bloqueo",
+      "text": "Consulta manual en sistema antiguo, muy lenta",
+      "taskId": "Task_Analista_de_riesgos_Consultar_historial_del_cliente",
+      "line": 11
+    },
+    {
+      "task": "Consultar historial del cliente",
+      "lane": "Analista de riesgos",
+      "kind": "mejora",
+      "text": "Consulta automática del historial por API",
+      "taskId": "Task_Analista_de_riesgos_Consultar_historial_del_cliente",
+      "line": 12
+    },
+    {
+      "task": "Bloquear temporalmente la tarjeta",
+      "lane": "Analista de riesgos",
+      "kind": "bloqueo",
+      "text": "Requiere llamar por teléfono a otro departamento",
+      "taskId": "Task_Analista_de_riesgos_Bloquear_temporalmente_la_tarjeta",
+      "line": 27
+    },
+    {
+      "task": "Bloquear temporalmente la tarjeta",
+      "lane": "Analista de riesgos",
+      "kind": "mejora",
+      "text": "Bloqueo automático desde la aplicación del analista",
+      "taskId": "Task_Analista_de_riesgos_Bloquear_temporalmente_la_tarjeta",
+      "line": 28
+    },
+    {
+      "task": "Reentrenar modelo con fraudes confirmados",
+      "lane": "Equipo de MLOps",
+      "kind": "bloqueo",
+      "text": "Solo nocturno: fraudes nuevos tardan un día en entrar",
+      "taskId": "Task_Equipo_de_MLOps_Reentrenar_modelo_con_fraudes_confirmados",
+      "line": 48
+    },
+    {
+      "task": "Reentrenar modelo con fraudes confirmados",
+      "lane": "Equipo de MLOps",
+      "kind": "mejora",
+      "text": "Reentrenamiento incremental varias veces al día",
+      "taskId": "Task_Equipo_de_MLOps_Reentrenar_modelo_con_fraudes_confirmados",
+      "line": 49
+    }
+  ],
+  "notes": []
+}
