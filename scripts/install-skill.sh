@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Instala las skills bpmn y bpmn-edit para Claude Code a nivel de usuario (~/.claude),
+# Instala todas las skills de skills/ (bpmn, bpmn-edit, bpmn-tobe…) para Claude Code a nivel de usuario (~/.claude),
 # de modo que funcionen en cualquier proyecto, también en sesiones de Claude Code en la nube.
 #
 #   bash scripts/install-skill.sh            # usa este checkout como motor
@@ -58,7 +58,10 @@ node "$ROOT/apps/tfm-lab/node_modules/playwright/cli.js" install chromium >/dev/
 # Skills a nivel de usuario: enlaces a este checkout, para que el motor se localice solo.
 if [[ $LINK == 1 ]]; then
   mkdir -p "$CLAUDE_DIR/skills"
-  for skill in bpmn bpmn-edit; do
+  # Todas las skills del repositorio (skills/*/SKILL.md), salvo el índice para claude.ai.
+  for dir in "$ROOT"/skills/*/; do
+    skill="$(basename "$dir")"
+    [[ -f "$dir/SKILL.md" && "$skill" != "bpmn-claude-ai" ]] || continue
     target="$CLAUDE_DIR/skills/$skill"
     if [[ -e "$target" && ! -L "$target" ]]; then
       backup="$target.backup-$(date +%Y%m%d%H%M%S)"
