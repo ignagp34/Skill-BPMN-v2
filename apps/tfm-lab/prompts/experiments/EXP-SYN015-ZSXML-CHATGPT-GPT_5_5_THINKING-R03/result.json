@@ -35,37 +35,37 @@
         "code": "XSD-1",
         "origin": "model",
         "severity": "error",
-        "message": "file:/C:/Users/ignag/Documents/BPMN%20monorepo/apps/tfm-lab/prompts/experiments/EXP-SYN015-ZSXML-CHATGPT-GPT_5_5_THINKING-R03/output.bpmn:103:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element '{http://www.omg.org/spec/BPMN/20100524/MODEL}dataInputAssociation': Missing child element(s). Expected is one of ( {http://www.omg.org/spec/BPMN/20100524/MODEL}sourceRef, {http://www.omg.org/spec/BPMN/20100524/MODEL}targetRef )."
+        "message": "file:/<home>/Documents/BPMN%20monorepo/apps/tfm-lab/prompts/experiments/EXP-SYN015-ZSXML-CHATGPT-GPT_5_5_THINKING-R03/output.bpmn:103:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element '{http://www.omg.org/spec/BPMN/20100524/MODEL}dataInputAssociation': Missing child element(s). Expected is one of ( {http://www.omg.org/spec/BPMN/20100524/MODEL}sourceRef, {http://www.omg.org/spec/BPMN/20100524/MODEL}targetRef )."
       },
       {
         "code": "XSD-2",
         "origin": "model",
         "severity": "error",
-        "message": "file:/C:/Users/ignag/Documents/BPMN%20monorepo/apps/tfm-lab/prompts/experiments/EXP-SYN015-ZSXML-CHATGPT-GPT_5_5_THINKING-R03/output.bpmn:106:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element '{http://www.omg.org/spec/BPMN/20100524/MODEL}dataInputAssociation': Missing child element(s). Expected is one of ( {http://www.omg.org/spec/BPMN/20100524/MODEL}sourceRef, {http://www.omg.org/spec/BPMN/20100524/MODEL}targetRef )."
+        "message": "file:/<home>/Documents/BPMN%20monorepo/apps/tfm-lab/prompts/experiments/EXP-SYN015-ZSXML-CHATGPT-GPT_5_5_THINKING-R03/output.bpmn:106:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element '{http://www.omg.org/spec/BPMN/20100524/MODEL}dataInputAssociation': Missing child element(s). Expected is one of ( {http://www.omg.org/spec/BPMN/20100524/MODEL}sourceRef, {http://www.omg.org/spec/BPMN/20100524/MODEL}targetRef )."
       },
       {
         "code": "XSD-3",
         "origin": "model",
         "severity": "error",
-        "message": "file:/C:/Users/ignag/Documents/BPMN%20monorepo/apps/tfm-lab/prompts/experiments/EXP-SYN015-ZSXML-CHATGPT-GPT_5_5_THINKING-R03/output.bpmn:135:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element '{http://www.omg.org/spec/BPMN/20100524/MODEL}dataInputAssociation': Missing child element(s). Expected is one of ( {http://www.omg.org/spec/BPMN/20100524/MODEL}sourceRef, {http://www.omg.org/spec/BPMN/20100524/MODEL}targetRef )."
+        "message": "file:/<home>/Documents/BPMN%20monorepo/apps/tfm-lab/prompts/experiments/EXP-SYN015-ZSXML-CHATGPT-GPT_5_5_THINKING-R03/output.bpmn:135:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element '{http://www.omg.org/spec/BPMN/20100524/MODEL}dataInputAssociation': Missing child element(s). Expected is one of ( {http://www.omg.org/spec/BPMN/20100524/MODEL}sourceRef, {http://www.omg.org/spec/BPMN/20100524/MODEL}targetRef )."
       },
       {
         "code": "XSD-4",
         "origin": "model",
         "severity": "error",
-        "message": "file:/C:/Users/ignag/Documents/BPMN%20monorepo/apps/tfm-lab/prompts/experiments/EXP-SYN015-ZSXML-CHATGPT-GPT_5_5_THINKING-R03/output.bpmn:181:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element '{http://www.omg.org/spec/BPMN/20100524/MODEL}dataInputAssociation': Missing child element(s). Expected is one of ( {http://www.omg.org/spec/BPMN/20100524/MODEL}sourceRef, {http://www.omg.org/spec/BPMN/20100524/MODEL}targetRef )."
+        "message": "file:/<home>/Documents/BPMN%20monorepo/apps/tfm-lab/prompts/experiments/EXP-SYN015-ZSXML-CHATGPT-GPT_5_5_THINKING-R03/output.bpmn:181:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element '{http://www.omg.org/spec/BPMN/20100524/MODEL}dataInputAssociation': Missing child element(s). Expected is one of ( {http://www.omg.org/spec/BPMN/20100524/MODEL}sourceRef, {http://www.omg.org/spec/BPMN/20100524/MODEL}targetRef )."
       },
       {
         "code": "XSD-5",
         "origin": "model",
         "severity": "error",
-        "message": "file:/C:/Users/ignag/Documents/BPMN%20monorepo/apps/tfm-lab/prompts/experiments/EXP-SYN015-ZSXML-CHATGPT-GPT_5_5_THINKING-R03/output.bpmn:206:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element '{http://www.omg.org/spec/BPMN/20100524/MODEL}dataInputAssociation': Missing child element(s). Expected is one of ( {http://www.omg.org/spec/BPMN/20100524/MODEL}sourceRef, {http://www.omg.org/spec/BPMN/20100524/MODEL}targetRef )."
+        "message": "file:/<home>/Documents/BPMN%20monorepo/apps/tfm-lab/prompts/experiments/EXP-SYN015-ZSXML-CHATGPT-GPT_5_5_THINKING-R03/output.bpmn:206:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element '{http://www.omg.org/spec/BPMN/20100524/MODEL}dataInputAssociation': Missing child element(s). Expected is one of ( {http://www.omg.org/spec/BPMN/20100524/MODEL}sourceRef, {http://www.omg.org/spec/BPMN/20100524/MODEL}targetRef )."
       },
       {
         "code": "XSD-6",
         "origin": "model",
         "severity": "error",
-        "message": "file:/C:/Users/ignag/Documents/BPMN%20monorepo/apps/tfm-lab/prompts/experiments/EXP-SYN015-ZSXML-CHATGPT-GPT_5_5_THINKING-R03/output.bpmn:235:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element '{http://www.omg.org/spec/BPMN/20100524/MODEL}task': This element is not expected. Expected is one of ( {http://www.omg.org/spec/BPMN/20100524/MODEL}resourceRole, {http://www.omg.org/spec/BPMN/20100524/MODEL}performer, {http://www.omg.org/spec/BPMN/20100524/MODEL}humanPerformer, {http://www.omg.org/spec/BPMN/20100524/MODEL}potentialOwner, {http://www.omg.org/spec/BPMN/20100524/MODEL}correlationSubscription, {http://www.omg.org/spec/BPMN/20100524/MODEL}supports )."
+        "message": "file:/<home>/Documents/BPMN%20monorepo/apps/tfm-lab/prompts/experiments/EXP-SYN015-ZSXML-CHATGPT-GPT_5_5_THINKING-R03/output.bpmn:235:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element '{http://www.omg.org/spec/BPMN/20100524/MODEL}task': This element is not expected. Expected is one of ( {http://www.omg.org/spec/BPMN/20100524/MODEL}resourceRole, {http://www.omg.org/spec/BPMN/20100524/MODEL}performer, {http://www.omg.org/spec/BPMN/20100524/MODEL}humanPerformer, {http://www.omg.org/spec/BPMN/20100524/MODEL}potentialOwner, {http://www.omg.org/spec/BPMN/20100524/MODEL}correlationSubscription, {http://www.omg.org/spec/BPMN/20100524/MODEL}supports )."
       }
     ],
     "warnings": [],
@@ -83,42 +83,42 @@
     {
       "category": "bpmn",
       "code": "XSD-1",
-      "message": "file:/C:/Users/ignag/Documents/BPMN%20monorepo/apps/tfm-lab/prompts/experiments/EXP-SYN015-ZSXML-CHATGPT-GPT_5_5_THINKING-R03/output.bpmn:103:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element '{http://www.omg.org/spec/BPMN/20100524/MODEL}dataInputAssociation': Missing child element(s). Expected is one of ( {http://www.omg.org/spec/BPMN/20100524/MODEL}sourceRef, {http://www.omg.org/spec/BPMN/20100524/MODEL}targetRef ).",
+      "message": "file:/<home>/Documents/BPMN%20monorepo/apps/tfm-lab/prompts/experiments/EXP-SYN015-ZSXML-CHATGPT-GPT_5_5_THINKING-R03/output.bpmn:103:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element '{http://www.omg.org/spec/BPMN/20100524/MODEL}dataInputAssociation': Missing child element(s). Expected is one of ( {http://www.omg.org/spec/BPMN/20100524/MODEL}sourceRef, {http://www.omg.org/spec/BPMN/20100524/MODEL}targetRef ).",
       "severity": "error",
       "source": "validation"
     },
     {
       "category": "bpmn",
       "code": "XSD-2",
-      "message": "file:/C:/Users/ignag/Documents/BPMN%20monorepo/apps/tfm-lab/prompts/experiments/EXP-SYN015-ZSXML-CHATGPT-GPT_5_5_THINKING-R03/output.bpmn:106:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element '{http://www.omg.org/spec/BPMN/20100524/MODEL}dataInputAssociation': Missing child element(s). Expected is one of ( {http://www.omg.org/spec/BPMN/20100524/MODEL}sourceRef, {http://www.omg.org/spec/BPMN/20100524/MODEL}targetRef ).",
+      "message": "file:/<home>/Documents/BPMN%20monorepo/apps/tfm-lab/prompts/experiments/EXP-SYN015-ZSXML-CHATGPT-GPT_5_5_THINKING-R03/output.bpmn:106:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element '{http://www.omg.org/spec/BPMN/20100524/MODEL}dataInputAssociation': Missing child element(s). Expected is one of ( {http://www.omg.org/spec/BPMN/20100524/MODEL}sourceRef, {http://www.omg.org/spec/BPMN/20100524/MODEL}targetRef ).",
       "severity": "error",
       "source": "validation"
     },
     {
       "category": "bpmn",
       "code": "XSD-3",
-      "message": "file:/C:/Users/ignag/Documents/BPMN%20monorepo/apps/tfm-lab/prompts/experiments/EXP-SYN015-ZSXML-CHATGPT-GPT_5_5_THINKING-R03/output.bpmn:135:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element '{http://www.omg.org/spec/BPMN/20100524/MODEL}dataInputAssociation': Missing child element(s). Expected is one of ( {http://www.omg.org/spec/BPMN/20100524/MODEL}sourceRef, {http://www.omg.org/spec/BPMN/20100524/MODEL}targetRef ).",
+      "message": "file:/<home>/Documents/BPMN%20monorepo/apps/tfm-lab/prompts/experiments/EXP-SYN015-ZSXML-CHATGPT-GPT_5_5_THINKING-R03/output.bpmn:135:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element '{http://www.omg.org/spec/BPMN/20100524/MODEL}dataInputAssociation': Missing child element(s). Expected is one of ( {http://www.omg.org/spec/BPMN/20100524/MODEL}sourceRef, {http://www.omg.org/spec/BPMN/20100524/MODEL}targetRef ).",
       "severity": "error",
       "source": "validation"
     },
     {
       "category": "bpmn",
       "code": "XSD-4",
-      "message": "file:/C:/Users/ignag/Documents/BPMN%20monorepo/apps/tfm-lab/prompts/experiments/EXP-SYN015-ZSXML-CHATGPT-GPT_5_5_THINKING-R03/output.bpmn:181:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element '{http://www.omg.org/spec/BPMN/20100524/MODEL}dataInputAssociation': Missing child element(s). Expected is one of ( {http://www.omg.org/spec/BPMN/20100524/MODEL}sourceRef, {http://www.omg.org/spec/BPMN/20100524/MODEL}targetRef ).",
+      "message": "file:/<home>/Documents/BPMN%20monorepo/apps/tfm-lab/prompts/experiments/EXP-SYN015-ZSXML-CHATGPT-GPT_5_5_THINKING-R03/output.bpmn:181:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element '{http://www.omg.org/spec/BPMN/20100524/MODEL}dataInputAssociation': Missing child element(s). Expected is one of ( {http://www.omg.org/spec/BPMN/20100524/MODEL}sourceRef, {http://www.omg.org/spec/BPMN/20100524/MODEL}targetRef ).",
       "severity": "error",
       "source": "validation"
     },
     {
       "category": "bpmn",
       "code": "XSD-5",
-      "message": "file:/C:/Users/ignag/Documents/BPMN%20monorepo/apps/tfm-lab/prompts/experiments/EXP-SYN015-ZSXML-CHATGPT-GPT_5_5_THINKING-R03/output.bpmn:206:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element '{http://www.omg.org/spec/BPMN/20100524/MODEL}dataInputAssociation': Missing child element(s). Expected is one of ( {http://www.omg.org/spec/BPMN/20100524/MODEL}sourceRef, {http://www.omg.org/spec/BPMN/20100524/MODEL}targetRef ).",
+      "message": "file:/<home>/Documents/BPMN%20monorepo/apps/tfm-lab/prompts/experiments/EXP-SYN015-ZSXML-CHATGPT-GPT_5_5_THINKING-R03/output.bpmn:206:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element '{http://www.omg.org/spec/BPMN/20100524/MODEL}dataInputAssociation': Missing child element(s). Expected is one of ( {http://www.omg.org/spec/BPMN/20100524/MODEL}sourceRef, {http://www.omg.org/spec/BPMN/20100524/MODEL}targetRef ).",
       "severity": "error",
       "source": "validation"
     },
     {
       "category": "bpmn",
       "code": "XSD-6",
-      "message": "file:/C:/Users/ignag/Documents/BPMN%20monorepo/apps/tfm-lab/prompts/experiments/EXP-SYN015-ZSXML-CHATGPT-GPT_5_5_THINKING-R03/output.bpmn:235:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element '{http://www.omg.org/spec/BPMN/20100524/MODEL}task': This element is not expected. Expected is one of ( {http://www.omg.org/spec/BPMN/20100524/MODEL}resourceRole, {http://www.omg.org/spec/BPMN/20100524/MODEL}performer, {http://www.omg.org/spec/BPMN/20100524/MODEL}humanPerformer, {http://www.omg.org/spec/BPMN/20100524/MODEL}potentialOwner, {http://www.omg.org/spec/BPMN/20100524/MODEL}correlationSubscription, {http://www.omg.org/spec/BPMN/20100524/MODEL}supports ).",
+      "message": "file:/<home>/Documents/BPMN%20monorepo/apps/tfm-lab/prompts/experiments/EXP-SYN015-ZSXML-CHATGPT-GPT_5_5_THINKING-R03/output.bpmn:235:0:ERROR:SCHEMASV:SCHEMAV_ELEMENT_CONTENT: Element '{http://www.omg.org/spec/BPMN/20100524/MODEL}task': This element is not expected. Expected is one of ( {http://www.omg.org/spec/BPMN/20100524/MODEL}resourceRole, {http://www.omg.org/spec/BPMN/20100524/MODEL}performer, {http://www.omg.org/spec/BPMN/20100524/MODEL}humanPerformer, {http://www.omg.org/spec/BPMN/20100524/MODEL}potentialOwner, {http://www.omg.org/spec/BPMN/20100524/MODEL}correlationSubscription, {http://www.omg.org/spec/BPMN/20100524/MODEL}supports ).",
       "severity": "error",
       "source": "validation"
     }

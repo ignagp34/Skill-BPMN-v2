@@ -20,7 +20,7 @@ No subir rutas locales del equipo del usuario (nombre de usuario de Windows, car
 
 - En archivos nuevos (evidencias JSON, logs, informes, planes) escribir rutas relativas al repositorio o con marcadores: `<repo>` (raíz del clon), `<workspace>` (su carpeta padre), `<repos>`, `<home>`, `<user>`.
 - Antes de cada commit, comprobar que no queda ninguna: `git diff --cached -U0 | grep -iE '^\+.*([A-Za-z]:(\\\\|\\|/)(Users|Repositorios)|pytest-of-[a-z0-9])'` debe salir vacío. Si aparece alguna, sustituirla por un marcador antes de hacer el commit.
-- Excepción: los 7 archivos del snapshot congelado del TFM que aún la contienen (`TFM-eval/notebooks/analysis.ipynb` y seis `result.json` de `EXP-SYN011/012/015-ZSXML-…`). Están en `smoke/source-hashes.json` y no se modifican sin una decisión expresa del usuario.
+- Los 7 archivos del snapshot congelado del TFM que tenían esa ruta (`TFM-eval/notebooks/analysis.ipynb` y seis `result.json` de `EXP-SYN011/012/015-ZSXML-…`) se anonimizaron el 2026-10-02 a petición del usuario, y sus hashes se actualizaron en `smoke/source-hashes.json`. Es el único cambio hecho en el snapshot; su contenido técnico no cambia.
 
 ## Alcance y estado
 
