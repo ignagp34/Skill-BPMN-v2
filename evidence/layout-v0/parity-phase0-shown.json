@@ -7,7 +7,7 @@
     "maxDelta": 4,
     "maxDifferingRatio": 0.02
   },
-  "sameDayReference": "C:\\Repositorios\\Skill BPMN v2\\Skill-BPMN-v2\\skill-runs\\smoke-20260925-phase0",
+  "sameDayReference": "<repo>\\skill-runs\\smoke-20260925-phase0",
   "parity": [
     {
       "id": "s17-document-approval",
@@ -476,7 +476,7 @@
         "diagram.svg",
         "diagram.png"
       ],
-      "error": "Chromium could not be launched (browserType.launch: Executable doesn't exist at C:\\Users\\ignag\\AppData\\Local\\Temp\\no-chromium-WayaHp\\chromium_headless_shell-1223\\chrome-headless-shell-win64\\chrome-headless-shell.exe). Install it with: node apps/tfm-lab/node_modules/playwright/cli.js install chromium",
+      "error": "Chromium could not be launched (browserType.launch: Executable doesn't exist at <home>\\AppData\\Local\\Temp\\no-chromium-WayaHp\\chromium_headless_shell-1223\\chrome-headless-shell-win64\\chrome-headless-shell.exe). Install it with: node apps/tfm-lab/node_modules/playwright/cli.js install chromium",
       "passed": true
     },
     {

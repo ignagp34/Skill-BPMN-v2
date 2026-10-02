@@ -42,7 +42,7 @@ Voto del usuario (2026-09-26; `human-votes.json`): **v15 12, v7 1, 5 empates**; 
 
 ## Corrección tras el voto: flujos sueltos (2026-09-26)
 
-En una generación real con Luna/high (`C:/Repositorios/BPMN-output/comparacion-gpt6-luna/high/`), «Desplegar gradualmente», el gateway «¿El despliegue degrada el servicio?» y «Revertir a la versión anterior» quedaron sin conexión: las formas en y = 1132–1212 y sus líneas 90 px más abajo (5 flujos sueltos). v7 y v10 dibujan bien ese DSL; el fallo viene de v11 y lo heredan v14 y v15.
+En una generación real con Luna/high (`<repos>/BPMN-output/comparacion-gpt6-luna/high/`), «Desplegar gradualmente», el gateway «¿El despliegue degrada el servicio?» y «Revertir a la versión anterior» quedaron sin conexión: las formas en y = 1132–1212 y sus líneas 90 px más abajo (5 flujos sueltos). v7 y v10 dibujan bien ese DSL; el fallo viene de v11 y lo heredan v14 y v15.
 
 Causa: la banda de v11 desplaza todo lo que queda por debajo de un corte horizontal. El corte se calcula con la fila del artefacto más un margen y puede atravesar una forma de la fila siguiente (aquí, porque una etiqueta de esa fila colgaba dentro del alcance). La forma no se mueve, porque su borde superior está por encima del corte, pero sus flujos, que salen de su centro o de su borde inferior, sí bajan.
 

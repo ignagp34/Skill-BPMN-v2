@@ -5,7 +5,7 @@ Copia el bloque de abajo al empezar una conversación nueva en este repositorio 
 ---
 
 ```text
-Vamos a empezar las mejoras futuras de la skill BPMN. Trabaja en el repositorio ignagp34/Skill-BPMN-v2 (clon en C:/Repositorios/Skill BPMN v2/Skill-BPMN-v2, rama main), desde la raíz del clon.
+Vamos a empezar las mejoras futuras de la skill BPMN. Trabaja en el repositorio ignagp34/Skill-BPMN-v2 (clon en <repo>, rama main), desde la raíz del clon.
 
 Antes de nada, lee:
 1. AGENTS.md: única fuente de instrucciones; CLAUDE.md solo redirige.

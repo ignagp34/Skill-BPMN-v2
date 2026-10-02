@@ -8,7 +8,7 @@
       "page": "/index.headless.html"
     }
   },
-  "bench": "C:\\Repositorios\\Skill BPMN v2\\Skill-BPMN-v2\\tools\\layout-lab\\bench",
+  "bench": "<repo>\\tools\\layout-lab\\bench",
   "benchManifestSha256": "fe224c791ae2a6228c52eeee68444b6ca2821a02b36bb93817168f0b11c95924",
   "startedAt": "2026-09-26T06:18:25.190Z",
   "finishedAt": "2026-09-26T06:19:27.271Z",

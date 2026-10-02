@@ -6,7 +6,7 @@
   "interfaceType": "bpmn-edit",
   "source": {
     "kind": "dsl",
-    "path": "C:\\Repositorios\\Skill BPMN v2\\Skill-BPMN-v2\\tools\\layout-lab\\bench\\cases\\c-syn014-sysv5-claude-opus_4_8_medium-r01.dsl",
+    "path": "<repo>\\tools\\layout-lab\\bench\\cases\\c-syn014-sysv5-claude-opus_4_8_medium-r01.dsl",
     "initialXmlFile": null,
     "dslSha256": "1e01194b7ea4f8efa6aadc7c05f1809c1be368638325b4f34c0012a504e5a82f",
     "initialXmlSha256": null

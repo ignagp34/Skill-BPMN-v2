@@ -14,7 +14,7 @@ Packages: +201
    ╰─────────────────────────────────────────╯
 
 Packages are hard linked from the content-addressable store to the virtual store.
-  Content-addressable store is at: C:\Repositorios\Skill BPMN v2\.pnpm-store\v11
+  Content-addressable store is at: <workspace>\.pnpm-store\v11
   Virtual store is at:             node_modules/.pnpm
 Progress: resolved 201, reused 0, downloaded 193, added 180
 Progress: resolved 201, reused 0, downloaded 200, added 201, done

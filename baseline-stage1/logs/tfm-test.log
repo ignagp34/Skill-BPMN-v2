@@ -1,6 +1,6 @@
 $ vitest run
 
- RUN  v4.1.7 C:/Repositorios/Skill BPMN v2/BPMN-DSL-Monorepo/apps/tfm-lab
+ RUN  v4.1.7 <workspace>/BPMN-DSL-Monorepo/apps/tfm-lab
 
 
  Test Files  5 passed (5)

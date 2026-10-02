@@ -8,11 +8,19 @@ Este `AGENTS.md` es la única fuente de instrucciones para todas las herramienta
 
 El 2026-09-22 el usuario autorizó crear el commit local de esta preparación en `Skill-BPMN-v2`. Esta autorización sustituye las restricciones anteriores sobre commits en el nuevo repositorio; se mantiene la prohibición de push y la protección completa del repositorio original. Las menciones posteriores a ausencia de commits describen el estado histórico previo a esta autorización. Actualización del 2026-09-26: a petición expresa del usuario se hizo push a `origin/main` de `ignagp34/Skill-BPMN-v2` con todo lo hecho hasta entonces. La regla sigue siendo no hacer push sin que el usuario lo pida, comprobando antes que `origin` es ese repositorio.
 
-Desde el 2026-09-22 el repositorio de desarrollo es **https://github.com/ignagp34/Skill-BPMN-v2.git**, clonado en `C:/Repositorios/Skill BPMN v2/Skill-BPMN-v2`. El remoto `origin` de ese clon apunta exclusivamente al nuevo repositorio. Estaba vacío al clonarlo; se prepara con una exportación de los archivos versionados del commit de referencia del original, sin su historial ni su configuración Git.
+Desde el 2026-09-22 el repositorio de desarrollo es **https://github.com/ignagp34/Skill-BPMN-v2.git**, clonado en `<repo>`. El remoto `origin` de ese clon apunta exclusivamente al nuevo repositorio. Estaba vacío al clonarlo; se prepara con una exportación de los archivos versionados del commit de referencia del original, sin su historial ni su configuración Git.
 
 Toda nueva implementación, skill, adaptadores y documentación debe realizarse en este nuevo clon. Su `AGENTS.md` será el plan operativo que se actualizará en adelante. Las rutas técnicas de este documento se interpretan desde la raíz del nuevo clon, donde se mantiene la estructura del monorepo. Esta disposición sustituye las ubicaciones anteriores del plan. Los resultados ya generados fuera de él se conservan y se incorporan selectivamente, sin trasladar caches, entornos virtuales ni dependencias instaladas.
 
 `BPMN-DSL-Monorepo/` y su GitHub siguen siendo exclusivamente referencia protegida: no modificar sus archivos versionados, hacer commits, cambiar remotos, crear PRs ni hacer pushes allí. La designación del nuevo repositorio autoriza trabajar en él; en esta transición no se realizan commits ni pushes. Cualquier futura operación Git debe comprobar primero que se dirige a `ignagp34/Skill-BPMN-v2`.
+
+## Privacidad antes de commit o push (2026-10-02, petición del usuario)
+
+No subir rutas locales del equipo del usuario (nombre de usuario de Windows, carpetas `Users\<nombre>` y `AppData`, la carpeta `Repositorios` del disco `C:`) ni diagramas o resúmenes de procesos reales del usuario o de terceros. Las ejecuciones reales van a `skill-runs/` o `deliverables/`, ignorados por Git; como evidencia solo se versionan casos sintéticos o públicos.
+
+- En archivos nuevos (evidencias JSON, logs, informes, planes) escribir rutas relativas al repositorio o con marcadores: `<repo>` (raíz del clon), `<workspace>` (su carpeta padre), `<repos>`, `<home>`, `<user>`.
+- Antes de cada commit, comprobar que no queda ninguna: `git diff --cached -U0 | grep -iE '^\+.*([A-Za-z]:(\\\\|\\|/)(Users|Repositorios)|pytest-of-[a-z0-9])'` debe salir vacío. Si aparece alguna, sustituirla por un marcador antes de hacer el commit.
+- Excepción: los 7 archivos del snapshot congelado del TFM que aún la contienen (`TFM-eval/notebooks/analysis.ipynb` y seis `result.json` de `EXP-SYN011/012/015-ZSXML-…`). Están en `smoke/source-hashes.json` y no se modifican sin una decisión expresa del usuario.
 
 ## Alcance y estado
 

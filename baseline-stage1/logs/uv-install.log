@@ -1,6 +1,6 @@
-Using Python 3.14.0 environment at: C:\Repositorios\Skill BPMN v2\.venv-bpmn
+Using Python 3.14.0 environment at: <workspace>\.venv-bpmn
 Resolved 25 packages in 371ms
-   Building bpmn-eval @ file:///C:/Repositorios/Skill%20BPMN%20v2/BPMN-DSL-Monorepo/TFM-eval
+   Building bpmn-eval @ file:///<workspace>/BPMN-DSL-Monorepo/TFM-eval
 Downloading mypy (10.9MiB)
 Downloading pygments (1.2MiB)
 Downloading lxml (3.9MiB)
@@ -11,11 +11,11 @@ Downloading ruff (10.1MiB)
  Downloaded lxml
  Downloaded ruff
  Downloaded mypy
-      Built bpmn-eval @ file:///C:/Repositorios/Skill%20BPMN%20v2/BPMN-DSL-Monorepo/TFM-eval
+      Built bpmn-eval @ file:///<workspace>/BPMN-DSL-Monorepo/TFM-eval
 Prepared 25 packages in 1.62s
 Installed 25 packages in 451ms
  + ast-serialize==0.11.2
- + bpmn-eval==0.1.0 (from file:///C:/Repositorios/Skill%20BPMN%20v2/BPMN-DSL-Monorepo/TFM-eval)
+ + bpmn-eval==0.1.0 (from file:///<workspace>/BPMN-DSL-Monorepo/TFM-eval)
  + certifi==2026.7.22
  + charset-normalizer==3.5.1
  + colorama==0.4.6

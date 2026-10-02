@@ -1,6 +1,6 @@
 ============================= test session starts =============================
 platform win32 -- Python 3.14.0, pytest-9.1.1, pluggy-1.6.0
-rootdir: C:\Repositorios\Skill BPMN v2\BPMN-DSL-Monorepo\TFM-eval
+rootdir: <workspace>\BPMN-DSL-Monorepo\TFM-eval
 configfile: pyproject.toml
 testpaths: tests
 plugins: cov-7.1.0

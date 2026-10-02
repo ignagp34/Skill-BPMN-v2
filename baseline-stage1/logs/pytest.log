@@ -1,6 +1,6 @@
 ============================= test session starts =============================
 platform win32 -- Python 3.14.0, pytest-9.1.1, pluggy-1.6.0
-rootdir: C:\Repositorios\Skill BPMN v2\BPMN-DSL-Monorepo\TFM-eval
+rootdir: <workspace>\BPMN-DSL-Monorepo\TFM-eval
 configfile: pyproject.toml
 testpaths: tests
 plugins: cov-7.1.0
@@ -133,7 +133,7 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
                  ^^^^
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
-root = WindowsPath('C:/Users/ignag/AppData/Local/Temp/pytest-of-ignag')
+root = WindowsPath('<home>/AppData/Local/Temp/pytest-of-<user>')
 prefix = 'pytest-'
 
     def find_prefixed(root: Path, prefix: str) -> Iterator[os.DirEntry[str]]:
@@ -141,7 +141,7 @@ prefix = 'pytest-'
         l_prefix = prefix.lower()
 >       for x in os.scandir(root):
                  ^^^^^^^^^^^^^^^^
-E       PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\ignag\\AppData\\Local\\Temp\\pytest-of-ignag'
+E       PermissionError: [WinError 5] Acceso denegado: '<home>\\AppData\\Local\\Temp\\pytest-of-<user>'
 
 ..\..\.venv-bpmn\Lib\site-packages\_pytest\pathlib.py:175: PermissionError
 _____ ERROR at setup of test_penalized_score_and_prompt_version_grouping ______
@@ -249,7 +249,7 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
                  ^^^^
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
-root = WindowsPath('C:/Users/ignag/AppData/Local/Temp/pytest-of-ignag')
+root = WindowsPath('<home>/AppData/Local/Temp/pytest-of-<user>')
 prefix = 'pytest-'
 
     def find_prefixed(root: Path, prefix: str) -> Iterator[os.DirEntry[str]]:
@@ -257,7 +257,7 @@ prefix = 'pytest-'
         l_prefix = prefix.lower()
 >       for x in os.scandir(root):
                  ^^^^^^^^^^^^^^^^
-E       PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\ignag\\AppData\\Local\\Temp\\pytest-of-ignag'
+E       PermissionError: [WinError 5] Acceso denegado: '<home>\\AppData\\Local\\Temp\\pytest-of-<user>'
 
 ..\..\.venv-bpmn\Lib\site-packages\_pytest\pathlib.py:175: PermissionError
 ___________ ERROR at setup of test_discover_experiments_skips_stubs ___________
@@ -365,7 +365,7 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
                  ^^^^
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
-root = WindowsPath('C:/Users/ignag/AppData/Local/Temp/pytest-of-ignag')
+root = WindowsPath('<home>/AppData/Local/Temp/pytest-of-<user>')
 prefix = 'pytest-'
 
     def find_prefixed(root: Path, prefix: str) -> Iterator[os.DirEntry[str]]:
@@ -373,7 +373,7 @@ prefix = 'pytest-'
         l_prefix = prefix.lower()
 >       for x in os.scandir(root):
                  ^^^^^^^^^^^^^^^^
-E       PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\ignag\\AppData\\Local\\Temp\\pytest-of-ignag'
+E       PermissionError: [WinError 5] Acceso denegado: '<home>\\AppData\\Local\\Temp\\pytest-of-<user>'
 
 ..\..\.venv-bpmn\Lib\site-packages\_pytest\pathlib.py:175: PermissionError
 ___________ ERROR at setup of test_evaluate_experiment_from_diagram ___________
@@ -481,7 +481,7 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
                  ^^^^
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
-root = WindowsPath('C:/Users/ignag/AppData/Local/Temp/pytest-of-ignag')
+root = WindowsPath('<home>/AppData/Local/Temp/pytest-of-<user>')
 prefix = 'pytest-'
 
     def find_prefixed(root: Path, prefix: str) -> Iterator[os.DirEntry[str]]:
@@ -489,7 +489,7 @@ prefix = 'pytest-'
         l_prefix = prefix.lower()
 >       for x in os.scandir(root):
                  ^^^^^^^^^^^^^^^^
-E       PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\ignag\\AppData\\Local\\Temp\\pytest-of-ignag'
+E       PermissionError: [WinError 5] Acceso denegado: '<home>\\AppData\\Local\\Temp\\pytest-of-<user>'
 
 ..\..\.venv-bpmn\Lib\site-packages\_pytest\pathlib.py:175: PermissionError
 _______ ERROR at setup of test_evaluate_experiment_from_result_json_xml _______
@@ -597,7 +597,7 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
                  ^^^^
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
-root = WindowsPath('C:/Users/ignag/AppData/Local/Temp/pytest-of-ignag')
+root = WindowsPath('<home>/AppData/Local/Temp/pytest-of-<user>')
 prefix = 'pytest-'
 
     def find_prefixed(root: Path, prefix: str) -> Iterator[os.DirEntry[str]]:
@@ -605,7 +605,7 @@ prefix = 'pytest-'
         l_prefix = prefix.lower()
 >       for x in os.scandir(root):
                  ^^^^^^^^^^^^^^^^
-E       PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\ignag\\AppData\\Local\\Temp\\pytest-of-ignag'
+E       PermissionError: [WinError 5] Acceso denegado: '<home>\\AppData\\Local\\Temp\\pytest-of-<user>'
 
 ..\..\.venv-bpmn\Lib\site-packages\_pytest\pathlib.py:175: PermissionError
 _____ ERROR at setup of test_evaluate_experiment_failed_run_records_zeros _____
@@ -713,7 +713,7 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
                  ^^^^
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
-root = WindowsPath('C:/Users/ignag/AppData/Local/Temp/pytest-of-ignag')
+root = WindowsPath('<home>/AppData/Local/Temp/pytest-of-<user>')
 prefix = 'pytest-'
 
     def find_prefixed(root: Path, prefix: str) -> Iterator[os.DirEntry[str]]:
@@ -721,7 +721,7 @@ prefix = 'pytest-'
         l_prefix = prefix.lower()
 >       for x in os.scandir(root):
                  ^^^^^^^^^^^^^^^^
-E       PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\ignag\\AppData\\Local\\Temp\\pytest-of-ignag'
+E       PermissionError: [WinError 5] Acceso denegado: '<home>\\AppData\\Local\\Temp\\pytest-of-<user>'
 
 ..\..\.venv-bpmn\Lib\site-packages\_pytest\pathlib.py:175: PermissionError
 _____________ ERROR at setup of test_flat_record_has_all_columns ______________
@@ -829,7 +829,7 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
                  ^^^^
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
-root = WindowsPath('C:/Users/ignag/AppData/Local/Temp/pytest-of-ignag')
+root = WindowsPath('<home>/AppData/Local/Temp/pytest-of-<user>')
 prefix = 'pytest-'
 
     def find_prefixed(root: Path, prefix: str) -> Iterator[os.DirEntry[str]]:
@@ -837,7 +837,7 @@ prefix = 'pytest-'
         l_prefix = prefix.lower()
 >       for x in os.scandir(root):
                  ^^^^^^^^^^^^^^^^
-E       PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\ignag\\AppData\\Local\\Temp\\pytest-of-ignag'
+E       PermissionError: [WinError 5] Acceso denegado: '<home>\\AppData\\Local\\Temp\\pytest-of-<user>'
 
 ..\..\.venv-bpmn\Lib\site-packages\_pytest\pathlib.py:175: PermissionError
 _______________ ERROR at setup of test_aggregate_by_model_label _______________
@@ -945,7 +945,7 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
                  ^^^^
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
-root = WindowsPath('C:/Users/ignag/AppData/Local/Temp/pytest-of-ignag')
+root = WindowsPath('<home>/AppData/Local/Temp/pytest-of-<user>')
 prefix = 'pytest-'
 
     def find_prefixed(root: Path, prefix: str) -> Iterator[os.DirEntry[str]]:
@@ -953,7 +953,7 @@ prefix = 'pytest-'
         l_prefix = prefix.lower()
 >       for x in os.scandir(root):
                  ^^^^^^^^^^^^^^^^
-E       PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\ignag\\AppData\\Local\\Temp\\pytest-of-ignag'
+E       PermissionError: [WinError 5] Acceso denegado: '<home>\\AppData\\Local\\Temp\\pytest-of-<user>'
 
 ..\..\.venv-bpmn\Lib\site-packages\_pytest\pathlib.py:175: PermissionError
 _ ERROR at setup of test_zero_shot_xml_scores_raw_output_not_rendered_diagram _
@@ -1061,7 +1061,7 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
                  ^^^^
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
-root = WindowsPath('C:/Users/ignag/AppData/Local/Temp/pytest-of-ignag')
+root = WindowsPath('<home>/AppData/Local/Temp/pytest-of-<user>')
 prefix = 'pytest-'
 
     def find_prefixed(root: Path, prefix: str) -> Iterator[os.DirEntry[str]]:
@@ -1069,7 +1069,7 @@ prefix = 'pytest-'
         l_prefix = prefix.lower()
 >       for x in os.scandir(root):
                  ^^^^^^^^^^^^^^^^
-E       PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\ignag\\AppData\\Local\\Temp\\pytest-of-ignag'
+E       PermissionError: [WinError 5] Acceso denegado: '<home>\\AppData\\Local\\Temp\\pytest-of-<user>'
 
 ..\..\.venv-bpmn\Lib\site-packages\_pytest\pathlib.py:175: PermissionError
 ________________ ERROR at setup of test_parse_nonexistent_file ________________
@@ -1177,7 +1177,7 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
                  ^^^^
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
-root = WindowsPath('C:/Users/ignag/AppData/Local/Temp/pytest-of-ignag')
+root = WindowsPath('<home>/AppData/Local/Temp/pytest-of-<user>')
 prefix = 'pytest-'
 
     def find_prefixed(root: Path, prefix: str) -> Iterator[os.DirEntry[str]]:
@@ -1185,7 +1185,7 @@ prefix = 'pytest-'
         l_prefix = prefix.lower()
 >       for x in os.scandir(root):
                  ^^^^^^^^^^^^^^^^
-E       PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\ignag\\AppData\\Local\\Temp\\pytest-of-ignag'
+E       PermissionError: [WinError 5] Acceso denegado: '<home>\\AppData\\Local\\Temp\\pytest-of-<user>'
 
 ..\..\.venv-bpmn\Lib\site-packages\_pytest\pathlib.py:175: PermissionError
 _____________________ ERROR at setup of test_json_report ______________________
@@ -1293,7 +1293,7 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
                  ^^^^
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
-root = WindowsPath('C:/Users/ignag/AppData/Local/Temp/pytest-of-ignag')
+root = WindowsPath('<home>/AppData/Local/Temp/pytest-of-<user>')
 prefix = 'pytest-'
 
     def find_prefixed(root: Path, prefix: str) -> Iterator[os.DirEntry[str]]:
@@ -1301,7 +1301,7 @@ prefix = 'pytest-'
         l_prefix = prefix.lower()
 >       for x in os.scandir(root):
                  ^^^^^^^^^^^^^^^^
-E       PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\ignag\\AppData\\Local\\Temp\\pytest-of-ignag'
+E       PermissionError: [WinError 5] Acceso denegado: '<home>\\AppData\\Local\\Temp\\pytest-of-<user>'
 
 ..\..\.venv-bpmn\Lib\site-packages\_pytest\pathlib.py:175: PermissionError
 ______________________ ERROR at setup of test_csv_report ______________________
@@ -1409,7 +1409,7 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
                  ^^^^
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
-root = WindowsPath('C:/Users/ignag/AppData/Local/Temp/pytest-of-ignag')
+root = WindowsPath('<home>/AppData/Local/Temp/pytest-of-<user>')
 prefix = 'pytest-'
 
     def find_prefixed(root: Path, prefix: str) -> Iterator[os.DirEntry[str]]:
@@ -1417,7 +1417,7 @@ prefix = 'pytest-'
         l_prefix = prefix.lower()
 >       for x in os.scandir(root):
                  ^^^^^^^^^^^^^^^^
-E       PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\ignag\\AppData\\Local\\Temp\\pytest-of-ignag'
+E       PermissionError: [WinError 5] Acceso denegado: '<home>\\AppData\\Local\\Temp\\pytest-of-<user>'
 
 ..\..\.venv-bpmn\Lib\site-packages\_pytest\pathlib.py:175: PermissionError
 __ ERROR at setup of test_usage_components_prompt_resolution_and_idempotence __
@@ -1525,7 +1525,7 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
                  ^^^^
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
-root = WindowsPath('C:/Users/ignag/AppData/Local/Temp/pytest-of-ignag')
+root = WindowsPath('<home>/AppData/Local/Temp/pytest-of-<user>')
 prefix = 'pytest-'
 
     def find_prefixed(root: Path, prefix: str) -> Iterator[os.DirEntry[str]]:
@@ -1533,7 +1533,7 @@ prefix = 'pytest-'
         l_prefix = prefix.lower()
 >       for x in os.scandir(root):
                  ^^^^^^^^^^^^^^^^
-E       PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\ignag\\AppData\\Local\\Temp\\pytest-of-ignag'
+E       PermissionError: [WinError 5] Acceso denegado: '<home>\\AppData\\Local\\Temp\\pytest-of-<user>'
 
 ..\..\.venv-bpmn\Lib\site-packages\_pytest\pathlib.py:175: PermissionError
 _____ ERROR at setup of test_unresolved_system_prompt_fails_before_writes _____
@@ -1641,7 +1641,7 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
                  ^^^^
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
-root = WindowsPath('C:/Users/ignag/AppData/Local/Temp/pytest-of-ignag')
+root = WindowsPath('<home>/AppData/Local/Temp/pytest-of-<user>')
 prefix = 'pytest-'
 
     def find_prefixed(root: Path, prefix: str) -> Iterator[os.DirEntry[str]]:
@@ -1649,7 +1649,7 @@ prefix = 'pytest-'
         l_prefix = prefix.lower()
 >       for x in os.scandir(root):
                  ^^^^^^^^^^^^^^^^
-E       PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\ignag\\AppData\\Local\\Temp\\pytest-of-ignag'
+E       PermissionError: [WinError 5] Acceso denegado: '<home>\\AppData\\Local\\Temp\\pytest-of-<user>'
 
 ..\..\.venv-bpmn\Lib\site-packages\_pytest\pathlib.py:175: PermissionError
 =========================== short test summary info ===========================

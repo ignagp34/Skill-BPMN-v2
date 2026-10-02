@@ -1,5 +1,5 @@
 error: unknown command '^install^'
 (Did you mean install?)
 undefined
-C:\Repositorios\Skill BPMN v2\BPMN-DSL-Monorepo\apps\tfm-lab:
+<workspace>\BPMN-DSL-Monorepo\apps\tfm-lab:
 [ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL] Command failed with exit code 1: playwright install chromium

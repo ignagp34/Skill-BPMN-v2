@@ -1,4 +1,4 @@
-Using Python 3.14.0 environment at: C:\Repositorios\Skill BPMN v2\.venv-bpmn
+Using Python 3.14.0 environment at: <workspace>\.venv-bpmn
 Resolved 1 package in 5ms
 Installed 1 package in 71ms
  + setuptools==84.0.0

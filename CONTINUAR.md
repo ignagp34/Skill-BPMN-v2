@@ -1,6 +1,6 @@
 # Resumen para continuar — 2026-09-26, tarde (mejoras futuras: mejora 1 `bpmn-edit` hecha)
 
-Empieza por aquí en una conversación nueva. Lee primero `AGENTS.md` (sección 9 para las mejoras futuras). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`, clon en `C:/Repositorios/Skill BPMN v2/Skill-BPMN-v2`; `BPMN-DSL-Monorepo` protegido. Commits locales sí; **push solo si el usuario lo pide**, comprobando antes `origin`.
+Empieza por aquí en una conversación nueva. Lee primero `AGENTS.md` (sección 9 para las mejoras futuras). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`, clon en `<repo>`; `BPMN-DSL-Monorepo` protegido. Commits locales sí; **push solo si el usuario lo pide**, comprobando antes `origin`.
 
 ## Estado
 
@@ -45,7 +45,7 @@ node --test skills/bpmn-edit/test/bpmn-edit.test.mjs
 
 
 
-Empieza por aquí en una conversación nueva. Lee primero `AGENTS.md` (única fuente de instrucciones; `CLAUDE.md` solo redirige). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`, clon en `C:/Repositorios/Skill BPMN v2/Skill-BPMN-v2`. El original `BPMN-DSL-Monorepo` sigue protegido: nunca escribir en él. Commits locales autorizados. **Push solo cuando el usuario lo pida expresamente.** Antes de cualquier operación remota, comprobar que `origin` es `ignagp34/Skill-BPMN-v2`. Trabaja desde la raíz del clon (terminal PowerShell).
+Empieza por aquí en una conversación nueva. Lee primero `AGENTS.md` (única fuente de instrucciones; `CLAUDE.md` solo redirige). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`, clon en `<repo>`. El original `BPMN-DSL-Monorepo` sigue protegido: nunca escribir en él. Commits locales autorizados. **Push solo cuando el usuario lo pida expresamente.** Antes de cualquier operación remota, comprobar que `origin` es `ignagp34/Skill-BPMN-v2`. Trabaja desde la raíz del clon (terminal PowerShell).
 
 ## Estado
 
@@ -85,7 +85,7 @@ node tools/skill-parity/parity.mjs skill-runs/parity-<fecha>
 
 # Resumen para continuar — 2026-09-26, cierre (etapa 8: v16 es el defecto; votar v20)
 
-Empieza por aquí en una conversación nueva. Lee primero `AGENTS.md` (única fuente de instrucciones; `CLAUDE.md` solo redirige). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`, clon en `C:/Repositorios/Skill BPMN v2/Skill-BPMN-v2`. El original `BPMN-DSL-Monorepo` sigue protegido: nunca escribir en él. Commits locales autorizados. **Push solo cuando el usuario lo pida expresamente** (lo pidió el 2026-09-26 y se subió todo hasta este resumen). Antes de cualquier operación remota, comprobar que `origin` es `ignagp34/Skill-BPMN-v2`. Trabaja desde la raíz del clon; la terminal del usuario es PowerShell y los comandos del laboratorio fallan si se lanzan desde la carpeta padre.
+Empieza por aquí en una conversación nueva. Lee primero `AGENTS.md` (única fuente de instrucciones; `CLAUDE.md` solo redirige). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`, clon en `<repo>`. El original `BPMN-DSL-Monorepo` sigue protegido: nunca escribir en él. Commits locales autorizados. **Push solo cuando el usuario lo pida expresamente** (lo pidió el 2026-09-26 y se subió todo hasta este resumen). Antes de cualquier operación remota, comprobar que `origin` es `ignagp34/Skill-BPMN-v2`. Trabaja desde la raíz del clon; la terminal del usuario es PowerShell y los comandos del laboratorio fallan si se lanzan desde la carpeta padre.
 
 ## Estado
 
@@ -102,7 +102,7 @@ Empieza por aquí en una conversación nueva. Lee primero `AGENTS.md` (única fu
 2. **Compactar la altura de los carriles de v12** (quedan altos en `find-a-job`), como candidato aparte sobre la base vigente.
 3. **Flujos sueltos (decisión pendiente del usuario)**: métrica `disconnectedFlows` en el grupo duro de `tools/layout-lab/lib/metrics.mjs` y una comprobación en la skill antes de entregar. La comprobación usada hasta ahora: el primer y el último punto de cada flujo deben estar sobre la caja de su origen y de su destino.
 4. **Uniones en T** (visto con Luna): dos flujos al mismo gateway de unión comparten el último tramo y uno parece acabar sobre otra línea («Ajustar arquitectura…» antes de «Inicializar pesos»; «Revertir a la versión anterior» antes de «Solicitud de corrección»). Candidato posible: que cada flujo llegue por separado, o al menos medirlas. Contradice en parte la regla de agrupar por destino común: decide el usuario.
-5. **Preguntas seguidas y gateways sin pregunta** (visto con Luna; decisión pendiente). El motor del TFM funde dos preguntas seguidas sin tarea entre ellas en un gateway de 3 salidas y pierde la segunda («¿Métricas cumplen el umbral?» dentro de «¿Se cumple el criterio de parada?», con dos «No»). También crea gateways sin pregunta cuando el modelo reutiliza un nodo en caminos distintos. Propuesta sin tocar el motor: que la skill lo detecte y active una de las 2 reparaciones permitidas del DSL. Ejecuciones en `C:/Repositorios/BPMN-output/comparacion-luna/` y `comparacion-gpt6-luna/`.
+5. **Preguntas seguidas y gateways sin pregunta** (visto con Luna; decisión pendiente). El motor del TFM funde dos preguntas seguidas sin tarea entre ellas en un gateway de 3 salidas y pierde la segunda («¿Métricas cumplen el umbral?» dentro de «¿Se cumple el criterio de parada?», con dos «No»). También crea gateways sin pregunta cuando el modelo reutiliza un nodo en caminos distintos. Propuesta sin tocar el motor: que la skill lo detecte y active una de las 2 reparaciones permitidas del DSL. Ejecuciones en `<repos>/BPMN-output/comparacion-luna/` y `comparacion-gpt6-luna/`.
 6. **Evento de inicio (tarea pendiente, aparte)**: no debe haber tareas que surjan de la nada. `synthesizeImplicitStartEvents` (`packages/bpmn-core/src/dsl/semantic.ts:1034`) solo añade inicio a los nodos sin flujo de entrada. Si el primer nodo recibe un bucle, el pool se queda sin inicio (`f-s17-document-approval`, `find-a-job`, pool Supplier de `c-syn015-gemini`). Arreglo propuesto: detectar los nodos no alcanzables desde ningún inicio y poner uno delante del primer nodo del DSL de ese componente. Cambia el XML semántico, así que va como normalización versionada fuera del motor congelado, desactivada en v0, la paridad y el corpus. Nota del usuario: `f-s17-document-approval` quizá no sirve para próximos experimentos.
 7. Otras ideas sin hacer: C′ (alinear columnas entre pools con huecos), «Parts arrive» (`gemini-04`) abajo a la izquierda, carriles estrechos (`h-ml-03`), agrupar almacenes parecidos (solo colocarlos juntos; fusionarlos cambia la semántica).
 8. **Mejoras futuras** (skills aparte, sin empezar; detalle en `plans/mejoras-futuras.md`): `bpmn-edit` (editar a mano en una página local), experimentos con las ediciones humanas como referencia (el «toque final»), anotación de defectos con recuadros y una skill de evaluación de modelos generadores.
@@ -136,7 +136,7 @@ node skills/bpmn/scripts/bpmn.mjs render-dsl --dsl <archivo.dsl> --out <carpeta>
 
 # Resumen para continuar — 2026-09-26, noche (etapa 8: votos de v8–v12 hechos; combinar)
 
-Lee primero `AGENTS.md` (única fuente de instrucciones; `CLAUDE.md` solo redirige). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`, clon en `C:/Repositorios/Skill BPMN v2/Skill-BPMN-v2`. El original `BPMN-DSL-Monorepo` sigue protegido. **Nunca push.** Commits locales autorizados. Trabaja desde la raíz del clon (la terminal del usuario es PowerShell).
+Lee primero `AGENTS.md` (única fuente de instrucciones; `CLAUDE.md` solo redirige). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`, clon en `<repo>`. El original `BPMN-DSL-Monorepo` sigue protegido. **Nunca push.** Commits locales autorizados. Trabaja desde la raíz del clon (la terminal del usuario es PowerShell).
 
 ## Dónde estamos
 
@@ -197,7 +197,7 @@ Estado de comprobaciones al cerrar: pruebas del lab 8/8, `verify-source` 3319/0,
 
 # Resumen anterior — 2026-09-26, tarde (etapa 8: candidatos v8–v13 antes del voto)
 
-Lee primero `AGENTS.md` (única fuente de instrucciones; `CLAUDE.md` solo redirige). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`, clon en `C:/Repositorios/Skill BPMN v2/Skill-BPMN-v2`. El original `BPMN-DSL-Monorepo` sigue protegido. **Nunca push.** Commits locales autorizados.
+Lee primero `AGENTS.md` (única fuente de instrucciones; `CLAUDE.md` solo redirige). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`, clon en `<repo>`. El original `BPMN-DSL-Monorepo` sigue protegido. **Nunca push.** Commits locales autorizados.
 
 ## Contexto en una línea
 
@@ -350,7 +350,7 @@ Evidencia en `evidence/layout-v0/REPORT.md`.
 
 # Resumen para continuar — 2026-09-25 (fin de sesión)
 
-Lee primero `AGENTS.md` (única fuente de instrucciones; `CLAUDE.md` solo redirige y los cambios pedidos sobre él van a `AGENTS.md`). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`, clon en `C:/Repositorios/Skill BPMN v2/Skill-BPMN-v2`. El original `BPMN-DSL-Monorepo` sigue protegido.
+Lee primero `AGENTS.md` (única fuente de instrucciones; `CLAUDE.md` solo redirige y los cambios pedidos sobre él van a `AGENTS.md`). Repositorio `ignagp34/Skill-BPMN-v2`, rama `main`, clon en `<repo>`. El original `BPMN-DSL-Monorepo` sigue protegido.
 
 ## Qué hay hecho
 
@@ -408,13 +408,13 @@ Siguiente paso prioritario pendiente: ejecutar ese paquete en un entorno real Wo
 
 ## Destino vigente — prevalece sobre las rutas históricas de abajo
 
-El usuario ha designado `https://github.com/ignagp34/Skill-BPMN-v2.git` como repositorio de trabajo. Continuar en `C:/Repositorios/Skill BPMN v2/Skill-BPMN-v2`, leyendo y actualizando su AGENTS.md. Este clon nuevo se prepara con los archivos del commit de referencia, sin historial ni remoto del origen. Incorporar selectivamente los resultados útiles de `../baseline-stage1` y `../smoke`, preservando los originales; no copiar caches ni entornos instalados. El original `../BPMN-DSL-Monorepo` sigue protegido. No se han realizado commits ni pushes durante esta transición.
+El usuario ha designado `https://github.com/ignagp34/Skill-BPMN-v2.git` como repositorio de trabajo. Continuar en `<repo>`, leyendo y actualizando su AGENTS.md. Este clon nuevo se prepara con los archivos del commit de referencia, sin historial ni remoto del origen. Incorporar selectivamente los resultados útiles de `../baseline-stage1` y `../smoke`, preservando los originales; no copiar caches ni entornos instalados. El original `../BPMN-DSL-Monorepo` sigue protegido. No se han realizado commits ni pushes durante esta transición.
 
 ## Restricción posterior del usuario: origen cerrado
 
-No hacer commits, pushes, PRs ni escrituras remotas a `ignagp34/BPMN-DSL-Monorepo`. Tampoco hacer commits en el clon. Conservar sus archivos versionados intactos. Desarrollar adaptadores y skill y guardar resultados fuera del clon, bajo `C:/Repositorios/Skill BPMN v2`, o en una copia independiente sin remoto de escritura. Esta restricción prevalece sobre cualquier ruta de implementación del resumen o del plan que antes apuntara al interior del clon. No inicializar otro repositorio ni hacer commits sin petición posterior. Las pruebas e instalaciones locales pueden continuar si no modifican archivos versionados del origen.
+No hacer commits, pushes, PRs ni escrituras remotas a `ignagp34/BPMN-DSL-Monorepo`. Tampoco hacer commits en el clon. Conservar sus archivos versionados intactos. Desarrollar adaptadores y skill y guardar resultados fuera del clon, bajo `<workspace>`, o en una copia independiente sin remoto de escritura. Esta restricción prevalece sobre cualquier ruta de implementación del resumen o del plan que antes apuntara al interior del clon. No inicializar otro repositorio ni hacer commits sin petición posterior. Las pruebas e instalaciones locales pueden continuar si no modifican archivos versionados del origen.
 
-El usuario ha autorizado iniciar los primeros pasos del plan en una nueva tarea. Lee primero `AGENTS.md` de esta misma carpeta y respeta sus decisiones. Trabaja exclusivamente en `C:/Repositorios/Skill BPMN v2` y su clon `BPMN-DSL-Monorepo`, sin tocar proyectos vecinos.
+El usuario ha autorizado iniciar los primeros pasos del plan en una nueva tarea. Lee primero `AGENTS.md` de esta misma carpeta y respeta sus decisiones. Trabaja exclusivamente en `<workspace>` y su clon `BPMN-DSL-Monorepo`, sin tocar proyectos vecinos.
 
 ## Objetivo y estado recibido
 
